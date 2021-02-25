@@ -130,6 +130,10 @@ namespace Kaisa.Digivice.Apps {
                     audioMgr.PlayButtonA();
                     DeportCurrentDigimon();
                 }
+                else if (SelectedMenuOption == 5) {
+                    audioMgr.PlayButtonA();
+                    DeportCurrentDigimon();
+                }
             }
             else if (currentScreen == BattleScreen.SpiritList_Elements) {
                 audioMgr.PlayButtonA();
@@ -480,7 +484,8 @@ namespace Kaisa.Digivice.Apps {
                 if (SelectedMenuOption == 1) SetScreen(gm.spriteDB.battle_combatMenu[1]); //Digivolve
                 if (SelectedMenuOption == 2) SetScreen(gm.spriteDB.battle_combatMenu[2]); //Battle card
                 if (SelectedMenuOption == 3) SetScreen(gm.spriteDB.battle_combatMenu[3]); //Boost
-                if (SelectedMenuOption == 4) SetScreen(gm.spriteDB.battle_combatMenu[4]); //Deport
+                if (SelectedMenuOption == 4) SetScreen(gm.spriteDB.battle_combatMenu[4]); //
+                if (SelectedMenuOption == 5) SetScreen(gm.spriteDB.battle_combatMenu[5]); //
             }
             else if (currentScreen == BattleScreen.AttackMenu) {
                 SetScreen(gm.spriteDB.battle_attackMenu[attackIndex]);
@@ -729,7 +734,7 @@ namespace Kaisa.Digivice.Apps {
                 }}
             }
 
-            availableMenuOptions = new int[] { 0, 3, 4 };
+            availableMenuOptions = new int[] { 0, 3, 5 };
             currentScreen = BattleScreen.Combat_Menu;
             combatMenuIndex = 0;
         }

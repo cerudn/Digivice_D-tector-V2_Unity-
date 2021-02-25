@@ -261,20 +261,20 @@ namespace Kaisa.Digivice.Apps {
                     screenAnimation = StartCoroutine(AnimateName(nameBuilder));
                 }
 
-                int playerLevel = gm.logicMgr.GetPlayerLevel();
+                // int playerLevel = gm.logicMgr.GetPlayerLevel();
                 int digimonExtraLevel = gm.logicMgr.GetDigimonExtraLevel(pageDigimon.name);
                 int realLevel;
 
                 MutableCombatStats stats;
-                //If the Digimon is Spirit- or Armor-Stage.
-                if (menuIndex == 5 || menuIndex == 6) {
-                    realLevel = pageDigimon.GetBossLevel(playerLevel);
-                    stats = pageDigimon.GetBossStats(playerLevel);
-                }
-                else {
+                // //If the Digimon is Spirit- or Armor-Stage.
+                // if (menuIndex == 5 || menuIndex == 6) {
+                //     realLevel = pageDigimon.GetBossLevel(playerLevel);
+                //     stats = pageDigimon.GetBossStats(playerLevel);
+                // }
+                // else {
                     realLevel = pageDigimon.GetFriendlyLevel(digimonExtraLevel);
                     stats = pageDigimon.GetFriendlyStats(digimonExtraLevel);
-                } 
+                // } 
 
 
                 int element = (int)pageDigimon.element;
