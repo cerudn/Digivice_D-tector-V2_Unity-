@@ -1,0 +1,98 @@
+[{
+    "name": "Takuya",
+    "element": 0,
+    "stats": {
+        "HP": 40,
+        "SP": 25,
+        "ST": 15,
+        "SK": 20
+      },
+    "spirits": [
+      "agunimon",
+      "burninggreymon"
+    ],
+    "disabled": false,
+    "order":1,
+    "number":0
+  }, {
+    "name": "Koji",
+    "element": 0,
+    "stats": {
+        "HP": 40,
+        "SP": 25,
+        "ST": 15,
+        "SK": 20
+      },
+    "spirits": [
+      "lobomon",
+      "kendogarurumon"
+    ],
+    "disabled": false,
+    "order":2,
+    "number":1
+  }, {
+    "name": "JP",
+    "element": 0,
+    "stats": {
+        "HP": 40,
+        "SP": 25,
+        "ST": 15,
+        "SK": 20
+      },
+    "spirits": [
+      "beetlemon",
+      "metalkabuterimon"
+    ],
+    "disabled": false,
+    "order":3,
+    "number":3
+  }, {
+    "name": "Zoe",
+    "element": 0,
+    "stats": {
+        "HP": 40,
+        "SP": 25,
+        "ST": 15,
+        "SK": 20
+      },
+    "spirits": [
+      "kazemon",
+      "zephyrmon"
+    ],
+    "disabled": false,
+    "order":4,
+    "number":2
+  }, {
+    "name": "Tommy",
+    "element": 0,
+    "stats": {
+        "HP": 40,
+        "SP": 25,
+        "ST": 15,
+        "SK": 20
+      },
+    "spirits": [
+      "kumamon",
+      "korikakumon"
+    ],
+    "disabled": true,
+    "order":5,
+    "number":4
+  }, {
+    "name": "Koichi",
+    "element": 0,
+    "stats": {
+        "HP": 40,
+        "SP": 25,
+        "ST": 15,
+        "SK": 20
+      },
+    "spirits": [
+      "loweemon",
+      "kaiserleomon"
+    ],
+    "disabled": false,
+    "order":6,
+    "number":5
+  }]
+  
