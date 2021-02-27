@@ -490,10 +490,10 @@ namespace Kaisa.Digivice.Apps {
             else if (currentScreen == BattleScreen.AttackMenu) {
                 SetScreen(gm.spriteDB.battle_attackMenu[attackIndex]);
             }
-            else if (currentScreen == BattleScreen.RegularEvolve) {
-                SetScreen(gm.spriteDB.battle_callPoints_chooser);
-                ScreenElement.BuildRectangle("EvolutionCP", Parent).SetSize(3 * callPointsForEvolution, 3).SetPosition(1, 27);
-            }
+            // else if (currentScreen == BattleScreen.RegularEvolve) {
+            //     // SetScreen(gm.spriteDB.battle_callPoints_chooser);
+            //     // ScreenElement.BuildRectangle("EvolutionCP", Parent).SetSize(3 * callPointsForEvolution, 3).SetPosition(1, 27);
+            // }
             else if (currentScreen == BattleScreen.SpiritList_Elements) {
                 if (SelectedElement < 10) {
                     SetScreen(gm.spriteDB.elements[SelectedElement]);
