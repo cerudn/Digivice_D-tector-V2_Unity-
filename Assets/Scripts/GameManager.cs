@@ -85,7 +85,7 @@ namespace Kaisa.Digivice {
             Database.LoadDatabases(); //So it isn't loaded mid-game.
             Animations.Initialize(this, audioMgr, spriteDB);
             
-            
+            EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             SetupManagers();
             SetupStaticClasses();
             if (SavedGame.PlayerChar == GameChar.none) {

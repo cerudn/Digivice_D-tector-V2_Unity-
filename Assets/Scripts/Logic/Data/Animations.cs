@@ -1827,15 +1827,19 @@ yield return new WaitForSeconds(0.75f);
             Sprite sBlackScreen = spriteDB.blackScreen;
             Sprite[] sCharacter = spriteDB.GetCharacterSprites(character);
 
-            SpriteBuilder sbSpiral = ScreenElement.BuildSprite("Spiral", AnimParent);
-            SpriteBuilder sbCircle = ScreenElement.BuildSprite("Circle", AnimParent).SetTransparent(true);
+            
             SpriteBuilder sbDigimon = ScreenElement.BuildSprite("Digimon", AnimParent).SetSize(24, 24).Center().PlaceOutside(Direction.Down);
             SpriteBuilder sbGiveMassivePower = ScreenElement.BuildSprite("GivePower", AnimParent).SetSprite(sGiveMassivePowerBlack).SetTransparent(true);
+            SpriteBuilder sbSpiral = ScreenElement.BuildSprite("Spiral", AnimParent);
+            SpriteBuilder sbCircle = ScreenElement.BuildSprite("Circle", AnimParent).SetTransparent(true);
+            sbCircle.SetActive(false);
+            sbSpiral.SetActive(false);
+
             sbGiveMassivePower.SetActive(false);
 
             audioMgr.PlaySound(audioMgr.evolutionAncient);
 
-            //Show human spirit
+            // Show human spirit
             sbDigimon.SetSprite(sHumanSpirit);
             for (int i = 0; i < 28; i++) {
                 sbDigimon.Move(Direction.Up);
@@ -1870,6 +1874,8 @@ yield return new WaitForSeconds(0.75f);
                 sbDigimon.Move(Direction.Up);
                 yield return new WaitForSeconds(0.95f / 28);
             }
+             sbCircle.SetActive(true);
+            sbSpiral.SetActive(true);
             //Spiral and circle
             sbGiveMassivePower.SetSprite(sCharacter[0]).SetTransparent(false);
             for (int i = 0; i < 2; i++) {
