@@ -166,7 +166,8 @@ namespace Kaisa.Digivice.Apps {
                 inputStatus = 2;
             }
             else {
-                if(SavedGame.SpiritBoss.Contains(digimon.name.ToLower())) SavedGame.SpiritBoss.Remove(digimon.name.ToLower());
+                if(SavedGame.SpiritBoss.Contains(digimon.name.ToLower()))
+                 { SavedGame.SpiritBoss.Remove(digimon.name.ToLower());}
                 ReturnedDigimon = digimon.name;
                 CloseApp2();
             }

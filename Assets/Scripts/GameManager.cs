@@ -85,7 +85,6 @@ namespace Kaisa.Digivice {
             Database.LoadDatabases(); //So it isn't loaded mid-game.
             Animations.Initialize(this, audioMgr, spriteDB);
             
-            EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             SetupManagers();
             SetupStaticClasses();
             if (SavedGame.PlayerChar == GameChar.none) {
@@ -220,17 +219,17 @@ namespace Kaisa.Digivice {
             //Don't trigger while an app is loaded. When an app is closed, this is called again.
             if (logicMgr.IsAppLoaded && !(logicMgr.loadedApp is Status)) return;
             if (screenMgr.PlayingAnimations) return;
-            logicMgr.EnqueueRegularEvent();
-            // int savedEvent = SavedGame.SavedEvent;
-            //  if (savedEvent == 0) return;
-            // else if (savedEvent == 1) {
-            //     logicMgr.EnqueueRegularEvent();
-            //     if (logicMgr.IsAppLoaded) logicMgr.CloseLoadedApp();
-            // }
-            // else if(savedEvent == 2) {
-            //     logicMgr.EnqueueBossEvent();
-            //     if (logicMgr.IsAppLoaded) logicMgr.CloseLoadedApp();
-            // }
+            // logicMgr.EnqueueRegularEvent();
+            int savedEvent = SavedGame.SavedEvent;
+             if (savedEvent == 0) return;
+            else if (savedEvent == 1) {
+                logicMgr.EnqueueRegularEvent();
+                if (logicMgr.IsAppLoaded) logicMgr.CloseLoadedApp();
+            }
+            else if(savedEvent == 2) {
+                logicMgr.EnqueueBossEvent();
+                if (logicMgr.IsAppLoaded) logicMgr.CloseLoadedApp();
+            }
         }
 
         public GameChar PlayerChar => playerChar.currentChar;
@@ -293,6 +292,25 @@ namespace Kaisa.Digivice {
             Sprite dockDigimon = spriteDB.GetDigimonSprite(logicMgr.GetDDockDigimon(ddock));
             if (dockDigimon == null) dockDigimon = spriteDB.status_ddockEmpty;
             return ScreenElement.BuildSprite($"DigimonDDock{ddock}", sbDDockName.transform).SetSize(24, 24).SetPosition(4, 8).SetSprite(dockDigimon);
+        }
+       public SpriteBuilder GetDDockScreenElementNoddock(int ddock, Transform parent) {
+          
+           Sprite dockDigimon = spriteDB.GetDigimonSprite(logicMgr.GetDDockDigimon(ddock));
+           if (dockDigimon == null) dockDigimon = spriteDB.status_ddockEmpty;
+            return ScreenElement.BuildSprite($"DigimonDDock{ddock}",parent).SetSize(24, 24).SetPosition(4, 8).SetSprite(dockDigimon);
+        }
+        private IEnumerator AnimateName(TextBoxBuilder builder) {
+            yield return null; //Wait for the next frame so the builder's text fitter has adjusted the component's Width.
+            int goWidth = builder.Width;
+
+            while (true) {
+                builder.SetPosition(32, 0);
+                for (int i = 0; i < goWidth + 32; i++) {
+                    builder.Move(Direction.Left);
+                    yield return new WaitForSeconds(0.1f);
+                }
+                yield return new WaitForSeconds(1.5f);
+            }
         }
         public ContainerBuilder BuildMapScreen(int world, Transform parent) {
             ContainerBuilder cbMap = ScreenElement.BuildContainer("Map Container", parent);

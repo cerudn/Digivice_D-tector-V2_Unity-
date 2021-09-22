@@ -690,9 +690,9 @@ namespace Kaisa.Digivice {
         /// It also outputs the level before and after being rewarded.
         /// </summary>
         public bool RewardDigimon(string digimon, out int levelBefore, out int levelAfter) {
-            levelBefore = GetDigimonExtraLevel(digimon);
+           levelBefore = GetDigimonExtraLevel(digimon);
             //If the player has the digimon already, level it up.
-            if(GetDigimonUnlocked(digimon)) {
+           /* if(GetDigimonUnlocked(digimon)) {
                 // SetDigimonExtraLevel(digimon, levelBefore + 1);
                 // levelAfter = GetDigimonExtraLevel(digimon);
                     levelAfter=0;
@@ -700,12 +700,12 @@ namespace Kaisa.Digivice {
                 return true;
             }
             //Else, unlock it.
-            else {
+            else {*/
                 SetDigimonUnlocked(digimon, true);
                 levelAfter = 0;
                 VisualDebug.WriteLine($"The Digimon was rewarded by unlocking it.");
                 return false;
-            }
+            
         }
         /// <summary>
         /// Erases or levels down a Digimon. Returns true if it levels down a Digimon, false if it erases it.

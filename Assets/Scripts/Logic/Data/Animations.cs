@@ -825,13 +825,14 @@ namespace Kaisa.Digivice {
 
             SpriteBuilder bBlackBars = ScreenElement.BuildSprite("BlackBars", AnimParent).SetSprite(gm.spriteDB.blackBars).PlaceOutside(Direction.Down);
             SpriteBuilder bDDock = ScreenElement.BuildSprite("DDock", AnimParent).SetSprite(gm.spriteDB.status_ddock[ddock]);
-            SpriteBuilder bDDockSprite = gm.GetDDockScreenElement(ddock, bDDock.transform);
+            SpriteBuilder bDDockSprite = gm.GetDDockScreenElementNoddock(ddock, AnimParent);
 
             yield return new WaitForSeconds(0.75f);
-
+            
+            bDDock.SetActive(false);
             for (int i = 0; i < 32; i++) {
                 bBlackBars.Move(Direction.Up);
-                bDDock.Move(Direction.Up);
+                bDDockSprite.Move(Direction.Up);
                 yield return new WaitForSeconds(animDuration / 32f);
             }
 
@@ -840,10 +841,10 @@ namespace Kaisa.Digivice {
 
             for (int i = 0; i < 32; i++) {
                 bBlackBars.Move(Direction.Down);
-                bDDock.Move(Direction.Down);
+                bDDockSprite.Move(Direction.Down);
                 yield return new WaitForSeconds(animDuration / 32f);
             }
-
+            bDDock.SetActive(true);
             yield return new WaitForSeconds(0.5f);
 
             audioMgr.PlaySound(audioMgr.charHappy); //Originally this started after 0.175 seconds.

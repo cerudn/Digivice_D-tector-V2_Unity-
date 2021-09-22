@@ -90,7 +90,9 @@ namespace Kaisa.Digivice.Apps {
             }
             else if (currentScreen == ScreenDatabase.Pages && menuIndex !=6) {
                 audioMgr.PlayButtonA();
+                if(!digimonIsInDDock) {
                 OpenDDockList();
+                }
                 //Legacy code to prevent Digimons in ddocks to display the ddock menu:
                 /*if (menuIndex >= 5 || digimonIsInDDock) {
                     audioMgr.PlayButtonB();
@@ -214,12 +216,12 @@ namespace Kaisa.Digivice.Apps {
 
         private void DrawScreen() {
             //Stop all coroutines, except if the digimon name sign has a value and we are still in the 'Pages' screen.
-            if(!(digimonNameSign != null && currentScreen == ScreenDatabase.Pages)) {
+            if(!(digimonNameSign != null && (currentScreen == ScreenDatabase.Pages || currentScreen == ScreenDatabase.DDockDisplay))) {
                 if (screenAnimation != null) StopCoroutine(screenAnimation);
             }
             //Destroy all children, except the ones called 'NameSign' if we are in the 'Pages' screen.
             foreach (Transform child in screenDisplay.transform) {
-                if (!(currentScreen == ScreenDatabase.Pages && child.name == "NameSign")) {
+                if (!((currentScreen == ScreenDatabase.Pages || currentScreen == ScreenDatabase.DDockDisplay) && (child.name == "NameSign" || child.name == "Nameddockn"))) {
                     Destroy(child.gameObject);
                 }
             }
@@ -307,11 +309,23 @@ namespace Kaisa.Digivice.Apps {
                 }
             }
             else if (currentScreen == ScreenDatabase.DDockList && menuIndex !=6) {
-                screenDisplay.sprite = gm.spriteDB.database_ddocks[ddockIndex];
+                //string name = string.Format("{1}",  "DIGIMON REPLACEMENT?");
+               
+               screenDisplay.sprite = gm.spriteDB.database_ddocks[ddockIndex];
             }
             else if (currentScreen == ScreenDatabase.DDockDisplay && menuIndex !=6) {
-                screenDisplay.sprite = gm.spriteDB.status_ddock[ddockIndex];
-                gm.GetDDockScreenElement(ddockIndex, screenDisplay.transform);
+                
+                gm.GetDDockScreenElementNoddock(ddockIndex, screenDisplay.transform);
+                if(digimonNameSign==null){
+                screenDisplay.sprite = gm.spriteDB.emptySprite;
+                string name = string.Format("{0}",  "DIGIMON REPLACEMENT ?");
+                TextBoxBuilder nameBuilder = ScreenElement.BuildTextBox("Nameddockn", screenDisplay.transform, DFont.Regular).SetText(name).SetSize(32, 7).SetPosition(32, 0);
+                nameBuilder.SetFitSizeToContent(true);
+                digimonNameSign = nameBuilder.gameObject;
+                screenAnimation = StartCoroutine(AnimateName(nameBuilder));
+                }
+                
+               
             }
         }
 
@@ -449,15 +463,18 @@ namespace Kaisa.Digivice.Apps {
         private void ChooseDDock() {
             gm.EnqueueAnimation(Animations.SwapDDock(ddockIndex, pageDigimon.name));
             //If the chosen Digimon is already in a ddock, swap those ddocks.
-            if(digimonIsInDDock) {
+          /*  if(digimonIsInDDock) {
                 string[] ddocks = gm.logicMgr.GetAllDDockDigimon();
                 for (int i = 0; i < ddocks.Length; i++) {
                     if(ddocks[i] == pageDigimon.name) {
                         gm.logicMgr.SetDDockDigimon(i, ddocks[ddockIndex]);
                     }
                 }
-            }
+            }*/
+         
+          
             gm.logicMgr.SetDDockDigimon(ddockIndex, pageDigimon.name);
+
             CloseDDockDisplay();
             CloseDDockList();
             ClosePages();
