@@ -354,7 +354,7 @@ namespace Kaisa.Digivice {
             sbDigimon.SetSprite(sDigimon);
             yield return new WaitForSeconds(0.15f);
         }
-        public static IEnumerator UnlockDigimon(string digimon, bool useSpiritForm = false) {
+        public static IEnumerator UnlockDigimon(string digimon, bool useSpiritForm = false,bool battle=false) {
             Sprite sDigimon = spriteDB.GetDigimonSprite(digimon, useSpiritForm ? SpriteAction.Spirit : default);
             Sprite sCurtain = spriteDB.curtain;
             Sprite sDTector = spriteDB.dTector;
@@ -362,11 +362,18 @@ namespace Kaisa.Digivice {
 
             audioMgr.PlaySound(audioMgr.unlockDigimon);
 
-            SpriteBuilder sbDigimon = ScreenElement.BuildSprite(digimon, AnimParent).SetSize(24, 24).Center().SetSprite(sDigimon);
+            SpriteBuilder sbDigimon = ScreenElement.BuildSprite(digimon, AnimParent).SetSize(24, 24).Center().SetSprite(sDigimon).FlipHorizontal(battle);
             SpriteBuilder sbCurtain = ScreenElement.BuildSprite("BlackScreen", AnimParent).SetSprite(sCurtain).SetTransparent(true);
             sbCurtain.PlaceOutside(Direction.Down);
+            
+            //yield return new WaitForSeconds(0.15f);
 
-            yield return new WaitForSeconds(0.15f);
+
+            if(battle){
+                yield return new WaitForSeconds(0.50f);
+                sbDigimon.FlipHorizontal(false);
+                yield return new WaitForSeconds(0.40f);
+            }else{yield return new WaitForSeconds(0.15f);}
 
             for (int i = 0; i < 32; i++) {
                 sbCurtain.Move(Direction.Up);

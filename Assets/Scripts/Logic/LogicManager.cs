@@ -308,27 +308,27 @@ namespace Kaisa.Digivice {
             
             IsEventPending = true;
             triggerEvent = CallRandomBattleForEvent;
-            // if(Random.Range(0f, 1f) < 0.85f) {
-            //     IsEventPending = true;
+            if(Random.Range(0f, 1f) < 0.85f) {
+                IsEventPending = true;
 
-            //     triggerEvent = CallRandomBattleForEvent;
+                triggerEvent = CallRandomBattleForEvent;
                 
-            // }
-            // else  {
-            //     IsEventPending = true;
+            }
+            else  {
+                IsEventPending = true;
 
-            //     float rnd=Random.Range(0f, 1f);
-            //     if(rnd>0.5f ){
-            //          triggerEvent = TriggerDataStorm;
-            //     }else if (!IsemptyLoserCharacter()){
-            //             IsEventRecoveryPending=true;
-            //             triggerEvent=TriggerRecoveryCharacters;
-            //     }else{
-            //         triggerEvent = TriggerDataStorm;
-            //     }
+                float rnd=Random.Range(0f, 1f);
+                if(rnd>0.5f ){
+                     triggerEvent = TriggerDataStorm;
+                }else if (!IsemptyLoserCharacter()){
+                        IsEventRecoveryPending=true;
+                        triggerEvent=TriggerRecoveryCharacters;
+                }else{
+                    triggerEvent = TriggerDataStorm;
+                }
                
 
-            // }
+            }
             
 
             triggerEvent += () => {
@@ -604,16 +604,16 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// If true, sets the digimon as unlocked, as long as it isn't unlocked yet. If false, sets the digimon as locked regardless of their level.
         /// </summary>
-        public void SetDigimonUnlocked(string digimon, bool val) {
+        public void SetDigimonUnlocked(string digimon, bool val, bool combat =false) {
             if (val == true) {
                 if (SavedGame.GetDigimonLevel(digimon) == 0) {
                     SavedGame.SetDigimonLevel(digimon, 1);
                     VisualDebug.WriteLine("Unlocked digimon: " + digimon);
-
+                    
                     Stage digimonStage = Database.GetDigimon(digimon).stage;
 
                     // if(digimonStage != Stage.Spirit && digimonStage != Stage.Armor) {
-                         if((int)digimonStage != 10) {
+                         if((int)digimonStage != 10 &&  (int)digimonStage != (int)Stage.Spirit && !combat) {
                         string[] ddocks = gm.GetAllDDockDigimons();
 
                         for (int i = 0; i < ddocks.Length; i++) {
@@ -689,24 +689,28 @@ namespace Kaisa.Digivice {
         /// Unlocks or levels up a Digimon. Returns true if it levels up a Digimon, false if it unlocks it.
         /// It also outputs the level before and after being rewarded.
         /// </summary>
-        public bool RewardDigimon(string digimon, out int levelBefore, out int levelAfter) {
+        public bool RewardDigimon(string digimon, out int levelBefore, out int levelAfter,bool combat=false) {
            levelBefore = GetDigimonExtraLevel(digimon);
             //If the player has the digimon already, level it up.
-           /* if(GetDigimonUnlocked(digimon)) {
+           if(GetDigimonUnlocked(digimon)) {
                 // SetDigimonExtraLevel(digimon, levelBefore + 1);
                 // levelAfter = GetDigimonExtraLevel(digimon);
-                    levelAfter=0;
+                levelAfter=0;
                 VisualDebug.WriteLine($"The Digimon was rewarded by increasing its level from {levelBefore} to {levelAfter}");
                 return true;
             }
             //Else, unlock it.
-            else {*/
-                SetDigimonUnlocked(digimon, true);
+            else {
+                SetDigimonUnlocked(digimon, true,combat);
                 levelAfter = 0;
                 VisualDebug.WriteLine($"The Digimon was rewarded by unlocking it.");
-                return false;
+                return false;}
             
         }
+
+
+
+        
         /// <summary>
         /// Erases or levels down a Digimon. Returns true if it levels down a Digimon, false if it erases it.
         /// It also outputs the level before and after being punished.

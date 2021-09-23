@@ -102,7 +102,7 @@ namespace Kaisa.Digivice {
             AttemptUpdateGame();
             StartCoroutine(IncreaseJackpotValue());
             // EnqueueAnimation(Animations.RewardBossLose("agunimon"));
-           
+           //EnqueueAnimation(Animations.UnlockDigimon("agunimon",false,true));
             
             //SECTION TO DO WEIRD STUFF IN TESTING.
             #if UNITY_EDITOR
@@ -219,7 +219,7 @@ namespace Kaisa.Digivice {
             //Don't trigger while an app is loaded. When an app is closed, this is called again.
             if (logicMgr.IsAppLoaded && !(logicMgr.loadedApp is Status)) return;
             if (screenMgr.PlayingAnimations) return;
-            // logicMgr.EnqueueRegularEvent();
+           // logicMgr.EnqueueRegularEvent();
             int savedEvent = SavedGame.SavedEvent;
              if (savedEvent == 0) return;
             else if (savedEvent == 1) {

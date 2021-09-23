@@ -74,9 +74,10 @@ namespace Kaisa.Digivice {
 
         public void DeleteSelectedGame() {
             Debug.Log("Attempting to delete " + SelectedFilePath);
-            SavedGame.DeleteSavedGame(SelectedFilePath);
-            BuildSavedGameList();
-            CloseDeleteSelectedGame();
+            System.IO.File.Delete(SelectedFilePath);
+            //SavedGame.DeleteSavedGame(SelectedFilePath);
+            //BuildSavedGameList();
+            //CloseDeleteSelectedGame();
         }
         
         public void CloseDeleteSelectedGame() {
