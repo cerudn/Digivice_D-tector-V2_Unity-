@@ -9277,7 +9277,7 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
       "HP": 270,
       "EN": 160,
@@ -10313,9 +10313,14 @@
       "CR": 40,
       "AB": 200
     },
-    "bossStats": null,
+    "bossStats": {
+      "HP": 220,
+      "EN": 160,
+      "CR": 200,
+      "AB": 200
+    },
     "isPseudo": false,
-    "HasBossStats": false,
+    "HasBossStats": true,
     "code": "si3ig"
   },
   {

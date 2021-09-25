@@ -715,16 +715,21 @@ namespace Kaisa.Digivice.Apps {
             else {
                 if (chosenDigimon.spiritType == SpiritType.Ancient) {
                     int SPbefore = SpiritPower;
+                    GameChar person=gm.getCharacter( chosenDigimonName);
                     AssignFriendlyDigimon(chosenDigimonName, CallType.AncientEvolution);
                     gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
-                    gm.EnqueueAnimation(Animations.AncientEvolution(gm.PlayerChar, chosenDigimonName));
+                    gm.EnqueueAnimation(Animations.AncientEvolution(person, chosenDigimonName));
                 }
                 else {
 
                     AssignFriendlyDigimon(chosenDigimonName, CallType.SpiritEvolution);
                     if (chosenDigimon.spiritType == SpiritType.Human || chosenDigimon.spiritType == SpiritType.Animal) {
 
-                        gm.EnqueueAnimation(Animations.SpiritEvolution(gm.PlayerChar, chosenDigimonName));
+                        
+                        GameChar person=gm.getCharacter( chosenDigimonName);
+                        
+
+                        gm.EnqueueAnimation(Animations.SpiritEvolution(person, chosenDigimonName));
                     }
                     else if (chosenDigimon.spiritType == SpiritType.Fusion && chosenDigimon.name != "susanoomon") {
                         gm.EnqueueAnimation(Animations.FusionSpiritEvolution(gm.PlayerChar, chosenDigimonName));
@@ -754,22 +759,23 @@ namespace Kaisa.Digivice.Apps {
             Digimon d = Database.GetDigimon(digimon);
             //You can't summon Armor- or Spirit-Stage digimon from here.
             // if(d.stage == Stage.Armor || d.stage == Stage.Spirit) {
-                 if( d.stage == Stage.Spirit) {
+                if(d.stage == Stage.Spirit) {
                 if(d.spiritType == SpiritType.Ancient && SpiritPower ==99 && gm.HasBothFormsOfSpirit(d.element)){
-
+                
                 gm.logicMgr.SetDigimonUnlocked(digimon, true);
                 gm.logicMgr.SetDigicodeUnlocked(digimon, true);
 
                 //currentScreen = BattleScreen.Combat_Menu;
-
+                
                 availableMenuOptions = new int[] { 0, 1, 4 };
                 combatMenuIndex = 0;
                 attacksCostSP=true;
+                 int SPbefore = SpiritPower;
                 AssignFriendlyDigimon(digimon, CallType.AncientEvolution);
-                int SPbefore = SpiritPower;
-
+                
+                GameChar person=gm.getCharacter( digimon);
                 gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
-                gm.EnqueueAnimation(Animations.AncientEvolution(gm.PlayerChar, d.name));
+                gm.EnqueueAnimation(Animations.AncientEvolution(person, d.name));
 
                 AncientStast=enemyDigimon.GetRegularStats();
                 int battleSeed = gm.GetRandomSavedSeed();
@@ -946,7 +952,8 @@ namespace Kaisa.Digivice.Apps {
 
         private void PlayAnimationDeportDigimon() {
             if ((friendlyDigimon.stage == Stage.Spirit || (int)friendlyDigimon.stage== 10) && dddock==false) {
-                gm.EnqueueAnimation(Animations.DeportSpirit(friendlyDigimon.name, gm.PlayerChar));
+                GameChar person=gm.getCharacter( friendlyDigimon.name);
+                gm.EnqueueAnimation(Animations.DeportSpirit(friendlyDigimon.name,person));
             }
             else {
                 gm.EnqueueAnimation(Animations.DeportDigimon(friendlyDigimon.name));
@@ -1140,6 +1147,7 @@ namespace Kaisa.Digivice.Apps {
                     //     gm.EnqueueAnimation(Animations.LevelUpDigimon(enemyDigimon.name));
                     // }
                     // else {
+                        gm.logicMgr.RewardDigimon(enemyDigimon.name, out _, out _);
                         gm.EnqueueAnimation(Animations.UnlockDigimon(enemyDigimon.name,false,true));
                     //}
                 }
@@ -1176,22 +1184,43 @@ namespace Kaisa.Digivice.Apps {
 
             gm.EnqueueAnimation(Animations.CharSad());
 
-            bool punishFriendly = (Random.Range(0f, 1f) > Database.GetEraseChance(originalDigimon.name));
+           // bool punishFriendly = (Random.Range(0f, 1f) > Database.GetEraseChance(originalDigimon.name));
             //If the friendly Digimon is not a Spirit, you might lose it.
             if(originalDigimon.stage != Stage.Spirit || (int)originalDigimon.stage != 10) {
                 //If the player has extra levels with that digimon, they will always lose one.
-                if (gm.logicMgr.GetDigimonExtraLevel(originalDigimon.name) > 0) punishFriendly = true;
+               // if (gm.logicMgr.GetDigimonExtraLevel(originalDigimon.name) > 0) punishFriendly = true;
 
-                if (punishFriendly) {
-                    if (gm.logicMgr.PunishDigimon(originalDigimon.name, out int levelBefore, out int levelAfter)) {
-                        if (Random.Range(0, 2) == 0) gm.IsCharacterDefeated = true;
-                        gm.EnqueueAnimation(Animations.LevelDownDigimon(originalDigimon.name));
-                    }
-                    else {
-                        gm.IsCharacterDefeated = true;
-                        gm.EnqueueAnimation(Animations.EraseDigimon(originalDigimon.name));
-                    }
-                }
+                //if (punishFriendly) {
+                    // if (gm.logicMgr.PunishDigimon(originalDigimon.name, out int levelBefore, out int levelAfter)) {
+                    //     if (Random.Range(0, 2) == 0) gm.IsCharacterDefeated = true;
+                    //     gm.EnqueueAnimation(Animations.LevelDownDigimon(originalDigimon.name));
+                    // }
+                    // else {
+                switch((int)Random.Range(0, 4)){
+                
+                case 0:
+                gm.IsCharacterDefeated = true;
+                break;
+                case 1:
+                 gm.IsCharacterDefeated = true;
+                 string spirit = galleryList.GetRandomElement();
+                 gm.logicMgr.LoseSpirit(spirit);
+                 gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));
+                break;
+                case 2:
+                 gm.logicMgr.EraseDigimon(originalDigimon.name);
+                 gm.IsCharacterDefeated = true;
+                 gm.EnqueueAnimation(Animations.EraseDigimon(originalDigimon.name));
+                break;
+                default:
+
+                break;
+
+
+            }
+                       
+                    //}
+               // }
             }
             //Lose your Spirit if you were fighting with one.
             else {
@@ -1215,18 +1244,43 @@ namespace Kaisa.Digivice.Apps {
         private void EscapeBattle() {
             gm.DisableLeaverBuster();
 
-            gm.EnqueueAnimation(Animations.DeportSprite(gm.PlayerCharSprites[0], 32));
+            gm.EnqueueAnimation(Animations.Escape(gm.PlayerCharSprites[0], 32));
+
+           
+
+            // int distanceBefore = gm.WorldMgr.CurrentDistance;
+            // gm.WorldMgr.IncreaseDistance(2000);
+            // int distanceAfter = gm.WorldMgr.CurrentDistance;
+
+            gm.EnqueueAnimation(Animations.CharSad());
+            // gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
+
+
+            switch((int)Random.Range(0, 4)){
+                
+                case 0:
+                gm.IsCharacterDefeated = true;
+                break;
+                case 1:
+                 gm.IsCharacterDefeated = true;
+                 string spirit = galleryList.GetRandomElement();
+                 gm.logicMgr.LoseSpirit(spirit);
+                 gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));
+                break;
+                case 2:
+                break;
+                default:
+
+                break;
+
+
+            }
+
 
             if (gm.logicMgr.RemovePlayerExperience(defeatExp)) {
                 gm.EnqueueAnimation(Animations.LevelDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
             }
-
-            int distanceBefore = gm.WorldMgr.CurrentDistance;
-            gm.WorldMgr.IncreaseDistance(2000);
-            int distanceAfter = gm.WorldMgr.CurrentDistance;
-
-            gm.EnqueueAnimation(Animations.CharSad());
-            gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
+           
 
             gm.logicMgr.IncreaseTotalBattles();
 

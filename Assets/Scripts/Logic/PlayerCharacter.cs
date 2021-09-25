@@ -96,8 +96,8 @@ namespace Kaisa.Digivice {
         none = -1,
         Takuya,
         Koji,
-        Zoe,
         JP,
+        Zoe,
         Tommy,
         Koichi
     }

@@ -101,19 +101,22 @@ namespace Kaisa.Digivice {
 
             AttemptUpdateGame();
             StartCoroutine(IncreaseJackpotValue());
-            // EnqueueAnimation(Animations.RewardBossLose("agunimon"));
-           //EnqueueAnimation(Animations.UnlockDigimon("agunimon",false,true));
+            //EnqueueAnimation(Animations.RewardBossLose("agunimon"));
+            //EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
+            // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
+            // EnqueueAnimation(Animations.CharSad());
+               
             
             //SECTION TO DO WEIRD STUFF IN TESTING.
-            #if UNITY_EDITOR
+            // #if UNITY_EDITOR
             // for (int i = 0; i < 12; i++) {
-            //     WorldMgr.SetAreaCompleted(2, i, false);
+            //    WorldMgr.SetAreaCompleted(2, i, true);
             // }
-            //CompleteWorld(0);
+            // CompleteWorld(0);
 
             //EnqueueAnimation(Animations.TransitionToMap1(PlayerChar));
             //EnqueueAnimation(Animations.UnlockDigimon("Kyubimon"));
-            #endif
+            // #endif
         }
 
         //Called via InvokeRepeating
@@ -219,7 +222,7 @@ namespace Kaisa.Digivice {
             //Don't trigger while an app is loaded. When an app is closed, this is called again.
             if (logicMgr.IsAppLoaded && !(logicMgr.loadedApp is Status)) return;
             if (screenMgr.PlayingAnimations) return;
-           // logicMgr.EnqueueRegularEvent();
+           logicMgr.EnqueueRegularEvent();
             int savedEvent = SavedGame.SavedEvent;
              if (savedEvent == 0) return;
             else if (savedEvent == 1) {
@@ -400,6 +403,19 @@ namespace Kaisa.Digivice {
         }
 
         return false;
+    }
+    public GameChar getCharacter(string spirit){
+
+
+          foreach (Characters d in Database.Characters) {
+
+           if( d.spirits.Contains(spirit) ) return (GameChar) (d.order -1 );
+
+                
+        }
+
+        return GameChar.Koji;
+       
     }
 
     public List<string> GetAvalibleSpiritPlayer(){

@@ -369,12 +369,12 @@ namespace Kaisa.Digivice {
             //yield return new WaitForSeconds(0.15f);
 
 
-            if(battle){
-                yield return new WaitForSeconds(0.50f);
-                sbDigimon.FlipHorizontal(false);
-                yield return new WaitForSeconds(0.40f);
-            }else{yield return new WaitForSeconds(0.15f);}
-
+            // if(battle){
+            //     yield return new WaitForSeconds(0.50f);
+            //     sbDigimon.FlipHorizontal(false);
+            //     yield return new WaitForSeconds(0.40f);
+            // }else{yield return new WaitForSeconds(0.15f);}
+            yield return new WaitForSeconds(0.15f);
             for (int i = 0; i < 32; i++) {
                 sbCurtain.Move(Direction.Up);
                 yield return new WaitForSeconds(1.5f / 32);
@@ -1011,6 +1011,23 @@ namespace Kaisa.Digivice {
             }
             yield return new WaitForSeconds(0.2f);
         }
+        public static IEnumerator Escape(Sprite sprite, int dim = 24) {
+           
+            SpriteBuilder spDigimon= ScreenElement.BuildSprite("character", AnimParent).SetSprite(sprite).PlaceOutside(Direction.Right);
+            
+            audioMgr.PlaySound(audioMgr.deport);
+
+            yield return new WaitForSeconds(0.75f);
+            for (int i = 0; i < 32; i++) {
+                spDigimon.Move(Direction.Left);
+                yield return new WaitForSeconds(0.1f);
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+
+
+
+
         public static IEnumerator DeportSpirit(string digimon, GameChar character) {
             Sprite sDigimon = spriteDB.GetDigimonSprite(digimon);
             Sprite sGivePower = spriteDB.giveMassivePowerInverted;
@@ -1383,13 +1400,42 @@ yield return new WaitForSeconds(0.75f);
             Sprite sCurtain = spriteDB.curtain;
 
             Sprite[] sCharacter = spriteDB.GetCharacterSprites(character);
+           
             Sprite[] sDigimon = spriteDB.GetAllDigimonSprites(digimon);
 
             SpriteBuilder sbBackground = ScreenElement.BuildSprite("BlackBackground", AnimParent).SetSprite(sBlackScreen).SetActive(false);
             SpriteBuilder sbCharacter = ScreenElement.BuildSprite("Char", AnimParent).SetSprite(sCharacter[0]);
+
+            if (gm.PlayerChar != character){
+            Sprite[] sCharacterPlayer = spriteDB.GetCharacterSprites(gm.PlayerChar);
+            SpriteBuilder sbCharacterplayer = ScreenElement.BuildSprite("Char", AnimParent).SetSprite(sCharacterPlayer[0]);
+            sbCharacter.PlaceOutside(Direction.Right);
+                sbCharacterplayer.SetActive(true);
+                yield return new WaitForSeconds(0.2f);
+                sbCharacterplayer.FlipHorizontal(true);
+
+                for (int i = 0; i < 29; i++) {
+                sbCharacterplayer.Move(Direction.Left);
+                yield return new WaitForSeconds(0.05f);
+                
+            }
+             sbCharacterplayer.SetActive(false);
+            
+                for (int i = 0; i < 31; i++) {
+                sbCharacter.Move(Direction.Left);
+                yield return new WaitForSeconds(0.05f);
+                
+            }
+
+            }
             audioMgr.PlaySound(audioMgr.evolutionSpirit);
             yield return new WaitForSeconds(0.5f);
             SpriteBuilder sbGiveMassivePower = ScreenElement.BuildSprite("GivePower", AnimParent).SetSprite(sGiveMassivePowerBlack).SetTransparent(true);
+            if (gm.PlayerChar != character){
+
+
+            }
+
 
             for (int i = 0; i < 3; i++) {
                 yield return new WaitForSeconds(0.2f);
@@ -1787,6 +1833,8 @@ yield return new WaitForSeconds(0.75f);
             Sprite sAncient = spriteDB.GetDigimonSprite(digimon);
             Sprite sAncientAt = spriteDB.GetDigimonSprite(digimon, SpriteAction.Attack);
             Sprite sHumanSpirit = null, sAnimalSpirit = null;
+
+            
             switch (digimon) {
                 case "ancientgreymon":
                     sHumanSpirit = spriteDB.GetDigimonSprite("agunimon", SpriteAction.Spirit);
@@ -1835,6 +1883,8 @@ yield return new WaitForSeconds(0.75f);
             Sprite sBlackScreen = spriteDB.blackScreen;
             Sprite[] sCharacter = spriteDB.GetCharacterSprites(character);
 
+
+
             
             SpriteBuilder sbDigimon = ScreenElement.BuildSprite("Digimon", AnimParent).SetSize(24, 24).Center().PlaceOutside(Direction.Down);
             SpriteBuilder sbGiveMassivePower = ScreenElement.BuildSprite("GivePower", AnimParent).SetSprite(sGiveMassivePowerBlack).SetTransparent(true);
@@ -1882,11 +1932,13 @@ yield return new WaitForSeconds(0.75f);
                 sbDigimon.Move(Direction.Up);
                 yield return new WaitForSeconds(0.95f / 28);
             }
-             sbCircle.SetActive(true);
+            sbCircle.SetActive(true);
             sbSpiral.SetActive(true);
             //Spiral and circle
             sbGiveMassivePower.SetSprite(sCharacter[0]).SetTransparent(false);
             for (int i = 0; i < 2; i++) {
+                sbCircle.SetActive(true);
+                sbSpiral.SetActive(true);
                 sbGiveMassivePower.SetActive(false);
                 sbCircle.SetSprite(sCircle[0]);
                 for (int j = 0; j < 3; j++) {
@@ -1895,15 +1947,18 @@ yield return new WaitForSeconds(0.75f);
                     sbSpiral.SetSprite(sSpiral[1]);
                     yield return new WaitForSeconds(0.3f);
                 }
-
+                sbCircle.SetActive(false);
+                sbSpiral.SetActive(false);
                 sbGiveMassivePower.SetActive(true);
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.6f);
+                
             }
             yield return new WaitForSeconds(0.15f);
             sbGiveMassivePower.SetSprite(sCharacter[9]);
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.6f);
             sbGiveMassivePower.Dispose();
-
+            sbCircle.SetActive(true);
+            sbSpiral.SetActive(true);
             for (int j = 0; j < 3; j++) {
                 if (j == 1) sbCircle.SetSprite(sCircle[1]);
                 if (j == 2) sbCircle.SetSprite(sCircle[2]);
