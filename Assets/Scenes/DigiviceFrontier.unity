@@ -1878,6 +1878,7 @@ MonoBehaviour:
   - {fileID: -4710341830425121523, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
   - {fileID: 6655304971113907562, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
   - {fileID: 2786028188739534863, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
+  - {fileID: -8967708414119613677, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
   battle_attackMenu:
   - {fileID: -6232895521546326841, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
   - {fileID: -8539235919378652893, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}

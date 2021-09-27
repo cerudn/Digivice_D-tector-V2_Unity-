@@ -118,8 +118,8 @@ namespace Kaisa.Digivice.Apps {
                 yield return new WaitForSeconds(1.75f / 64);
             } 
             
-             Reward reward = GetRandomReward(Random.Range(1, 4));
-            // Reward reward =Reward.DataStorm;
+                Reward reward = GetRandomReward(Random.Range(1, 4));
+                //Reward reward =Reward.ForceLevelUp;
                         
 
 
@@ -161,7 +161,7 @@ namespace Kaisa.Digivice.Apps {
 
 
            
-        }
+       }
          CloseApp(Screen.Character);
     }
       

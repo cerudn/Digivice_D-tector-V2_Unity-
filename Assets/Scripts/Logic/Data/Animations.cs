@@ -456,7 +456,7 @@ namespace Kaisa.Digivice {
             for (int i = 0; i < 32; i++) {
                 sbAttractor.Move(Direction.Left);
                 sbSpiritLost.Move(Direction.Left);
-                yield return new WaitForSeconds(2f / 32);
+                yield return new WaitForSeconds(10f / 32);
             }
             sbEnemyDigimon.SetActive(true);
             sbSpiritLost.Move(Direction.Right, 40 + 28);
@@ -1017,10 +1017,10 @@ namespace Kaisa.Digivice {
             
             audioMgr.PlaySound(audioMgr.deport);
 
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(0.25f);
             for (int i = 0; i < 32; i++) {
                 spDigimon.Move(Direction.Left);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.05f);
             }
             yield return new WaitForSeconds(0.2f);
         }
@@ -2245,18 +2245,21 @@ yield return new WaitForSeconds(0.75f);
                 Sprite collision = spriteDB.battle_attackCollision;
                 sb.SetSprite(collision);
                 sb.SetSize(7, 24);
+                
             }
             void _TransformAttackIntoBigCollision(SpriteBuilder sb) {
                 Sprite collisionBig = spriteDB.battle_attackCollisionBig;
                 sb.SetSprite(collisionBig);
                 sb.SetSize(15, 32);
                 sb.SetPosition(8, 0);
+                
             }
             IEnumerator _EnergyOrAbilityCollides() {
                 if (winner == 0) {
                     _TransformAttackIntoCollision(sbEnemyAttack);
+                     
                     for (int i = 0; i < 40; i++) {
-                        if (i == 3) sbEnemyAttack.Dispose();
+                        if (i == 2) sbEnemyAttack.Dispose();
                         sbFriendlyAttack.Move(Direction.Left);
                         yield return new WaitForSeconds(0.6f / 16f);
                     }
@@ -2267,8 +2270,9 @@ yield return new WaitForSeconds(0.75f);
                 }
                 else if (winner == 1) {
                     _TransformAttackIntoCollision(sbFriendlyAttack);
+                     
                     for (int i = 0; i < 40; i++) {
-                        if (i == 3) sbFriendlyAttack.Dispose();
+                        if (i == 2) sbFriendlyAttack.Dispose();
                         sbEnemyAttack.Move(Direction.Right);
                         yield return new WaitForSeconds(0.6f / 16f);
                     }
@@ -2290,8 +2294,9 @@ yield return new WaitForSeconds(0.75f);
                 SpriteBuilder loserSprite = (winner == 0) ? sbEnemyAttack : sbFriendlyAttack;
                 Direction winnerDirection = (winner == 0) ? Direction.Left : Direction.Right;
                 _TransformAttackIntoCollision(loserSprite);
+                
                 for (int i = 0; i < 16; i++) {
-                    if (i == 3) loserSprite.Dispose();
+                    if (i == 2) loserSprite.Dispose();
                     winnerSprite.Move(winnerDirection);
                     yield return new WaitForSeconds(0.6f / 16f);
                 }

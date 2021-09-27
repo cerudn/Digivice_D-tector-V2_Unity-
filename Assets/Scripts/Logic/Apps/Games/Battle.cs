@@ -135,6 +135,10 @@ namespace Kaisa.Digivice.Apps {
                     audioMgr.PlayButtonA();
                     DeportCurrentDigimon();
                 }
+                else if (SelectedMenuOption == 6) {
+                    audioMgr.PlayButtonA();
+                    EscapeBattle();
+                }
             }
             else if (currentScreen == BattleScreen.SpiritList_Elements) {
                 audioMgr.PlayButtonA();
@@ -487,6 +491,7 @@ namespace Kaisa.Digivice.Apps {
                 if (SelectedMenuOption == 3) SetScreen(gm.spriteDB.battle_combatMenu[3]); //Boost
                 if (SelectedMenuOption == 4) SetScreen(gm.spriteDB.battle_combatMenu[4]); //
                 if (SelectedMenuOption == 5) SetScreen(gm.spriteDB.battle_combatMenu[5]); //
+                if (SelectedMenuOption == 6 ) SetScreen(gm.spriteDB.battle_combatMenu[6]);
             }
             else if (currentScreen == BattleScreen.AttackMenu) {
                 SetScreen(gm.spriteDB.battle_attackMenu[attackIndex]);
@@ -740,7 +745,7 @@ namespace Kaisa.Digivice.Apps {
                 }}
             }
 
-            availableMenuOptions = new int[] { 0, 3, 5 };
+            availableMenuOptions = new int[] { 0, 3, 5,6 };
             currentScreen = BattleScreen.Combat_Menu;
             combatMenuIndex = 0;
         }
@@ -1178,9 +1183,7 @@ namespace Kaisa.Digivice.Apps {
 
             PlayAnimationDeportDigimon();
 
-            if (gm.logicMgr.RemovePlayerExperience(defeatExp)) {
-                gm.EnqueueAnimation(Animations.LevelDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
-            }
+           
 
             gm.EnqueueAnimation(Animations.CharSad());
 
@@ -1196,7 +1199,7 @@ namespace Kaisa.Digivice.Apps {
                     //     gm.EnqueueAnimation(Animations.LevelDownDigimon(originalDigimon.name));
                     // }
                     // else {
-                switch((int)Random.Range(0, 4)){
+                switch((int)Random.Range(0, 3)){
                 
                 case 0:
                 gm.IsCharacterDefeated = true;
@@ -1224,9 +1227,27 @@ namespace Kaisa.Digivice.Apps {
             }
             //Lose your Spirit if you were fighting with one.
             else {
-                gm.IsCharacterDefeated = true;
-                gm.logicMgr.LoseSpirit(originalDigimon.name);
-                gm.EnqueueAnimation(Animations.LoseSpirit(originalDigimon.name, enemyDigimon.name));
+                switch((int)Random.Range(0, 2)){
+                
+                case 0:
+                    gm.IsCharacterDefeated = true;
+                break;
+                case 1:
+                    gm.IsCharacterDefeated = true;
+                    gm.logicMgr.LoseSpirit(originalDigimon.name);
+                    gm.EnqueueAnimation(Animations.LoseSpirit(originalDigimon.name, enemyDigimon.name));
+                break;
+                case 2:
+                break;
+
+
+                     }
+                
+                
+                 }
+                 
+             if (gm.logicMgr.RemovePlayerExperience(defeatExp)) {
+                gm.EnqueueAnimation(Animations.LevelDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
             }
 
             if (alterDistance) {
@@ -1244,6 +1265,17 @@ namespace Kaisa.Digivice.Apps {
         private void EscapeBattle() {
             gm.DisableLeaverBuster();
 
+
+            if(originalDigimon.stage == Stage.Spirit || (int) originalDigimon.stage ==10 ){
+                int SPbefore=0;
+                
+                SPbefore = SpiritPower;
+                SpiritPower -= friendlyDigimon.GetSpiritCost(playerLevel);
+                gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
+
+
+            }
+
             gm.EnqueueAnimation(Animations.Escape(gm.PlayerCharSprites[0], 32));
 
            
@@ -1255,8 +1287,8 @@ namespace Kaisa.Digivice.Apps {
             gm.EnqueueAnimation(Animations.CharSad());
             // gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
 
-
-            switch((int)Random.Range(0, 4)){
+            int select=(int)Random.Range(0, 3);
+            switch(select){
                 
                 case 0:
                 gm.IsCharacterDefeated = true;
@@ -1267,8 +1299,7 @@ namespace Kaisa.Digivice.Apps {
                  gm.logicMgr.LoseSpirit(spirit);
                  gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));
                 break;
-                case 2:
-                break;
+        
                 default:
 
                 break;
@@ -1286,6 +1317,7 @@ namespace Kaisa.Digivice.Apps {
 
             CloseApp();
         }
+
         private void TriggerVictoryAgainstBoss() {
             int currentWorld = gm.WorldMgr.CurrentWorld;
             int currentMap = gm.WorldMgr.CurrentWorld;

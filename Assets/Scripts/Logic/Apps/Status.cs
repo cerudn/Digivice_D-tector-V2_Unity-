@@ -50,7 +50,7 @@ namespace Kaisa.Digivice.Apps {
                     ScreenElement.BuildTextBox("TextSteps", screenDisplay.transform, DFont.Regular)
                         .SetText(steps).SetSize(31, 5).SetPosition(0, 26).SetAlignment(TextAnchor.UpperRight);
                     break;
-                case 1:
+                case 2:
                     screenDisplay.sprite = gm.spriteDB.status_level;
                     string level = gm.logicMgr.GetPlayerLevel().ToString();
                     string spirits = gm.logicMgr.SpiritPower.ToString();
@@ -59,7 +59,7 @@ namespace Kaisa.Digivice.Apps {
                     ScreenElement.BuildTextBox("TextSpirits", screenDisplay.transform, DFont.Regular)
                         .SetText(spirits).SetSize(31, 5).SetPosition(0, 26).SetAlignment(TextAnchor.UpperRight);
                     break;
-                case 2:
+                case 1:
                     screenDisplay.sprite = gm.spriteDB.status_victories;
                     float fVictoryPerc = gm.logicMgr.WinPercentage;
                     int iVictoryPerc = Mathf.RoundToInt(gm.logicMgr.WinPercentage * 100);

@@ -87,7 +87,7 @@ namespace Kaisa.Digivice {
         public Sprite stealSpiritAttractor;
         [Header("Battle")]
         public Sprite[] battle_mainMenu = new Sprite[4];
-        public Sprite[] battle_combatMenu = new Sprite[5];
+        public Sprite[] battle_combatMenu = new Sprite[6];
         public Sprite[] battle_attackMenu = new Sprite[3];
         [Header("Battle Particles")]
         public Sprite battle_disobey;

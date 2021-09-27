@@ -45,7 +45,7 @@
     ],
     "disabled": false,
     "order":3,
-    "number":3
+    "number":2
   }, {
     "name": "Zoe",
     "element": 0,
@@ -61,7 +61,7 @@
     ],
     "disabled": false,
     "order":4,
-    "number":2
+    "number":3
   }, {
     "name": "Tommy",
     "element": 0,

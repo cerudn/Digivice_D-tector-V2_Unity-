@@ -309,27 +309,27 @@ namespace Kaisa.Digivice {
             IsEventPending = true;
             triggerEvent = CallRandomBattleForEvent;
             
-            // if(Random.Range(0f, 1f) < 0.85f) {
-            //     IsEventPending = true;
+            if(Random.Range(0f, 1f) < 0.85f) {
+                IsEventPending = true;
 
-            //     triggerEvent = CallRandomBattleForEvent;
+                triggerEvent = CallRandomBattleForEvent;
                 
-            // }
-            // else  {
-            //     IsEventPending = true;
+            }
+            else  {
+                IsEventPending = true;
 
-            //     float rnd=Random.Range(0f, 1f);
-            //     if(rnd>0.5f ){
-            //          triggerEvent = TriggerDataStorm;
-            //     }else if (!IsemptyLoserCharacter()){
-            //             IsEventRecoveryPending=true;
-            //             triggerEvent=TriggerRecoveryCharacters;
-            //     }else{
-            //         triggerEvent = TriggerDataStorm;
-            //     }
+                float rnd=Random.Range(0f, 1f);
+                if(rnd>0.5f ){
+                     triggerEvent = TriggerDataStorm;
+                }else if (!IsemptyLoserCharacter()){
+                        IsEventRecoveryPending=true;
+                        triggerEvent=TriggerRecoveryCharacters;
+                }else{
+                    triggerEvent = TriggerDataStorm;
+                }
                
 
-            // }
+            }
             
 
             triggerEvent += () => {
@@ -960,32 +960,32 @@ namespace Kaisa.Digivice {
                 resultAfter = SpiritPower;
             }
             else if (reward == Reward.LevelDown) {
-                if (GetPlayerLevelProgression() < 0.5f) {
+              //  if (GetPlayerLevelProgression() < 0.5f) {
                     resultBefore = GetPlayerLevel();
                     LevelDownPlayer();
                     resultAfter = GetPlayerLevel();
-                }
+                //}
             }
             else if (reward == Reward.ForceLevelDown) {
-                if (GetPlayerLevelProgression() > 0f) {
+               
                     resultBefore = GetPlayerLevel();
                     LevelDownPlayer();
                     resultAfter = GetPlayerLevel();
-                }
+                
             }
             else if (reward == Reward.LevelUp) {
-                if (GetPlayerLevelProgression() < 0.5f) {
-                    resultBefore = GetPlayerLevel();
-                    LevelDownPlayer();
-                    resultAfter = GetPlayerLevel();
-                }
-            }
-            else if (reward == Reward.ForceLevelUp) {
-                if (GetPlayerLevelProgression() > 0f) {
+                
                     resultBefore = GetPlayerLevel();
                     LevelUpPlayer();
                     resultAfter = GetPlayerLevel();
-                }
+                
+            }
+            else if (reward == Reward.ForceLevelUp) {
+                
+                    resultBefore = GetPlayerLevel();
+                    LevelUpPlayer();
+                    resultAfter = GetPlayerLevel();
+                
             }
             else if (reward == Reward.TriggerBattle) {
                 CallRandomBattle(true);

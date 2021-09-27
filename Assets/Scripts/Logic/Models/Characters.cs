@@ -9,7 +9,6 @@ private string name;
 private Element element;
 
 private Charstats stats;
-
 public string [] spirits {get;  private set;}
 private bool disabled;
 
@@ -25,6 +24,7 @@ public int number {get;  private set;}
             this.disabled=disabled;
             this.order=order;
             this.number=number;
+            
 
 
 
@@ -55,6 +55,7 @@ public int number {get;  private set;}
             return this.element;
         }
     }
+   
 
     
     
