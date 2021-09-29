@@ -91,6 +91,7 @@ namespace Kaisa.Digivice {
                 VisualDebug.WriteLine("Saved character assigned to 'none'. A new game will be created.");
                 logicMgr.currentScreen = Screen.CharSelection;
                 EnqueueAnimation(Animations.LoadCharacterSelection());
+
             }
             else {
                 logicMgr.currentScreen = Screen.Character;
@@ -102,10 +103,11 @@ namespace Kaisa.Digivice {
             AttemptUpdateGame();
             StartCoroutine(IncreaseJackpotValue());
             //EnqueueAnimation(Animations.RewardBossLose("agunimon"));
+           //EnqueueAnimation(Animations.EncounterFinalBoss("agunimon")); 
             //EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
             // EnqueueAnimation(Animations.CharSad());
-               
+               CompleteWorld0();
             
             //SECTION TO DO WEIRD STUFF IN TESTING.
             // #if UNITY_EDITOR
@@ -201,7 +203,8 @@ namespace Kaisa.Digivice {
                 logicMgr.RemovePlayerExperience(expLoss);
 
                 if(digimonLoss != "") {
-                    if (Database.GetDigimon(digimonLoss).stage != Stage.Spirit) {
+                    Stage data =  Database.GetDigimon(digimonLoss).stage;
+                    if (data != Stage.Spirit && data !=(Stage) 10) {
                         logicMgr.PunishDigimon(digimonLoss, out _, out _);
                     }
                     else {

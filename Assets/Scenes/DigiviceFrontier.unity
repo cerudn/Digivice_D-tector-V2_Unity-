@@ -1850,6 +1850,9 @@ MonoBehaviour:
     type: 3}
   giveMassivePowerInverted: {fileID: 5603576840549540096, guid: 1a7d672ab33564f4ea3128a67ae22fc2,
     type: 3}
+  giveMassiveFinalPowered:
+  - {fileID: -5098235848711545876, guid: 1a7d672ab33564f4ea3128a67ae22fc2, type: 3}
+  - {fileID: 4726110746182624181, guid: 1a7d672ab33564f4ea3128a67ae22fc2, type: 3}
   curtain: {fileID: 7699648647696747545, guid: 1a7d672ab33564f4ea3128a67ae22fc2, type: 3}
   curtainSpecial:
   - {fileID: -2462157970874149591, guid: 1a7d672ab33564f4ea3128a67ae22fc2, type: 3}

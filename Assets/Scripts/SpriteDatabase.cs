@@ -78,6 +78,7 @@ namespace Kaisa.Digivice {
         public Sprite givePowerInverted;
         public Sprite giveMassivePower;
         public Sprite giveMassivePowerInverted;
+        public Sprite[] giveMassiveFinalPowered = new Sprite[2];
         public Sprite curtain;
         public Sprite[] curtainSpecial = new Sprite[2];
         public Sprite dTector;

@@ -529,7 +529,13 @@ namespace Kaisa.Digivice.Apps {
 
         private void AssignEnemyDigimon() {
             if (isBossBattle) {
-                gm.EnqueueAnimation(Animations.EncounterBoss(enemyDigimon.name));
+
+              if( gm.WorldMgr.CurrentWorld!=1){
+                gm.EnqueueAnimation(Animations.EncounterBoss(enemyDigimon.name));}
+                else{
+                gm.EnqueueAnimation(Animations.EncounterFinalBoss(enemyDigimon.name));
+                }
+
 
                 bossLevel = gm.logicMgr.GetPlayerLevel();
                 enemyStats = enemyDigimon.GetBossStats(bossLevel);
@@ -1148,6 +1154,7 @@ namespace Kaisa.Digivice.Apps {
                     }
                 }
                 else {
+                    
                     // if (gm.logicMgr.RewardDigimon(enemyDigimon.name, out _, out _)) {
                     //     gm.EnqueueAnimation(Animations.LevelUpDigimon(enemyDigimon.name));
                     // }
@@ -1156,11 +1163,12 @@ namespace Kaisa.Digivice.Apps {
                         gm.EnqueueAnimation(Animations.UnlockDigimon(enemyDigimon.name,false,true));
                     //}
                 }
-            }
-            else if (gm.logicMgr.IsAnySpiritLost && Random.Range(0, 3) == 0) {
-                string recoveredSpirit = gm.logicMgr.RecoverSpirit();
-                gm.EnqueueAnimation(Animations.ReceiveSpirit(recoveredSpirit));
-                gm.EnqueueAnimation(Animations.UnlockDigimon(recoveredSpirit, true));
+            }else{
+                    if (gm.logicMgr.IsAnySpiritLost ) {
+                        string recoveredSpirit = gm.logicMgr.RecoverSpirit();
+                        gm.EnqueueAnimation(Animations.ReceiveSpirit(recoveredSpirit));
+                        gm.EnqueueAnimation(Animations.UnlockDigimon(recoveredSpirit, true));
+                     }
             }
 
             if (isBossBattle) {
@@ -1205,10 +1213,16 @@ namespace Kaisa.Digivice.Apps {
                 gm.IsCharacterDefeated = true;
                 break;
                 case 1:
+               
+               
+
+                if( galleryList!=null){
+                string spirit = galleryList.GetRandomElement();
+                gm.logicMgr.LoseSpirit(spirit);
+                gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));
+                }
                  gm.IsCharacterDefeated = true;
-                 string spirit = galleryList.GetRandomElement();
-                 gm.logicMgr.LoseSpirit(spirit);
-                 gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));
+                 
                 break;
                 case 2:
                  gm.logicMgr.EraseDigimon(originalDigimon.name);
@@ -1295,9 +1309,10 @@ namespace Kaisa.Digivice.Apps {
                 break;
                 case 1:
                  gm.IsCharacterDefeated = true;
+                 if( galleryList!=null){
                  string spirit = galleryList.GetRandomElement();
                  gm.logicMgr.LoseSpirit(spirit);
-                 gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));
+                 gm.EnqueueAnimation(Animations.LoseSpirit(spirit, enemyDigimon.name));}
                 break;
         
                 default:

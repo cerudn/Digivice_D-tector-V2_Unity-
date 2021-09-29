@@ -963,6 +963,65 @@ namespace Kaisa.Digivice {
             yield return new WaitForSeconds(0.75f);
 
         }
+
+        public static IEnumerator EncounterFinalBoss(string digimon) {
+            Sprite sDigimon = spriteDB.GetDigimonSprite(digimon);
+            Sprite sDigimonAt = spriteDB.GetDigimonSprite(digimon, SpriteAction.Attack);
+            Sprite[] sGivePower = spriteDB.giveMassiveFinalPowered; //Modificar los sprites de esta animación mejorando la imagen para hacerla similar a la original
+
+            SpriteBuilder sbDigimon = ScreenElement.BuildSprite("Enemy", AnimParent).SetSize(24, 24).Center().SetSprite(sDigimon);
+            sbDigimon.FlipHorizontal(true);
+            sbDigimon.SetActive(false);
+            SpriteBuilder sbGivePowerUp = ScreenElement.BuildSprite("MassivePower", AnimParent).SetSprite(sGivePower[1]).SetTransparent(true);
+            sbGivePowerUp.SetActive(true);
+             SpriteBuilder sbGivePowerDown = ScreenElement.BuildSprite("MassivePower", AnimParent).SetSprite(sGivePower[0]).SetTransparent(true);
+            sbGivePowerDown.SetActive(false);    
+            sbGivePowerUp.SetActive(false);
+
+           // audioMgr.PlaySound(audioMgr.encounterDigimonBoss);
+            for (int i = 0; i < 14; i++) {
+                yield return new WaitForSeconds(0.15f);
+                sbGivePowerUp.SetActive(true);
+                sbGivePowerDown.SetActive(false);
+                yield return new WaitForSeconds(0.15f);
+                sbGivePowerUp.SetActive(false);
+                sbGivePowerDown.SetActive(true);
+            }
+
+                sbGivePowerDown.SetActive(false);
+                sbDigimon.SetActive(true);
+                sbGivePowerUp.SetActive(true);
+                
+
+            for (int i = 0; i < 7; i++) {
+                yield return new WaitForSeconds(0.1f);
+                sbGivePowerUp.SetActive(false);
+                yield return new WaitForSeconds(0.25f);
+                sbGivePowerDown.SetActive(true);
+                yield return new WaitForSeconds(0.1f);
+                sbGivePowerDown.SetActive(false);
+                sbGivePowerUp.SetActive(true);
+                yield return new WaitForSeconds(0.1f);                
+            }
+
+                sbGivePowerUp.SetActive(false);
+                sbDigimon.SetActive(false);
+                yield return new WaitForSeconds(0.3f);
+                sbDigimon.SetActive(true);
+                yield return new WaitForSeconds(0.3f);
+                sbDigimon.SetActive(false);
+                yield return new WaitForSeconds(0.3f);
+                sbDigimon.SetActive(true);
+                yield return new WaitForSeconds(0.3f);
+
+
+                sbDigimon.SetSprite(sDigimonAt);
+                yield return new WaitForSeconds(0.55f);
+                sbDigimon.SetSprite(sDigimon);
+                yield return new WaitForSeconds(1f);
+            
+
+        }
         public static IEnumerator SpendCallPoints(int pointsBefore, int pointsAfter) {
             SpriteBuilder sbCallPoints = ScreenElement.BuildSprite("CallPointScreen", AnimParent).SetSprite(spriteDB.battle_callPoints_screen);
             RectangleBuilder[] callPoints = new RectangleBuilder[pointsBefore];
@@ -2257,10 +2316,13 @@ yield return new WaitForSeconds(0.75f);
             IEnumerator _EnergyOrAbilityCollides() {
                 if (winner == 0) {
                     _TransformAttackIntoCollision(sbEnemyAttack);
-                     
+                     yield return new WaitForSeconds(0.05f); 
+                    sbEnemyAttack.Dispose();
                     for (int i = 0; i < 40; i++) {
-                        if (i == 2) sbEnemyAttack.Dispose();
+                       
+                       // if (i == 1) sbEnemyAttack.Dispose();
                         sbFriendlyAttack.Move(Direction.Left);
+                        
                         yield return new WaitForSeconds(0.6f / 16f);
                     }
                     for (int i = 0; i < extraPixels[0]; i++) {
@@ -2270,10 +2332,16 @@ yield return new WaitForSeconds(0.75f);
                 }
                 else if (winner == 1) {
                     _TransformAttackIntoCollision(sbFriendlyAttack);
-                     
+                    // yield return new WaitForSeconds(0.15f);
+                    //  sbEnemyAttack.Dispose();
+
+                    yield return new WaitForSeconds(0.05f); 
+                    sbFriendlyAttack.Dispose();
                     for (int i = 0; i < 40; i++) {
-                        if (i == 2) sbFriendlyAttack.Dispose();
+                       
+                       // if (i == 1) sbFriendlyAttack.Dispose();
                         sbEnemyAttack.Move(Direction.Right);
+                        
                         yield return new WaitForSeconds(0.6f / 16f);
                     }
                     for (int i = 0; i < extraPixels[1]; i++) {
@@ -2294,10 +2362,18 @@ yield return new WaitForSeconds(0.75f);
                 SpriteBuilder loserSprite = (winner == 0) ? sbEnemyAttack : sbFriendlyAttack;
                 Direction winnerDirection = (winner == 0) ? Direction.Left : Direction.Right;
                 _TransformAttackIntoCollision(loserSprite);
-                
+                //yield return new WaitForSeconds(0.15f);
+                    //loserSprite.Dispose();
+                    yield return new WaitForSeconds(0.05f); 
+                    loserSprite.Dispose();
+                    
                 for (int i = 0; i < 16; i++) {
-                    if (i == 2) loserSprite.Dispose();
+                    
+                   
+                    //if (i == 2) loserSprite.Dispose();
+                    
                     winnerSprite.Move(winnerDirection);
+                    
                     yield return new WaitForSeconds(0.6f / 16f);
                 }
             }
