@@ -6,11 +6,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-namespace Kaisa.Digivice {
-    public class LogicManager : MonoBehaviour, IAppController {
+namespace Kaisa.Digivice
+{
+    public class LogicManager : MonoBehaviour, IAppController
+    {
         private GameManager gm;
         private AudioManager audioMgr;
-        public void Initialize(GameManager gm) {
+        public void Initialize(GameManager gm)
+        {
             this.gm = gm;
 
             audioMgr = gm.audioMgr;
@@ -18,7 +21,7 @@ namespace Kaisa.Digivice {
 
         public Screen currentScreen = Screen.Character;
         public MainMenu currentMainMenu = MainMenu.Map;
-        public MainMenu2 currentMainMenu2= MainMenu2.Database;
+        public MainMenu2 currentMainMenu2 = MainMenu2.Database;
         //Submenues for the Game app.
         public int charSelectionIndex = 0;
         public int gamesMenuIndex = 0;
@@ -27,7 +30,8 @@ namespace Kaisa.Digivice {
 
         public Apps.DigiviceApp loadedApp;
         public bool IsAppLoaded => loadedApp != null;
-        public bool ShakeDisabled() {
+        public bool ShakeDisabled()
+        {
             if (loadedApp != null && !(loadedApp is Apps.Status)) return true;
             else if (gm.IsCharacterDefeated) return true;
             else if (IsEventPending) return true;
@@ -41,439 +45,559 @@ namespace Kaisa.Digivice {
         public TriggerEvent triggerEvent;
 
         #region Input Management
-        public void InputA() {
-            if (currentScreen == Screen.Character) {
-                if (IsEventPending) {
+        public void InputA()
+        {
+            if (currentScreen == Screen.Character)
+            {
+                if (IsEventPending)
+                {
                     audioMgr.PlayButtonA();
                     triggerEvent();
                 }
-                else {
+                else
+                {
                     audioMgr.PlayButtonA();
                     OpenStatus();
                 }
             }
-            else if (currentScreen == Screen.MainMenu) {
-                if (currentMainMenu == MainMenu.Camp) {
+            else if (currentScreen == Screen.MainMenu)
+            {
+                if (currentMainMenu == MainMenu.Camp)
+                {
                     audioMgr.PlayButtonA();
                     OpenCamp();
                 }
-                else if (gm.IsCharacterDefeated) {
+                else if (gm.IsCharacterDefeated)
+                {
                     audioMgr.PlayButtonB();
                 }
-                else if (currentMainMenu == MainMenu.Map) {
+                else if (currentMainMenu == MainMenu.Map)
+                {
                     audioMgr.PlayButtonA();
                     OpenMap();
                 }
-                else if (currentMainMenu == MainMenu.Status) {
+                else if (currentMainMenu == MainMenu.Status)
+                {
                     audioMgr.PlayButtonA();
 
                     OpenCharacters();
-                    
-                }else if (currentMainMenu == MainMenu.Spirits){
+
+                }
+                else if (currentMainMenu == MainMenu.Spirits)
+                {
 
                     audioMgr.PlayButtonA();
 
-                   OpenSpirits();
+                    OpenSpirits();
                 }
-            }else if (currentScreen == Screen.MainMenu2) {
-                if (gm.IsCharacterDefeated) {
+            }
+            else if (currentScreen == Screen.MainMenu2)
+            {
+                if (gm.IsCharacterDefeated)
+                {
                     audioMgr.PlayButtonB();
                 }
-                else if (currentMainMenu2 == MainMenu2.Game) {
+                else if (currentMainMenu2 == MainMenu2.Game)
+                {
                     audioMgr.PlayButtonA();
                     gamesMenuIndex = 0;
                     currentScreen = Screen.GamesMenu;
                 }
-                else if (currentMainMenu2 == MainMenu2.Database) {
+                else if (currentMainMenu2 == MainMenu2.Database)
+                {
                     audioMgr.PlayButtonA();
                     OpenDatabase();
                 }
-                else if (currentMainMenu2 == MainMenu2.Digits) {
+                else if (currentMainMenu2 == MainMenu2.Digits)
+                {
                     audioMgr.PlayButtonA();
                     OpenDigits();
-                } else if (currentMainMenu2 == MainMenu2.Finder) {
+                }
+                else if (currentMainMenu2 == MainMenu2.Finder)
+                {
                     audioMgr.PlayButtonA();
                     OpenFinder();
                 }
-                
+
             }
-            else if (currentScreen == Screen.App) {
+            else if (currentScreen == Screen.App)
+            {
                 loadedApp.InputA();
             }
-            
-            else if (currentScreen == Screen.GamesMenu) {
+
+            else if (currentScreen == Screen.GamesMenu)
+            {
                 audioMgr.PlayButtonA();
 
 
-                   if (gamesMenuIndex == 0) {
+                if (gamesMenuIndex == 0)
+                {
                     audioMgr.PlayButtonA();
                     OpenJackpotBox();
-                }else if (gamesMenuIndex == 1) {
+                }
+                else if (gamesMenuIndex == 1)
+                {
                     audioMgr.PlayButtonA();
                     OpenSpeedRunner();
                 }
 
             }
-             else if (currentScreen == Screen.CharSelection) {
-                audioMgr.PlayButtonA();
-                SelectCharacterAndCreateGame();
+            else if (currentScreen == Screen.CharSelection)
+            {
+                    audioMgr.PlayButtonA();
+                if (gm.WorldMgr.CurrentWorld == 0)
+                {
+                    
+                    SelectCharacterAndCreateGame();
+                }
+                else
+                {
+                    SelectCharacterPart2Game();
+                }
+
+
             }
         }
-         
-                // if (gamesMenuIndex == 0) {
-                //     audioMgr.PlayButtonA();
-                //     OpenFinder();
-                // }
-                // else 
-               
-                    // else if (gamesMenuIndex == 1) {
-                //     gamesRewardMenuIndex = 0;
-                //     currentScreen = Screen.GamesRewardMenu;
-                // }
-                // else {
-                //     gamesTravelMenuIndex = 0;
-                //     currentScreen = Screen.GamesTravelMenu;
-                // }
-          
-            // else if (currentScreen == Screen.GamesRewardMenu) {
-            //     if (gamesRewardMenuIndex == 0) {
-            //         audioMgr.PlayButtonA();
-            //         OpenJackpotBox();
-            //     }
 
-            // }
+        // if (gamesMenuIndex == 0) {
+        //     audioMgr.PlayButtonA();
+        //     OpenFinder();
+        // }
+        // else 
 
-//Pensar como incluir estos juegos 
-            // else if (currentScreen == Screen.GamesTravelMenu) {
-            //     if (gamesTravelMenuIndex == 0) {
-            //         audioMgr.PlayButtonA();
-            //         OpenSpeedRunner();
-            //     }
-            //     else if (gamesTravelMenuIndex == 2) {
-            //         audioMgr.PlayButtonA();
-            //         OpenDigiHunter();
-            //     }
-            //     else if (gamesTravelMenuIndex == 3) {
-            //         audioMgr.PlayButtonA();
-            //         OpenMaze();
-            //     }
-            // }
-           
-        public void InputB() {
-            if (currentScreen == Screen.Character) {
-                if (IsEventPending) {
+        // else if (gamesMenuIndex == 1) {
+        //     gamesRewardMenuIndex = 0;
+        //     currentScreen = Screen.GamesRewardMenu;
+        // }
+        // else {
+        //     gamesTravelMenuIndex = 0;
+        //     currentScreen = Screen.GamesTravelMenu;
+        // }
+
+        // else if (currentScreen == Screen.GamesRewardMenu) {
+        //     if (gamesRewardMenuIndex == 0) {
+        //         audioMgr.PlayButtonA();
+        //         OpenJackpotBox();
+        //     }
+
+        // }
+
+        //Pensar como incluir estos juegos 
+        // else if (currentScreen == Screen.GamesTravelMenu) {
+        //     if (gamesTravelMenuIndex == 0) {
+        //         audioMgr.PlayButtonA();
+        //         OpenSpeedRunner();
+        //     }
+        //     else if (gamesTravelMenuIndex == 2) {
+        //         audioMgr.PlayButtonA();
+        //         OpenDigiHunter();
+        //     }
+        //     else if (gamesTravelMenuIndex == 3) {
+        //         audioMgr.PlayButtonA();
+        //         OpenMaze();
+        //     }
+        // }
+
+        public void InputB()
+        {
+            if (currentScreen == Screen.Character)
+            {
+                if (IsEventPending)
+                {
                     audioMgr.PlayButtonB();
                     triggerEvent();
                 }
-                else if (gm.WorldMgr.CurrentDistance == 1) { //Alternative to shaking the phone to trigger a boss battle.
+                else if (gm.WorldMgr.CurrentDistance == 1)
+                { //Alternative to shaking the phone to trigger a boss battle.
                     gm.TakeAStep();
                 }
-                else {
+                else
+                {
                     audioMgr.PlayButtonB();
                 }
             }
-            else if (currentScreen == Screen.MainMenu) {
-                audioMgr.PlayButtonB();
-                CloseGameMenu();
-            }else if (currentScreen == Screen.MainMenu2) {
+            else if (currentScreen == Screen.MainMenu)
+            {
                 audioMgr.PlayButtonB();
                 CloseGameMenu();
             }
-            else if (currentScreen == Screen.App) {
+            else if (currentScreen == Screen.MainMenu2)
+            {
+                audioMgr.PlayButtonB();
+                CloseGameMenu();
+            }
+            else if (currentScreen == Screen.App)
+            {
                 loadedApp.InputB();
             }
-            else if (currentScreen == Screen.GamesMenu) {
+            else if (currentScreen == Screen.GamesMenu)
+            {
                 audioMgr.PlayButtonB();
                 currentScreen = Screen.MainMenu2;
             }
-            else if (currentScreen == Screen.GamesRewardMenu) {
+            else if (currentScreen == Screen.GamesRewardMenu)
+            {
                 audioMgr.PlayButtonB();
                 currentScreen = Screen.GamesMenu;
             }
-            else if (currentScreen == Screen.GamesTravelMenu) {
+            else if (currentScreen == Screen.GamesTravelMenu)
+            {
                 audioMgr.PlayButtonB();
                 currentScreen = Screen.GamesMenu;
             }
-            else if (currentScreen == Screen.CharSelection) {
+            else if (currentScreen == Screen.CharSelection)
+            {
                 audioMgr.PlayButtonB();
             }
         }
-        public void InputLeft() {
-            if (IsEventPending) {
+        public void InputLeft()
+        {
+            if (IsEventPending)
+            {
                 audioMgr.PlayButtonA();
                 triggerEvent();
             }
-            else if (currentScreen == Screen.App) {
+            else if (currentScreen == Screen.App)
+            {
                 loadedApp.InputLeft();
             }
-            else if (currentScreen == Screen.Character) {
+            else if (currentScreen == Screen.Character)
+            {
                 audioMgr.PlayButtonA();
                 OpenGameMenu();
             }
-            else if(currentScreen == Screen.MainMenu2){
+            else if (currentScreen == Screen.MainMenu2)
+            {
                 audioMgr.PlayButtonA();
                 OpenGameMenu();
             }
-            else if (currentScreen == Screen.MainMenu) {
+            else if (currentScreen == Screen.MainMenu)
+            {
                 audioMgr.PlayButtonA();
-                
+
                 OpenGameMenu2();
                 //NavigateMenu(ref currentMainMenu, Direction.Left);
             }
-            else if (currentScreen == Screen.GamesMenu) {
+            else if (currentScreen == Screen.GamesMenu)
+            {
                 audioMgr.PlayButtonA();
                 gamesMenuIndex = gamesMenuIndex.CircularAdd(-1, 1);
             }
-            else if (currentScreen == Screen.GamesRewardMenu) {
+            else if (currentScreen == Screen.GamesRewardMenu)
+            {
                 audioMgr.PlayButtonA();
                 gamesRewardMenuIndex = gamesRewardMenuIndex.CircularAdd(-1, 2);
             }
-            else if (currentScreen == Screen.GamesTravelMenu) {
+            else if (currentScreen == Screen.GamesTravelMenu)
+            {
                 audioMgr.PlayButtonA();
                 gamesTravelMenuIndex = gamesTravelMenuIndex.CircularAdd(-1, 3);
             }
-            else if (currentScreen == Screen.CharSelection) {
+            else if (currentScreen == Screen.CharSelection)
+            {
                 audioMgr.PlayButtonA();
                 charSelectionIndex = charSelectionIndex.CircularAdd(-1, 5);
             }
         }
-        public void InputRight() {
-            if (IsEventPending) {
+        public void InputRight()
+        {
+            if (IsEventPending)
+            {
                 audioMgr.PlayButtonA();
                 triggerEvent();
             }
-            else if (currentScreen == Screen.App) {
+            else if (currentScreen == Screen.App)
+            {
                 loadedApp.InputRight();
             }
-            else if (currentScreen == Screen.Character) {
+            else if (currentScreen == Screen.Character)
+            {
                 audioMgr.PlayButtonA();
                 OpenGameMenu();
             }
-            else if (currentScreen == Screen.MainMenu) {
+            else if (currentScreen == Screen.MainMenu)
+            {
                 audioMgr.PlayButtonA();
                 NavigateMenu(ref currentMainMenu, Direction.Right);
             }
-            else if (currentScreen == Screen.MainMenu2) {
+            else if (currentScreen == Screen.MainMenu2)
+            {
                 audioMgr.PlayButtonA();
                 NavigateMenu(ref currentMainMenu2, Direction.Right);
             }
-            else if (currentScreen == Screen.GamesMenu) {
+            else if (currentScreen == Screen.GamesMenu)
+            {
                 audioMgr.PlayButtonA();
                 gamesMenuIndex = gamesMenuIndex.CircularAdd(1, 1);
             }
-            else if (currentScreen == Screen.GamesRewardMenu) {
+            else if (currentScreen == Screen.GamesRewardMenu)
+            {
                 audioMgr.PlayButtonA();
                 gamesRewardMenuIndex = gamesRewardMenuIndex.CircularAdd(1, 2);
             }
-            else if (currentScreen == Screen.GamesTravelMenu) {
+            else if (currentScreen == Screen.GamesTravelMenu)
+            {
                 audioMgr.PlayButtonA();
                 gamesTravelMenuIndex = gamesTravelMenuIndex.CircularAdd(1, 3);
             }
-            else if (currentScreen == Screen.CharSelection) {
+            else if (currentScreen == Screen.CharSelection)
+            {
                 audioMgr.PlayButtonA();
                 charSelectionIndex = charSelectionIndex.CircularAdd(1, 5);
             }
         }
         //Down
-        public void InputADown() {
+        public void InputADown()
+        {
             if (currentScreen == Screen.App) loadedApp.InputADown();
         }
-        public void InputBDown() {
+        public void InputBDown()
+        {
             if (currentScreen == Screen.App) loadedApp.InputBDown();
         }
-        public void InputLeftDown() {
+        public void InputLeftDown()
+        {
             if (currentScreen == Screen.App) loadedApp.InputLeftDown();
         }
-        public void InputRightDown() {
+        public void InputRightDown()
+        {
             if (currentScreen == Screen.App) loadedApp.InputRightDown();
         }
         //Up
-        public void InputAUp() {
+        public void InputAUp()
+        {
             if (currentScreen == Screen.App) loadedApp.InputAUp();
         }
-        public void InputBUp() {
+        public void InputBUp()
+        {
             if (currentScreen == Screen.App) loadedApp.InputBUp();
         }
-        public void InputLeftUp() {
+        public void InputLeftUp()
+        {
             if (currentScreen == Screen.App) loadedApp.InputLeftUp();
         }
-        public void InputRightUp() {
+        public void InputRightUp()
+        {
             if (currentScreen == Screen.App) loadedApp.InputRightUp();
         }
         #endregion
-        public void EnqueueRegularEvent() {
+        public void EnqueueRegularEvent()
+        {
             if (loadedApp == null) currentScreen = Screen.Character;
-            
+
             audioMgr.PlaySound(audioMgr.triggerEvent);
-            
+
             IsEventPending = true;
             triggerEvent = CallRandomBattleForEvent;
-            
-            if(Random.Range(0f, 1f) < 0.85f) {
+
+            if (Random.Range(0f, 1f) < 0.85f)
+            {
                 IsEventPending = true;
 
                 triggerEvent = CallRandomBattleForEvent;
-                
+
             }
-            else  {
+            else
+            {
                 IsEventPending = true;
 
-                float rnd=Random.Range(0f, 1f);
-                if(rnd>0.5f ){
-                     triggerEvent = TriggerDataStorm;
-                }else if (!IsemptyLoserCharacter()){
-                        IsEventRecoveryPending=true;
-                        triggerEvent=TriggerRecoveryCharacters;
-                }else{
+                float rnd = Random.Range(0f, 1f);
+                if (rnd > 0.5f)
+                {
                     triggerEvent = TriggerDataStorm;
                 }
-               
+                else if (!IsemptyLoserCharacter())
+                {
+                    IsEventRecoveryPending = true;
+                    triggerEvent = TriggerRecoveryCharacters;
+                }
+                else
+                {
+                    triggerEvent = TriggerDataStorm;
+                }
+
 
             }
-            
 
-            triggerEvent += () => {
+
+            triggerEvent += () =>
+            {
                 SavedGame.SavedEvent = 0;
                 IsEventPending = false;
-                IsEventRecoveryPending=false;
-                
+                IsEventRecoveryPending = false;
+
             };
         }
-        public void EnqueueBossEvent() {
+        public void EnqueueBossEvent()
+        {
             if (loadedApp == null) currentScreen = Screen.Character;
 
             audioMgr.PlaySound(audioMgr.triggerEvent);
             IsEventPending = true;
             triggerEvent = CallBossBattle;
-            triggerEvent += () => {
+            triggerEvent += () =>
+            {
                 SavedGame.SavedEvent = 0;
                 IsEventPending = false;
             };
         }
 
         public void CallRandomBattleForEvent() => CallRandomBattle(false);
-        public void CallRandomBattle(bool reduceDistance) {
+        public void CallRandomBattle(bool reduceDistance)
+        {
             currentScreen = Screen.App;
             Digimon randomDigimon = Database.GetRandomDigimonForBattle(GetPlayerLevel());
             loadedApp = gm.appLoader.LoadApp<Battle>(App.Battle, this).Initialize(randomDigimon.name, reduceDistance);
             loadedApp.StartApp();
         }
 
-        public void CallBossBattle() {
+        public void CallBossBattle()
+        {
             currentScreen = Screen.App;
             string boss = gm.WorldMgr.GetBossOfCurrentArea();
+
             loadedApp = gm.appLoader.LoadApp<Battle>(App.Battle, this).Initialize(boss, true, true);
             loadedApp.StartApp();
         }
-        public void CallFixedBattle(string digimon, bool alterDistance, bool isBossBattle) {
+        public void CallFixedBattle(string digimon, bool alterDistance, bool isBossBattle)
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Battle>(App.Battle, this).Initialize(digimon, alterDistance, isBossBattle);
             loadedApp.StartApp();
         }
 
-        public void SelectCharacterAndCreateGame() {
-            
+        public void SelectCharacterAndCreateGame()
+        {
+
             gm.CreateNewGame((GameChar)charSelectionIndex);
         }
 
-        private void OpenGameMenu() {
+        public void SelectCharacterPart2Game()
+        {
+            gm.FinalPartGameV1((GameChar)charSelectionIndex);
+
+        }
+
+        private void OpenGameMenu()
+        {
             currentMainMenu = 0;
             currentScreen = Screen.MainMenu;
         }
-        private void OpenGameMenu2() {
-            
-            currentMainMenu2=MainMenu2.Database;
+        private void OpenGameMenu2()
+        {
+
+            currentMainMenu2 = MainMenu2.Database;
             currentScreen = Screen.MainMenu2;
         }
-        private void CloseGameMenu() {
+        private void CloseGameMenu()
+        {
             currentScreen = Screen.Character;
         }
-        private void NavigateMenu<T>(ref T menuEnum, Direction dir) where T : struct {
-            if (!typeof(T).IsEnum) {
+        private void NavigateMenu<T>(ref T menuEnum, Direction dir) where T : struct
+        {
+            if (!typeof(T).IsEnum)
+            {
                 throw new System.ArgumentException($"{typeof(T).FullName} is not an enum.");
             }
 
-            if (dir == Direction.Left) {
+            if (dir == Direction.Left)
+            {
                 menuEnum.SetLast();
             }
-            else if (dir == Direction.Right) {
+            else if (dir == Direction.Right)
+            {
                 menuEnum.SetNext();
             }
         }
 
-        private void OpenMap() {
+        private void OpenMap()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Map>(App.Map, this);
             loadedApp.StartApp();
         }
-        private void OpenStatus() {
+        private void OpenStatus()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Status>(App.Status, this);
             loadedApp.StartApp();
         }
-        private void OpenSpirits(){
-           
+        private void OpenSpirits()
+        {
+
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<SpiritApp>(App.Spirits, this);
             loadedApp.StartApp();
         }
-        private void OpenCharacters(){
+        private void OpenCharacters()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<StatusApp>(App.Character, this);
             loadedApp.StartApp();
         }
-        private void OpenDatabase() {
+        private void OpenDatabase()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<DatabaseApp>(App.Database, this);
             loadedApp.StartApp();
         }
-        private void OpenDigits() {
+        private void OpenDigits()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<CodeInput>(App.CodeInput, this).Initialize(false);
             loadedApp.StartApp();
         }
-        private void OpenCamp() {
+        private void OpenCamp()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Camp>(App.Camp, this);
             loadedApp.StartApp();
         }
-        private void OpenFinder() {
+        private void OpenFinder()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Finder>(App.Finder, this);
             loadedApp.StartApp();
         }
-        private void OpenJackpotBox() {
+        private void OpenJackpotBox()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<JackpotBox>(App.JackpotBox, this);
             loadedApp.StartApp();
         }
-        private void OpenSpeedRunner() {
+        private void OpenSpeedRunner()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<SpeedRunner>(App.SpeedRunner, this);
             loadedApp.StartApp();
         }
-        private void OpenDigiHunter() {
+        private void OpenDigiHunter()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<DigiHunter>(App.DigiHunter, this);
             loadedApp.StartApp();
         }
-        private void OpenMaze() {
+        private void OpenMaze()
+        {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Maze>(App.Maze, this);
             loadedApp.StartApp();
         }
 
-        public void CloseLoadedApp(Screen newScreen = Screen.MainMenu) {
+        public void CloseLoadedApp(Screen newScreen = Screen.MainMenu)
+        {
             if (loadedApp == null) return;
 
-            if (loadedApp is CodeInput ci) {
+            if (loadedApp is CodeInput ci)
+            {
                 string digimon = ci.ReturnedDigimon;
-                if (digimon != null) {
+                if (digimon != null)
+                {
                     gm.logicMgr.SetDigimonUnlocked(digimon, true);
                     gm.logicMgr.SetDigicodeUnlocked(digimon, true);
 
-                    gm.EnqueueAnimation(Animations.SummonDigimon(digimon,true));
-                    gm.EnqueueAnimation(Animations.UnlockDigimon(digimon,true));
+                    gm.EnqueueAnimation(Animations.SummonDigimon(digimon, true));
+                    gm.EnqueueAnimation(Animations.UnlockDigimon(digimon, true));
                     gm.EnqueueAnimation(Animations.CharHappy());
                 }
             }
@@ -493,7 +617,8 @@ namespace Kaisa.Digivice {
         /// </summary>
         /// <param name="val">The unsigned amount to add.</param>
         /// <returns></returns>
-        public bool AddPlayerExperience(uint val) {
+        public bool AddPlayerExperience(uint val)
+        {
             int playerLevelBefore = GetPlayerLevel();
 
             SavedGame.PlayerExperience += (int)val;
@@ -510,13 +635,16 @@ namespace Kaisa.Digivice {
         /// </summary>
         /// <param name="val">The unsigned amount to substract.</param>
         /// <returns></returns>
-        public bool RemovePlayerExperience(uint val) {
+        public bool RemovePlayerExperience(uint val)
+        {
             int playerLevelBefore = GetPlayerLevel();
 
-            if (SavedGame.IsPlayerInsured) {
+            if (SavedGame.IsPlayerInsured)
+            {
                 SavedGame.IsPlayerInsured = false;
             }
-            else {
+            else
+            {
                 SavedGame.PlayerExperience -= (int)val;
             }
 
@@ -525,7 +653,8 @@ namespace Kaisa.Digivice {
             int playerLevelNow = GetPlayerLevel();
 
             //If the player has lost a level, activate their insurance.
-            if (playerLevelNow < playerLevelBefore) {
+            if (playerLevelNow < playerLevelBefore)
+            {
                 SavedGame.IsPlayerInsured = true;
             }
             return (playerLevelBefore != playerLevelNow);
@@ -534,7 +663,8 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Returns the level of a player based on its experience.
         /// </summary>
-        public int GetPlayerLevel() {
+        public int GetPlayerLevel()
+        {
             int playerXP = SavedGame.PlayerExperience;
             if (playerXP == 0) return 1;
 
@@ -546,7 +676,8 @@ namespace Kaisa.Digivice {
         /// (where 0% is the base experience for their level, not 0 experience).
         /// </summary>
         /// <returns></returns>
-        public float GetPlayerLevelProgression() {
+        public float GetPlayerLevelProgression()
+        {
             int floorExperience = Mathf.FloorToInt(Mathf.Pow(GetPlayerLevel(), 3));
             int topExperience = Mathf.FloorToInt(Mathf.Pow(GetPlayerLevel() + 1, 3));
 
@@ -558,7 +689,8 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Forcibly levels up the player, settings its experience to the necessary amount so the player is leveled up.
         /// </summary>
-        public void LevelUpPlayer() {
+        public void LevelUpPlayer()
+        {
             int playerLevel = GetPlayerLevel();
             float nextLevelExp = Mathf.Pow(playerLevel + 1, 3f);
             SavedGame.PlayerExperience = Mathf.CeilToInt(nextLevelExp);
@@ -566,7 +698,8 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Forcibly levels down the player, reducing its experience by an amount equal to the next level's experience minus this level's experience.
         /// </summary>
-        public void LevelDownPlayer() {
+        public void LevelDownPlayer()
+        {
             int playerLevel = GetPlayerLevel();
             float lastLevelExperience = Mathf.Pow(playerLevel - 1, 3f);
             float thisLevelExperience = Mathf.Pow(playerLevel, 3f);
@@ -574,9 +707,11 @@ namespace Kaisa.Digivice {
             SavedGame.PlayerExperience -= (int)(nextLevelExperience - thisLevelExperience);
             if (SavedGame.PlayerExperience < lastLevelExperience) SavedGame.PlayerExperience = (int)lastLevelExperience;
         }
-        public int SpiritPower {
+        public int SpiritPower
+        {
             get => SavedGame.SpiritPower;
-            set {
+            set
+            {
                 int totalSpiritPower = value;
                 if (totalSpiritPower > Constants.MAX_SPIRIT_POWER) totalSpiritPower = 99;
                 if (totalSpiritPower < 0) totalSpiritPower = 0;
@@ -585,8 +720,10 @@ namespace Kaisa.Digivice {
         }
         public int TotalBattles => SavedGame.TotalBattles;
         public int TotalWins => SavedGame.TotalWins;
-        public float WinPercentage {
-            get {
+        public float WinPercentage
+        {
+            get
+            {
                 if (TotalBattles == 0) return 0f;
                 else return TotalWins / (float)TotalBattles;
             }
@@ -605,20 +742,26 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// If true, sets the digimon as unlocked, as long as it isn't unlocked yet. If false, sets the digimon as locked regardless of their level.
         /// </summary>
-        public void SetDigimonUnlocked(string digimon, bool val, bool combat =false) {
-            if (val == true) {
-                if (SavedGame.GetDigimonLevel(digimon) == 0) {
+        public void SetDigimonUnlocked(string digimon, bool val, bool combat = false)
+        {
+            if (val == true)
+            {
+                if (SavedGame.GetDigimonLevel(digimon) == 0)
+                {
                     SavedGame.SetDigimonLevel(digimon, 1);
                     VisualDebug.WriteLine("Unlocked digimon: " + digimon);
-                    
+
                     Stage digimonStage = Database.GetDigimon(digimon).stage;
 
                     // if(digimonStage != Stage.Spirit && digimonStage != Stage.Armor) {
-                         if((int)digimonStage != 10 &&  (int)digimonStage != (int)Stage.Spirit && !combat) {
+                    if ((int)digimonStage != 10 && (int)digimonStage != (int)Stage.Spirit && !combat)
+                    {
                         string[] ddocks = gm.GetAllDDockDigimons();
 
-                        for (int i = 0; i < ddocks.Length; i++) {
-                            if (ddocks[i] == null || ddocks[i] == "") {
+                        for (int i = 0; i < ddocks.Length; i++)
+                        {
+                            if (ddocks[i] == null || ddocks[i] == "")
+                            {
                                 SetDDockDigimon(i, digimon);
                                 break;
                             }
@@ -627,12 +770,15 @@ namespace Kaisa.Digivice {
 
                 }
             }
-            else {
+            else
+            {
                 SavedGame.SetDigimonLevel(digimon, 0);
                 string[] ddocks = gm.GetAllDDockDigimons();
 
-                for (int i = 0; i < ddocks.Length; i++) {
-                    if(ddocks[i] == digimon) {
+                for (int i = 0; i < ddocks.Length; i++)
+                {
+                    if (ddocks[i] == digimon)
+                    {
                         SetDDockDigimon(i, "");
                     }
                 }
@@ -647,7 +793,8 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Sets the level of a Digimon. This method accounts for the maximum level the Digimon can have. This method can't be used to lock a Digimon.
         /// </summary>
-        public void SetDigimonExtraLevel(string digimon, int val) {
+        public void SetDigimonExtraLevel(string digimon, int val)
+        {
             int maxExtraLevel = Database.GetDigimon(digimon).MaxExtraLevel;
             if (val > maxExtraLevel) val = maxExtraLevel;
             if (val < 1) val = 1;
@@ -656,16 +803,20 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Returns an array of the names of every unlocked Digimon.
         /// </summary>
-        public Digimon[] GetAllUnlockedDigimon() {
+        public Digimon[] GetAllUnlockedDigimon()
+        {
             List<Digimon> allUnlockedDigimon = new List<Digimon>();
-            foreach(Digimon d in Database.Digimons) {
+            foreach (Digimon d in Database.Digimons)
+            {
                 if (GetDigimonUnlocked(d.name)) allUnlockedDigimon.Add(d);
             }
             return allUnlockedDigimon.ToArray();
         }
-        public Characters[] GetAllUnlockedPlayers() {
+        public Characters[] GetAllUnlockedPlayers()
+        {
             List<Characters> allUnlockedCharacters = new List<Characters>();
-            foreach(Characters d in Database.Characters) {
+            foreach (Characters d in Database.Characters)
+            {
                 if (GetCharacterUnlocked(d.Name)) allUnlockedCharacters.Add(d);
             }
             return allUnlockedCharacters.ToArray();
@@ -681,7 +832,8 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Returns true if the player already has that Digimon at the maximum level.
         /// </summary>
-        public bool IsDigimonAtMaxLevel(string digimon) {
+        public bool IsDigimonAtMaxLevel(string digimon)
+        {
             return GetDigimonExtraLevel(digimon) == Database.GetDigimon(digimon).MaxExtraLevel;
         }
         public void SetDigicodeUnlocked(string name, bool val) => SavedGame.SetDigicodeUnlocked(name, val);
@@ -690,43 +842,50 @@ namespace Kaisa.Digivice {
         /// Unlocks or levels up a Digimon. Returns true if it levels up a Digimon, false if it unlocks it.
         /// It also outputs the level before and after being rewarded.
         /// </summary>
-        public bool RewardDigimon(string digimon, out int levelBefore, out int levelAfter,bool combat=false) {
-           levelBefore = GetDigimonExtraLevel(digimon);
+        public bool RewardDigimon(string digimon, out int levelBefore, out int levelAfter, bool combat = false)
+        {
+            levelBefore = GetDigimonExtraLevel(digimon);
             //If the player has the digimon already, level it up.
-           if(GetDigimonUnlocked(digimon)) {
+            if (GetDigimonUnlocked(digimon))
+            {
                 // SetDigimonExtraLevel(digimon, levelBefore + 1);
                 // levelAfter = GetDigimonExtraLevel(digimon);
-                levelAfter=0;
+                levelAfter = 0;
                 VisualDebug.WriteLine($"The Digimon was rewarded by increasing its level from {levelBefore} to {levelAfter}");
                 return true;
             }
             //Else, unlock it.
-            else {
-                SetDigimonUnlocked(digimon, true,combat);
+            else
+            {
+                SetDigimonUnlocked(digimon, true, combat);
                 levelAfter = 0;
                 VisualDebug.WriteLine($"The Digimon was rewarded by unlocking it.");
-                return false;}
-            
+                return false;
+            }
+
         }
 
 
 
-        
+
         /// <summary>
         /// Erases or levels down a Digimon. Returns true if it levels down a Digimon, false if it erases it.
         /// It also outputs the level before and after being punished.
         /// </summary>
-        public bool PunishDigimon(string digimon, out int levelBefore, out int levelAfter) {
+        public bool PunishDigimon(string digimon, out int levelBefore, out int levelAfter)
+        {
             levelBefore = GetDigimonExtraLevel(digimon);
             //If the player has the digimon at level 1 or higher, level it down.
-            if (GetDigimonExtraLevel(digimon) > 0) {
+            if (GetDigimonExtraLevel(digimon) > 0)
+            {
                 SetDigimonExtraLevel(digimon, levelBefore - 1);
                 levelAfter = GetDigimonExtraLevel(digimon);
                 Debug.Log($"The Digimon was punished by decreasing its level from {levelBefore} to {levelAfter}");
                 return true;
             }
             //Else, erase it.
-            else {
+            else
+            {
                 SetDigimonUnlocked(digimon, false);
                 levelAfter = -1;
                 Debug.Log($"The Digimon was punished by locking it.");
@@ -734,26 +893,30 @@ namespace Kaisa.Digivice {
             }
         }
 
-        public void EraseDigimon(string digimon){
-                SetDigimonUnlocked(digimon, false);
-               
-                Debug.Log($"The Digimon was punished by locking it.");
+        public void EraseDigimon(string digimon)
+        {
+            SetDigimonUnlocked(digimon, false);
+
+            Debug.Log($"The Digimon was punished by locking it.");
         }
         /// <summary>
         /// Locks a Spirit and adds it to the list of spirits lost by the player.
         /// </summary>
-        public void LoseSpirit(string spirit) {
+        public void LoseSpirit(string spirit)
+        {
             SetDigimonUnlocked(spirit, false);
             SavedGame.LostSpirits.Add(spirit);
         }
-         public void LoseCharacter(string character) {
+        public void LoseCharacter(string character)
+        {
             //SetCharacterUnlocked(character, false);
             SavedGame.LostCharacter.Add(character);
         }
         /// <summary>
         /// Unlocks a random Spirit from the list of spirits lost and returns the name of that Spirit.
         /// </summary>
-        public string RecoverSpirit() {
+        public string RecoverSpirit()
+        {
             int index = SavedGame.LostSpirits.GetRandomIndex();
             string recoveredSpirit = SavedGame.LostSpirits[index];
             SavedGame.LostSpirits.RemoveAt(index);
@@ -763,50 +926,59 @@ namespace Kaisa.Digivice {
             return recoveredSpirit;
         }
 
-         public string RecoverCharacter() {
+        public string RecoverCharacter()
+        {
             int index = SavedGame.LostCharacter.GetRandomIndex();
-            if(SavedGame.LostCharacter.Count!=0){
+            if (SavedGame.LostCharacter.Count != 0)
+            {
                 string recoveredCharacter = SavedGame.LostCharacter[index];
                 SavedGame.LostCharacter.RemoveAt(index);
                 return recoveredCharacter;
 
             }
-           
+
             return null;
 
-            
-        }
-
-        public void RecoverCharacter(string a){
-
-         SavedGame.LostCharacter.Remove(a);
-
 
         }
 
-        public bool IsemptyLoserCharacter(){
+        public void RecoverCharacter(string a)
+        {
 
-            if(SavedGame.LostCharacter.Count!=0){
+            SavedGame.LostCharacter.Remove(a);
+
+
+        }
+
+        public bool IsemptyLoserCharacter()
+        {
+
+            if (SavedGame.LostCharacter.Count != 0)
+            {
                 return false;
             }
 
             return true;
         }
 
-        public List<string> getLoserCharacter(){
+        public List<string> getLoserCharacter()
+        {
 
             return SavedGame.LostCharacter;
         }
 
-        public List<string> getRandomLoserCharacter(){
+        public List<string> getRandomLoserCharacter()
+        {
             List<string> allCharacter = new List<string>();
             List<string> characters = getLoserCharacter();
 
-             
-            
-            foreach(string a in characters){
-                 
-                if((int)Random.Range(0, characters.Count)==characters.GetRandomIndex()){
+
+
+            foreach (string a in characters)
+            {
+
+                if ((int)Random.Range(0, characters.Count) == characters.GetRandomIndex())
+                {
 
                     allCharacter.Add(a);
 
@@ -816,11 +988,12 @@ namespace Kaisa.Digivice {
 
 
             }
-            if(allCharacter.Count==0){
+            if (allCharacter.Count == 0)
+            {
 
                 allCharacter.Add(characters.GetRandomElement());
             }
-            
+
 
             return allCharacter;
 
@@ -832,16 +1005,19 @@ namespace Kaisa.Digivice {
         public bool IsAnyCharacterLost => SavedGame.LostCharacter.Count > 0;
 
         public string GetDDockDigimon(int ddock) => SavedGame.DDockDigimon[ddock];
-        public void SetDDockDigimon(int ddock, string digimon) {
+        public void SetDDockDigimon(int ddock, string digimon)
+        {
             if (ddock > 3) return; //The player only has 4 D-Docks.
             SavedGame.DDockDigimon[ddock] = digimon;
         }
-        public bool IsDDockEmpty(int ddock) => (SavedGame.DDockDigimon[ddock]==null || SavedGame.DDockDigimon[ddock]=="");
+        public bool IsDDockEmpty(int ddock) => (SavedGame.DDockDigimon[ddock] == null || SavedGame.DDockDigimon[ddock] == "");
 
-        public string[] GetAllDDockDigimon() {
+        public string[] GetAllDDockDigimon()
+        {
             List<string> notEmptyDDocks = new List<string>();
             string[] allDDocks = SavedGame.DDockDigimon;
-            foreach(string s in allDDocks) {
+            foreach (string s in allDDocks)
+            {
                 if (s != null && s != "") notEmptyDDocks.Add(s);
             }
             return notEmptyDDocks.ToArray();
@@ -854,41 +1030,49 @@ namespace Kaisa.Digivice {
         /// <param name="objective">The Digimon that will be punished, if able, etc...</param>
         /// <param name="resultBefore">A variable holding the result before the reward was applied.</param>
         /// <param name="resultAfter">A variable holding the result after tthe reward is applied.</param>
-        public void ApplyReward(Reward reward, string objective, out object resultBefore, out object resultAfter) {
+        public void ApplyReward(Reward reward, string objective, out object resultBefore, out object resultAfter)
+        {
             resultBefore = null;
             resultAfter = null;
 
-            if (reward == Reward.IncreaseDistance300) {
+            if (reward == Reward.IncreaseDistance300)
+            {
                 resultBefore = gm.WorldMgr.CurrentDistance;
                 gm.WorldMgr.IncreaseDistance(300);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
-            else if (reward == Reward.IncreaseDistance500) {
+            else if (reward == Reward.IncreaseDistance500)
+            {
                 resultBefore = gm.WorldMgr.CurrentDistance;
                 gm.WorldMgr.IncreaseDistance(500);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
-            else if (reward == Reward.IncreaseDistance2000) {
+            else if (reward == Reward.IncreaseDistance2000)
+            {
                 resultBefore = gm.WorldMgr.CurrentDistance;
                 gm.WorldMgr.IncreaseDistance(2000);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
-            else if (reward == Reward.ReduceDistance500) {
+            else if (reward == Reward.ReduceDistance500)
+            {
                 resultBefore = gm.WorldMgr.CurrentDistance;
                 gm.WorldMgr.ReduceDistance(500);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
-            else if (reward == Reward.ReduceDistance1000) {
+            else if (reward == Reward.ReduceDistance1000)
+            {
                 resultBefore = gm.WorldMgr.CurrentDistance;
                 gm.WorldMgr.ReduceDistance(1000);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
-            else if (reward == Reward.PunishDigimon) {
+            else if (reward == Reward.PunishDigimon)
+            {
                 PunishDigimon(objective, out int pdBef, out int pdAft);
                 resultBefore = pdBef;
                 resultAfter = pdAft;
             }
-            else if (reward == Reward.RewardDigimon) {
+            else if (reward == Reward.RewardDigimon)
+            {
                 Rarity rarity;
                 float rng = Random.Range(0f, 1f);
                 if (rng < 0.50f) rarity = Rarity.Common;
@@ -897,11 +1081,13 @@ namespace Kaisa.Digivice {
                 else rarity = Rarity.Legendary;
                 string rewardedDigimon;
                 //30% chance to forcibly select a Digimon already owned.
-                if (Random.Range(0f, 1f) < 0.3f) {
+                if (Random.Range(0f, 1f) < 0.3f)
+                {
                     rewardedDigimon = GetAllUnlockedDigimon().Where(d => d.Rarity == rarity).GetRandomElement().name;
                 }
                 //Reward any Digimon, owned or not.
-                else {
+                else
+                {
                     rewardedDigimon = Database.GetAllDigimonOfRarity(rarity, gm.logicMgr.GetPlayerLevel() + 20).GetRandomElement().name;
                 }
 
@@ -911,13 +1097,15 @@ namespace Kaisa.Digivice {
 
                 gm.EnqueueRewardAnimation(reward, rewardedDigimon, resultBefore, resultAfter);
             }
-            else if (reward == Reward.UnlockDigicodeOwned) {
+            else if (reward == Reward.UnlockDigicodeOwned)
+            {
                 Digimon[] ownedDigimon = gm.logicMgr.GetAllUnlockedDigimon();
                 string name = ownedDigimon.GetRandomElement().name;
                 SetDigicodeUnlocked(name, true);
                 gm.EnqueueRewardAnimation(reward, name, resultBefore, resultAfter);
             }
-            else if (reward == Reward.UnlockDigicodeNotOwned) {
+            else if (reward == Reward.UnlockDigicodeNotOwned)
+            {
                 Rarity rarity;
                 float rng = Random.Range(0f, 1f);
                 if (rng < 0.50f) rarity = Rarity.Common;
@@ -930,86 +1118,100 @@ namespace Kaisa.Digivice {
                 gm.EnqueueRewardAnimation(reward, rewardedDigimon2, resultBefore, resultAfter);
 
             }
-            else if (reward == Reward.DataStorm) {
+            else if (reward == Reward.DataStorm)
+            {
 
-                
-                
-                ApplyDataStorm();               
+
+
+                ApplyDataStorm();
 
                 // resultBefore = moved; //resultBefore is a boolean true if the player was moved.
                 // resultAfter = newArea;
             }
-            else if (reward == Reward.LoseSpiritPower10) {
+            else if (reward == Reward.LoseSpiritPower10)
+            {
                 resultBefore = SpiritPower;
                 SpiritPower -= 10;
                 resultAfter = SpiritPower;
             }
-            else if (reward == Reward.LoseSpiritPower50) {
+            else if (reward == Reward.LoseSpiritPower50)
+            {
                 resultBefore = SpiritPower;
                 SpiritPower -= 50;
                 resultAfter = SpiritPower;
             }
-            else if (reward == Reward.GainSpiritPower10) {
+            else if (reward == Reward.GainSpiritPower10)
+            {
                 resultBefore = SpiritPower;
                 SpiritPower += 10;
                 resultAfter = SpiritPower;
             }
-            else if (reward == Reward.GainSpiritPowerMax) {
+            else if (reward == Reward.GainSpiritPowerMax)
+            {
                 resultBefore = SpiritPower;
                 SpiritPower = Constants.MAX_SPIRIT_POWER;
                 resultAfter = SpiritPower;
             }
-            else if (reward == Reward.LevelDown) {
-              //  if (GetPlayerLevelProgression() < 0.5f) {
-                    resultBefore = GetPlayerLevel();
-                    LevelDownPlayer();
-                    resultAfter = GetPlayerLevel();
+            else if (reward == Reward.LevelDown)
+            {
+                //  if (GetPlayerLevelProgression() < 0.5f) {
+                resultBefore = GetPlayerLevel();
+                LevelDownPlayer();
+                resultAfter = GetPlayerLevel();
                 //}
             }
-            else if (reward == Reward.ForceLevelDown) {
-               
-                    resultBefore = GetPlayerLevel();
-                    LevelDownPlayer();
-                    resultAfter = GetPlayerLevel();
-                
+            else if (reward == Reward.ForceLevelDown)
+            {
+
+                resultBefore = GetPlayerLevel();
+                LevelDownPlayer();
+                resultAfter = GetPlayerLevel();
+
             }
-            else if (reward == Reward.LevelUp) {
-                
-                    resultBefore = GetPlayerLevel();
-                    LevelUpPlayer();
-                    resultAfter = GetPlayerLevel();
-                
+            else if (reward == Reward.LevelUp)
+            {
+
+                resultBefore = GetPlayerLevel();
+                LevelUpPlayer();
+                resultAfter = GetPlayerLevel();
+
             }
-            else if (reward == Reward.ForceLevelUp) {
-                
-                    resultBefore = GetPlayerLevel();
-                    LevelUpPlayer();
-                    resultAfter = GetPlayerLevel();
-                
+            else if (reward == Reward.ForceLevelUp)
+            {
+
+                resultBefore = GetPlayerLevel();
+                LevelUpPlayer();
+                resultAfter = GetPlayerLevel();
+
             }
-            else if (reward == Reward.TriggerBattle) {
+            else if (reward == Reward.TriggerBattle)
+            {
                 CallRandomBattle(true);
             }
         }
-        private void TriggerDataStorm() {
+        private void TriggerDataStorm()
+        {
             ApplyDataStorm();
             //gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), move));
         }
-         private void TriggerRecoveryCharacters(){
+        private void TriggerRecoveryCharacters()
+        {
 
             RunRecovery();
         }
 
-        public void RunRecovery(){
-            List <string> test = getRandomLoserCharacter();
-           
+        public void RunRecovery()
+        {
+            List<string> test = getRandomLoserCharacter();
 
-            for(int i=0 ; i < test.Count; i++){
 
-            gm.EnqueueAnimation(Animations.RunRecovery(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(test[i].ToLower()))));
-            
-            RecoverCharacter(test[i].ToLower());
-            
+            for (int i = 0; i < test.Count; i++)
+            {
+
+                gm.EnqueueAnimation(Animations.RunRecovery(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(test[i].ToLower()))));
+
+                RecoverCharacter(test[i].ToLower());
+
             }
 
             gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
@@ -1017,128 +1219,172 @@ namespace Kaisa.Digivice {
 
 
         }
-       
-        public void ApplyDataStorm() {
-           int newArea = gm.WorldMgr.CurrentArea;
-           // GameChar [] personajes;
-             List <string> test=gm.GetRandomListCharacter();
-             float rng = UnityEngine.Random.Range(0f, 1f);
-             bool moveArea = rng < 0.33f;
-             bool varios;
-             
-            
 
-           if(test.Count>0){
-          
-            
-            if(UnityEngine.Random.Range(0f, 1f)<0.7){
-                varios=true;
+        public void ApplyDataStorm()
+        {
+            int newArea = gm.WorldMgr.CurrentArea;
+            // GameChar [] personajes;
+            List<string> test = gm.GetRandomListCharacter();
+            float rng = UnityEngine.Random.Range(0f, 1f);
+            bool moveArea = rng < 0.33f;
+            bool varios;
 
 
 
-            }else{
+            if (test.Count > 0)
+            {
 
-                varios=false;
+
+                if (UnityEngine.Random.Range(0f, 1f) < 0.7)
+                {
+                    varios = true;
+
+
+
+                }
+                else
+                {
+
+                    varios = false;
+                }
             }
-            }else {varios=false;}
-           
+            else { varios = false; }
+
             VisualDebug.WriteLine($"Data storm rng: {rng}, move area: {moveArea}");
 
             List<int> uncompletedAreas = gm.WorldMgr.GetUncompletedAreas(gm.WorldMgr.CurrentWorld);
 
-            if (uncompletedAreas.Count < 2) {
+            if (uncompletedAreas.Count < 2)
+            {
                 moveArea = false;
             }
 
-            if (moveArea && !varios) {
+            if (moveArea && !varios)
+            {
                 newArea = uncompletedAreas.GetRandomElement();
                 gm.WorldMgr.MoveToArea(gm.WorldMgr.CurrentWorld, newArea, gm.WorldMgr.CurrentDistance + 1000);
-                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), moveArea,1));
+                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), moveArea, 1));
                 gm.EnqueueAnimation(Animations.DisplayNewArea(gm.WorldMgr.CurrentWorld, gm.WorldMgr.CurrentArea, gm.WorldMgr.CurrentDistance));
-                
-                foreach(string a in gm.GetAllCharacterWithPlayer()){
-                    if(a.ToLower()!=gm.PlayerChar.ToString().ToLower()){
-                    gm.logicMgr.LoseCharacter(a);}}
+
+                foreach (string a in gm.GetAllCharacterWithPlayer())
+                {
+                    if (a.ToLower() != gm.PlayerChar.ToString().ToLower())
+                    {
+                        gm.logicMgr.LoseCharacter(a);
+                    }
+                }
 
                 //TODO: Chance to be moved to world 9.
-            
 
 
-            }else if(!moveArea && varios && !test.Contains(gm.PlayerChar.ToString().ToLower())){
-                int i=0;
-                 foreach(string a in test){
-                     if(a.ToLower()!=gm.PlayerChar.ToString().ToLower()){
-                    gm.logicMgr.LoseCharacter(a);
 
-                     if(i==0){
-                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower())), true,1));
-                   i++;  }else{
-                gm.EnqueueAnimation(Animations.DataStormmult(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower()))));
-                   }
-                }}
-                gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
-                gm.EnqueueAnimation(Animations.CharSad());
-                } else if(moveArea && varios && !test.Contains(gm.PlayerChar.ToString().ToLower())){
-                int i=0;
-                 foreach(string a in test){
-                     
-                    gm.logicMgr.LoseCharacter(a);
-                     if(i==0){
-                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower())), true,1));
-                   i++;  }else{
-                gm.EnqueueAnimation(Animations.DataStormmult(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower()))));
-                   }
+            }
+            else if (!moveArea && varios && !test.Contains(gm.PlayerChar.ToString().ToLower()))
+            {
+                int i = 0;
+                foreach (string a in test)
+                {
+                    if (a.ToLower() != gm.PlayerChar.ToString().ToLower())
+                    {
+                        gm.logicMgr.LoseCharacter(a);
+
+                        if (i == 0)
+                        {
+                            gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower())), true, 1));
+                            i++;
+                        }
+                        else
+                        {
+                            gm.EnqueueAnimation(Animations.DataStormmult(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower()))));
+                        }
+                    }
                 }
                 gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
                 gm.EnqueueAnimation(Animations.CharSad());
-                 
-            }else if(moveArea && varios && test.Contains(gm.PlayerChar.ToString().ToLower())){
-                foreach(string b in gm.GetAllCharacterWithPlayer()){
-                    if(!test.Contains(b.ToLower())){
+            }
+            else if (moveArea && varios && !test.Contains(gm.PlayerChar.ToString().ToLower()))
+            {
+                int i = 0;
+                foreach (string a in test)
+                {
+
+                    gm.logicMgr.LoseCharacter(a);
+                    if (i == 0)
+                    {
+                        gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower())), true, 1));
+                        i++;
+                    }
+                    else
+                    {
+                        gm.EnqueueAnimation(Animations.DataStormmult(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower()))));
+                    }
+                }
+                gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
+                gm.EnqueueAnimation(Animations.CharSad());
+
+            }
+            else if (moveArea && varios && test.Contains(gm.PlayerChar.ToString().ToLower()))
+            {
+                foreach (string b in gm.GetAllCharacterWithPlayer())
+                {
+                    if (!test.Contains(b.ToLower()))
+                    {
                         gm.logicMgr.LoseCharacter(b);
                     }
 
                 }
                 newArea = uncompletedAreas.GetRandomElement();
-                 int i=0;
-                gm.WorldMgr.MoveToArea(gm.WorldMgr.CurrentWorld, newArea, gm.WorldMgr.CurrentDistance + 1000);  
+                int i = 0;
+                gm.WorldMgr.MoveToArea(gm.WorldMgr.CurrentWorld, newArea, gm.WorldMgr.CurrentDistance + 1000);
 
-                 foreach(string a in test){
-                     if(i==0){
-                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower())), true,1));
-                   i++;  }else{
-                gm.EnqueueAnimation(Animations.DataStormmult(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower()))));
-                   }
+                foreach (string a in test)
+                {
+                    if (i == 0)
+                    {
+                        gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower())), true, 1));
+                        i++;
+                    }
+                    else
+                    {
+                        gm.EnqueueAnimation(Animations.DataStormmult(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(a.ToLower()))));
+                    }
                 }
                 gm.EnqueueAnimation(Animations.DisplayNewArea(gm.WorldMgr.CurrentWorld, gm.WorldMgr.CurrentArea, gm.WorldMgr.CurrentDistance));
-                
+
 
                 gm.EnqueueAnimation(Animations.CharSad());
-            }else if(moveArea){
+            }
+            else if (moveArea)
+            {
                 newArea = uncompletedAreas.GetRandomElement();
                 gm.WorldMgr.MoveToArea(gm.WorldMgr.CurrentWorld, newArea, gm.WorldMgr.CurrentDistance + 1000);
-                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), moveArea,1));
+                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), moveArea, 1));
                 gm.EnqueueAnimation(Animations.DisplayNewArea(gm.WorldMgr.CurrentWorld, gm.WorldMgr.CurrentArea, gm.WorldMgr.CurrentDistance));
-                
-                foreach(string a in gm.GetAllCharacterWithPlayer()){
-                    if(a.ToLower()!=gm.PlayerChar.ToString().ToLower()){
-                    gm.logicMgr.LoseCharacter(a);}}
+
+                foreach (string a in gm.GetAllCharacterWithPlayer())
+                {
+                    if (a.ToLower() != gm.PlayerChar.ToString().ToLower())
+                    {
+                        gm.logicMgr.LoseCharacter(a);
+                    }
+                }
 
             }
-            else{
-                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), moveArea,0));
-               
+            else
+            {
+                gm.EnqueueAnimation(Animations.DataStorm(gm.spriteDB.GetCharacterSprites(gm.PlayerChar), moveArea, 0));
+
 
                 gm.EnqueueAnimation(Animations.CharHappy());
 
             }
 
-             
-                  
-                    
-    
-                    
-            
+
+
+
+
+
+
         }
 
         #region Calculations
@@ -1148,7 +1394,8 @@ namespace Kaisa.Digivice {
         /// <param name="friendlyLevel">The level of the victor.</param>
         /// <param name="enemyLevel">The level of the loser.</param>
         /// <returns></returns>
-        public uint GetExperienceGained(int friendlyLevel, int enemyLevel) {
+        public uint GetExperienceGained(int friendlyLevel, int enemyLevel)
+        {
             float a = 30 * enemyLevel;
             float b = Mathf.Pow((2 * enemyLevel) + 10, 2.5f);
             float c = Mathf.Pow(enemyLevel + friendlyLevel + 10, 2.5f);

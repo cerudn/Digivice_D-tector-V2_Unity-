@@ -9505,14 +9505,14 @@
     "abilityName": "duskmon",
     "element": 5,
     "evolution": "",
-    "extraEvolutions": null,
+    "extraEvolutions": ["velgemon"],
     "disabled": false,
     "baseLevel": 75,
     "stats": {
-      "HP": 200,
-      "EN": 140,
-      "CR": 140,
-      "AB": 180
+      "HP": 1,
+      "EN": 1,
+      "CR": 1,
+      "AB": 1
     },
     "bossStats": null,
     "isPseudo": false,

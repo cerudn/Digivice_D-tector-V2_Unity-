@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Kaisa.Digivice {
-    public class ScreenManager : MonoBehaviour {
+namespace Kaisa.Digivice
+{
+    public class ScreenManager : MonoBehaviour
+    {
         private SpriteDatabase spriteDB;
         private GameManager gm;
         private AudioManager audioMgr;
@@ -21,7 +23,8 @@ namespace Kaisa.Digivice {
         private SpriteBuilder eyesLayer;
         public bool PlayingAnimations { get; private set; }
 
-        public void Initialize(GameManager gm) {
+        public void Initialize(GameManager gm)
+        {
             this.gm = gm;
             audioMgr = gm.audioMgr;
             logicMgr = gm.logicMgr;
@@ -32,7 +35,8 @@ namespace Kaisa.Digivice {
         public Image screenBackground;
         public Image screenDisplay;
 
-        public void UpdateColors() {
+        public void UpdateColors()
+        {
             screenBackground.color = Preferences.BackgroundColor;
             screenDisplay.color = Preferences.ActiveColor;
         }
@@ -42,12 +46,14 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Adds a new animation the queue.
         /// </summary>
-        public void EnqueueAnimation(IEnumerator animation) {
+        public void EnqueueAnimation(IEnumerator animation)
+        {
             animationQueue.Enqueue(animation);
             if (!PlayingAnimations) StartCoroutine(ConsumeQueue());
         }
 
-        private void Start() {
+        private void Start()
+        {
             //InvokeRepeating("UpdateDisplay", 0f, 0.05f);
             defeatedLayer = ScreenElement.BuildSprite("Defeated", RootParent.transform).SetSize(6, 7)
                 .SetPosition(1, 1).SetTransparent(true).SetActive(false);
@@ -60,27 +66,33 @@ namespace Kaisa.Digivice {
 
             StartCoroutine(ConsumeQueue());
         }
-        private IEnumerator PAFlashDefeatedEffect() {
+        private IEnumerator PAFlashDefeatedEffect()
+        {
             defeatedLayer.transform.SetAsFirstSibling();
-            while (true) {
+            while (true)
+            {
                 defeatedLayer.SetSprite(spriteDB.defeatedSymbol);
                 yield return new WaitForSeconds(0.5f);
                 defeatedLayer.SetSprite(spriteDB.emptySprite);
                 yield return new WaitForSeconds(0.5f);
             }
         }
-        private IEnumerator PAFlashEventEffect() {
+        private IEnumerator PAFlashEventEffect()
+        {
             eventLayer.transform.SetAsFirstSibling();
-            while (true) {
+            while (true)
+            {
                 eventLayer.SetSprite(spriteDB.triggerEvent);
                 yield return new WaitForSeconds(0.2f);
                 eventLayer.SetSprite(spriteDB.emptySprite);
                 yield return new WaitForSeconds(0.2f);
             }
         }
-        private IEnumerator PAFlashEyesEffect() {
+        private IEnumerator PAFlashEyesEffect()
+        {
             eyesLayer.transform.SetAsFirstSibling();
-            while (true) {
+            while (true)
+            {
                 eyesLayer.SetSprite(spriteDB.eyes[0]);
                 yield return new WaitForSeconds(Random.Range(0.25f, 1f));
                 eyesLayer.SetSprite(spriteDB.eyes[1]);
@@ -88,9 +100,11 @@ namespace Kaisa.Digivice {
             }
         }
 
-        private IEnumerator ConsumeQueue() {
+        private IEnumerator ConsumeQueue()
+        {
             PlayingAnimations = true;
-            while (animationQueue.Count > 0) {
+            while (animationQueue.Count > 0)
+            {
                 gm.LockInput();
                 animParent = ScreenElement.BuildContainer("Anim Parent", ScreenParent, false).SetSize(32, 32).transform;
                 yield return animationQueue.Dequeue();
@@ -100,23 +114,29 @@ namespace Kaisa.Digivice {
             PlayingAnimations = false;
             gm.CheckPendingEvents();
         }
-        private void ClearAnimParent() {
+        private void ClearAnimParent()
+        {
             foreach (Transform child in animParent) Destroy(child.gameObject);
         }
 
-        private void Update() {
+        private void Update()
+        {
             UpdateDisplay();
         }
 
-        private void UpdateDisplay() {
-            foreach (Transform child in RootParent) {
-                if (child.gameObject.tag.ToLower() == "disposable" ) {
+        private void UpdateDisplay()
+        {
+            foreach (Transform child in RootParent)
+            {
+                if (child.gameObject.tag.ToLower() == "disposable")
+                {
                     Destroy(child.gameObject);
                 }
             }
 
             int showLayer = 0; //0: none, 1: defeated, 2: event, 3: eyes.
-            if (logicMgr.currentScreen == Screen.Character) {
+            if (logicMgr.currentScreen == Screen.Character)
+            {
                 if (gm.IsCharacterDefeated) showLayer = 1;
                 else if (gm.IsEventActive && !gm.IsEventRecovery) showLayer = 2;
                 else if (gm.showEyes) showLayer = 3;
@@ -127,7 +147,8 @@ namespace Kaisa.Digivice {
 
             int index;
             Sprite sprite;
-            switch (logicMgr.currentScreen) {
+            switch (logicMgr.currentScreen)
+            {
                 case Screen.CharSelection:
                     SpriteBuilder sb = ScreenElement.BuildSprite("ArrowsChar", screenDisplay.transform).SetY(4).SetSprite(spriteDB.arrows).SetTransparent(true);
                     sb.gameObject.tag = "Disposable";
@@ -135,7 +156,7 @@ namespace Kaisa.Digivice {
                     SetScreenSprite(spriteDB.GetCharacterSprites((GameChar)logicMgr.charSelectionIndex)[0]);
                     break;
                 case Screen.Character:
-                    
+
                     SetScreenSprite(gm.PlayerCharSprites[gm.CurrentPlayerCharSprite]);
                     break;
                 case Screen.MainMenu:
@@ -170,7 +191,8 @@ namespace Kaisa.Digivice {
             }
         }
 
-        private void SetScreenSprite(Sprite sprite) {
+        private void SetScreenSprite(Sprite sprite)
+        {
             screenDisplay.sprite = sprite;
         }
     }

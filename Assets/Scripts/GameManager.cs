@@ -7,13 +7,15 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Kaisa.Digivice {
+namespace Kaisa.Digivice
+{
     /// <summary>
     /// This class acts as the central link between different managers and classes. Any object with access to the GameManager, has access to all the other managers.
     /// Additionally, this class provides some variables and methods commonly used accross different classes. This class doesn't generally set or edit
     /// any value, but instead tells other managers to do so.
     /// </summary>
-    public class GameManager : MonoBehaviour {
+    public class GameManager : MonoBehaviour
+    {
         //Managers
         public AudioManager audioMgr;
         public DebugManager debug;
@@ -37,11 +39,13 @@ namespace Kaisa.Digivice {
         public GameObject pRectangle;
         public GameObject pTextBox;
 
-        public int JackpotValue {
+        public int JackpotValue
+        {
             get => SavedGame.JackpotValue;
             set => SavedGame.JackpotValue = value;
         }
-        public bool IsCharacterDefeated {
+        public bool IsCharacterDefeated
+        {
             get => SavedGame.IsPlayerDefeated;
             set => SavedGame.IsPlayerDefeated = value;
         }
@@ -50,13 +54,16 @@ namespace Kaisa.Digivice {
         public bool isCharacterWalking = false;
         public bool showEyes => Database.Worlds[WorldMgr.CurrentWorld].showEyes;
 
-        public void Awake() {
-            if(SavedGame.CurrentlyLoadedFilePath == "") {
+        public void Awake()
+        {
+            if (SavedGame.CurrentlyLoadedFilePath == "")
+            {
                 SceneManager.LoadScene("MainMenu");
             }
-            else {
+            else
+            {
                 SavedGame.LoadSavedGame(SavedGame.CurrentlyLoadedFilePath);
-                
+
             }
             VisualDebug.SetDebugManager(debug);
 
@@ -69,10 +76,11 @@ namespace Kaisa.Digivice {
             }*/
 
             //Load information about the player's game.
-            
+
         }
 
-        public void Start() {
+        public void Start()
+        {
             // #if UNITY_EDITOR
             // Application.targetFrameRate = 60;
             // DisableLeaverBuster();
@@ -80,20 +88,22 @@ namespace Kaisa.Digivice {
             // VisualDebug.WriteLine("Leaver Buster disabled by the Unity editor.");
             // debug.ShowDebug();
             // debug.EnableCheats();
-           // #endif
-            
+            // #endif
+
             Database.LoadDatabases(); //So it isn't loaded mid-game.
             Animations.Initialize(this, audioMgr, spriteDB);
-            
+
             SetupManagers();
             SetupStaticClasses();
-            if (SavedGame.PlayerChar == GameChar.none) {
+            if (SavedGame.PlayerChar == GameChar.none)
+            {
                 VisualDebug.WriteLine("Saved character assigned to 'none'. A new game will be created.");
                 logicMgr.currentScreen = Screen.CharSelection;
                 EnqueueAnimation(Animations.LoadCharacterSelection());
 
             }
-            else {
+            else
+            {
                 logicMgr.currentScreen = Screen.Character;
                 CheckLeaverBuster();
                 CheckPendingEvents();
@@ -103,11 +113,13 @@ namespace Kaisa.Digivice {
             AttemptUpdateGame();
             StartCoroutine(IncreaseJackpotValue());
             //EnqueueAnimation(Animations.RewardBossLose("agunimon"));
-           //EnqueueAnimation(Animations.EncounterFinalBoss("agunimon")); 
+            //EnqueueAnimation(Animations.EncounterFinalBoss("agunimon")); 
             //EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
             // EnqueueAnimation(Animations.CharSad());
-               CompleteWorld0();
+            //EnqueueAnimation(Animations.bossEvolution("agunimon","ancientgreymon"));
+            //CompleteWorld0();
+            CompleteWorld1();
             
             //SECTION TO DO WEIRD STUFF IN TESTING.
             // #if UNITY_EDITOR
@@ -122,24 +134,28 @@ namespace Kaisa.Digivice {
         }
 
         //Called via InvokeRepeating
-        private IEnumerator IncreaseJackpotValue() {
-            while (true) {
+        private IEnumerator IncreaseJackpotValue()
+        {
+            while (true)
+            {
                 yield return new WaitForSeconds(300f);
                 if (JackpotValue < 20) JackpotValue++;
             }
         }
 
-        public void CloseGame() {
+        public void CloseGame()
+        {
             SavedGame.CurrentlyLoadedFilePath = "";
             //SavedGame.CloseSavedGame();
-           
+
             SceneManager.LoadScene("MainMenu");
         }
 
         /// <summary>
         /// Creates the necessary keys in the SavedGame to run the game for the first time.
         /// </summary>
-        public void CreateNewGame(GameChar chosenGameChar) {
+        public void CreateNewGame(GameChar chosenGameChar)
+        {
             VisualDebug.WriteLine("Created new game.");
 
             string randomInitial = Database.LoadInitialDigimonsFromFile().GetRandomElement();
@@ -148,12 +164,13 @@ namespace Kaisa.Digivice {
             SavedGame.PlayerChar = chosenGameChar;
             playerChar.Initialize(this, chosenGameChar);
 
-            
 
-            for(int i = 0; i < SavedGame.RandomSeed.Length; i++) {
+
+            for (int i = 0; i < SavedGame.RandomSeed.Length; i++)
+            {
                 SavedGame.RandomSeed[i] = Random.Range(0, 2147483647);
             }
-            
+
             SavedGame.CheatsUsed = false;
             SavedGame.StepsToNextEvent = 300;
             WorldMgr.MoveToArea(0, 0);
@@ -170,10 +187,12 @@ namespace Kaisa.Digivice {
 
             logicMgr.currentScreen = Screen.Character;
 
-            
+
         }
 
-        private void SetupManagers() {
+
+        private void SetupManagers()
+        {
             inputMgr.AssignManagers(this);
             logicMgr.Initialize(this);
             screenMgr.Initialize(this);
@@ -184,30 +203,37 @@ namespace Kaisa.Digivice {
             WorldMgr = new WorldManager(this);
         }
 
-        private void SetupStaticClasses() {
+        private void SetupStaticClasses()
+        {
             ScreenElement.Initialize(pContainer, pSolidSprite, pRectangle, pTextBox);
         }
 
-        private void LoadGame() {
-        
+        private void LoadGame()
+        {
+
             GameChar gameChar = SavedGame.PlayerChar;
-            
+
             playerChar.Initialize(this, gameChar);
         }
 
-        private void CheckLeaverBuster() {
-            if (SavedGame.IsLeaverBusterActive) {
+        private void CheckLeaverBuster()
+        {
+            if (SavedGame.IsLeaverBusterActive)
+            {
                 uint expLoss = SavedGame.LeaverBusterExpLoss;
                 string digimonLoss = SavedGame.LeaverBusterDigimonLoss;
                 VisualDebug.WriteLine($"Leaver Buster triggered. Experience lost: {expLoss}. Digimon lost: {digimonLoss}");
                 logicMgr.RemovePlayerExperience(expLoss);
 
-                if(digimonLoss != "") {
-                    Stage data =  Database.GetDigimon(digimonLoss).stage;
-                    if (data != Stage.Spirit && data !=(Stage) 10) {
+                if (digimonLoss != "")
+                {
+                    Stage data = Database.GetDigimon(digimonLoss).stage;
+                    if (data != Stage.Spirit && data != (Stage)10)
+                    {
                         logicMgr.PunishDigimon(digimonLoss, out _, out _);
                     }
-                    else {
+                    else
+                    {
                         logicMgr.LoseSpirit(digimonLoss);
                     }
 
@@ -221,18 +247,21 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Triggers an event if there's any event pending in the distance manager.
         /// </summary>
-        public void CheckPendingEvents() {
+        public void CheckPendingEvents()
+        {
             //Don't trigger while an app is loaded. When an app is closed, this is called again.
             if (logicMgr.IsAppLoaded && !(logicMgr.loadedApp is Status)) return;
             if (screenMgr.PlayingAnimations) return;
-           //logicMgr.EnqueueRegularEvent();
+            //logicMgr.EnqueueRegularEvent();
             int savedEvent = SavedGame.SavedEvent;
-             if (savedEvent == 0) return;
-            else if (savedEvent == 1) {
+            if (savedEvent == 0) return;
+            else if (savedEvent == 1)
+            {
                 logicMgr.EnqueueRegularEvent();
                 if (logicMgr.IsAppLoaded) logicMgr.CloseLoadedApp();
             }
-            else if(savedEvent == 2) {
+            else if (savedEvent == 2)
+            {
                 logicMgr.EnqueueBossEvent();
                 if (logicMgr.IsAppLoaded) logicMgr.CloseLoadedApp();
             }
@@ -244,8 +273,10 @@ namespace Kaisa.Digivice {
         /// Attempts to update the game if the version of the last update does not match the current version of the game.
         /// This method should be changed whenever an update in the save file(s) is wanted.
         /// </summary>
-        public void AttemptUpdateGame() {
-            if(SavedGame.PlayerChar != GameChar.none && SavedGame.LastUpdateVersion != Constants.GAME_VERSION) {
+        public void AttemptUpdateGame()
+        {
+            if (SavedGame.PlayerChar != GameChar.none && SavedGame.LastUpdateVersion != Constants.GAME_VERSION)
+            {
                 JackpotValue = 20;
                 SavedGame.LastUpdateVersion = Constants.GAME_VERSION;
                 SavedGame.LostSpirits = new List<string>();
@@ -257,12 +288,13 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Reduces distance by 1, if possible, and increases the step count by one.
         /// </summary>
-        public void TakeAStep() {
+        public void TakeAStep()
+        {
             //TODO: Trigger both methods' events if needed.
             WorldMgr.TakeSteps(1);
             WorldMgr.ReduceDistance(1);
             if (WorldMgr.CurrentDistance == 1) SavedGame.SavedEvent = 2;
-            
+
             CheckPendingEvents();
         }
         /// <summary>
@@ -286,49 +318,58 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Applies the score to the current distance and triggers the animation for beating a game.
         /// </summary>
-        public void SubmitGameScore(int score) {
+        public void SubmitGameScore(int score)
+        {
             int oldDistance = WorldMgr.CurrentDistance;
             WorldMgr.ReduceDistance(score);
             int newDistance = WorldMgr.CurrentDistance;
             WorldMgr.TakeSteps(Mathf.RoundToInt(score / 5f));
             screenMgr.EnqueueAnimation(Animations.AwardDistance(score, oldDistance, newDistance));
         }
-        public SpriteBuilder GetDDockScreenElement(int ddock, Transform parent) {
+        public SpriteBuilder GetDDockScreenElement(int ddock, Transform parent)
+        {
             SpriteBuilder sbDDockName = ScreenElement.BuildSprite("$DDock{ddock}", parent).SetSprite(spriteDB.status_ddock[ddock]);
             Sprite dockDigimon = spriteDB.GetDigimonSprite(logicMgr.GetDDockDigimon(ddock));
             if (dockDigimon == null) dockDigimon = spriteDB.status_ddockEmpty;
             return ScreenElement.BuildSprite($"DigimonDDock{ddock}", sbDDockName.transform).SetSize(24, 24).SetPosition(4, 8).SetSprite(dockDigimon);
         }
-       public SpriteBuilder GetDDockScreenElementNoddock(int ddock, Transform parent) {
-          
-           Sprite dockDigimon = spriteDB.GetDigimonSprite(logicMgr.GetDDockDigimon(ddock));
-           if (dockDigimon == null) dockDigimon = spriteDB.status_ddockEmpty;
-            return ScreenElement.BuildSprite($"DigimonDDock{ddock}",parent).SetSize(24, 24).SetPosition(4, 8).SetSprite(dockDigimon);
+        public SpriteBuilder GetDDockScreenElementNoddock(int ddock, Transform parent)
+        {
+
+            Sprite dockDigimon = spriteDB.GetDigimonSprite(logicMgr.GetDDockDigimon(ddock));
+            if (dockDigimon == null) dockDigimon = spriteDB.status_ddockEmpty;
+            return ScreenElement.BuildSprite($"DigimonDDock{ddock}", parent).SetSize(24, 24).SetPosition(4, 8).SetSprite(dockDigimon);
         }
-        private IEnumerator AnimateName(TextBoxBuilder builder) {
+        private IEnumerator AnimateName(TextBoxBuilder builder)
+        {
             yield return null; //Wait for the next frame so the builder's text fitter has adjusted the component's Width.
             int goWidth = builder.Width;
 
-            while (true) {
+            while (true)
+            {
                 builder.SetPosition(32, 0);
-                for (int i = 0; i < goWidth + 32; i++) {
+                for (int i = 0; i < goWidth + 32; i++)
+                {
                     builder.Move(Direction.Left);
                     yield return new WaitForSeconds(0.1f);
                 }
                 yield return new WaitForSeconds(1.5f);
             }
         }
-        public ContainerBuilder BuildMapScreen(int world, Transform parent) {
+        public ContainerBuilder BuildMapScreen(int world, Transform parent)
+        {
             ContainerBuilder cbMap = ScreenElement.BuildContainer("Map Container", parent);
             string worldSprite = Database.Worlds[world].worldSprite;
-            if (Database.Worlds[world].multiMap) {
+            if (Database.Worlds[world].multiMap)
+            {
                 cbMap.SetSize(64, 64);
                 ScreenElement.BuildSprite("Map 0", cbMap.transform).SetSprite(spriteDB.GetWorldSprite(worldSprite, 0));
                 ScreenElement.BuildSprite("Map 1", cbMap.transform).SetSprite(spriteDB.GetWorldSprite(worldSprite, 1)).SetPosition(0, 32);
                 ScreenElement.BuildSprite("Map 2", cbMap.transform).SetSprite(spriteDB.GetWorldSprite(worldSprite, 2)).SetPosition(32, 32);
                 ScreenElement.BuildSprite("Map 3", cbMap.transform).SetSprite(spriteDB.GetWorldSprite(worldSprite, 3)).SetPosition(32, 0);
             }
-            else {
+            else
+            {
                 cbMap.SetSize(32, 32);
                 ScreenElement.BuildSprite("Map 0", cbMap.transform).SetSprite(spriteDB.GetWorldSprite(worldSprite, 0));
             }
@@ -340,49 +381,61 @@ namespace Kaisa.Digivice {
         /// </summary>
         public int GetRandomSavedSeed() => SavedGame.RandomSeed.GetRandomElement();
 
-        public string[] GetAllDDockDigimons() {
+        public string[] GetAllDDockDigimons()
+        {
             string[] ddockDigimon = new string[4];
-            for(int i = 0; i < ddockDigimon.Length; i++) {
+            for (int i = 0; i < ddockDigimon.Length; i++)
+            {
                 ddockDigimon[i] = logicMgr.GetDDockDigimon(i);
             }
             return ddockDigimon;
         }
-         private void UnlockAllDigimon() {
-            foreach (Digimon d in Database.Digimons) {
+        private void UnlockAllDigimon()
+        {
+            foreach (Digimon d in Database.Digimons)
+            {
                 if (d.name != Constants.DEFAULT_SPIRIT_DIGIMON) logicMgr.SetDigimonUnlocked(d.name, true);
             }
         }
-        public List<string> GetAllCharacterWithPlayer(){
-           
-            List<Characters> allCharacter = new List<Characters>();
-            foreach (Characters d in Database.Characters) {
-                if(playerChar.currentChar.ToString().ToLower()==d.Name){
+        public List<string> GetAllCharacterWithPlayer()
+        {
 
-                    d.order=0;
+            List<Characters> allCharacter = new List<Characters>();
+            foreach (Characters d in Database.Characters)
+            {
+                if (playerChar.currentChar.ToString().ToLower() == d.Name)
+                {
+
+                    d.order = 0;
                     allCharacter.Add(d);
 
-                }else if (logicMgr.GetCharacterUnlocked(d.Name)) {
+                }
+                else if (logicMgr.GetCharacterUnlocked(d.Name))
+                {
                     allCharacter.Add(d);
                 }
             }
-            
+
             return allCharacter.OrderBy(d => d.order).Select(d => d.Name).ToList();
 
 
         }
 
-       
 
-    public List<string> GetRandomListCharacter(){
+
+        public List<string> GetRandomListCharacter()
+        {
 
             List<string> allCharacter = new List<string>();
             List<string> characters = GetAllCharacterWithPlayer();
 
-             
-            
-            foreach(string a in characters){
-                 
-                if((int)Random.Range(0, characters.Count)==characters.GetRandomIndex()){
+
+
+            foreach (string a in characters)
+            {
+
+                if ((int)Random.Range(0, characters.Count) == characters.GetRandomIndex())
+                {
 
                     allCharacter.Add(a);
 
@@ -392,66 +445,78 @@ namespace Kaisa.Digivice {
 
 
             }
-            
+
 
             return allCharacter;
-    }
+        }
 
-    public bool IsSpiritCharacterAccesible(string spirit){
+        public bool IsSpiritCharacterAccesible(string spirit)
+        {
 
-        foreach (Characters d in Database.Characters) {
+            foreach (Characters d in Database.Characters)
+            {
 
-           if(logicMgr.GetCharacterUnlocked(d.Name) && d.spirits.Contains(spirit)) return true;
+                if (logicMgr.GetCharacterUnlocked(d.Name) && d.spirits.Contains(spirit)) return true;
+
+            }
+
+            return false;
+        }
+        public GameChar getCharacter(string spirit)
+        {
+
+
+            foreach (Characters d in Database.Characters)
+            {
+
+                if (d.spirits.Contains(spirit)) return (GameChar)d.number;
+
+
+            }
+
+            return GameChar.none;
 
         }
 
-        return false;
-    }
-    public GameChar getCharacter(string spirit){
+        public List<string> GetAvalibleSpiritPlayer()
+        {
+            string[] spirits = Database.GetCharacter(playerChar.currentChar.ToString()).spirits;
+            List<string> disponibles = new List<string>();
+            foreach (string d in spirits)
+            {
+
+                if (logicMgr.GetDigimonUnlocked(d))
+                {
+                    disponibles.Add(d);
+
+                }
+            }
 
 
-          foreach (Characters d in Database.Characters) {
 
-           if( d.spirits.Contains(spirit) ) return (GameChar) d.number;
 
-                
+            return disponibles;
         }
-
-        return GameChar.none;
-       
-    }
-
-    public List<string> GetAvalibleSpiritPlayer(){
-        string [] spirits = Database.GetCharacter(playerChar.currentChar.ToString()).spirits;
-        List<string> disponibles = new List<string>();
-        foreach(string d in spirits ){
-
-            if(logicMgr.GetDigimonUnlocked(d)){
-                disponibles.Add(d);
-
-           }
-        }
-        
-        
-
-
-        return disponibles;
-    }
         /// <summary>
         /// Returns true if the player has unlocked, at least, one digimon in that stage.
         /// </summary>
-        public List<string> GetAllUnlockedDigimonInStage(Stage stage) {
+        public List<string> GetAllUnlockedDigimonInStage(Stage stage)
+        {
             List<Digimon> allDigimon = new List<Digimon>();
-            foreach (Digimon d in Database.Digimons) {
-                if (d.stage == stage && logicMgr.GetDigimonUnlocked(d.name)) {
+            foreach (Digimon d in Database.Digimons)
+            {
+                if (d.stage == stage && logicMgr.GetDigimonUnlocked(d.name))
+                {
                     allDigimon.Add(d);
                 }
             }
             return allDigimon.OrderBy(d => d.order).Select(d => d.name).ToList();
         }
-        public List<string> GetAllUnlockedSpiritsOfElement(Element element) {
+        public List<string> GetAllUnlockedSpiritsOfElement(Element element)
+        {
             List<string> allDigimon = new List<string>();
-            foreach (Digimon d in Database.Digimons) {
+            foreach (Digimon d in Database.Digimons)
+            {
                 if ((int)d.stage == 10
                         && d.element == element
                         && d.spiritType != SpiritType.Fusion
@@ -463,38 +528,40 @@ namespace Kaisa.Digivice {
             return allDigimon;
         }
 
-        public GameChar GetGameCharbyName(string name){
+        public GameChar GetGameCharbyName(string name)
+        {
 
             GameChar gameChar;
-            switch(name){
+            switch (name)
+            {
 
-               case "takuya":
-                gameChar=GameChar.Takuya;
+                case "takuya":
+                    gameChar = GameChar.Takuya;
 
-                break;
-               case "koji":
-                gameChar=GameChar.Koji;
+                    break;
+                case "koji":
+                    gameChar = GameChar.Koji;
 
-                break;
+                    break;
 
                 case "zoe":
-               gameChar=GameChar.Zoe;
+                    gameChar = GameChar.Zoe;
 
-                break;
-               case "jp":
-                gameChar=GameChar.JP;
+                    break;
+                case "jp":
+                    gameChar = GameChar.JP;
 
-                break;
-               case "tommy":
-                gameChar=GameChar.Tommy;
+                    break;
+                case "tommy":
+                    gameChar = GameChar.Tommy;
 
-                break;
+                    break;
                 case "koichi":
-                gameChar=GameChar.Koichi;
-                break;
+                    gameChar = GameChar.Koichi;
+                    break;
                 default:
-                gameChar=GameChar.none;
-                break;
+                    gameChar = GameChar.none;
+                    break;
 
             }
 
@@ -502,28 +569,32 @@ namespace Kaisa.Digivice {
 
 
         }
-        public List<string> GetAllUnlockedSpiritsOfHumanAndAnimal() {
-        
+        public List<string> GetAllUnlockedSpiritsOfHumanAndAnimal()
+        {
+
             List<string> allDigimon = new List<string>();
-            allDigimon=GetAvalibleSpiritPlayer();
-               
-            foreach (Digimon d in Database.Digimons) {
+            allDigimon = GetAvalibleSpiritPlayer();
+
+            foreach (Digimon d in Database.Digimons)
+            {
                 if ((int)d.stage == 10
-                        && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal )
+                        && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
                         && logicMgr.GetDigimonUnlocked(d.name) && !allDigimon.Contains(d.name))
                 {
-                    
+
 
                     allDigimon.Add(d.name);
                 }
             }
             return allDigimon;
         }
-        public List<string> GetAllUnlockedAncientOfElement() {
+        public List<string> GetAllUnlockedAncientOfElement()
+        {
             List<string> allDigimon = new List<string>();
-            foreach (Digimon d in Database.Digimons) {
+            foreach (Digimon d in Database.Digimons)
+            {
                 if (d.stage == Stage.Spirit
-                        
+
                         && d.spiritType == SpiritType.Ancient
                         && logicMgr.GetDigimonUnlocked(d.name))
                 {
@@ -533,12 +604,17 @@ namespace Kaisa.Digivice {
             return allDigimon;
         }
 
-        public List<string> GetAllUnlockedHumanAndAnimalSpirits() {
+        public List<string> GetAllUnlockedHumanAndAnimalSpirits()
+        {
             List<Digimon> allDigimon = new List<Digimon>();
-            foreach (Digimon d in Database.Digimons) {
-                if ((int)d.stage == 10) {
-                    if (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal) {
-                        if (logicMgr.GetDigimonUnlocked(d.name)) {
+            foreach (Digimon d in Database.Digimons)
+            {
+                if ((int)d.stage == 10)
+                {
+                    if (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
+                    {
+                        if (logicMgr.GetDigimonUnlocked(d.name))
+                        {
                             allDigimon.Add(d);
                         }
                     }
@@ -546,10 +622,13 @@ namespace Kaisa.Digivice {
             }
             return allDigimon.OrderBy(d => d.order).Select(d => d.name).ToList();
         }
-        public List<string> GetAllUnlockedFusionDigimon() {
+        public List<string> GetAllUnlockedFusionDigimon()
+        {
             List<string> allDigimon = new List<string>();
-            foreach (Digimon d in Database.Digimons) {
-                if (d.stage == Stage.Spirit && d.spiritType == SpiritType.Fusion && logicMgr.GetDigimonUnlocked(d.name)) {
+            foreach (Digimon d in Database.Digimons)
+            {
+                if (d.stage == Stage.Spirit && d.spiritType == SpiritType.Fusion && logicMgr.GetDigimonUnlocked(d.name))
+                {
                     allDigimon.Add(d.name);
                 }
             }
@@ -558,9 +637,11 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Returns true if the player has both the Human and Animal form of a spirit.
         /// </summary>
-        public bool HasBothFormsOfSpirit(Element element) {
+        public bool HasBothFormsOfSpirit(Element element)
+        {
             int count = 0;
-            foreach (Digimon d in Database.Digimons) {
+            foreach (Digimon d in Database.Digimons)
+            {
                 if ((int)d.stage == 10
                         && d.element == element
                         && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
@@ -574,10 +655,13 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Returns true if the player has all the required spirits for a fusion. fusionName can be 'kaisergreymon', 'magnagarurumon' or 'susanoomon'.
         /// </summary>
-        public bool HasAllSpiritsForFusion(string fusionName) {
+        public bool HasAllSpiritsForFusion(string fusionName)
+        {
             int count = 0;
-            if (fusionName == "kaisergreymon") {
-                foreach (Digimon d in Database.Digimons) {
+            if (fusionName == "kaisergreymon")
+            {
+                foreach (Digimon d in Database.Digimons)
+                {
                     if (d.stage == Stage.Spirit
                             && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
                             && (d.element == Element.Fire || d.element == Element.Wind || d.element == Element.Ice
@@ -588,8 +672,10 @@ namespace Kaisa.Digivice {
                     }
                 }
             }
-            else if (fusionName == "magnagarurumon") {
-                foreach (Digimon d in Database.Digimons) {
+            else if (fusionName == "magnagarurumon")
+            {
+                foreach (Digimon d in Database.Digimons)
+                {
                     if (d.stage == Stage.Spirit
                             && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
                             && (d.element == Element.Light || d.element == Element.Thunder || d.element == Element.Dark
@@ -600,8 +686,10 @@ namespace Kaisa.Digivice {
                     }
                 }
             }
-            else {
-                foreach (Digimon d in Database.Digimons) {
+            else
+            {
+                foreach (Digimon d in Database.Digimons)
+                {
                     if (d.stage == Stage.Spirit
                             && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
                             && logicMgr.GetDigimonUnlocked(d.name))
@@ -615,8 +703,10 @@ namespace Kaisa.Digivice {
         }
 
 
-        public bool IsInDock(string digimon) {
-            foreach(string s in GetAllDDockDigimons()) {
+        public bool IsInDock(string digimon)
+        {
+            foreach (string s in GetAllDDockDigimons())
+            {
                 if (s == digimon) return true;
             }
             return false;
@@ -627,7 +717,8 @@ namespace Kaisa.Digivice {
         /// </summary>
         /// <param name="expLoss">The experience the player would lose if they were busted.</param>
         /// <param name="digimonLoss">The digimon the player would lose if they were busted.</param>
-        public void UpdateLeaverBuster(uint expLoss, string digimonLoss) {
+        public void UpdateLeaverBuster(uint expLoss, string digimonLoss)
+        {
             SavedGame.IsLeaverBusterActive = true;
             SavedGame.LeaverBusterExpLoss = expLoss;
             SavedGame.LeaverBusterDigimonLoss = digimonLoss;
@@ -635,7 +726,8 @@ namespace Kaisa.Digivice {
         /// <summary>
         /// Disables LeaverBuster.
         /// </summary>
-        public void DisableLeaverBuster() {
+        public void DisableLeaverBuster()
+        {
             SavedGame.IsLeaverBusterActive = false;
             SavedGame.LeaverBusterExpLoss = 0;
             SavedGame.LeaverBusterDigimonLoss = "";
@@ -644,8 +736,10 @@ namespace Kaisa.Digivice {
         #region Animations
         public void EnqueueAnimation(IEnumerator animation) => screenMgr.EnqueueAnimation(animation);
 
-        public void EnqueueRewardAnimation(Reward reward, string objective, object resultBefore, object resultAfter) {
-            switch(reward) {
+        public void EnqueueRewardAnimation(Reward reward, string objective, object resultBefore, object resultAfter)
+        {
+            switch (reward)
+            {
                 case Reward.Empty:
                     EnqueueAnimation(Animations.RewardEmpty());
                     EnqueueAnimation(Animations.CharSad());
@@ -662,20 +756,24 @@ namespace Kaisa.Digivice {
                     EnqueueAnimation(Animations.CharHappy());
                     break;
                 case Reward.PunishDigimon:
-                    if((int)resultAfter == -1) {
+                    if ((int)resultAfter == -1)
+                    {
                         EnqueueAnimation(Animations.EraseDigimon(objective));
                     }
-                    else {
+                    else
+                    {
                         EnqueueAnimation(Animations.LevelDownDigimon(objective));
                     }
                     EnqueueAnimation(Animations.CharSad());
                     break;
                 case Reward.RewardDigimon:
-                    if ((int)resultBefore == -1) {
+                    if ((int)resultBefore == -1)
+                    {
                         EnqueueAnimation(Animations.SummonDigimon(objective));
                         EnqueueAnimation(Animations.UnlockDigimon(objective));
                     }
-                    else {
+                    else
+                    {
                         EnqueueAnimation(Animations.SummonDigimon(objective));
                         EnqueueAnimation(Animations.LevelUpDigimon(objective));
                     }
@@ -724,20 +822,61 @@ namespace Kaisa.Digivice {
             }
         }
 
-        public void CompleteWorld(int world) {
+        public void CompleteWorld(int world)
+        {
             if (world == 0) CompleteWorld0();
+            if (world == 1) CompleteWorld1();
             if (world == 2) CompleteWorld2();
         }
-        private void CompleteWorld0() {
+        private void CompleteWorld0()
+        {
             WorldMgr.MoveToArea(1, 0);
             IsCharacterDefeated = true;
             EnqueueAnimation(Animations.TransitionToMap1(PlayerChar));
         }
-        private void CompleteWorld2() {
+        private void CompleteWorld1()
+        {
+            WorldMgr.MoveToArea(2, 0);
+            IsCharacterDefeated = false;
+            logicMgr.currentScreen = Screen.CharSelection;
+
+            // desbloquear a koichi y  Pasar a ventana seleccionar personages tras esto animación tren hacia nuevo mapa.
+
+            // EnqueueAnimation(Animations.TransitionToMap1(PlayerChar));
+
+        }
+
+
+
+        public void FinalPartGameV1(GameChar chosenGameChar)
+        {
+            VisualDebug.WriteLine("Created new game.");
+
+
+            string playerSpirit = Database.PlayerSpirit[chosenGameChar];
+
+            SavedGame.PlayerChar = chosenGameChar;
+
+            playerChar.Initialize(this, chosenGameChar);
+
+
+
+
+
+
+            //EnqueueAnimation(Animations.StartGameAnimation(chosenGameChar, playerSpirit, spiritEnergy, randomInitial, enemyEnergy));
+
+            logicMgr.currentScreen = Screen.Character;
+
+
+        }
+        private void CompleteWorld2()
+        {
             WorldMgr.MoveToArea(3, 0);
             IsCharacterDefeated = true;
             EnqueueAnimation(Animations.TransitionToMap3(PlayerChar, WorldMgr.GetBossOfCurrentArea(), GetAllUnlockedHumanAndAnimalSpirits()));
-            foreach (string s in GetAllUnlockedHumanAndAnimalSpirits()) {
+            foreach (string s in GetAllUnlockedHumanAndAnimalSpirits())
+            {
                 logicMgr.LoseSpirit(s);
             }
         }
