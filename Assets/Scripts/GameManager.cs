@@ -116,10 +116,10 @@ namespace Kaisa.Digivice
             //EnqueueAnimation(Animations.EncounterFinalBoss("agunimon")); 
             //EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
-            // EnqueueAnimation(Animations.CharSad());
-            //EnqueueAnimation(Animations.bossEvolution("agunimon","ancientgreymon"));
+            EnqueueAnimation(Animations.StartGameAnimation2(GameChar.Tommy));
+            //EnqueueAnimation(Animations.FinalBossMap("agunimon",GameChar.Koichi));
             //CompleteWorld0();
-            CompleteWorld1();
+            //CompleteWorld2();
             
             //SECTION TO DO WEIRD STUFF IN TESTING.
             // #if UNITY_EDITOR

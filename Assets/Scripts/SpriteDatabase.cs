@@ -115,6 +115,7 @@ namespace Kaisa.Digivice {
         [Header("End boss animations")]
         public Sprite[] spirit_absorber = new Sprite[2];
         public Sprite spirit_explosion;
+        public Sprite[] head_trailmon = new Sprite[4];
 
         private void Awake() {
             Constants.SetEmptySprite(emptySprite);

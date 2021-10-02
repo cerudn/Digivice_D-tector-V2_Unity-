@@ -1934,6 +1934,11 @@ MonoBehaviour:
   - {fileID: -3729817045237689404, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
   spirit_explosion: {fileID: 1386095112440340573, guid: b7864b531b3f6f044a0df4d08d2c9e2c,
     type: 3}
+  head_trailmon:
+  - {fileID: 2973674225891703277, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
+  - {fileID: -9185396388730343888, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
+  - {fileID: -7860586250778739363, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
+  - {fileID: 2123994479657191340, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
 --- !u!4 &460819917
 Transform:
   m_ObjectHideFlags: 0

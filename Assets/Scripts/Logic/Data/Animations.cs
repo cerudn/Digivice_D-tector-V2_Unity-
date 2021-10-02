@@ -59,6 +59,9 @@ namespace Kaisa.Digivice
             yield return new WaitForSeconds(1f);
         }
 
+
+
+
         public static IEnumerator StartGameAnimation(GameChar character, string spirit, int spiritEnergy, string enemyDigimon, int enemyEnergy)
         {
             Sprite[] sCharacter = spriteDB.GetCharacterSprites(character);
@@ -1062,7 +1065,114 @@ namespace Kaisa.Digivice
             yield return new WaitForSeconds(0.75f);
 
         }
+        public static IEnumerator StartGameAnimation2(GameChar character)
+        {
+            Sprite sClouds = spriteDB.gameStart_clouds;
+            Sprite sTrailmon = spriteDB.gameStart_trailmon;
+            SpriteBuilder sbClouds = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 32).SetSprite(sClouds).SetX(-40);
+            SpriteBuilder sbTrailmon = ScreenElement.BuildSprite("Character", AnimParent).SetSize(118, 15).SetSprite(sTrailmon).SetY(9).PlaceOutside(Direction.Right);
+            for (int i = 0; i < 31; i++)
+            {
+                if (i % 2 == 0) sbClouds.Move(Direction.Right);
+                sbTrailmon.Move(Direction.Left);
+                yield return new WaitForSeconds(4.2f / 65);
+            }
+            for (int i = 0; i < 21; i++)
+            {
+                // if (i < 12 && i % 2 == 0) sbClouds.Move(Direction.Left);
+                sbTrailmon.Move(Direction.Left);
+                yield return new WaitForSeconds(3.4f / 32);
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                sbTrailmon.Move(Direction.Left);
+                yield return new WaitForSeconds(2.6f / 11);
+            }
+            RectangleBuilder sbWindow1 = ScreenElement.BuildRectangle("Window1", AnimParent).SetSize(0, 6).SetPosition(7, 14);
+            RectangleBuilder sbWindow2 = ScreenElement.BuildRectangle("Window1", AnimParent).SetSize(0, 6).SetPosition(17, 14);
+            RectangleBuilder sbWindow3 = ScreenElement.BuildRectangle("Window1", AnimParent).SetSize(0, 6).SetPosition(27, 14);
+            for (int i = 0; i < 2; i++)
+            {
+                sbWindow1.SetSize(i + 1, 6).Move(Direction.Left);
+                sbWindow2.SetSize(i + 1, 6).Move(Direction.Left);
+                sbWindow3.SetSize(i + 1, 6).Move(Direction.Left);
+                yield return new WaitForSeconds(0.8f / 2);
+            }
+            sbClouds.Dispose();
+            sbTrailmon.Dispose();
+            sbWindow1.Dispose();
+            sbWindow2.Dispose();
+            sbWindow3.Dispose();
 
+
+
+            switch (character)
+            {
+
+                case GameChar.Takuya:
+                    break;
+                case GameChar.Koji:
+                    break;
+                case GameChar.JP:
+                    break;
+                case GameChar.Zoe:
+                    break;
+                case GameChar.Tommy:
+                    break;
+                case GameChar.Koichi:
+                    break;
+
+
+
+            }
+            Sprite[] HeadTrailmon = spriteDB.head_trailmon;
+
+
+
+
+
+            Sprite[] characters;
+
+            SpriteBuilder sbCharacter = ScreenElement.BuildSprite("Character", AnimParent);
+            SpriteBuilder sbHeadTrailmon = ScreenElement.BuildSprite("Character", AnimParent).SetSprite(HeadTrailmon[0]).SetSize(15, 32);
+            SpriteBuilder sbHeadTrailmonBarra = ScreenElement.BuildSprite("Character", AnimParent).SetSprite(HeadTrailmon[3]).SetSize(17, 4).SetPosition(15, 28);
+            int startnum = ((int)character + 1);
+            if (character == GameChar.Koichi)
+            {
+                startnum = 0;
+            }
+
+            for (int j = startnum; j < 6; j++)
+            {
+                characters = spriteDB.GetCharacterSprites((GameChar)j);
+                if (((int)character - j) == 1)
+                {
+                    j = 6;
+
+                }
+                else if (j == 5)
+                {
+                    j = -1;
+                }
+
+
+                sbCharacter.SetSprite(characters[0]).PlaceOutside(Direction.Right);
+                for (int i = 0; i < 21; i++)
+                {
+                    sbCharacter.SetSprite(characters[4]).Move(Direction.Left); ;
+                    yield return new WaitForSeconds(0.1f);
+                    sbCharacter.SetSprite(characters[5]).Move(Direction.Left); ;
+                    yield return new WaitForSeconds(0.1f);
+
+
+                }
+            }
+
+            yield return new WaitForSeconds(10.5f);
+
+
+
+        }
         public static IEnumerator EncounterFinalBoss(string digimon)
         {
             Sprite sDigimon = spriteDB.GetDigimonSprite(digimon);
@@ -3575,6 +3685,209 @@ namespace Kaisa.Digivice
             }
             yield return new WaitForSeconds(0.5f);
             yield return DisplayNewArea(gm.WorldMgr.CurrentWorld, gm.WorldMgr.CurrentArea, gm.WorldMgr.CurrentDistance);
+        }
+
+
+        public static IEnumerator TransitionToMap2(GameChar character)
+        {
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        public static IEnumerator FinalBossMap(string enemyDigimon, GameChar character, int dim = 24)
+        {
+
+
+            Sprite sdigimon = spriteDB.GetDigimonSprite(enemyDigimon);
+
+            Sprite[] sSpiral = spriteDB.ancientSpiral;
+            Sprite[] sCircle = spriteDB.ancientCircle;
+
+            SpriteBuilder[] spdigimon = new SpriteBuilder[3];
+            Sprite power = spriteDB.giveMassivePower;
+            // SpriteBuilder[] spdigimonAfter = new SpriteBuilder[3];
+            SpriteBuilder sbGiveMassivePower = ScreenElement.BuildSprite("GivePower", AnimParent).SetSprite(power).SetTransparent(true).SetActive(false);
+
+            Sprite sHuman = spriteDB.GetDigimonSprite("loweemon", SpriteAction.Spirit);
+            Sprite sAnimal = spriteDB.GetDigimonSprite("kaiserleomon", SpriteAction.Spirit);
+
+            //SpriteBuilder sbCharacter = ScreenElement.BuildSprite("Character", AnimParent).SetSprite(sCharacter[0]).SetActive(false);
+
+            for (int i = 0; i < 3; i++)
+            {
+                spdigimon[i] = ScreenElement.BuildSprite($"Evolve{i}", AnimParent)
+                    .SetSize(dim, dim).SetSprite(sdigimon).SetTransparent(true).SetActive(false).Center().FlipHorizontal(true);
+                // spdigimonAfter[i] = ScreenElement.BuildSprite($"Evolve2{i}", AnimParent)
+                //     .SetSize(dim, dim).SetSprite(sdigimonAfter).SetTransparent(true).SetActive(false).Center().FlipHorizontal(true);
+
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                spdigimon[0].SetActive(true);
+                yield return new WaitForSeconds(0.3f);
+                spdigimon[0].SetActive(false);
+                yield return new WaitForSeconds(0.3f);
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                sbGiveMassivePower.SetActive(true);
+                yield return new WaitForSeconds(0.15f);
+                sbGiveMassivePower.SetActive(false);
+                yield return new WaitForSeconds(0.15f);
+            }
+
+
+
+
+
+            spdigimon[1].SetActive(true);
+            spdigimon[2].SetActive(true);
+
+            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i < 32; i++)
+            {
+                spdigimon[2].Move(Direction.Left);
+                spdigimon[1].Move(Direction.Right);
+                yield return new WaitForSeconds(1.5f / 30);
+            }
+            spdigimon[1].SetActive(false);
+            spdigimon[2].SetActive(false);
+
+            SpriteBuilder sbsHuman = ScreenElement.BuildSprite("Spirit", AnimParent).SetSprite(sHuman).SetSize(24, 24).SetActive(false).Center();
+            SpriteBuilder sbsAnimal = ScreenElement.BuildSprite("Spirit", AnimParent).SetSprite(sAnimal).SetSize(24, 24).SetActive(false).Center();
+            SpriteBuilder sbCurtain = ScreenElement.BuildSprite("Curtain", AnimParent).SetSprite(spriteDB.curtain).PlaceOutside(Direction.Up);
+
+            for (int i = 0; i < 64; i++)
+            {
+                sbCurtain.Move(Direction.Down);
+                if (i == 32) sbsHuman.SetActive(true);
+
+                yield return new WaitForSeconds(4f / 64);
+            }
+            sbsHuman.SetActive(false);
+
+            sbCurtain.PlaceOutside(Direction.Up);
+            for (int i = 0; i < 64; i++)
+            {
+                sbCurtain.Move(Direction.Down);
+                if (i == 32) sbsAnimal.SetActive(true);
+
+                yield return new WaitForSeconds(4f / 64);
+            }
+            sbsAnimal.SetActive(false);
+            SpriteBuilder sbSpiral = ScreenElement.BuildSprite("Spiral", AnimParent);
+            SpriteBuilder sbCircle = ScreenElement.BuildSprite("Circle", AnimParent).SetTransparent(true);
+            sbCircle.SetActive(true);
+            sbSpiral.SetActive(true);
+            sbGiveMassivePower.SetActive(false);
+            sbCircle.SetSprite(sCircle[0]);
+            for (int i = 0; i < 3; i++)
+            {
+
+
+                sbSpiral.SetSprite(sSpiral[0]);
+                yield return new WaitForSeconds(0.3f);
+                sbSpiral.SetSprite(sSpiral[1]);
+                yield return new WaitForSeconds(0.3f);
+
+            }
+            sbSpiral.SetSprite(sSpiral[0]);
+            yield return new WaitForSeconds(0.15f);
+
+            sbCircle.SetActive(false);
+            sbSpiral.SetActive(false);
+            yield return new WaitForSeconds(0.15f);
+
+
+            for (int i = 0; i < 3; i++)
+            {
+
+                sbSpiral.SetSprite(sSpiral[(i + 1) % 2]);
+                sbCircle.SetActive(true);
+                sbSpiral.SetActive(true);
+                yield return new WaitForSeconds(0.15f);
+                sbCircle.SetActive(false);
+                sbSpiral.SetActive(false);
+                yield return new WaitForSeconds(0.15f);
+
+            }
+
+
+
+
+
+            Sprite sGivePower = spriteDB.givePower;
+            Sprite[] sCharacter = spriteDB.GetCharacterSprites(GameChar.JP);
+            Sprite sExclamationMark = spriteDB.battle_disobey;
+
+            SpriteBuilder sbCharacter = ScreenElement.BuildSprite("Charcter", AnimParent).SetSprite(sCharacter[7]).SetTransparent(true).SetActive(false);
+            SpriteBuilder sbGivePower = ScreenElement.BuildSprite("Power", AnimParent).SetSprite(sGivePower).SetTransparent(true);
+            SpriteBuilder sbDisobey = ScreenElement.BuildSprite("Disobey", AnimParent).SetSize(3, 9).SetPosition(1, 1).SetSprite(sExclamationMark).SetActive(false);
+
+            sbGivePower.SetActive(false);
+
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                yield return new WaitForSeconds(0.222f);
+                sbGivePower.SetActive(true);
+                yield return new WaitForSeconds(0.111f);
+                sbGivePower.SetActive(false);
+            }
+
+
+            yield return new WaitForSeconds(0.222f);
+            sbCharacter.SetActive(true);
+            for (int i = 0; i < 3; i++)
+            {
+
+                sbGivePower.SetActive(true);
+                yield return new WaitForSeconds(0.222f);
+                sbGivePower.SetActive(false);
+                yield return new WaitForSeconds(0.222f);
+            }
+            yield return new WaitForSeconds(0.322f);
+            sbCharacter.SetSprite(sCharacter[0]);
+            yield return new WaitForSeconds(0.322f);
+
+            yield return new WaitForSeconds(0.322f);
+            sbCharacter.SetSprite(sCharacter[0]);
+            sbDisobey.SetActive(true);
+            yield return new WaitForSeconds(0.322f);
+            sbDisobey.SetActive(false);
+            yield return new WaitForSeconds(0.322f);
+            for (int i = 0; i < 2; i++)
+            {
+                yield return new WaitForSeconds(0.27f);
+                sbCharacter.FlipHorizontal(true);
+                yield return new WaitForSeconds(0.27f);
+                sbCharacter.FlipHorizontal(false);
+            }
+            yield return new WaitForSeconds(0.27f);
+            sbCharacter.FlipHorizontal(true);
+            yield return new WaitForSeconds(0.3f);
+            for (int i = 0; i < 25; i++)
+            {
+                sbCharacter.Move(Direction.Left);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            Sprite[] sCharacterPlayer = spriteDB.GetCharacterSprites(character);
+            SpriteBuilder sbCharacterPlayer = ScreenElement.BuildSprite("Charcter", AnimParent).SetSprite(sCharacterPlayer[0]).PlaceOutside(Direction.Right);
+
+            for (int i = 0; i < 32; i++)
+            {
+                sbCharacterPlayer.Move(Direction.Left);
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            yield return CharHappy();
+
+
+
         }
 
         public static IEnumerator EnemyEscapes(string enemyDigimon, string friendlyDigimon)
