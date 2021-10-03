@@ -1939,6 +1939,12 @@ MonoBehaviour:
   - {fileID: -9185396388730343888, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
   - {fileID: -7860586250778739363, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
   - {fileID: 2123994479657191340, guid: b7864b531b3f6f044a0df4d08d2c9e2c, type: 3}
+  FINAL_TEXT: {fileID: 7182500258588662182, guid: b7864b531b3f6f044a0df4d08d2c9e2c,
+    type: 3}
+  clouds_foot: {fileID: 824087149649297118, guid: b7864b531b3f6f044a0df4d08d2c9e2c,
+    type: 3}
+  end_trailmon: {fileID: 3670523112022132843, guid: b7864b531b3f6f044a0df4d08d2c9e2c,
+    type: 3}
 --- !u!4 &460819917
 Transform:
   m_ObjectHideFlags: 0

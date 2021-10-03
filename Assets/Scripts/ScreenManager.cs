@@ -21,6 +21,11 @@ namespace Kaisa.Digivice
         private SpriteBuilder defeatedLayer;
         private SpriteBuilder eventLayer;
         private SpriteBuilder eyesLayer;
+        private SpriteBuilder sbClouds1;
+        private SpriteBuilder sbClouds2;
+        private SpriteBuilder sbTrailmon;
+        private SpriteBuilder textdb;
+        private SpriteBuilder blackscreen;
         public bool PlayingAnimations { get; private set; }
 
         public void Initialize(GameManager gm)
@@ -59,12 +64,64 @@ namespace Kaisa.Digivice
                 .SetPosition(1, 1).SetTransparent(true).SetActive(false);
             eventLayer = ScreenElement.BuildSprite("Event", RootParent.transform).SetTransparent(true).SetActive(false);
             eyesLayer = ScreenElement.BuildSprite("Eyes", RootParent.transform).SetTransparent(true).SetActive(false);
+            blackscreen = ScreenElement.BuildSprite("end", RootParent.transform).SetSprite(spriteDB.blackScreen).InvertColors(true).SetTransparent(true).SetActive(false);
 
+            sbClouds1 = ScreenElement.BuildSprite("end", RootParent.transform).SetSize(76, 8).SetY(24).SetSprite(spriteDB.clouds_foot).SetX(-46).SetActive(false);
+            sbClouds2 = ScreenElement.BuildSprite("end", RootParent.transform).SetSize(76, 8).SetY(24).SetSprite(spriteDB.clouds_foot).SetX(-122).SetActive(false);
+            sbTrailmon = ScreenElement.BuildSprite("end", RootParent.transform).SetSize(32, 15).SetSprite(spriteDB.end_trailmon).SetY(9).SetActive(false);
+            textdb = ScreenElement.BuildSprite("end", RootParent.transform).SetSize(60, 8).SetSprite(spriteDB.FINAL_TEXT).PlaceOutside(Direction.Right).SetActive(false);
+
+
+
+            StartCoroutine(PAFlashEyesEffect());
             StartCoroutine(PAFlashDefeatedEffect());
             StartCoroutine(PAFlashEventEffect());
-            StartCoroutine(PAFlashEyesEffect());
+            StartCoroutine(EndGame());
 
             StartCoroutine(ConsumeQueue());
+        }
+
+        private IEnumerator EndGame()
+        {
+
+            sbClouds1.transform.SetAsFirstSibling();
+            sbClouds2.transform.SetAsFirstSibling();
+            textdb.transform.SetAsFirstSibling();
+            sbTrailmon.transform.SetAsFirstSibling();
+            blackscreen.transform.SetAsFirstSibling();
+
+
+            int i = 0;
+
+
+            while (true)
+            {
+
+
+                if (sbClouds1.Position.x == 32)
+                {
+                    sbClouds1.SetX(-122);
+
+                }
+                if (sbClouds2.Position.x == 32)
+                {
+                    sbClouds2.SetX(-122);
+
+                }
+
+                if (textdb.Position.x == -60)
+                {
+                    textdb.PlaceOutside(Direction.Right);
+
+                }
+                if (i % 2 == 0) { sbClouds1.Move(Direction.Right); sbClouds2.Move(Direction.Right); i = 0; textdb.Move(Direction.Left); }
+                i++;
+                // 
+
+                yield return new WaitForSeconds(4.2f / 65);
+            }
+
+
         }
         private IEnumerator PAFlashDefeatedEffect()
         {
@@ -140,20 +197,34 @@ namespace Kaisa.Digivice
                 if (gm.IsCharacterDefeated) showLayer = 1;
                 else if (gm.IsEventActive && !gm.IsEventRecovery) showLayer = 2;
                 else if (gm.showEyes) showLayer = 3;
+                else if (gm.showEnd) showLayer = 4;
+            }
+            if (logicMgr.currentScreen == Screen.CharSelection)
+            {
+                if (gm.showEnd) showLayer = 4;
             }
             defeatedLayer.SetActive(showLayer == 1);
             eventLayer.SetActive(showLayer == 2);
             eyesLayer.SetActive(showLayer == 3);
+            blackscreen.SetActive(showLayer == 4);
+            sbClouds1.SetActive(showLayer == 4);
+            sbClouds2.SetActive(showLayer == 4);
+            textdb.SetActive(showLayer == 4);
+            sbTrailmon.SetActive(showLayer == 4);
 
             int index;
             Sprite sprite;
             switch (logicMgr.currentScreen)
             {
                 case Screen.CharSelection:
-                    SpriteBuilder sb = ScreenElement.BuildSprite("ArrowsChar", screenDisplay.transform).SetY(4).SetSprite(spriteDB.arrows).SetTransparent(true);
-                    sb.gameObject.tag = "Disposable";
-                    sb.transform.SetAsFirstSibling();
-                    SetScreenSprite(spriteDB.GetCharacterSprites((GameChar)logicMgr.charSelectionIndex)[0]);
+                    if (!gm.showEnd)
+                    {
+                        SpriteBuilder sb = ScreenElement.BuildSprite("ArrowsChar", screenDisplay.transform).SetY(4).SetSprite(spriteDB.arrows).SetTransparent(true);
+                        sb.gameObject.tag = "Disposable";
+                        sb.transform.SetAsFirstSibling();
+
+                        SetScreenSprite(spriteDB.GetCharacterSprites((GameChar)logicMgr.charSelectionIndex)[0]);
+                    }
                     break;
                 case Screen.Character:
 

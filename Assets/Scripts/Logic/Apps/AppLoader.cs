@@ -21,7 +21,8 @@ namespace Kaisa.Digivice.Apps {
         Asteroids,
         DigiHunter,
         Maze,
-        Character
+        Character,
+        End
     }
     public class AppLoader : MonoBehaviour {
         [SerializeField] private GameManager gm;
@@ -31,6 +32,7 @@ namespace Kaisa.Digivice.Apps {
         [SerializeField] private GameObject pAppStatus;
         [SerializeField] private GameObject pAppDatabase;
         [SerializeField] private GameObject pAppDigits;
+        [SerializeField] private GameObject pAppEnd;
         [SerializeField] private GameObject pAppCamp;
         [SerializeField] private GameObject pAppConnect;
         //Games
@@ -88,6 +90,9 @@ namespace Kaisa.Digivice.Apps {
                     appGO = Instantiate(pAppMaze, gm.RootParent);
                     break;
                 case App.Character:
+                    appGO = Instantiate(pAppCharacter, gm.RootParent);
+                    break;
+                case App.End:
                     appGO = Instantiate(pAppCharacter, gm.RootParent);
                     break;
                 default:

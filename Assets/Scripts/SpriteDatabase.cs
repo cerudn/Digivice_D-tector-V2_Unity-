@@ -117,6 +117,12 @@ namespace Kaisa.Digivice {
         public Sprite spirit_explosion;
         public Sprite[] head_trailmon = new Sprite[4];
 
+        public Sprite FINAL_TEXT;
+
+        public Sprite clouds_foot;
+
+        public Sprite end_trailmon;
+
         private void Awake() {
             Constants.SetEmptySprite(emptySprite);
         }

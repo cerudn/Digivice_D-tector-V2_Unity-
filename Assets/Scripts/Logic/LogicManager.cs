@@ -40,6 +40,9 @@ namespace Kaisa.Digivice
 
         //Trigger event.
         public bool IsEventPending { get; private set; } = false;
+
+        public bool IsEndGame { get; private set; } = false;
+
         public bool IsEventRecoveryPending { get; private set; } = false;
         public delegate void TriggerEvent();
         public TriggerEvent triggerEvent;
@@ -144,19 +147,28 @@ namespace Kaisa.Digivice
             }
             else if (currentScreen == Screen.CharSelection)
             {
-                    audioMgr.PlayButtonA();
-                if (gm.WorldMgr.CurrentWorld == 0)
+                audioMgr.PlayButtonA();
+                if (IsEndGame)
                 {
-                    
-                    SelectCharacterAndCreateGame();
+                    IsEndGame = false;
                 }
                 else
                 {
-                    SelectCharacterPart2Game();
+                    if (gm.WorldMgr.CurrentWorld == 0)
+                    {
+
+                        SelectCharacterAndCreateGame();
+                    }
+                    else
+                    {
+
+
+                        SelectCharacterPart2Game();
+                    }
                 }
 
-
             }
+
         }
 
         // if (gamesMenuIndex == 0) {
@@ -296,7 +308,15 @@ namespace Kaisa.Digivice
             else if (currentScreen == Screen.CharSelection)
             {
                 audioMgr.PlayButtonA();
-                charSelectionIndex = charSelectionIndex.CircularAdd(-1, 5);
+                if (gm.WorldMgr.CurrentWorld == 0)
+                {
+                    if (!IsEndGame) charSelectionIndex = charSelectionIndex.CircularAdd(-1, 4);
+                }
+                else
+                {
+                    if (!IsEndGame) charSelectionIndex = charSelectionIndex.CircularAdd(-1, 5);
+                }
+
             }
         }
         public void InputRight()
@@ -343,7 +363,14 @@ namespace Kaisa.Digivice
             else if (currentScreen == Screen.CharSelection)
             {
                 audioMgr.PlayButtonA();
-                charSelectionIndex = charSelectionIndex.CircularAdd(1, 5);
+                if (gm.WorldMgr.CurrentWorld == 0)
+                {
+                    if (!IsEndGame) charSelectionIndex = charSelectionIndex.CircularAdd(1, 4);
+                }
+                else
+                {
+                    if (!IsEndGame) charSelectionIndex = charSelectionIndex.CircularAdd(1, 5);
+                }
             }
         }
         //Down
@@ -381,6 +408,12 @@ namespace Kaisa.Digivice
             if (currentScreen == Screen.App) loadedApp.InputRightUp();
         }
         #endregion
+
+        public void end()
+        {
+            IsEndGame = true;
+
+        }
         public void EnqueueRegularEvent()
         {
             if (loadedApp == null) currentScreen = Screen.Character;
@@ -388,6 +421,7 @@ namespace Kaisa.Digivice
             audioMgr.PlaySound(audioMgr.triggerEvent);
 
             IsEventPending = true;
+
             triggerEvent = CallRandomBattleForEvent;
 
             if (Random.Range(0f, 1f) < 0.85f)
@@ -474,6 +508,8 @@ namespace Kaisa.Digivice
 
         public void SelectCharacterPart2Game()
         {
+
+
             gm.FinalPartGameV1((GameChar)charSelectionIndex);
 
         }
@@ -547,6 +583,7 @@ namespace Kaisa.Digivice
             loadedApp = gm.appLoader.LoadApp<CodeInput>(App.CodeInput, this).Initialize(false);
             loadedApp.StartApp();
         }
+
         private void OpenCamp()
         {
             currentScreen = Screen.App;
@@ -973,6 +1010,12 @@ namespace Kaisa.Digivice
             List<string> characters = getLoserCharacter();
 
 
+            if (gm.WorldMgr.CurrentWorld == 0)
+            {
+                characters.Remove("koichi");
+
+            }
+
 
             foreach (string a in characters)
             {
@@ -1210,13 +1253,41 @@ namespace Kaisa.Digivice
 
                 gm.EnqueueAnimation(Animations.RunRecovery(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(test[i].ToLower()))));
 
-                RecoverCharacter(test[i].ToLower());
-
+                if (test[i].ToLower() == "koichi" && gm.WorldMgr.CurrentWorld == 0)
+                {
+                    continue;
+                }
+                else
+                {
+                    RecoverCharacter(test[i].ToLower());
+                }
             }
 
             gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
             gm.EnqueueAnimation(Animations.CharHappy());
 
+
+        }
+
+        public void recoveryAllCharacters()
+        {
+
+            List<string> characters = getLoserCharacter();
+
+
+            if (gm.WorldMgr.CurrentWorld == 0)
+            {
+                characters.Remove("koichi");
+
+            }
+
+            for (int i = 0; i < characters.Count; i++)
+            {
+
+
+                RecoverCharacter(characters[i].ToLower());
+
+            }
 
         }
 

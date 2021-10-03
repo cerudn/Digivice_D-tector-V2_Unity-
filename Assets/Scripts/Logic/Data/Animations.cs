@@ -1065,15 +1065,63 @@ namespace Kaisa.Digivice
             yield return new WaitForSeconds(0.75f);
 
         }
+
+
+        public static IEnumerator EndGame()
+        {
+            Sprite sClouds = spriteDB.clouds_foot;
+            Sprite sTrailmon = spriteDB.end_trailmon;
+            Sprite TEXT = spriteDB.FINAL_TEXT;
+            SpriteBuilder sbClouds1 = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 8).SetY(24).SetSprite(sClouds).SetX(-46);
+            SpriteBuilder sbClouds2 = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 8).SetY(24).SetSprite(sClouds).SetX(-122);
+            SpriteBuilder sbTrailmon = ScreenElement.BuildSprite("Character", AnimParent).SetSize(32, 15).SetSprite(sTrailmon).SetY(9);
+            SpriteBuilder textdb = ScreenElement.BuildSprite("Character", AnimParent).SetSize(60, 8).SetSprite(TEXT).PlaceOutside(Direction.Right);
+
+            int i = 0;
+            int j = 0;
+
+            while (j < 130)
+            {
+
+
+                if (sbClouds1.Position.x == 32)
+                {
+                    sbClouds1.SetX(-122);
+
+                }
+                if (sbClouds2.Position.x == 32)
+                {
+                    sbClouds2.SetX(-122);
+
+                }
+
+                if (textdb.Position.x == -60)
+                {
+                    textdb.PlaceOutside(Direction.Right);
+
+                }
+                if (i % 2 == 0) { sbClouds1.Move(Direction.Right); sbClouds2.Move(Direction.Right); i = 0; textdb.Move(Direction.Left); }
+                i++;
+                // 
+                j++;
+                yield return new WaitForSeconds(4.2f / 65);
+            }
+
+            sbClouds1.Dispose();
+            sbClouds2.Dispose();
+            textdb.Dispose();
+            sbTrailmon.Dispose();
+        }
         public static IEnumerator StartGameAnimation2(GameChar character)
         {
-            Sprite sClouds = spriteDB.gameStart_clouds;
+            Sprite sClouds = spriteDB.clouds_foot;
             Sprite sTrailmon = spriteDB.gameStart_trailmon;
-            SpriteBuilder sbClouds = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 32).SetSprite(sClouds).SetX(-40);
+            SpriteBuilder sbClouds1 = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 8).SetY(24).SetSprite(sClouds).SetX(-40);
+
             SpriteBuilder sbTrailmon = ScreenElement.BuildSprite("Character", AnimParent).SetSize(118, 15).SetSprite(sTrailmon).SetY(9).PlaceOutside(Direction.Right);
             for (int i = 0; i < 31; i++)
             {
-                if (i % 2 == 0) sbClouds.Move(Direction.Right);
+                if (i % 2 == 0) sbClouds1.Move(Direction.Right);
                 sbTrailmon.Move(Direction.Left);
                 yield return new WaitForSeconds(4.2f / 65);
             }
@@ -1098,7 +1146,7 @@ namespace Kaisa.Digivice
                 sbWindow3.SetSize(i + 1, 6).Move(Direction.Left);
                 yield return new WaitForSeconds(0.8f / 2);
             }
-            sbClouds.Dispose();
+            sbClouds1.Dispose();
             sbTrailmon.Dispose();
             sbWindow1.Dispose();
             sbWindow2.Dispose();
@@ -1106,25 +1154,7 @@ namespace Kaisa.Digivice
 
 
 
-            switch (character)
-            {
 
-                case GameChar.Takuya:
-                    break;
-                case GameChar.Koji:
-                    break;
-                case GameChar.JP:
-                    break;
-                case GameChar.Zoe:
-                    break;
-                case GameChar.Tommy:
-                    break;
-                case GameChar.Koichi:
-                    break;
-
-
-
-            }
             Sprite[] HeadTrailmon = spriteDB.head_trailmon;
 
 
@@ -1145,7 +1175,7 @@ namespace Kaisa.Digivice
             for (int j = startnum; j < 6; j++)
             {
                 characters = spriteDB.GetCharacterSprites((GameChar)j);
-                if (((int)character - j) == 1)
+                if (((int)character - j) == 1 || ((int)character - j) == -5)
                 {
                     j = 6;
 
@@ -1166,9 +1196,85 @@ namespace Kaisa.Digivice
 
 
                 }
+
+
             }
 
-            yield return new WaitForSeconds(10.5f);
+            characters = spriteDB.GetCharacterSprites(character);
+            sbCharacter.SetSprite(characters[0]).PlaceOutside(Direction.Right);
+
+            for (int i = 0; i < 14; i++)
+            {
+                sbCharacter.SetSprite(characters[4]).Move(Direction.Left); ;
+                yield return new WaitForSeconds(0.1f);
+                sbCharacter.SetSprite(characters[5]).Move(Direction.Left); ;
+                yield return new WaitForSeconds(0.1f);
+
+
+            }
+            sbCharacter.SetSprite(characters[0]);
+            yield return new WaitForSeconds(0.1f);
+            sbCharacter.FlipHorizontal(true);
+            yield return new WaitForSeconds(0.4f);
+            sbCharacter.FlipHorizontal(false);
+            yield return new WaitForSeconds(0.3f);
+            for (int i = 0; i < 7; i++)
+            {
+                sbCharacter.SetSprite(characters[4]).Move(Direction.Left); ;
+                yield return new WaitForSeconds(0.1f);
+                sbCharacter.SetSprite(characters[5]).Move(Direction.Left); ;
+                yield return new WaitForSeconds(0.1f);
+
+
+            }
+
+
+
+
+            sbHeadTrailmon.SetSprite(HeadTrailmon[1]);
+            yield return new WaitForSeconds(0.3f);
+            sbHeadTrailmon.SetSprite(HeadTrailmon[2]);
+            yield return new WaitForSeconds(0.3f);
+            sbHeadTrailmon.Dispose();
+            sbCharacter.Dispose();
+            sbHeadTrailmonBarra.Dispose();
+
+            sbClouds1 = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 8).SetY(24).SetSprite(sClouds).SetX(-40);
+            SpriteBuilder sbClouds2 = ScreenElement.BuildSprite("Clouds", AnimParent).SetSize(76, 8).SetY(24).SetSprite(sClouds).SetX(-80);
+
+            sbTrailmon = ScreenElement.BuildSprite("Character", AnimParent).SetSize(118, 15).SetSprite(sTrailmon).SetX(3).SetActive(true).SetY(9);
+
+
+            sbClouds1.SetX(-46).SetActive(true);
+            sbClouds2.SetX(-122).SetActive(true);
+
+
+            for (int i = 0; i < 130; i++)
+            {
+                Debug.Log(sbClouds1.Position.x);
+
+                if (sbClouds1.Position.x == 32)
+                {
+                    sbClouds1.SetX(-122);
+                }
+                else if (sbClouds2.Position.x == 32)
+                {
+                    sbClouds2.SetX(-122);
+                }
+                if (i % 2 == 0) { sbClouds1.Move(Direction.Right); sbClouds2.Move(Direction.Right); }
+                if (i > 40)
+                {
+                    sbTrailmon.Move(Direction.Left);
+                }
+                // 
+                yield return new WaitForSeconds(4.2f / 65);
+            }
+            yield return new WaitForSeconds(0.5f);
+
+            sbTrailmon.Dispose();
+            sbClouds1.Dispose();
+            sbClouds2.Dispose();
+
 
 
 
@@ -3752,8 +3858,8 @@ namespace Kaisa.Digivice
                 spdigimon[1].Move(Direction.Right);
                 yield return new WaitForSeconds(1.5f / 30);
             }
-            spdigimon[1].SetActive(false);
-            spdigimon[2].SetActive(false);
+            spdigimon[1].Dispose();
+            spdigimon[2].Dispose();
 
             SpriteBuilder sbsHuman = ScreenElement.BuildSprite("Spirit", AnimParent).SetSprite(sHuman).SetSize(24, 24).SetActive(false).Center();
             SpriteBuilder sbsAnimal = ScreenElement.BuildSprite("Spirit", AnimParent).SetSprite(sAnimal).SetSize(24, 24).SetActive(false).Center();
@@ -3766,7 +3872,7 @@ namespace Kaisa.Digivice
 
                 yield return new WaitForSeconds(4f / 64);
             }
-            sbsHuman.SetActive(false);
+            sbsHuman.Dispose();
 
             sbCurtain.PlaceOutside(Direction.Up);
             for (int i = 0; i < 64; i++)
@@ -3776,12 +3882,13 @@ namespace Kaisa.Digivice
 
                 yield return new WaitForSeconds(4f / 64);
             }
-            sbsAnimal.SetActive(false);
+            sbsAnimal.Dispose();
+            sbCurtain.Dispose();
             SpriteBuilder sbSpiral = ScreenElement.BuildSprite("Spiral", AnimParent);
             SpriteBuilder sbCircle = ScreenElement.BuildSprite("Circle", AnimParent).SetTransparent(true);
             sbCircle.SetActive(true);
             sbSpiral.SetActive(true);
-            sbGiveMassivePower.SetActive(false);
+            sbGiveMassivePower.Dispose();
             sbCircle.SetSprite(sCircle[0]);
             for (int i = 0; i < 3; i++)
             {
@@ -3813,13 +3920,14 @@ namespace Kaisa.Digivice
                 yield return new WaitForSeconds(0.15f);
 
             }
-
+            sbSpiral.Dispose();
+            sbCircle.Dispose();
 
 
 
 
             Sprite sGivePower = spriteDB.givePower;
-            Sprite[] sCharacter = spriteDB.GetCharacterSprites(GameChar.JP);
+            Sprite[] sCharacter = spriteDB.GetCharacterSprites(GameChar.Koichi);
             Sprite sExclamationMark = spriteDB.battle_disobey;
 
             SpriteBuilder sbCharacter = ScreenElement.BuildSprite("Charcter", AnimParent).SetSprite(sCharacter[7]).SetTransparent(true).SetActive(false);
@@ -3883,8 +3991,17 @@ namespace Kaisa.Digivice
                 sbCharacterPlayer.Move(Direction.Left);
                 yield return new WaitForSeconds(0.1f);
             }
-
+            sbCharacter.Dispose();
+            sbDisobey.Dispose();
+            sbGivePower.Dispose();
+            sbCharacterPlayer.Dispose();
             yield return CharHappy();
+
+
+            yield return StartGameAnimation2(character);
+
+            //yield return EndGame();
+
 
 
 

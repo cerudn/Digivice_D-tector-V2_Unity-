@@ -53,6 +53,8 @@ namespace Kaisa.Digivice
         public bool IsEventRecovery => logicMgr.IsEventRecoveryPending;
         public bool isCharacterWalking = false;
         public bool showEyes => Database.Worlds[WorldMgr.CurrentWorld].showEyes;
+        public bool showEnd => logicMgr.IsEndGame;
+
 
         public void Awake()
         {
@@ -98,12 +100,19 @@ namespace Kaisa.Digivice
             if (SavedGame.PlayerChar == GameChar.none)
             {
                 VisualDebug.WriteLine("Saved character assigned to 'none'. A new game will be created.");
+
                 logicMgr.currentScreen = Screen.CharSelection;
+
                 EnqueueAnimation(Animations.LoadCharacterSelection());
 
             }
             else
             {
+
+                if (WorldMgr.CurrentWorld == 0 && !SavedGame.LostCharacter.Contains("koichi")) logicMgr.LoseCharacter("koichi");
+
+
+
                 logicMgr.currentScreen = Screen.Character;
                 CheckLeaverBuster();
                 CheckPendingEvents();
@@ -116,11 +125,14 @@ namespace Kaisa.Digivice
             //EnqueueAnimation(Animations.EncounterFinalBoss("agunimon")); 
             //EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
-            EnqueueAnimation(Animations.StartGameAnimation2(GameChar.Tommy));
+            //EnqueueAnimation(Animations.StartGameAnimation2(GameChar.Koji));
+
+
             //EnqueueAnimation(Animations.FinalBossMap("agunimon",GameChar.Koichi));
+            CompleteWorld1();
             //CompleteWorld0();
             //CompleteWorld2();
-            
+
             //SECTION TO DO WEIRD STUFF IN TESTING.
             // #if UNITY_EDITOR
             // for (int i = 0; i < 12; i++) {
@@ -164,7 +176,7 @@ namespace Kaisa.Digivice
             SavedGame.PlayerChar = chosenGameChar;
             playerChar.Initialize(this, chosenGameChar);
 
-
+            logicMgr.LoseCharacter("koichi");
 
             for (int i = 0; i < SavedGame.RandomSeed.Length; i++)
             {
@@ -173,6 +185,7 @@ namespace Kaisa.Digivice
 
             SavedGame.CheatsUsed = false;
             SavedGame.StepsToNextEvent = 300;
+
             WorldMgr.MoveToArea(0, 0);
             logicMgr.SetDigimonUnlocked(playerSpirit, true);
             logicMgr.SetDigimonUnlocked(randomInitial, true);
@@ -252,7 +265,7 @@ namespace Kaisa.Digivice
             //Don't trigger while an app is loaded. When an app is closed, this is called again.
             if (logicMgr.IsAppLoaded && !(logicMgr.loadedApp is Status)) return;
             if (screenMgr.PlayingAnimations) return;
-            //logicMgr.EnqueueRegularEvent();
+            // logicMgr.EnqueueRegularEvent();
             int savedEvent = SavedGame.SavedEvent;
             if (savedEvent == 0) return;
             else if (savedEvent == 1)
@@ -838,6 +851,17 @@ namespace Kaisa.Digivice
         {
             WorldMgr.MoveToArea(2, 0);
             IsCharacterDefeated = false;
+
+            logicMgr.recoveryAllCharacters();
+
+            logicMgr.SetDigimonUnlocked("kaiserleomon", true);
+            logicMgr.SetDigimonUnlocked("loweemon", true);
+
+            EnqueueAnimation(Animations.FinalBossMap("ancientsphinxmon", PlayerChar));
+
+            
+            logicMgr.end();
+
             logicMgr.currentScreen = Screen.CharSelection;
 
             // desbloquear a koichi y  Pasar a ventana seleccionar personages tras esto animación tren hacia nuevo mapa.
@@ -858,6 +882,9 @@ namespace Kaisa.Digivice
             SavedGame.PlayerChar = chosenGameChar;
 
             playerChar.Initialize(this, chosenGameChar);
+
+
+            EnqueueAnimation(Animations.CharHappy());
 
 
 
