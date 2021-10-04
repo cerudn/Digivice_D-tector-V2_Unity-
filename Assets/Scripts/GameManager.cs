@@ -129,7 +129,8 @@ namespace Kaisa.Digivice
 
 
             //EnqueueAnimation(Animations.FinalBossMap("agunimon",GameChar.Koichi));
-            CompleteWorld1();
+            //CompleteWorld1();
+            //CompleteWorld0();
             //CompleteWorld0();
             //CompleteWorld2();
 
@@ -265,7 +266,7 @@ namespace Kaisa.Digivice
             //Don't trigger while an app is loaded. When an app is closed, this is called again.
             if (logicMgr.IsAppLoaded && !(logicMgr.loadedApp is Status)) return;
             if (screenMgr.PlayingAnimations) return;
-            // logicMgr.EnqueueRegularEvent();
+            //logicMgr.EnqueueRegularEvent();
             int savedEvent = SavedGame.SavedEvent;
             if (savedEvent == 0) return;
             else if (savedEvent == 1)
@@ -850,6 +851,7 @@ namespace Kaisa.Digivice
         private void CompleteWorld1()
         {
             WorldMgr.MoveToArea(2, 0);
+            
             IsCharacterDefeated = false;
 
             logicMgr.recoveryAllCharacters();
@@ -860,9 +862,8 @@ namespace Kaisa.Digivice
             EnqueueAnimation(Animations.FinalBossMap("ancientsphinxmon", PlayerChar));
 
             
-            logicMgr.end();
 
-            logicMgr.currentScreen = Screen.CharSelection;
+            logicMgr.end();
 
             // desbloquear a koichi y  Pasar a ventana seleccionar personages tras esto animación tren hacia nuevo mapa.
 

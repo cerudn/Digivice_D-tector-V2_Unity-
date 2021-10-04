@@ -19,13 +19,19 @@ namespace Kaisa.Digivice
         private Queue<IEnumerator> animationQueue = new Queue<IEnumerator>();
 
         private SpriteBuilder defeatedLayer;
+
+        private SpriteBuilder defeatedLayer2;
         private SpriteBuilder eventLayer;
         private SpriteBuilder eyesLayer;
+        private SpriteBuilder eyesLayer2;
+
         private SpriteBuilder sbClouds1;
         private SpriteBuilder sbClouds2;
         private SpriteBuilder sbTrailmon;
         private SpriteBuilder textdb;
         private SpriteBuilder blackscreen;
+        private SpriteBuilder goodLayer;
+
         public bool PlayingAnimations { get; private set; }
 
         public void Initialize(GameManager gm)
@@ -60,10 +66,16 @@ namespace Kaisa.Digivice
         private void Start()
         {
             //InvokeRepeating("UpdateDisplay", 0f, 0.05f);
+            eyesLayer2 = ScreenElement.BuildSprite("Eyes", RootParent.transform).SetTransparent(true).SetActive(false);
+
             defeatedLayer = ScreenElement.BuildSprite("Defeated", RootParent.transform).SetSize(6, 7)
                 .SetPosition(1, 1).SetTransparent(true).SetActive(false);
+            defeatedLayer2 = ScreenElement.BuildSprite("Defeated", RootParent.transform).SetSize(6, 7)
+            .SetPosition(1, 1).SetTransparent(true).SetActive(false);
+            goodLayer = ScreenElement.BuildSprite("good", RootParent.transform).SetActive(false);
             eventLayer = ScreenElement.BuildSprite("Event", RootParent.transform).SetTransparent(true).SetActive(false);
             eyesLayer = ScreenElement.BuildSprite("Eyes", RootParent.transform).SetTransparent(true).SetActive(false);
+
             blackscreen = ScreenElement.BuildSprite("end", RootParent.transform).SetSprite(spriteDB.blackScreen).InvertColors(true).SetTransparent(true).SetActive(false);
 
             sbClouds1 = ScreenElement.BuildSprite("end", RootParent.transform).SetSize(76, 8).SetY(24).SetSprite(spriteDB.clouds_foot).SetX(-46).SetActive(false);
@@ -75,10 +87,26 @@ namespace Kaisa.Digivice
 
             StartCoroutine(PAFlashEyesEffect());
             StartCoroutine(PAFlashDefeatedEffect());
+            StartCoroutine(PAFlashDefeatedEffectandeyes());
             StartCoroutine(PAFlashEventEffect());
+            StartCoroutine(PAFlashfgoodEffect());
+
             StartCoroutine(EndGame());
 
             StartCoroutine(ConsumeQueue());
+        }
+
+        private IEnumerator PAFlashfgoodEffect()
+        {
+
+            goodLayer.transform.SetAsFirstSibling();
+            while (true)
+            {
+                goodLayer.SetSprite(spriteDB.GetCharacterSprites(gm.PlayerChar)[0]);
+                yield return new WaitForSeconds(0.2f);
+                goodLayer.SetSprite(spriteDB.GetCharacterSprites(gm.PlayerChar)[6]);
+                yield return new WaitForSeconds(0.2f);
+            }
         }
 
         private IEnumerator EndGame()
@@ -132,6 +160,25 @@ namespace Kaisa.Digivice
                 yield return new WaitForSeconds(0.5f);
                 defeatedLayer.SetSprite(spriteDB.emptySprite);
                 yield return new WaitForSeconds(0.5f);
+            }
+        }
+        private IEnumerator PAFlashDefeatedEffectandeyes()
+        {
+            defeatedLayer2.transform.SetAsFirstSibling();
+            eyesLayer2.transform.SetAsFirstSibling();
+            //baduserLayer.transform.SetAsFirstSibling();
+
+            while (true)
+            {
+
+                defeatedLayer2.SetSprite(spriteDB.defeatedSymbol);
+                eyesLayer2.SetSprite(spriteDB.eyes[0]);
+                yield return new WaitForSeconds(0.5f);
+                eyesLayer2.SetSprite(spriteDB.eyes[1]);
+                defeatedLayer2.SetSprite(spriteDB.emptySprite);
+                yield return new WaitForSeconds(0.5f);
+
+
             }
         }
         private IEnumerator PAFlashEventEffect()
@@ -194,10 +241,14 @@ namespace Kaisa.Digivice
             int showLayer = 0; //0: none, 1: defeated, 2: event, 3: eyes.
             if (logicMgr.currentScreen == Screen.Character)
             {
-                if (gm.IsCharacterDefeated) showLayer = 1;
+                if (gm.IsCharacterDefeated && gm.showEyes) showLayer = 6;
+                else if (gm.IsCharacterDefeated) showLayer = 1;
+
                 else if (gm.IsEventActive && !gm.IsEventRecovery) showLayer = 2;
+                else if (gm.IsEventRecovery) showLayer = 5;
                 else if (gm.showEyes) showLayer = 3;
                 else if (gm.showEnd) showLayer = 4;
+
             }
             if (logicMgr.currentScreen == Screen.CharSelection)
             {
@@ -211,6 +262,11 @@ namespace Kaisa.Digivice
             sbClouds2.SetActive(showLayer == 4);
             textdb.SetActive(showLayer == 4);
             sbTrailmon.SetActive(showLayer == 4);
+            goodLayer.SetActive(showLayer == 5);
+            eyesLayer2.SetActive(showLayer == 6);
+            defeatedLayer2.SetActive(showLayer == 6);
+            // baduserLayer.SetActive(showLayer == 6);
+
 
             int index;
             Sprite sprite;

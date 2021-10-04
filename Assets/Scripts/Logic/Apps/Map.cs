@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Kaisa.Digivice.Apps {
-    public class Map : DigiviceApp {
+namespace Kaisa.Digivice.Apps
+{
+    public class Map : DigiviceApp
+    {
         private int currentScreen = 0; //0: map, 1: choosing area, 2: viewing distance.
 
         //Map and area information.
@@ -25,9 +27,12 @@ namespace Kaisa.Digivice.Apps {
         private RectangleBuilder hoveredMarker;
         private TextBoxBuilder hoveredAreaName;
 
-        private int OriginalAreaIndexInCurrentMap {
-            get {
-                for(int i = 0; i < areasInCurrentMap.Length; i++) {
+        private int OriginalAreaIndexInCurrentMap
+        {
+            get
+            {
+                for (int i = 0; i < areasInCurrentMap.Length; i++)
+                {
                     if (areasInCurrentMap[i] == originalArea) return i;
                 }
                 return 0;
@@ -40,88 +45,114 @@ namespace Kaisa.Digivice.Apps {
         private List<RectangleBuilder> completedMarkers = new List<RectangleBuilder>();
 
         #region Input
-        public override void InputA() {
-            if (currentScreen == 0) {
+        public override void InputA()
+        {
+            if (currentScreen == 0)
+            {
                 audioMgr.PlayButtonA();
                 OpenAreaSelection();
             }
-            else if (currentScreen == 1) {
+            else if (currentScreen == 1)
+            {
                 audioMgr.PlayButtonA();
                 OpenViewDistance();
             }
-            else if (currentScreen == 2) {
+            else if (currentScreen == 2)
+            {
                 audioMgr.PlayButtonA();
                 ChooseArea();
             }
         }
-        public override void InputB() {
-            if (currentScreen == 0) {
+        public override void InputB()
+        {
+            if (currentScreen == 0)
+            {
                 audioMgr.PlayButtonB();
                 CloseApp();
             }
-            else if (currentScreen == 1) {
+            else if (currentScreen == 1)
+            {
                 audioMgr.PlayButtonB();
                 CloseAreaSelection();
             }
-            else if (currentScreen == 2) {
+            else if (currentScreen == 2)
+            {
                 audioMgr.PlayButtonB();
                 CloseViewDistance();
             }
         }
-        public override void InputLeft() {
-            if (currentScreen == 0) {
-                if(thisWorldData.lockTravel || !thisWorldData.multiMap) {
+        public override void InputLeft()
+        {
+            if (currentScreen == 0)
+            {
+                if (thisWorldData.lockTravel || !thisWorldData.multiMap)
+                {
                     audioMgr.PlayButtonB();
                 }
-                else {
+                else
+                {
                     audioMgr.PlayButtonA();
                     NavigateMap(Direction.Left);
                 }
             }
-            else if (currentScreen == 1) {
-                if(thisWorldData.lockTravel) {
+            else if (currentScreen == 1)
+            {
+                if (thisWorldData.lockTravel)
+                {
                     audioMgr.PlayButtonB();
                 }
-                else {
+                else
+                {
                     audioMgr.PlayButtonA();
                     NavigateAreaSelection(Direction.Left);
                 }
             }
-            else if (currentScreen == 2) {
+            else if (currentScreen == 2)
+            {
                 audioMgr.PlayButtonB();
             }
         }
-        public override void InputRight() {
-            if (currentScreen == 0) {
-                if (thisWorldData.lockTravel || !thisWorldData.multiMap) {
+        public override void InputRight()
+        {
+            if (currentScreen == 0)
+            {
+                if (thisWorldData.lockTravel || !thisWorldData.multiMap)
+                {
                     audioMgr.PlayButtonB();
                 }
-                else {
+                else
+                {
                     audioMgr.PlayButtonA();
                     NavigateMap(Direction.Right);
                 }
             }
-            else if (currentScreen == 1) {
-                if (thisWorldData.lockTravel) {
+            else if (currentScreen == 1)
+            {
+                if (thisWorldData.lockTravel)
+                {
                     audioMgr.PlayButtonB();
                 }
-                else {
+                else
+                {
                     audioMgr.PlayButtonA();
                     NavigateAreaSelection(Direction.Right);
                 }
             }
-            else if (currentScreen == 2) {
+            else if (currentScreen == 2)
+            {
                 audioMgr.PlayButtonB();
             }
         }
         #endregion
 
-        public override void StartApp() {
+        public override void StartApp()
+        {
             LoadInitialMapData();
             DrawMap();
         }
 
-        private void LoadInitialMapData() {
+        private void LoadInitialMapData()
+        {
             thisWorldData = gm.WorldMgr.CurrentWorldData;
             originalWorld = thisWorldData.number;
             originalMap = gm.WorldMgr.CurrentMap;
@@ -131,14 +162,17 @@ namespace Kaisa.Digivice.Apps {
             areasInCurrentMap = thisWorldData.GetAreasInMap(displayMap);
         }
 
-        private void DrawMap() {
+        private void DrawMap()
+        {
             cbMap = gm.BuildMapScreen(thisWorldData.number, Parent);
             FocusCurrentMap();
             DrawAreaMarkers(true);
         }
 
-        private void FocusCurrentMap() {
-            switch (displayMap) {
+        private void FocusCurrentMap()
+        {
+            switch (displayMap)
+            {
                 case 0:
                     cbMap.SetPosition(0, 0);
                     break;
@@ -156,7 +190,8 @@ namespace Kaisa.Digivice.Apps {
             DrawAreaMarkers(true);
         }
 
-        private void NavigateMap(Direction dir) {
+        private void NavigateMap(Direction dir)
+        {
             int mapBefore = displayMap;
 
             if (dir == Direction.Left) displayMap = displayMap.CircularAdd(-1, 3);
@@ -168,19 +203,24 @@ namespace Kaisa.Digivice.Apps {
             FocusCurrentMap();
         }
 
-        private void DrawAreaMarkers(bool displayOriginalArea) {
+        private void DrawAreaMarkers(bool displayOriginalArea)
+        {
             ClearMarkers(); //Destroy all current markers.
 
             int[] shownAreas = thisWorldData.GetAreasInMap(displayMap);
 
-            foreach (int i in shownAreas) { 
-                if(gm.WorldMgr.GetAreaCompleted(originalWorld, i)) {
+            foreach (int i in shownAreas)
+            {
+                if (gm.WorldMgr.GetAreaCompleted(originalWorld, i))
+                {
                     RectangleBuilder marker = ScreenElement.BuildRectangle($"Area {i} Marker", Parent)
                         .SetSize(2, 2).SetPosition(thisWorldData.areas[i].coords);
                     completedMarkers.Add(marker);
                 }
-                if(displayOriginalArea) {
-                    if(originalArea == i) {
+                if (displayOriginalArea)
+                {
+                    if (originalArea == i)
+                    {
                         currentAreaMarker = ScreenElement.BuildRectangle($"Current Area Marker", Parent)
                             .SetSize(2, 2).SetPosition(thisWorldData.areas[i].coords).SetFlickPeriod(0.25f);
                         completedMarkers.Add(currentAreaMarker);
@@ -188,14 +228,17 @@ namespace Kaisa.Digivice.Apps {
                 }
             }
         }
-        private void ClearMarkers() {
-            foreach (RectangleBuilder r in completedMarkers) {
+        private void ClearMarkers()
+        {
+            foreach (RectangleBuilder r in completedMarkers)
+            {
                 r.Dispose();
             }
             completedMarkers.Clear();
         }
 
-        private void OpenAreaSelection() {
+        private void OpenAreaSelection()
+        {
             currentScreen = 1;
             //If the player is entering the map he already is in, start hovering in his current area, rather than the 'area 0' of that map.
             displayArea = (displayMap == originalMap) ? OriginalAreaIndexInCurrentMap : 0;
@@ -207,33 +250,47 @@ namespace Kaisa.Digivice.Apps {
                 .SetPosition(thisWorldData.areas[SelectedArea].coords);
             hoveredAreaName = ScreenElement.BuildTextBox("AreaName", screenDisplay.transform, DFont.Small).SetText("area").SetPosition(28, 5);
 
-            if (displayMap == 0 || displayMap == 3) {
+            if (displayMap == 0 || displayMap == 3)
+            {
                 hoveredAreaName.SetPosition(2, 1);
             }
-            else {
+            else
+            {
                 hoveredAreaName.SetPosition(2, 26);
             }
 
-            hoveredAreaName.Text = string.Format("area{0:00}", SelectedArea + 1); //+1 because, in game, areas start at #1, not 0.
+            if (gm.WorldMgr.CurrentWorld == 1 || gm.WorldMgr.CurrentWorld == 4)
+            {
+                hoveredAreaName.Text = string.Format("area{0:00}", 13);
+            }
+            else
+            {
+                hoveredAreaName.Text = string.Format("area{0:00}", SelectedArea + 1); //+1 because, in game, areas start at #1, not 0.
+            }
         }
-        private void NavigateAreaSelection(Direction dir) {
-            if(dir == Direction.Left) {
+        private void NavigateAreaSelection(Direction dir)
+        {
+            if (dir == Direction.Left)
+            {
                 displayArea = displayArea.CircularAdd(-1, areasInCurrentMap.Length - 1);
             }
-            else {
+            else
+            {
                 displayArea = displayArea.CircularAdd(1, areasInCurrentMap.Length - 1);
             }
             hoveredMarker.SetPosition(thisWorldData.areas[SelectedArea].coords);
             hoveredAreaName.Text = string.Format("area{0:00}", SelectedArea + 1);
         }
-        private void CloseAreaSelection() {
+        private void CloseAreaSelection()
+        {
             currentScreen = 0;
             hoveredMarker.Dispose();
             hoveredAreaName.Dispose();
             if (currentAreaMarker != null) currentAreaMarker.SetActive(true);
         }
 
-        private void OpenViewDistance() {
+        private void OpenViewDistance()
+        {
             currentScreen = 2;
             //If the area chosen is the area the player is already in, the distance will not change. Otherwise, get the distance for the new area.
 
@@ -243,12 +300,14 @@ namespace Kaisa.Digivice.Apps {
             ScreenElement.BuildTextBox("Distance", distanceScreen.transform, DFont.Regular)
                 .SetText(areaDist.ToString()).SetSize(25, 5).SetPosition(6, 25).SetAlignment(TextAnchor.UpperRight);
         }
-        private void CloseViewDistance() {
+        private void CloseViewDistance()
+        {
             currentScreen = 1;
             distanceScreen.Dispose();
         }
 
-        private void ChooseArea() {
+        private void ChooseArea()
+        {
             VisualDebug.WriteLine($"Selected area: {SelectedArea}, original area: {originalArea}");
             if (SelectedArea != originalArea) gm.WorldMgr.MoveToArea(originalWorld, SelectedArea);
             CloseApp(Screen.Character);

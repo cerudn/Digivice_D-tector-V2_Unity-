@@ -412,6 +412,8 @@ namespace Kaisa.Digivice
         public void end()
         {
             IsEndGame = true;
+            
+
 
         }
         public void EnqueueRegularEvent()
@@ -422,7 +424,9 @@ namespace Kaisa.Digivice
 
             IsEventPending = true;
 
+
             triggerEvent = CallRandomBattleForEvent;
+
 
             if (Random.Range(0f, 1f) < 0.85f)
             {
@@ -791,7 +795,7 @@ namespace Kaisa.Digivice
                     Stage digimonStage = Database.GetDigimon(digimon).stage;
 
                     // if(digimonStage != Stage.Spirit && digimonStage != Stage.Armor) {
-                    if ((int)digimonStage != 10 && (int)digimonStage != (int)Stage.Spirit && !combat)
+                    if ((int)digimonStage != 10 && (int)digimonStage != (int)Stage.Spirit)
                     {
                         string[] ddocks = gm.GetAllDDockDigimons();
 
@@ -806,6 +810,7 @@ namespace Kaisa.Digivice
                     }
 
                 }
+
             }
             else
             {
@@ -990,7 +995,7 @@ namespace Kaisa.Digivice
         public bool IsemptyLoserCharacter()
         {
 
-            if (SavedGame.LostCharacter.Count != 0)
+            if (!(SavedGame.LostCharacter.Count == 1 && SavedGame.LostCharacter.Contains("koichi") && (gm.WorldMgr.CurrentWorld == 1 || gm.WorldMgr.CurrentWorld == 0)) || SavedGame.LostCharacter.Count > 1)
             {
                 return false;
             }
@@ -1010,7 +1015,7 @@ namespace Kaisa.Digivice
             List<string> characters = getLoserCharacter();
 
 
-            if (gm.WorldMgr.CurrentWorld == 0)
+            if (gm.WorldMgr.CurrentWorld == 0 || gm.WorldMgr.CurrentWorld == 1)
             {
                 characters.Remove("koichi");
 
@@ -1253,7 +1258,7 @@ namespace Kaisa.Digivice
 
                 gm.EnqueueAnimation(Animations.RunRecovery(gm.spriteDB.GetCharacterSprites(gm.GetGameCharbyName(test[i].ToLower()))));
 
-                if (test[i].ToLower() == "koichi" && gm.WorldMgr.CurrentWorld == 0)
+                if (test[i].ToLower() == "koichi" && (gm.WorldMgr.CurrentWorld == 0 || gm.WorldMgr.CurrentWorld == 1))
                 {
                     continue;
                 }
@@ -1325,7 +1330,7 @@ namespace Kaisa.Digivice
 
             List<int> uncompletedAreas = gm.WorldMgr.GetUncompletedAreas(gm.WorldMgr.CurrentWorld);
 
-            if (uncompletedAreas.Count < 2)
+            if (uncompletedAreas.Count < 2 || gm.WorldMgr.CurrentWorld == 1 || gm.WorldMgr.CurrentWorld == 4)
             {
                 moveArea = false;
             }

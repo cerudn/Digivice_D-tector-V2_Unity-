@@ -4,8 +4,10 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Kaisa.Digivice {
-    public class PlayerCharacter : MonoBehaviour {
+namespace Kaisa.Digivice
+{
+    public class PlayerCharacter : MonoBehaviour
+    {
         private GameManager gm;
 
         public GameChar currentChar;
@@ -15,65 +17,65 @@ namespace Kaisa.Digivice {
         /// </summary>
         public int CurrentSprite { get; private set; }
         private bool change = false;
-        private int val=2;
+        private int val = 2;
         private bool usedAltSprite = false;
         private int lastValue = 0;
 
-        public void Initialize(GameManager gm, GameChar currentChar) {
+        public void Initialize(GameManager gm, GameChar currentChar)
+        {
             this.gm = gm;
             this.currentChar = currentChar;
             CurrentSprite = 0;
             InvokeRepeating("UpdateSprite", 0.5f, 0.5f);
         }
 
-        public void UpdateSprite() {
-            
-           
-            if(gm.IsCharacterDefeated) {
-                
+        public void UpdateSprite()
+        {
+
+
+            if (gm.IsCharacterDefeated)
+            {
+
                 CurrentSprite = 7;
             }
-            else if(gm.IsEventActive  && gm.IsEventRecovery) {
-                
-
-                if (usedAltSprite) {
+            else if (gm.IsEventActive && !gm.IsEventRecovery)
+            {
+                if (usedAltSprite)
+                {
                     usedAltSprite = false;
                     CurrentSprite = 0;
                 }
-                else {
-                    usedAltSprite = true;
-                    CurrentSprite = 6;
-                }
-            } else if(gm.IsEventActive){
-                if (usedAltSprite) {
-                    usedAltSprite = false;
-                    CurrentSprite = 0;
-                }
-                else {
+                else
+                {
                     usedAltSprite = true;
                     CurrentSprite = 8;
                 }
 
             }
-            else if (gm.isCharacterWalking) {
+            else if (gm.isCharacterWalking)
+            {
 
-                
 
-                
-                if (usedAltSprite) {
+
+
+                if (usedAltSprite)
+                {
                     usedAltSprite = false;
                     CurrentSprite = 4;
                 }
-                else {
+                else
+                {
                     usedAltSprite = true;
                     CurrentSprite = 5;
                 }
             }
-            else {
-                
-                
-                if (usedAltSprite) {
-                    
+            else
+            {
+
+
+                if (usedAltSprite)
+                {
+
                     usedAltSprite = false;
                     return;
                 }
@@ -84,15 +86,16 @@ namespace Kaisa.Digivice {
                 CurrentSprite = lastValue;
             }
         }
-  
-        
+
+
     }
 
-    
+
     /// <summary>
     /// A list of the characters available in-game.
     /// </summary>
-    public enum GameChar {
+    public enum GameChar
+    {
         none = -1,
         Takuya,
         Koji,

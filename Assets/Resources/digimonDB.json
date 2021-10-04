@@ -8518,7 +8518,7 @@
       "CR": 60,
       "AB": 80
     },
-    "bossStats":  {
+    "bossStats": {
       "HP": 230,
       "EN": 180,
       "CR": 200,
@@ -9505,7 +9505,9 @@
     "abilityName": "duskmon",
     "element": 5,
     "evolution": "",
-    "extraEvolutions": ["velgemon"],
+    "extraEvolutions": [
+      "velgemon"
+    ],
     "disabled": false,
     "baseLevel": 75,
     "stats": {
@@ -9532,10 +9534,10 @@
     "disabled": false,
     "baseLevel": 85,
     "stats": {
-      "HP": 200,
-      "EN": 180,
-      "CR": 180,
-      "AB": 140
+      "HP": 1,
+      "EN": 1,
+      "CR": 1,
+      "AB": 1
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9588,7 +9590,7 @@
       "CR": 120,
       "AB": 85
     },
-    "bossStats":  {
+    "bossStats": {
       "HP": 230,
       "EN": 150,
       "CR": 170,
@@ -9616,7 +9618,7 @@
       "CR": 60,
       "AB": 90
     },
-    "bossStats":  {
+    "bossStats": {
       "HP": 130,
       "EN": 100,
       "CR": 130,
@@ -9825,10 +9827,10 @@
     "disabled": false,
     "baseLevel": 72,
     "stats": {
-      "HP": 170,
-      "EN": 110,
-      "CR": 55,
-      "AB": 110
+      "HP": 230,
+      "EN": 60,
+      "CR": 60,
+      "AB": 60
     },
     "bossStats": null,
     "isPseudo": false,
