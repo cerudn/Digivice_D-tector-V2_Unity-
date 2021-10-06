@@ -148,10 +148,10 @@ namespace Kaisa.Digivice {
             float totalWeight = 0f;
 
             int threshold; //The maximum level difference between the player and the chosen digimon.
-            if (playerLevel <= 2) threshold = 3;
-            else if (playerLevel <= 4) threshold = 4;
-            else if (playerLevel <= 10) threshold = 7;
-            else if (playerLevel <= 60) threshold = 10;
+            if (playerLevel <= 2) threshold = 5;
+            else if (playerLevel <= 4) threshold = 7;
+            else if (playerLevel <= 10) threshold = 10;
+            else if (playerLevel <= 60) threshold = 15;
             else if (playerLevel <= 80) threshold = 20;
             else threshold = 40;
 

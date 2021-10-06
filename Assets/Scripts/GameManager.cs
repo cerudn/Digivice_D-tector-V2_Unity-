@@ -253,7 +253,7 @@ namespace Kaisa.Digivice
 
                 }
 
-                WorldMgr.IncreaseDistance(2000);
+                WorldMgr.IncreaseDistance(500);
                 logicMgr.IncreaseTotalBattles();
                 DisableLeaverBuster();
             }
@@ -413,19 +413,46 @@ namespace Kaisa.Digivice
         }
         public List<string> GetAllCharacterWithPlayer()
         {
+            int before;
 
             List<Characters> allCharacter = new List<Characters>();
             foreach (Characters d in Database.Characters)
             {
+
+                if((WorldMgr.CurrentWorld==0 || WorldMgr.CurrentWorld==1) && d.Name.Equals("koichi") && logicMgr.GetCharacterUnlocked(d.Name)){
+                        
+                        logicMgr.LoseCharacter(d.Name);
+
+                        continue;
+                }
                 if (playerChar.currentChar.ToString().ToLower() == d.Name)
                 {
-
+                    
                     d.order = 0;
                     allCharacter.Add(d);
 
                 }
-                else if (logicMgr.GetCharacterUnlocked(d.Name))
-                {
+                else if (logicMgr.GetCharacterUnlocked(d.Name.ToLower()))
+                {   switch(d.Name){
+                        case "takuya":
+                        d.order = 1;
+                        break;
+                        case "koji":
+                        d.order = 2;
+                        break;
+                        case "jp":
+                        d.order = 3;
+                        break;
+                        case "zoe":
+                        d.order = 4;
+                        break;
+                        case "tommy":
+                        d.order = 5;
+                        break;
+                        case "koichi":
+                        d.order = 6;
+                        break;
+                }
                     allCharacter.Add(d);
                 }
             }

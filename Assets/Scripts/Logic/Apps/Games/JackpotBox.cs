@@ -123,7 +123,7 @@ namespace Kaisa.Digivice.Apps {
             if (reward == Reward.LevelDown && gm.logicMgr.GetPlayerLevelProgression() > 0.5f
                 || reward == Reward.ForceLevelDown && gm.logicMgr.GetPlayerLevelProgression() == 0f)
             {
-                reward = Reward.IncreaseDistance500;
+                reward = Reward.IncreaseDistance300;
             }
             else if(reward == Reward.LevelUp && gm.logicMgr.GetPlayerLevelProgression() < 0.5f
                 || reward == Reward.ForceLevelUp && gm.logicMgr.GetPlayerLevelProgression() == 0f)

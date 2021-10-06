@@ -216,17 +216,14 @@ namespace Kaisa.Digivice.Apps {
                 int element = (int)pageDigimon.element;
 
                 if (pageIndex == 0) {
-                    //SpriteBuilder arrows= ScreenElement.BuildSprite("Arrows", screenDisplay.transform).SetSprite(gm.spriteDB.database_pages[0]); 
                      screenDisplay.sprite=gm.spriteDB.database_pages[0];
                     ScreenElement.BuildTextBox("Level", screenDisplay.transform, DFont.Regular)
                         .SetText(realLevel.ToString()).SetSize(15, 5).SetPosition(16, 9).SetAlignment(TextAnchor.UpperRight);
                     ScreenElement.BuildTextBox("HP", screenDisplay.transform, DFont.Regular)
                         .SetText(stats.HP.ToString()).SetSize(15, 5).SetPosition(16, 17).SetAlignment(TextAnchor.UpperRight);
-                    //ScreenElement.BuildSprite("Element", screenDisplay.transform).SetSize(30, 5).SetPosition(1, 25).SetSprite(gm.spriteDB.elementNames[element]);
                 }
                 else if (pageIndex == 1) {
                      screenDisplay.sprite=gm.spriteDB.database_pages[1];
-                    //SpriteBuilder arrows= ScreenElement.BuildSprite("Arrows", screenDisplay.transform).SetSprite(gm.spriteDB.database_pages[1]);                   
                     ScreenElement.BuildTextBox("Energy", screenDisplay.transform, DFont.Regular)
                         .SetText(stats.EN.ToString()).SetSize(15, 5).SetPosition(16, 9).SetAlignment(TextAnchor.UpperRight);
                     ScreenElement.BuildTextBox("Crush", screenDisplay.transform, DFont.Regular)
@@ -236,7 +233,6 @@ namespace Kaisa.Digivice.Apps {
                 }
                 else if (pageIndex == 2) {
                     screenDisplay.sprite=gm.spriteDB.database_pages[2];
-                   // SpriteBuilder arrows= ScreenElement.BuildSprite("Arrows", screenDisplay.transform).SetSprite(gm.spriteDB.database_pages[2]);
                     ScreenElement.BuildTextBox("Code", screenDisplay.transform, DFont.Big)
                         .SetText(pageDigimon.code).SetSize(30, 8).SetPosition(2, 23).SetAlignment(TextAnchor.UpperRight);
                 }

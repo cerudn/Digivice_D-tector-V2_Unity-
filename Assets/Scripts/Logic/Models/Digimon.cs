@@ -173,7 +173,7 @@ namespace Kaisa.Digivice {
             int levelDiff = currentBaseLevel - playerLevel;
 
             if (levelDiff <= 0) return 1f; //If the player's level is equal or greater than the digimon, it will always obey.
-            if (levelDiff >= 10) return 0f; //If the player's level is 10 or more levels behind that of the digimon, it will never obey.
+            if (levelDiff > 20) return 0f; //If the player's level is 10 or more levels behind that of the digimon, it will never obey.
 
             float obeyChance = 1f - (Mathf.Pow(levelDiff, 2) / 100f);
             return obeyChance;
@@ -189,7 +189,7 @@ namespace Kaisa.Digivice {
             int levelDiff = currentBaseLevel - playerLevel;
 
             if (levelDiff <= 0) return 1f;
-            if (levelDiff >= 20) return 0f;
+            if (levelDiff > 20) return 0f;
 
             float attackChance = (Mathf.Pow(10f, 1.5f) - Mathf.Pow((levelDiff / 2f), 1.5f)) / Mathf.Pow(10f, -0.5f);
             return attackChance;
@@ -269,11 +269,11 @@ namespace Kaisa.Digivice {
         private int GetStatAsSpiritBoss(int stat, int bossLevel) {
             float riggedStat;
 
-            if(spiritType == SpiritType.Human) {
-                //25% of the stat, increasing up to 75% when the Digimon reaches level 100.
-                riggedStat = (0.25f + (0.005f * bossLevel)) * stat;
-            }
-            else if (spiritType == SpiritType.Ancient) {
+            // if(spiritType == SpiritType.Human) {
+            //     //25% of the stat, increasing up to 75% when the Digimon reaches level 100.
+            //     riggedStat = (0.25f + (0.005f * bossLevel)) * stat;
+            // }
+            if (spiritType == SpiritType.Ancient) {
                 //0% of the stat, increasing up to 100% when the Digimon reaches level 100.
                 riggedStat = (0.20f + (0.008f * bossLevel)) * stat;
                 //riggedStat = (0.2f + (0.008f * bossLevel)) * stat;
@@ -374,14 +374,12 @@ namespace Kaisa.Digivice {
             if (EN < 90) return 5;
             if (EN < 105) return 6;
             if (EN < 120) return 7;
-            if (EN < 155) return 8; 
-            if (EN < 181) return 15;
+            if (EN <= 160) return 8; 
+            if (EN < 181) return 11;
             if (EN < 191) return 10;
-            if (EN < 210) return 11;
-            /**if (EN < 225) return 12;
-            if (EN < 250) return 13;
-            if (EN < 275) return 14;**/
-            return 12;
+            if (EN < 210) return 9;
+            
+            return 9;
         }
     }
 

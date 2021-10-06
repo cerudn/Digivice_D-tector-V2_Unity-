@@ -428,7 +428,7 @@ namespace Kaisa.Digivice
             triggerEvent = CallRandomBattleForEvent;
 
 
-            if (Random.Range(0f, 1f) < 0.85f)
+            if (Random.Range(0f, 1f) < 0.5f)
             {
                 IsEventPending = true;
 
@@ -1098,7 +1098,7 @@ namespace Kaisa.Digivice
             else if (reward == Reward.IncreaseDistance2000)
             {
                 resultBefore = gm.WorldMgr.CurrentDistance;
-                gm.WorldMgr.IncreaseDistance(2000);
+                gm.WorldMgr.IncreaseDistance(500);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
             else if (reward == Reward.ReduceDistance500)
@@ -1110,7 +1110,7 @@ namespace Kaisa.Digivice
             else if (reward == Reward.ReduceDistance1000)
             {
                 resultBefore = gm.WorldMgr.CurrentDistance;
-                gm.WorldMgr.ReduceDistance(1000);
+                gm.WorldMgr.ReduceDistance(500);
                 resultAfter = gm.WorldMgr.CurrentDistance;
             }
             else if (reward == Reward.PunishDigimon)
@@ -1280,7 +1280,7 @@ namespace Kaisa.Digivice
             List<string> characters = getLoserCharacter();
 
 
-            if (gm.WorldMgr.CurrentWorld == 0)
+            if (gm.WorldMgr.CurrentWorld == 0 || gm.WorldMgr.CurrentWorld == 1)
             {
                 characters.Remove("koichi");
 

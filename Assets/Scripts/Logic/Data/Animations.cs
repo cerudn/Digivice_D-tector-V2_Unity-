@@ -880,11 +880,21 @@ namespace Kaisa.Digivice
             else if (map == 3) cbMap.SetPosition(-32, 0);
 
             //Spawn the area name and marker.
-            int areaPosY = (map == 0 || map == 3) ? 1 : 26;
-            ScreenElement.BuildTextBox("AreaName", AnimParent, DFont.Small).SetText(string.Format("area{0:00}", area + 1))
-                .SetPosition(2, areaPosY);
-            ScreenElement.BuildRectangle("OptionMarker", AnimParent).SetSize(2, 2).SetFlickPeriod(0.25f)
-                .SetPosition(Database.Worlds[world].areas[area].coords);
+            if (world == 1 || world == 4)
+            {
+                int areaPosY = (map == 0 || map == 3) ? 1 : 26;
+                ScreenElement.BuildTextBox("AreaName", AnimParent, DFont.Small).SetText(string.Format("area{0:00}", 13))
+                    .SetPosition(2, areaPosY);
+
+            }
+            else
+            {
+                int areaPosY = (map == 0 || map == 3) ? 1 : 26;
+                ScreenElement.BuildTextBox("AreaName", AnimParent, DFont.Small).SetText(string.Format("area{0:00}", area + 1))
+                    .SetPosition(2, areaPosY);
+                ScreenElement.BuildRectangle("OptionMarker", AnimParent).SetSize(2, 2).SetFlickPeriod(0.25f)
+                    .SetPosition(Database.Worlds[world].areas[area].coords);
+            }
 
             //Draw the completed area markers.
 

@@ -177,7 +177,7 @@ namespace Kaisa.Digivice.Apps {
                 //     else if (rng < 0.95f) return Reward.PunishDigimon;
                 //     else return Reward.IncreaseDistance2000;
                 case 1:
-                    if (rng < 0.40f) return Reward.IncreaseDistance500;
+                    if (rng < 0.40f) return Reward.IncreaseDistance300;
                     else if (rng < 0.65f) return Reward.TriggerBattle;
                     // else if (rng < 0.75f) return Reward.PunishDigimon;
                     else if (rng < 0.75f) return Reward.GainSpiritPower10;
@@ -187,23 +187,23 @@ namespace Kaisa.Digivice.Apps {
                 case 2:
                     if (rng < 0.35f) return Reward.ReduceDistance500;
                     else if (rng < 0.65f) return Reward.TriggerBattle;
-                    else if (rng < 0.80f) return Reward.IncreaseDistance500;
+                    else if (rng < 0.80f) return Reward.IncreaseDistance300;
                     else if (rng < 0.90f) return Reward.GainSpiritPower10;
-                    else return Reward.RewardDigimon;
+                    else return Reward.DataStorm;
                 case 3:
                     if (rng < 0.30f) return Reward.ReduceDistance500;
                     else if (rng < 0.55f) return Reward.GainSpiritPower10;
                     else if (rng < 0.80f) return Reward.RewardDigimon;
                     else if (rng < 0.95f) return Reward.LevelUp;
-                    else return Reward.UnlockDigicodeOwned;
+                    else return Reward.RewardDigimon;
                 case 4:
                     if (rng < 0.55f) return Reward.RewardDigimon;
                     else if (rng < 0.65f) return Reward.ReduceDistance500;
                     else if (rng < 0.75f) return Reward.ForceLevelUp;
                     else if (rng < 0.85f) return Reward.GainSpiritPower10;
-                    else if (rng < 0.95f) return Reward.UnlockDigicodeOwned;
-                    else return Reward.UnlockDigicodeNotOwned;
-                default: return Reward.IncreaseDistance500;
+                     else return Reward.RewardDigimon;
+                    
+                default: return Reward.IncreaseDistance300;
             }
         }
     }

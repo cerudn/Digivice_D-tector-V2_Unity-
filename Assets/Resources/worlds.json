@@ -3,7 +3,7 @@
 		"number": 0,
 		"multiMap": true,
 		"worldSprite": "frontier_initial",
-		"shuffle": true,
+		"shuffle": false,
 		"areas": [
 			{
 				"number": 0,
@@ -118,15 +118,15 @@
 			"grumblemon",
 			"azulongmon",
 			"arbormon",
-			"baihumon",
 			"mercurymon",
-			"sephirothmon",
-			"calmaramon",
-			"ebonwumon",
-			"petaldramon",
 			"lanamon",
 			"zhuqiaomon",
-			"gigasmon"
+			"petaldramon",
+			"calmaramon",
+			"baihumon",
+			"ebonwumon",
+			"gigasmon",
+			"sephirothmon"
 		],
 		"removePlayer": true
 	},
@@ -277,35 +277,18 @@
 			}
 		],
 		"bosses": [
-			"burninggreymon",
-			"kendogarurumon",
-			"metalkabuterimon",
-			"zephyrmon",
-			"korikakumon",
-			"kaiserleomon",
-			"gigasmon",
+			"grumblemon",
+			"azulongmon",
+			"arbormon",
+			"mercurymon",
+			"lanamon",
+			"zhuqiaomon",
 			"petaldramon",
-			"sephirothmon",
-			"calmaramon"
-		],
-		"semibossMode": "Fill",
-		"semibosses": [
-			[
-				"myotismon",
-				"skullgreymon"
-			],
-			[
-				"etemon",
-				"dragomon"
-			],
-			[
-				"arukenimon",
-				"mummymon"
-			],
-			[
-				"cerberusmon",
-				"orochimon"
-			]
+			"calmaramon",
+			"baihumon",
+			"ebonwumon",
+			"gigasmon",
+			"sephirothmon"
 		]
 	},
 	{
@@ -330,358 +313,4 @@
 			"duskmon",
 			"velgemon"
 		]
-	},
-	{
-		"number": 4,
-		"multiMap": true,
-		"worldSprite": "frontier_ancient",
-		"shuffle": false,
-		"areas": [
-			{
-				"number": 0,
-				"map": 0,
-				"distance": 15000,
-				"coords": {
-					"x": 16,
-					"y": 18
-				}
-			},
-			{
-				"number": 1,
-				"map": 0,
-				"distance": 17000,
-				"coords": {
-					"x": 9,
-					"y": 27
-				}
-			},
-			{
-				"number": 2,
-				"map": 0,
-				"distance": 19000,
-				"coords": {
-					"x": 27,
-					"y": 22
-				}
-			},
-			{
-				"number": 3,
-				"map": 1,
-				"distance": 21000,
-				"coords": {
-					"x": 9,
-					"y": 7
-				}
-			},
-			{
-				"number": 4,
-				"map": 1,
-				"distance": 23000,
-				"coords": {
-					"x": 22,
-					"y": 16
-				}
-			},
-			{
-				"number": 5,
-				"map": 2,
-				"distance": 18000,
-				"coords": {
-					"x": 2,
-					"y": 2
-				}
-			},
-			{
-				"number": 6,
-				"map": 2,
-				"distance": 20000,
-				"coords": {
-					"x": 4,
-					"y": 10
-				}
-			},
-			{
-				"number": 7,
-				"map": 2,
-				"distance": 25000,
-				"coords": {
-					"x": 19,
-					"y": 9
-				}
-			},
-			{
-				"number": 8,
-				"map": 3,
-				"distance": 22000,
-				"coords": {
-					"x": 14,
-					"y": 29
-				}
-			},
-			{
-				"number": 9,
-				"map": 3,
-				"distance": 24000,
-				"coords": {
-					"x": 11,
-					"y": 15
-				}
-			}
-		],
-		"bosses": [
-			"ancientgreymon",
-			"ancientgarurumon",
-			"ancientbeetlemon",
-			"ancientirismon",
-			"ancientmegatheriummon",
-			"ancientsphinxmon",
-			"ancientvolcamon",
-			"ancienttrojamon",
-			"ancientwisemon",
-			"ancientmermaimon"
-		]
-	},
-	{
-		"number": 5,
-		"multiMap": false,
-		"worldSprite": "frontier_holy_angels",
-		"bossMode": "UseBurst",
-		"lockTravel": true,
-		"areas": [
-			{
-				"number": 0,
-				"map": 0,
-				"distance": 20000,
-				"coords": {
-					"x": 20,
-					"y": 26
-				}
-			},
-			{
-				"number": 1,
-				"map": 0,
-				"distance": 25000,
-				"coords": {
-					"x": 4,
-					"y": 22
-				}
-			},
-			{
-				"number": 2,
-				"map": 0,
-				"distance": 35000,
-				"coords": {
-					"x": 15,
-					"y": 14
-				}
-			}
-		],
-		"bosses": [
-			"ophanimon",
-			"seraphimon",
-			"kerpymon (evil)"
-		],
-		"semibossMode": "Gank",
-		"semibosses": [
-			[
-				"icedevimon",
-				"skullsatamon",
-				"blackwargreymon",
-				"venommyotismon"
-			],
-			[
-				"piedmon",
-				"machinedramon",
-				"metalseadramon",
-				"puppetmon"
-			],
-			[
-				"beelzemon",
-				"metaletemon",
-				"parasimon",
-				"pharaohmon"
-			],
-			[
-				"metalphantomon",
-				"chaosgallantmon",
-				"kuzuhamon",
-				"blackmegagargomon"
-			]
-		]
-	},
-	{
-		"number": 6,
-		"multiMap": true,
-		"worldSprite": "frontier_royals",
-		"shuffle": false,
-		"areas": [
-			{
-				"number": 0,
-				"map": 0,
-				"distance": 20000,
-				"coords": {
-					"x": 16,
-					"y": 18
-				}
-			},
-			{
-				"number": 1,
-				"map": 0,
-				"distance": 25000,
-				"coords": {
-					"x": 26,
-					"y": 23
-				}
-			},
-			{
-				"number": 2,
-				"map": 1,
-				"distance": 31000,
-				"coords": {
-					"x": 14,
-					"y": 10
-				}
-			},
-			{
-				"number": 3,
-				"map": 1,
-				"distance": 18000,
-				"coords": {
-					"x": 24,
-					"y": 17
-				}
-			},
-			{
-				"number": 4,
-				"map": 2,
-				"distance": 23000,
-				"coords": {
-					"x": 4,
-					"y": 10
-				}
-			},
-			{
-				"number": 5,
-				"map": 2,
-				"distance": 27000,
-				"coords": {
-					"x": 16,
-					"y": 13
-				}
-			},
-			{
-				"number": 6,
-				"map": 3,
-				"distance": 39000,
-				"coords": {
-					"x": 11,
-					"y": 15
-				}
-			},
-			{
-				"number": 7,
-				"map": 3,
-				"distance": 26000,
-				"coords": {
-					"x": 14,
-					"y": 27
-				}
-			}
-		],
-		"bosses": [
-			"craniamon",
-			"alphamon",
-			"kentaurosmon",
-			"lordknightmon",
-			"dynasmon",
-			"gallantmon",
-			"omnimon",
-			"shadowseraphimon"
-		]
-	},
-	{
-		"number": 7,
-		"multiMap": false,
-		"worldSprite": "frontier_moon",
-		"bossMode": "Evolve",
-		"lockTravel": true,
-		"showEyes": true,
-		"areas": [
-			{
-				"number": 0,
-				"map": 0,
-				"distance": 99999,
-				"coords": {
-					"x": 15,
-					"y": 17
-				}
-			}
-		],
-		"bosses": [
-			"lucemon",
-			"lucemon (chaos)",
-			"lucemon (satan)"
-		],
-		"semibossMode": "Pseudo",
-		"semibosses": [
-			[
-				"daemon",
-				"beelzemon blast",
-				"lilithmon",
-				"belphemon",
-				"leviamon",
-				"barbamon"
-			]
-		]
-	},
-	{
-		"number": 8,
-		"multiMap": false,
-		"worldSprite": "frontier_lost_island",
-		"lockTravel": true,
-		"areas": [
-			{
-				"number": 0,
-				"map": 0,
-				"distance": 3000,
-				"coords": {
-					"x": 7,
-					"y": 19
-				}
-			},
-			{
-				"number": 1,
-				"map": 0,
-				"distance": 6000,
-				"coords": {
-					"x": 23,
-					"y": 18
-				}
-			},
-			{
-				"number": 2,
-				"map": 0,
-				"distance": 12000,
-				"coords": {
-					"x": 18,
-					"y": 21
-				}
-			},
-			{
-				"number": 3,
-				"map": 0,
-				"distance": 24000,
-				"coords": {
-					"x": 14,
-					"y": 15
-				}
-			}
-		],
-		"bosses": [
-			"darcmon",
-			"hippogriffomon",
-			"murmukusmon",
-			"ornismon"
-		]
-	}
-]
+	}]

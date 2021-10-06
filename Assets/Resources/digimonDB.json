@@ -9279,10 +9279,10 @@
     "disabled": false,
     "baseLevel": 99,
     "stats": {
-      "HP": 270,
-      "EN": 160,
-      "CR": 90,
-      "AB": 150
+      "HP": 185,
+      "EN": 200,
+      "CR": 145,
+      "AB": 145
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9300,12 +9300,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 270,
-      "EN": 160,
-      "CR": 90,
-      "AB": 150
+      "HP": 230,
+      "EN": 195,
+      "CR": 170,
+      "AB": 155
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9323,12 +9323,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 260,
-      "EN": 100,
-      "CR": 155,
-      "AB": 155
+      "HP": 185,
+      "EN": 140,
+      "CR": 150,
+      "AB": 205
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9346,7 +9346,7 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
       "HP": 260,
       "EN": 100,
@@ -9369,12 +9369,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 280,
-      "EN": 80,
-      "CR": 140,
-      "AB": 170
+      "HP": 190,
+      "EN": 135,
+      "CR": 210,
+      "AB": 140
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9392,12 +9392,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 280,
-      "EN": 80,
-      "CR": 140,
-      "AB": 170
+      "HP": 230,
+      "EN": 150,
+      "CR": 220,
+      "AB": 145
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9415,12 +9415,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 240,
-      "EN": 110,
-      "CR": 150,
-      "AB": 170
+      "HP": 175,
+      "EN": 125,
+      "CR": 140,
+      "AB": 190
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9438,12 +9438,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 240,
-      "EN": 110,
-      "CR": 150,
-      "AB": 170
+      "HP": 215,
+      "EN": 140,
+      "CR": 155,
+      "AB": 200
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9461,12 +9461,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 220,
+      "HP": 170,
       "EN": 160,
-      "CR": 170,
-      "AB": 120
+      "CR": 160,
+      "AB": 160
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9484,12 +9484,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 100,
+    "baseLevel": 99,
     "stats": {
-      "HP": 300,
-      "EN": 120,
-      "CR": 170,
-      "AB": 80
+      "HP": 230,
+      "EN": 170,
+      "CR": 180,
+      "AB": 165
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9511,10 +9511,10 @@
     "disabled": false,
     "baseLevel": 75,
     "stats": {
-      "HP": 1,
-      "EN": 1,
-      "CR": 1,
-      "AB": 1
+      "HP": 200,
+      "EN": 140,
+      "CR": 140,
+      "AB": 180
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9534,10 +9534,10 @@
     "disabled": false,
     "baseLevel": 85,
     "stats": {
-      "HP": 1,
-      "EN": 1,
-      "CR": 1,
-      "AB": 1
+      "HP": 200,
+      "EN": 180,
+      "CR": 180,
+      "AB": 140
     },
     "bossStats": null,
     "isPseudo": false,
@@ -10011,10 +10011,10 @@
     "disabled": false,
     "baseLevel": 100,
     "stats": {
-      "HP": 240,
-      "EN": 160,
-      "CR": 160,
-      "AB": 110
+      "HP": 185,
+      "EN": 205,
+      "CR": 150,
+      "AB": 140
     },
     "bossStats": null,
     "isPseudo": false,
@@ -10034,10 +10034,10 @@
     "disabled": false,
     "baseLevel": 100,
     "stats": {
-      "HP": 240,
-      "EN": 160,
-      "CR": 160,
-      "AB": 110
+      "HP": 230,
+      "EN": 185,
+      "CR": 170,
+      "AB": 165
     },
     "bossStats": null,
     "isPseudo": false,
@@ -10317,9 +10317,9 @@
     },
     "bossStats": {
       "HP": 220,
-      "EN": 160,
-      "CR": 200,
-      "AB": 200
+      "EN": 155,
+      "CR": 195,
+      "AB": 195
     },
     "isPseudo": false,
     "HasBossStats": true,

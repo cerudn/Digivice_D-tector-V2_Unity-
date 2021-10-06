@@ -66,10 +66,10 @@
     "name": "Tommy",
     "element": 0,
     "stats": {
-        "HP": 40,
-        "SP": 25,
-        "ST": 15,
-        "SK": 20
+        "HP": 5,
+        "SP": 7,
+        "ST": 5,
+        "SK": 4
       },
     "spirits": [
       "kumamon",
