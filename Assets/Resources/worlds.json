@@ -302,7 +302,16 @@
 			{
 				"number": 0,
 				"map": 0,
-				"distance": 30000,
+				"distance": 12000,
+				"coords": {
+					"x": 12,
+					"y": 18
+				}
+			},
+			{
+				"number": 1,
+				"map": 0,
+				"distance": 50,
 				"coords": {
 					"x": 12,
 					"y": 18
@@ -310,7 +319,7 @@
 			}
 		],
 		"bosses": [
-			"duskmon",
-			"velgemon"
+			"kerpymon (good)",
+			"lucemon"
 		]
 	}]

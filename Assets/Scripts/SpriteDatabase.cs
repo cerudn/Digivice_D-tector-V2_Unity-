@@ -90,6 +90,7 @@ namespace Kaisa.Digivice {
         public Sprite[] battle_mainMenu = new Sprite[4];
         public Sprite[] battle_combatMenu = new Sprite[6];
         public Sprite[] battle_attackMenu = new Sprite[3];
+        public Sprite[] LevelUpDown = new Sprite[2];
         [Header("Battle Particles")]
         public Sprite battle_disobey;
         public Sprite battle_attackCollision; //The particles of the attack collision

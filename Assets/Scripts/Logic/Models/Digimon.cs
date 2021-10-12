@@ -286,7 +286,7 @@ namespace Kaisa.Digivice {
             return Mathf.RoundToInt(riggedStat);
         }
         private int GetStatAsRegularBoss(int stat, int bossLevel) {
-            float riggedStat = (0.20f + (0.008f * bossLevel)) * stat;
+            float riggedStat = (0.20f + (0.008f * (bossLevel))) * stat;
             return Mathf.RoundToInt(riggedStat);
         }
         private int GetStatAsFriendly(int stat, int currentExtraLevel) {

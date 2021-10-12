@@ -127,7 +127,6 @@ namespace Kaisa.Digivice
             // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
             //EnqueueAnimation(Animations.StartGameAnimation2(GameChar.Koji));
 
-
             //EnqueueAnimation(Animations.FinalBossMap("agunimon",GameChar.Koichi));
             //CompleteWorld1();
             //CompleteWorld0();
@@ -419,40 +418,43 @@ namespace Kaisa.Digivice
             foreach (Characters d in Database.Characters)
             {
 
-                if((WorldMgr.CurrentWorld==0 || WorldMgr.CurrentWorld==1) && d.Name.Equals("koichi") && logicMgr.GetCharacterUnlocked(d.Name)){
-                        
-                        logicMgr.LoseCharacter(d.Name);
+                if ((WorldMgr.CurrentWorld == 0 || WorldMgr.CurrentWorld == 1) && d.Name.Equals("koichi") && logicMgr.GetCharacterUnlocked(d.Name))
+                {
 
-                        continue;
+                    logicMgr.LoseCharacter(d.Name);
+
+                    continue;
                 }
                 if (playerChar.currentChar.ToString().ToLower() == d.Name)
                 {
-                    
+
                     d.order = 0;
                     allCharacter.Add(d);
 
                 }
                 else if (logicMgr.GetCharacterUnlocked(d.Name.ToLower()))
-                {   switch(d.Name){
+                {
+                    switch (d.Name)
+                    {
                         case "takuya":
-                        d.order = 1;
-                        break;
+                            d.order = 1;
+                            break;
                         case "koji":
-                        d.order = 2;
-                        break;
+                            d.order = 2;
+                            break;
                         case "jp":
-                        d.order = 3;
-                        break;
+                            d.order = 3;
+                            break;
                         case "zoe":
-                        d.order = 4;
-                        break;
+                            d.order = 4;
+                            break;
                         case "tommy":
-                        d.order = 5;
-                        break;
+                            d.order = 5;
+                            break;
                         case "koichi":
-                        d.order = 6;
-                        break;
-                }
+                            d.order = 6;
+                            break;
+                    }
                     allCharacter.Add(d);
                 }
             }
@@ -518,11 +520,38 @@ namespace Kaisa.Digivice
             return GameChar.none;
 
         }
+        public GameChar getCharacterForAncient(string Ancient)
+        {
+
+
+            switch (Ancient)
+            {
+                case "ancientgreymon":
+                    return GameChar.Takuya;
+
+                case "ancientgarurumon":
+                    return GameChar.Koji;
+                case "ancientbeetlemon":
+                    return GameChar.JP;
+
+                case "ancientirismon":
+                    return GameChar.Zoe;
+                case "ancientmegatheriummon":
+                    return GameChar.Tommy;
+                case "ancientsphinxmon":
+                    return GameChar.Koichi;
+
+            }
+
+            return GameChar.none;
+
+        }
 
         public List<string> GetAvalibleSpiritPlayer()
         {
             string[] spirits = Database.GetCharacter(playerChar.currentChar.ToString()).spirits;
             List<string> disponibles = new List<string>();
+
             foreach (string d in spirits)
             {
 
@@ -868,6 +897,7 @@ namespace Kaisa.Digivice
             if (world == 0) CompleteWorld0();
             if (world == 1) CompleteWorld1();
             if (world == 2) CompleteWorld2();
+            if (world == 3) CompleteWorld3();
         }
         private void CompleteWorld0()
         {
@@ -878,7 +908,7 @@ namespace Kaisa.Digivice
         private void CompleteWorld1()
         {
             WorldMgr.MoveToArea(2, 0);
-            
+
             IsCharacterDefeated = false;
 
             logicMgr.recoveryAllCharacters();
@@ -888,7 +918,7 @@ namespace Kaisa.Digivice
 
             EnqueueAnimation(Animations.FinalBossMap("ancientsphinxmon", PlayerChar));
 
-            
+
 
             logicMgr.end();
 
@@ -929,11 +959,20 @@ namespace Kaisa.Digivice
         {
             WorldMgr.MoveToArea(3, 0);
             IsCharacterDefeated = true;
-            EnqueueAnimation(Animations.TransitionToMap3(PlayerChar, WorldMgr.GetBossOfCurrentArea(), GetAllUnlockedHumanAndAnimalSpirits()));
-            foreach (string s in GetAllUnlockedHumanAndAnimalSpirits())
-            {
-                logicMgr.LoseSpirit(s);
-            }
+            WorldMgr.setAllAreaUncomplete(3);
+            EnqueueAnimation(Animations.TransitionToMap1(PlayerChar));
+        }
+        private void CompleteWorld3()
+        {
+            WorldMgr.MoveToArea(2, 0);
+            IsCharacterDefeated = false;
+
+            logicMgr.recoveryAllCharacters();
+
+            WorldMgr.setAllAreaUncomplete(2);
+
+
+            logicMgr.end();
         }
 
         #endregion

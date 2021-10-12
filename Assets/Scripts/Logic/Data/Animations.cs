@@ -1484,6 +1484,49 @@ namespace Kaisa.Digivice
             spCharacter.SetSprite(sCharacter[9]);
             yield return new WaitForSeconds(0.9f);
         }
+        public static IEnumerator LevelUpDown(int levelBefore, int levelAfter)
+        {
+            Sprite[] sLevelUpBG = spriteDB.rewardBackground;
+            Sprite sLevelUpIcon ;
+
+            if(levelAfter>levelBefore){
+               sLevelUpIcon= spriteDB.LevelUpDown[0];
+
+            }else{
+                sLevelUpIcon= spriteDB.LevelUpDown[1];
+            }
+            SpriteBuilder sbLevelUpBG = ScreenElement.BuildSprite("LevelUpBackground", AnimParent).SetSprite(sLevelUpBG[0]);
+            SpriteBuilder sbLevelUpIcon = ScreenElement.BuildSprite("LevelUpIcon", AnimParent)
+                .SetSprite(sLevelUpIcon).Center().SetActive(false).SetTransparent(true).SetComponentY(9).SetComponentX(6);
+
+            audioMgr.PlaySound(audioMgr.levelUp);
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int cycle = 0; cycle < 4; cycle++)
+                {
+                    sbLevelUpBG.SetSprite(sLevelUpBG[cycle]);
+                    yield return new WaitForSeconds(0.125f);
+                }
+            }
+            for (int cycle = 0; cycle < 4; cycle++)
+            {
+                
+                sbLevelUpBG.SetSprite(sLevelUpBG[cycle]);
+                yield return new WaitForSeconds(0.125f);
+            }
+            sbLevelUpIcon.SetActive(true);
+            for (int i = 0; i < 4; i++)
+            {
+                for (int cycle = 0; cycle < 4; cycle++)
+                {
+                    sbLevelUpBG.SetSprite(sLevelUpBG[cycle]);
+                    yield return new WaitForSeconds(0.125f);
+                }
+            }
+          
+
+        }
         public static IEnumerator LevelUp(int levelBefore, int levelAfter)
         {
             Sprite[] sLevelUpBG = spriteDB.rewardBackground;

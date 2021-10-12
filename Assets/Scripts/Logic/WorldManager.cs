@@ -148,6 +148,12 @@ namespace Kaisa.Digivice {
             }
             return uncompletedAreas;
         }
+        public void setAllAreaUncomplete(int world){
+
+             for(int i = 0; i < Database.Worlds[world].AreaCount; i++) {
+                SavedGame.CompletedAreas[world][i]=false;
+            }
+        }
         /// <summary>
         /// Moves the player to a new map and area, and sets the current distance to the default distance for that map and area.
         /// </summary>

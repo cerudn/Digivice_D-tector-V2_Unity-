@@ -667,19 +667,22 @@ namespace Kaisa.Digivice.Apps
             if (isBossBattle)
             {
 
-                if (gm.WorldMgr.CurrentWorld != 1 && gm.WorldMgr.CurrentWorld != 4)
+                if (gm.WorldMgr.CurrentWorld == 1 || gm.WorldMgr.CurrentWorld == 3)
                 {
-                    gm.EnqueueAnimation(Animations.EncounterBoss(enemyDigimon.name));
+                    gm.EnqueueAnimation(Animations.EncounterFinalBoss(enemyDigimon.name));
+                    enemyStats = enemyDigimon.GetBossStats(100);
+
                 }
                 else
                 {
-                    gm.EnqueueAnimation(Animations.EncounterFinalBoss(enemyDigimon.name));
+                    gm.EnqueueAnimation(Animations.EncounterBoss(enemyDigimon.name));
+                    bossLevel = gm.logicMgr.GetPlayerLevel();
+                    enemyStats = enemyDigimon.GetBossStats(bossLevel);
                 }
 
 
-                bossLevel = gm.logicMgr.GetPlayerLevel();
-                enemyStats = enemyDigimon.GetBossStats(bossLevel);
 
+                bossLevel = gm.logicMgr.GetPlayerLevel();
                 victoryExp = gm.logicMgr.GetExperienceGained(playerLevel, bossLevel);
                 defeatExp = gm.logicMgr.GetExperienceGained(bossLevel, playerLevel);
 
@@ -886,7 +889,7 @@ namespace Kaisa.Digivice.Apps
                 if (chosenDigimon.spiritType == SpiritType.Ancient)
                 {
                     int SPbefore = SpiritPower;
-                    GameChar person = gm.getCharacter(chosenDigimonName);
+                    GameChar person = gm.getCharacterForAncient(chosenDigimonName);
                     AssignFriendlyDigimon(chosenDigimonName, CallType.AncientEvolution);
                     gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
                     gm.EnqueueAnimation(Animations.AncientEvolution(person, chosenDigimonName));
@@ -953,7 +956,7 @@ namespace Kaisa.Digivice.Apps
                     int SPbefore = SpiritPower;
                     AssignFriendlyDigimon(digimon, CallType.AncientEvolution);
 
-                    GameChar person = gm.getCharacter(digimon);
+                    GameChar person = gm.getCharacterForAncient(digimon);
                     gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
                     gm.EnqueueAnimation(Animations.AncientEvolution(person, d.name));
 
@@ -1064,7 +1067,7 @@ namespace Kaisa.Digivice.Apps
             else if (callType == CallType.AncientEvolution)
             {
                 dddock = false;
-                SpiritPower -= friendlyDigimon.GetSpiritCost(playerLevel);
+                SpiritPower -= 20;
                 originalDigimon = friendlyDigimon;
                 friendlyStats = friendlyDigimon.GetBossStats(playerLevel);
             }
@@ -1168,7 +1171,13 @@ namespace Kaisa.Digivice.Apps
 
         private void PlayAnimationDeportDigimon()
         {
-            if ((friendlyDigimon.stage == Stage.Spirit || (int)friendlyDigimon.stage == 10) && dddock == false)
+
+            if ((friendlyDigimon.stage == Stage.Spirit && dddock == false))
+            {
+                GameChar person = gm.getCharacterForAncient(friendlyDigimon.name);
+                gm.EnqueueAnimation(Animations.DeportSpirit(friendlyDigimon.name, person));
+            }
+            else if ((friendlyDigimon.stage == Stage.Spirit || (int)friendlyDigimon.stage == 10) && dddock == false)
             {
                 GameChar person = gm.getCharacter(friendlyDigimon.name);
                 gm.EnqueueAnimation(Animations.DeportSpirit(friendlyDigimon.name, person));
@@ -1190,7 +1199,7 @@ namespace Kaisa.Digivice.Apps
             }
 
             int enemyAttack = enemyAttackChooser.Next();
-            int winner = ExecuteTurn(ref friendlyAttack, enemyAttack, out bool disobeyed, out int loserHPbefore);
+            int winner = ExecuteTurn(ref friendlyAttack, enemyAttack, out bool disobeyed, out int loserHPbefore, false);
             int loserHPnow = (winner == 0) ? enemyStats.HP : friendlyStats.HP;
 
             int friendlyEnergy = friendlyStats.GetEnergyRank();
@@ -1251,7 +1260,7 @@ namespace Kaisa.Digivice.Apps
                 if (attacksAwardSP) SpiritPower += 3;
                 else if (attacksCostSP && turn == 1)
                 {
-                    SpiritPower -= friendlyDigimon.GetSpiritCost(playerLevel);
+                    SpiritPower -= 20;
                     gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
                 }
                 else { turn = 1; }
@@ -1270,8 +1279,16 @@ namespace Kaisa.Digivice.Apps
                         enemyDigimon.name, enemyAttack, enemyEnergy,
                         winner, disobeyed, loserHPbefore, loserHPnow)
                     );
+                if (loserHPnow == 0 && isBossBattle && enemyDigimon.extraEvolutions != null && enemyDigimon.extraEvolutions.Count() > 0)
+                {
+                    transformDigimonBoss();
+                }
+                else
+                {
+                    battleEnded = (loserHPnow == 0);
 
-                battleEnded = (loserHPnow == 0);
+                }
+
 
                 if (battleEnded) cont = false;
                 if (attacksCostSP && SpiritPower < friendlyDigimon.GetSpiritCost(playerLevel))
@@ -1314,27 +1331,8 @@ namespace Kaisa.Digivice.Apps
 
         }
 
-        private void EvolveEnemyDigimon()
+        private void transformDigimonBoss()
         {
-            Digimon targetEvolution = Database.GetDigimon(enemyDigimon.extraEvolutions[0]);
-            string namebefore = enemyDigimon.name;
-            string nameafter = targetEvolution.name;
-            enemyDigimon = targetEvolution;
-            bossLevel = gm.logicMgr.GetPlayerLevel();
-            enemyStats = targetEvolution.GetBossStats(bossLevel);
-            int battleSeed = gm.GetRandomSavedSeed();
-            enemyAttackChooser = new AttackChooser(battleSeed, enemyDigimon.name, enemyStats);
-
-            gm.EnqueueAnimation(Animations.bossEvolution(namebefore, nameafter));
-            // victoryExp = gm.logicMgr.GetExperienceGained(playerLevel, bossLevel);
-            // defeatExp = gm.logicMgr.GetExperienceGained(bossLevel, playerLevel);
-
-            VisualDebug.WriteLine($"Boss stats for level {bossLevel}: {enemyStats}");
-        }
-
-        private void WinBattle()
-        {
-
             if (isBossBattle && enemyDigimon.extraEvolutions != null && enemyDigimon.extraEvolutions.Count() > 0)
 
             {
@@ -1353,133 +1351,167 @@ namespace Kaisa.Digivice.Apps
                 EvolveEnemyDigimon();
 
             }
+
+        }
+        private void EvolveEnemyDigimon()
+        {
+            Digimon targetEvolution = Database.GetDigimon(enemyDigimon.extraEvolutions[0]);
+            string namebefore = enemyDigimon.name;
+            string nameafter = targetEvolution.name;
+            enemyDigimon = targetEvolution;
+            bossLevel = gm.logicMgr.GetPlayerLevel();
+
+            if (gm.WorldMgr.CurrentWorld == 1 || gm.WorldMgr.CurrentWorld == 3)
+            {
+                enemyStats = targetEvolution.GetBossStats(100);
+            }
             else
             {
+                enemyStats = targetEvolution.GetBossStats(bossLevel);
+            }
 
-                //Revisar este trozo de Codigo para adaptarlo al tipo de boss con el que se está luchando.
-                gm.DisableLeaverBuster();
+            int battleSeed = gm.GetRandomSavedSeed();
+            enemyAttackChooser = new AttackChooser(battleSeed, enemyDigimon.name, enemyStats);
 
-                PlayAnimationDeportDigimon();
+            gm.EnqueueAnimation(Animations.bossEvolution(namebefore, nameafter));
+            // victoryExp = gm.logicMgr.GetExperienceGained(playerLevel, bossLevel);
+            // defeatExp = gm.logicMgr.GetExperienceGained(bossLevel, playerLevel);
 
-                if (gm.logicMgr.AddPlayerExperience(victoryExp))
+
+
+            VisualDebug.WriteLine($"Boss stats for level {bossLevel}: {enemyStats}");
+        }
+
+        private void WinBattle()
+        {
+
+
+
+
+            //Revisar este trozo de Codigo para adaptarlo al tipo de boss con el que se está luchando.
+            gm.DisableLeaverBuster();
+
+            PlayAnimationDeportDigimon();
+
+            if (gm.logicMgr.AddPlayerExperience(victoryExp))
+            {
+                gm.EnqueueAnimation(Animations.LevelUpDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
+            }
+            gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
+            gm.EnqueueAnimation(Animations.CharHappy());
+
+            //hasta aquí
+
+            //50% for regular battles. 0% for boss battles (they get unlocked in TriggerVictoryAgainstBoss).
+
+            if (rewardEnemy == null)
+            {
+                rewardEnemy = (isBossBattle) ? true : (Random.Range(0, 2) == 1);
+
+            }
+            if (rewardEnemy == true)
+            {
+                if (enemyDigimon.stage == Stage.Boss || SavedGame.Bosses[gm.WorldMgr.CurrentWorld].Contains(enemyDigimon.name))
                 {
-                    gm.EnqueueAnimation(Animations.LevelUp(playerLevel, gm.logicMgr.GetPlayerLevel()));
-                }
-                gm.EnqueueAnimation(Animations.Lateral(gm.spriteDB.GetCharacterSprites(gm.PlayerChar)));
-                gm.EnqueueAnimation(Animations.CharHappy());
 
-                //hasta aquí
 
-                //50% for regular battles. 0% for boss battles (they get unlocked in TriggerVictoryAgainstBoss).
 
-                if (rewardEnemy == null)
-                {
-                    rewardEnemy = (isBossBattle) ? true : (Random.Range(0, 2) == 1);
+                    int currentWorld = gm.WorldMgr.CurrentWorld;
+                    int currentMap = gm.WorldMgr.CurrentWorld;
+                    int currentArea = gm.WorldMgr.CurrentArea;
 
-                }
-                if (rewardEnemy == true)
-                {
-                    if (enemyDigimon.stage == Stage.Boss || SavedGame.Bosses[gm.WorldMgr.CurrentWorld].Contains(enemyDigimon.name))
+
+                    string spirit;
+
+                    if (SavedGame.SpiritBoss.Count == 0 || gm.WorldMgr.GetAreaCompleted(currentWorld, currentArea))
                     {
 
-
-
-                        int currentWorld = gm.WorldMgr.CurrentWorld;
-                        int currentMap = gm.WorldMgr.CurrentWorld;
-                        int currentArea = gm.WorldMgr.CurrentArea;
-
-
-                        string spirit;
-
-                        if (SavedGame.SpiritBoss.Count == 0 || gm.WorldMgr.GetAreaCompleted(currentWorld, currentArea))
-                        {
-
-                            spirit = "";
-                        }
-                        else
-                        {
-                            spirit = SavedGame.SpiritBoss.GetRandomElement();
-
-                        }
-                        if (bossfriends.Contains(enemyDigimon.name))
-                        {
-                            boosFriend();
-                        }
-                        else
-                        {
-                            gm.logicMgr.RewardDigimon(enemyDigimon.name.ToLower(), out _, out _);
-                        }
-
-                        if (spirit != "" && !gm.logicMgr.RewardDigimon(spirit, out _, out _))
-                        {
-
-                            SavedGame.SpiritBoss.Remove(spirit);
-
-
-                            gm.EnqueueAnimation(Animations.ReceiveSpirit(spirit));
-                            gm.EnqueueAnimation(Animations.CharHappy());
-                        }
-                        else
-                        {
-                            int i = 0;
-                            Digimon news = null;
-                            while (i == 0)
-                            {
-                                news = Database.Digimons.GetRandomElement();
-                                if (news.stage != Stage.Boss && news.stage != Stage.Spirit)
-                                {
-                                    i++;
-                                }
-                            }
-
-
-                            gm.logicMgr.RewardDigimon(news.name.ToLower(), out _, out _);
-                            //gm.EnqueueAnimation(Animations.ReceiveSpirit(enemyDigimon.name));
-                            // gm.EnqueueAnimation(Animations.UnlockDigimon(news.name.ToLower(), true));
-                            gm.EnqueueAnimation(Animations.RewardBossLose(news.name.ToLower()));
-                            gm.EnqueueAnimation(Animations.CharHappy());
-                        }
+                        spirit = "";
                     }
                     else
                     {
+                        spirit = SavedGame.SpiritBoss.GetRandomElement();
+
+                    }
+                    if (bossfriends.Contains(enemyDigimon.name))
+                    {
+                        boosFriend();
+                    }
+                    else
+                    {
+                        gm.logicMgr.RewardDigimon(enemyDigimon.name.ToLower(), out _, out _);
+                    }
+
+                    if (spirit != "" && !gm.logicMgr.RewardDigimon(spirit, out _, out _))
+                    {
+
+                        SavedGame.SpiritBoss.Remove(spirit);
 
 
-                        gm.logicMgr.RewardDigimon(enemyDigimon.name, out _, out _);
-                        gm.EnqueueAnimation(Animations.UnlockDigimon(enemyDigimon.name, false, true));
+                        gm.EnqueueAnimation(Animations.ReceiveSpirit(spirit));
+                        gm.EnqueueAnimation(Animations.CharHappy());
+                    }
+                    else
+                    {
+                        int i = 0;
+                        Digimon news = null;
+                        while (i == 0)
+                        {
+                            news = Database.Digimons.GetRandomElement();
+                            if (news.stage != Stage.Boss && news.stage != Stage.Spirit)
+                            {
+                                i++;
+                            }
+                        }
 
+
+                        gm.logicMgr.RewardDigimon(news.name.ToLower(), out _, out _);
+                        //gm.EnqueueAnimation(Animations.ReceiveSpirit(enemyDigimon.name));
+                        // gm.EnqueueAnimation(Animations.UnlockDigimon(news.name.ToLower(), true));
+                        gm.EnqueueAnimation(Animations.RewardBossLose(news.name.ToLower()));
+                        gm.EnqueueAnimation(Animations.CharHappy());
                     }
                 }
                 else
                 {
-                    if (gm.logicMgr.IsAnySpiritLost)
-                    {
-                        string recoveredSpirit = gm.logicMgr.RecoverSpirit();
-                        gm.EnqueueAnimation(Animations.ReceiveSpirit(recoveredSpirit));
-                        gm.EnqueueAnimation(Animations.UnlockDigimon(recoveredSpirit, true));
-                    }
-                }
-
-                if (isBossBattle)
-                {
 
 
-
-                    TriggerVictoryAgainstBoss();
+                    gm.logicMgr.RewardDigimon(enemyDigimon.name, out _, out _);
+                    gm.EnqueueAnimation(Animations.UnlockDigimon(enemyDigimon.name, false, true));
 
                 }
-                else if (alterDistance)
-                {
-                    int distanceBefore = gm.WorldMgr.CurrentDistance;
-                    gm.WorldMgr.ReduceDistance(300); //revisar si dejarlo así o no
-                    int distanceAfter = gm.WorldMgr.CurrentDistance;
-                    //gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
-                }
-
-                gm.logicMgr.IncreaseTotalWins();
-                gm.logicMgr.IncreaseTotalBattles();
-
-                CloseApp();
             }
+            else
+            {
+                if (gm.logicMgr.IsAnySpiritLost)
+                {
+                    string recoveredSpirit = gm.logicMgr.RecoverSpirit();
+                    gm.EnqueueAnimation(Animations.ReceiveSpirit(recoveredSpirit));
+                    gm.EnqueueAnimation(Animations.UnlockDigimon(recoveredSpirit, true));
+                }
+            }
+
+            if (isBossBattle)
+            {
+
+
+
+                TriggerVictoryAgainstBoss();
+
+            }
+            else if (alterDistance)
+            {
+                int distanceBefore = gm.WorldMgr.CurrentDistance;
+                gm.WorldMgr.ReduceDistance(300); //revisar si dejarlo así o no
+                int distanceAfter = gm.WorldMgr.CurrentDistance;
+                //gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
+            }
+
+            gm.logicMgr.IncreaseTotalWins();
+            gm.logicMgr.IncreaseTotalBattles();
+
+            CloseApp();
+
         }
 
         private void boosFriend()
@@ -1672,29 +1704,13 @@ namespace Kaisa.Digivice.Apps
             if (availableAreas.Count > 0)
             {
                 int newArea = currentArea;
-                bool cierto = true;
+               
 
-                int sum = currentArea;
-                while (cierto)
-                {
-                    sum += 1;
-
-                    if (sum <= 11 && !gm.WorldMgr.GetAreaCompleted(currentWorld, sum))
-                    {
-                        newArea = sum;
-                        cierto = false;
-                    }
-                    else if (sum > 11)
-                    {
-                        sum = -1;
-
-                    }
-
-                }
+                newArea = availableAreas.Aggregate((x, y) => System.Math.Abs(x - newArea) < System.Math.Abs(y - newArea) ? x : y);
 
                 gm.WorldMgr.MoveToArea(currentMap, newArea);
                 int newDistance = gm.WorldMgr.CurrentDistance;
-                if (gm.WorldMgr.CurrentWorld != 1 && gm.WorldMgr.CurrentWorld != 4)
+                if (gm.WorldMgr.CurrentWorld != 1 && gm.WorldMgr.CurrentWorld != 3)
                 {
                     gm.EnqueueAnimation(Animations.ForcedTravelMap(currentWorld, currentArea, newArea, newDistance));
                 }
@@ -1727,7 +1743,7 @@ namespace Kaisa.Digivice.Apps
         /// disobey.
         /// </summary>
         /// <param name="friendlyAttack">The Attack chosen by the player.</param>
-        private int ExecuteTurn(ref int friendlyAttack, int enemyAttack, out bool disobeyed, out int loserHPbefore, bool ddock = true)
+        private int ExecuteTurn(ref int friendlyAttack, int enemyAttack, out bool disobeyed, out int loserHPbefore, bool ddock)
         {
             disobeyed = false;
 
@@ -1735,7 +1751,7 @@ namespace Kaisa.Digivice.Apps
             {
                 disobeyed = false;
             }
-            if (bossfriends.Contains(friendlyDigimon.name))
+            else if (bossfriends.Contains(friendlyDigimon.name))
             {
 
                 disobeyed = false;
@@ -1757,13 +1773,14 @@ namespace Kaisa.Digivice.Apps
 
             loserHPbefore = (winner == 0) ? enemyStats.HP : friendlyStats.HP;
 
-            if (winner == 0) DamageDigimon(1, damageDealt);
-            if (winner == 1) DamageDigimon(0, damageDealt);
+            if (winner == 0) DamageDigimon(1, damageDealt, dddock);
+            if (winner == 1) DamageDigimon(0, damageDealt, dddock);
 
             return winner;
         }
         private int ChooseWinner(int friendlyAttack, int enemyAttack, out int damageDealt)
         {
+            damageDealt = 0;
             int friendlyDamage = friendlyStats.GetAttackDamage(friendlyAttack);
             int enemyDamage = enemyStats.GetAttackDamage(enemyAttack);
             VisualDebug.WriteLine($"friendly damage: {friendlyDamage}, enemy damage: {enemyDamage}");
@@ -1782,17 +1799,17 @@ namespace Kaisa.Digivice.Apps
                 damageDealt = difference;
 
                 //If both Digimons used Energy and their Energies have different rank (have different sprite), the higher rank energy always wins.
-                if (friendlyAttack == 0 && friendlyStats.GetEnergyRank() != enemyStats.GetEnergyRank())
-                {
-                    return (friendlyDamage > enemyDamage) ? 0 : 1;
-                }
-                //Else, if both Digimon
-                else
-                {
-                    if (difference <= -TIE_DAMAGE_THRESHOLD) return 1; //The enemy dealt 5+ more damage than the player.
-                    if (difference >= TIE_DAMAGE_THRESHOLD) return 0; //The player dealt 5+ more damage than the enemy.
-                    else return 2;
-                }
+                // if (friendlyAttack == 0 && friendlyStats.GetEnergyRank() != enemyStats.GetEnergyRank())
+                // {
+                return (friendlyDamage > enemyDamage) ? 0 : 1;
+                // }
+                // //Else, if both Digimon
+                // else
+                // {
+                //     if (difference <= -TIE_DAMAGE_THRESHOLD) return 1; //The enemy dealt 5+ more damage than the player.
+                //     if (difference >= TIE_DAMAGE_THRESHOLD) return 0; //The player dealt 5+ more damage than the enemy.
+                //     else return 2;
+                // }
             }
             else
             {
@@ -1862,7 +1879,15 @@ namespace Kaisa.Digivice.Apps
             }
             if (digimon == 0 && SpiritType.Ancient == friendlyDigimon.spiritType && !ddock)
             {
-                friendlyStats.HP -= (friendlyStats.HP - (damage - 100) > 0) ? (damage - 100) : friendlyStats.HP;
+                damage -= 100;
+                if ((damage) > 0)
+                {
+                    friendlyStats.HP -= damage;
+                }
+                else
+                {
+                    damage = 0;
+                }
             }
             else if (digimon == 0)
             {

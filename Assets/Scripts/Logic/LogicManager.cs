@@ -1128,16 +1128,16 @@ namespace Kaisa.Digivice
                 else if (rng < 0.95f) rarity = Rarity.Epic;
                 else rarity = Rarity.Legendary;
                 string rewardedDigimon;
-                //30% chance to forcibly select a Digimon already owned.
-                if (Random.Range(0f, 1f) < 0.3f)
-                {
-                    rewardedDigimon = GetAllUnlockedDigimon().Where(d => d.Rarity == rarity).GetRandomElement().name;
-                }
-                //Reward any Digimon, owned or not.
-                else
-                {
+                // //30% chance to forcibly select a Digimon already owned.
+                // if (Random.Range(0f, 1f) < 0.3f)
+                // {
+                //     rewardedDigimon = GetAllUnlockedDigimon().Where(d => d.Rarity == rarity).GetRandomElement().name;
+                // }
+                // //Reward any Digimon, owned or not.
+                // else
+                // {
                     rewardedDigimon = Database.GetAllDigimonOfRarity(rarity, gm.logicMgr.GetPlayerLevel() + 20).GetRandomElement().name;
-                }
+                
 
                 RewardDigimon(rewardedDigimon, out int rdBef, out int rdAft);
                 resultBefore = rdBef;
