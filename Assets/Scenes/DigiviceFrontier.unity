@@ -1968,6 +1968,13 @@ MonoBehaviour:
   LevelUpDown:
   - {fileID: 531892201746093753, guid: 1a7d672ab33564f4ea3128a67ae22fc2, type: 3}
   - {fileID: 6948617177871721963, guid: 1a7d672ab33564f4ea3128a67ae22fc2, type: 3}
+  MenusSpiritPower:
+  - {fileID: 7503073282764556320, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
+  - {fileID: -6910794888453642739, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
+  - {fileID: -4328542132062722996, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
+  - {fileID: 1620847398605249996, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
+  - {fileID: -3300105473775969320, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
+  - {fileID: -4336098271107517771, guid: 9808cb78e43dade47a5fdc1075f4429c, type: 3}
   battle_disobey: {fileID: 7637870703528583553, guid: b7864b531b3f6f044a0df4d08d2c9e2c,
     type: 3}
   battle_attackCollision: {fileID: 173538500886388945, guid: b7864b531b3f6f044a0df4d08d2c9e2c,

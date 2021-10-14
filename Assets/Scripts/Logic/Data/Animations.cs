@@ -507,7 +507,7 @@ namespace Kaisa.Digivice
             {
                 sbAttractor.Move(Direction.Left);
                 sbSpiritLost.Move(Direction.Left);
-                yield return new WaitForSeconds(10f / 32);
+                yield return new WaitForSeconds(2f / 32);
             }
             sbEnemyDigimon.SetActive(true);
             sbSpiritLost.Move(Direction.Right, 40 + 28);
@@ -1487,13 +1487,16 @@ namespace Kaisa.Digivice
         public static IEnumerator LevelUpDown(int levelBefore, int levelAfter)
         {
             Sprite[] sLevelUpBG = spriteDB.rewardBackground;
-            Sprite sLevelUpIcon ;
+            Sprite sLevelUpIcon;
 
-            if(levelAfter>levelBefore){
-               sLevelUpIcon= spriteDB.LevelUpDown[0];
+            if (levelAfter > levelBefore)
+            {
+                sLevelUpIcon = spriteDB.LevelUpDown[0];
 
-            }else{
-                sLevelUpIcon= spriteDB.LevelUpDown[1];
+            }
+            else
+            {
+                sLevelUpIcon = spriteDB.LevelUpDown[1];
             }
             SpriteBuilder sbLevelUpBG = ScreenElement.BuildSprite("LevelUpBackground", AnimParent).SetSprite(sLevelUpBG[0]);
             SpriteBuilder sbLevelUpIcon = ScreenElement.BuildSprite("LevelUpIcon", AnimParent)
@@ -1511,7 +1514,7 @@ namespace Kaisa.Digivice
             }
             for (int cycle = 0; cycle < 4; cycle++)
             {
-                
+
                 sbLevelUpBG.SetSprite(sLevelUpBG[cycle]);
                 yield return new WaitForSeconds(0.125f);
             }
@@ -1524,7 +1527,7 @@ namespace Kaisa.Digivice
                     yield return new WaitForSeconds(0.125f);
                 }
             }
-          
+
 
         }
         public static IEnumerator LevelUp(int levelBefore, int levelAfter)
@@ -1697,6 +1700,22 @@ namespace Kaisa.Digivice
             }
             gm.StopCoroutine(bgAnimation);
         }
+
+        public static IEnumerator alertSpirit()
+        {
+            Sprite[] sLevelUpIcon = spriteDB.MenusSpiritPower;
+            SpriteBuilder sbLevelUpBG = ScreenElement.BuildSprite("LevelUpBackground", AnimParent).SetSprite(sLevelUpIcon[4]);
+            yield return new WaitForSeconds(0.3f);
+
+            for (int i = 0; i < 7; i++)
+            {
+
+                sbLevelUpBG.SetSprite(sLevelUpIcon[((i % 2) + 3)]);
+                yield return new WaitForSeconds(0.3f);
+
+            }
+
+        }
         public static IEnumerator showSpirit(int SPbefore)
         {
             SpriteBuilder sbSPBackground = ScreenElement.BuildSprite("SPBackground", AnimParent);
@@ -1806,6 +1825,64 @@ namespace Kaisa.Digivice
 
         }
 
+        public static IEnumerator PaySpiritPowerEsc(int SPbefore, int SPafter)
+        {
+
+
+
+            SpriteBuilder sbSPBackground = ScreenElement.BuildSprite("SPBackground", AnimParent);
+            Coroutine bgAnimation = gm.StartCoroutine(AnimateSPScreen(sbSPBackground));
+
+
+            Sprite[] sLevelUpIcon = spriteDB.MenusSpiritPower;
+            SpriteBuilder sbLevelUpBG = ScreenElement.BuildSprite("LevelUpBackground", AnimParent).SetSprite(sLevelUpIcon[1]).SetComponentX(1);
+            TextBoxBuilder tbSpirits = ScreenElement.BuildTextBox("SPAmount", AnimParent, DFont.Small)
+               .SetText(SPbefore.ToString()).SetSize(32, 11).SetPosition(0, 21).SetAlignment(TextAnchor.UpperRight);
+            tbSpirits.InvertColors(true);
+            tbSpirits.SetComponentSize(28, 5);
+            tbSpirits.SetComponentPosition(2, 3);
+            tbSpirits.SetActive(false);
+            audioMgr.PlayButtonA();
+            yield return new WaitForSeconds(0.3f);
+
+
+            for (int i = 0; i < 5; i++)
+            {
+
+                sbLevelUpBG.SetSprite(sLevelUpIcon[((i % 2))]);
+                yield return new WaitForSeconds(0.3f);
+
+            }
+            for (int i = 1; i < 3; i++)
+            {
+
+                sbLevelUpBG.SetSprite(sLevelUpIcon[((i % 2) + 2)]).SetComponentX(0);
+                yield return new WaitForSeconds(0.3f);
+
+            }
+            tbSpirits.SetActive(true);
+            for (int i = 1; i < 5; i++)
+            {
+
+                sbLevelUpBG.SetSprite(sLevelUpIcon[((i % 2) + 2)]).SetComponentX(0);
+                if (i == 2)
+                {
+                    audioMgr.PlayButtonA();
+                    tbSpirits.Text = SPafter.ToString();
+                }
+                yield return new WaitForSeconds(0.3f);
+
+
+
+            }
+            yield return new WaitForSeconds(0.3f);
+
+
+
+            gm.StopCoroutine(bgAnimation);
+        }
+
+
         public static IEnumerator PaySpiritPower(int SPbefore, int SPafter)
         {
             SpriteBuilder sbSPBackground = ScreenElement.BuildSprite("SPBackground", AnimParent);
@@ -1829,6 +1906,34 @@ namespace Kaisa.Digivice
             yield return new WaitForSeconds(1f);
 
             gm.StopCoroutine(bgAnimation);
+        }
+        public static IEnumerator SpiritPower(int SPafter)
+        {
+            SpriteBuilder sbSPBackground = ScreenElement.BuildSprite("SPBackground", AnimParent);
+            Sprite power = spriteDB.MenusSpiritPower[5];
+            // Coroutine bgAnimation = gm.StartCoroutine(AnimateSPScreen(sbSPBackground));
+            SpriteBuilder spirit = ScreenElement.BuildSprite("power", AnimParent)
+                    .SetSprite(power).SetTransparent(false).SetActive(true).SetComponentX(2);
+
+
+            TextBoxBuilder tbSpirits = ScreenElement.BuildTextBox("SPAmount", AnimParent, DFont.Small)
+                .SetText(SPafter.ToString()).SetSize(32, 11).SetPosition(0, 21).SetAlignment(TextAnchor.UpperRight);
+            tbSpirits.InvertColors(true);
+            tbSpirits.SetComponentSize(28, 5);
+            tbSpirits.SetComponentPosition(2, 3);
+            tbSpirits.SetActive(false);
+
+            yield return new WaitForSeconds(0.75f);
+            audioMgr.PlayButtonA();
+            tbSpirits.SetActive(true);
+
+            yield return new WaitForSeconds(0.75f);
+            audioMgr.PlayButtonA();
+            tbSpirits.Text = SPafter.ToString();
+
+            yield return new WaitForSeconds(1f);
+
+            // gm.StopCoroutine(bgAnimation);
         }
 
         public static IEnumerator bossEvolution(string digimonBefore, string digimonAfter, int dim = 24)

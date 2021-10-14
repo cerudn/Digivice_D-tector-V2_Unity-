@@ -241,7 +241,7 @@ namespace Kaisa.Digivice.Apps
         {
             if (currentScreen == BattleScreen.MainMenu)
             {
-                gm.EnqueueAnimation(Animations.PaySpiritPower(SpiritPower, SpiritPower));
+                gm.EnqueueAnimation(Animations.SpiritPower(SpiritPower));
             }
             else if (currentScreen == BattleScreen.BattleCall_DDocks)
             {
@@ -250,7 +250,7 @@ namespace Kaisa.Digivice.Apps
             }
             else if (currentScreen == BattleScreen.Combat_Menu)
             {
-                gm.EnqueueAnimation(Animations.PaySpiritPower(SpiritPower, SpiritPower));
+                gm.EnqueueAnimation(Animations.SpiritPower(SpiritPower));
             }
             else if (currentScreen == BattleScreen.SpiritList_Elements)
             {
@@ -1224,7 +1224,7 @@ namespace Kaisa.Digivice.Apps
 
             if (attacksAwardSP)
             {
-                gm.EnqueueAnimation(Animations.AWardSpiritPower(SPbefore));
+                gm.EnqueueAnimation(Animations.alertSpirit());
             }
 
             currentScreen = BattleScreen.Combat_Menu;
@@ -1640,7 +1640,7 @@ namespace Kaisa.Digivice.Apps
 
                 SPbefore = SpiritPower;
                 SpiritPower -= friendlyDigimon.GetSpiritCost(playerLevel);
-                gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
+                gm.EnqueueAnimation(Animations.PaySpiritPowerEsc(SPbefore, SpiritPower));
 
 
             }
@@ -1704,7 +1704,7 @@ namespace Kaisa.Digivice.Apps
             if (availableAreas.Count > 0)
             {
                 int newArea = currentArea;
-               
+
 
                 newArea = availableAreas.Aggregate((x, y) => System.Math.Abs(x - newArea) < System.Math.Abs(y - newArea) ? x : y);
 

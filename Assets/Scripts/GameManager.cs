@@ -125,8 +125,6 @@ namespace Kaisa.Digivice
             //EnqueueAnimation(Animations.EncounterFinalBoss("agunimon")); 
             //EnqueueAnimation(Animations.AncientEvolution(GameChar.JP,"ancientgreymon"));
             // EnqueueAnimation(Animations.Escape(PlayerCharSprites[0], 32));
-            //EnqueueAnimation(Animations.StartGameAnimation2(GameChar.Koji));
-
             //EnqueueAnimation(Animations.FinalBossMap("agunimon",GameChar.Koichi));
             //CompleteWorld1();
             //CompleteWorld0();
