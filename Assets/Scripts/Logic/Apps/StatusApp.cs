@@ -143,7 +143,7 @@ namespace Kaisa.Digivice.Apps {
                 MutableCharstats stats;
                              
                 
-                stats = pageCharacter.GetRegularStats();
+                stats = pageCharacter.getCharStatsbyLevel(playerLevel);
 
 
                 
@@ -174,7 +174,7 @@ namespace Kaisa.Digivice.Apps {
                         .SetText("skill").SetSize(10, 5).SetPosition(10, 9).SetAlignment(TextAnchor.UpperRight);
                     
                     ScreenElement.BuildTextBox("SK", screenDisplay.transform, DFont.Regular)
-                        .SetText(stats.ST.ToString()).SetSize(15, 5).SetPosition(16, 22).SetAlignment(TextAnchor.UpperRight);
+                        .SetText(stats.SK.ToString()).SetSize(15, 5).SetPosition(16, 22).SetAlignment(TextAnchor.UpperRight);
                 }
             }
         }

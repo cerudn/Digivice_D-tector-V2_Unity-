@@ -136,6 +136,14 @@ namespace Kaisa.Digivice {
             }
             return null;
         }
+         public static Characters GetCharacter(int number) {
+            foreach (Characters d in Characters) {
+                if (d.number == number) {
+                    return d;
+                }
+            }
+            return null;
+        }
 
         /// <summary>
         /// Gets a digimon at random from those in the database that can be chosen for a random battle.

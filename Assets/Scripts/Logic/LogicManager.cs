@@ -712,6 +712,12 @@ namespace Kaisa.Digivice
             float level = Mathf.Pow(playerXP, 1f / 3f);
             return Mathf.FloorToInt(level);
         }
+        public static int[,] randStat(){
+            return SavedGame.randStat;
+        }
+        public static int[,] beforeRanstat(){
+           return SavedGame.beforeRandStat;
+        }
         /// <summary>
         /// Returns the percentage of the experience the player has compared to the experience needed to the next level
         /// (where 0% is the base experience for their level, not 0 experience).
@@ -732,9 +738,32 @@ namespace Kaisa.Digivice
         /// </summary>
         public void LevelUpPlayer()
         {
+             
             int playerLevel = GetPlayerLevel();
             float nextLevelExp = Mathf.Pow(playerLevel + 1, 3f);
+
+            
             SavedGame.PlayerExperience = Mathf.CeilToInt(nextLevelExp);
+        
+            SavedGame.beforeRandStat=randStat();
+
+            
+
+            calcRandStat();
+
+        }
+
+        public int [,] calcRandStat(){
+            int [,] rand=new int [6,4];
+            foreach (Characters d in Database.Characters)
+            {
+                rand[d.number,0] = Random.Range(1,11);
+                rand[d.number,1] = Random.Range(1,11);
+                rand[d.number,2] = Random.Range(1,11);
+                rand[d.number,3] = Random.Range(1,11);
+            }
+            SavedGame.randStat=rand;
+            return rand;
         }
         /// <summary>
         /// Forcibly levels down the player, reducing its experience by an amount equal to the next level's experience minus this level's experience.
@@ -747,6 +776,10 @@ namespace Kaisa.Digivice
             float nextLevelExperience = Mathf.Pow(playerLevel + 1, 3f);
             SavedGame.PlayerExperience -= (int)(nextLevelExperience - thisLevelExperience);
             if (SavedGame.PlayerExperience < lastLevelExperience) SavedGame.PlayerExperience = (int)lastLevelExperience;
+            SavedGame.beforeRandStat=randStat();           
+
+            calcRandStat();
+
         }
         public int SpiritPower
         {

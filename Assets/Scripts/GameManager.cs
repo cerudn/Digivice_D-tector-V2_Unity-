@@ -197,7 +197,8 @@ namespace Kaisa.Digivice
             EnqueueAnimation(Animations.StartGameAnimation(chosenGameChar, playerSpirit, spiritEnergy, randomInitial, enemyEnergy));
 
             logicMgr.currentScreen = Screen.Character;
-
+            SavedGame.beforeRandStat=logicMgr.calcRandStat();
+            
 
         }
 
@@ -491,17 +492,17 @@ namespace Kaisa.Digivice
             return allCharacter;
         }
 
-        public bool IsSpiritCharacterAccesible(string spirit)
+        public int IsSpiritCharacterAccesible(string spirit)
         {
 
             foreach (Characters d in Database.Characters)
             {
 
-                if (logicMgr.GetCharacterUnlocked(d.Name) && d.spirits.Contains(spirit)) return true;
+                if (logicMgr.GetCharacterUnlocked(d.Name) && d.spirits.Contains(spirit)) return d.number;
 
             }
 
-            return false;
+            return -1;
         }
         public GameChar getCharacter(string spirit)
         {

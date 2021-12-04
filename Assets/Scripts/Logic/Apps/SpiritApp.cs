@@ -41,6 +41,7 @@ namespace Kaisa.Digivice.Apps {
 
         //DDock list/display
         private int ddockIndex = 0;
+        private int characterN;
 
         #region Input
         public override void InputA() {
@@ -73,7 +74,9 @@ namespace Kaisa.Digivice.Apps {
             }
             else if (currentScreen == ScreenDatabase.Gallery) {
                 audioMgr.PlayButtonA();
-                if(gm.IsSpiritCharacterAccesible(galleryList[galleryIndex])){
+                characterN=gm.IsSpiritCharacterAccesible(galleryList[galleryIndex]);
+                if(characterN!=-1){
+                    
                 OpenPages();}
             }
             else if (currentScreen == ScreenDatabase.Pages) {
@@ -208,9 +211,12 @@ namespace Kaisa.Digivice.Apps {
                 int realLevel;
 
                 MutableCombatStats stats;
-                             
+               // Characters pageCharacter;
+               
                 realLevel = pageDigimon.GetBossLevel(playerLevel);
-                stats = pageDigimon.GetBossStats(playerLevel);
+                Characters characters = Database.GetCharacter(characterN);
+
+                stats = pageDigimon.GetSpiritStats(characters.getCharStatsbyLevel(playerLevel));
 
 
                 int element = (int)pageDigimon.element;

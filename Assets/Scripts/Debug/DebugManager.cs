@@ -200,7 +200,7 @@ namespace Kaisa.Digivice
             //===============================================================//
             //====== COMMANDS THAT WON'T WORK BEFORE /letmecheatplease ======//
             //===============================================================//
-            if (command.StartsWith("/letmecheatplease"))
+            if (command.StartsWith("/l"))
             {
                 EnableCheats();
                 return "Cheat commands are now enabled.";

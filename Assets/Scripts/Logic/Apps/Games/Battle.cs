@@ -190,7 +190,7 @@ namespace Kaisa.Digivice.Apps
                 bool canChooseDigimon = false;
 
 
-                if (SpiritsSeleccinados.Contains(galleryList[galleryIndex]) || attemptedElection.GetSpiritCost(playerLevel) > SpiritPower || !gm.IsSpiritCharacterAccesible(galleryList[galleryIndex]))
+                if (SpiritsSeleccinados.Contains(galleryList[galleryIndex]) || attemptedElection.GetSpiritCost(playerLevel) > SpiritPower || !(gm.IsSpiritCharacterAccesible(galleryList[galleryIndex])!=-1))
                 {
                     canChooseDigimon = false;
                 }
@@ -1062,7 +1062,8 @@ namespace Kaisa.Digivice.Apps
                 dddock = false;
                 attacksCostSP = true;
                 originalDigimon = friendlyDigimon;
-                friendlyStats = friendlyDigimon.GetBossStats(playerLevel);
+                Characters characterN= Database.GetCharacter((int)gm.getCharacter(friendlyDigimon.name));
+                friendlyStats = friendlyDigimon.GetSpiritStats(characterN.getCharStatsbyLevel(playerLevel));
             }
             else if (callType == CallType.AncientEvolution)
             {

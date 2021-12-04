@@ -219,6 +219,20 @@ namespace Kaisa.Digivice {
 
             return new MutableCombatStats(HP, EN, CR, AB);
         }
+
+         public MutableCombatStats GetSpiritStats(MutableCharstats playerLevel) {
+          
+            int HP, EN, CR, AB;
+            //If the Digimon is Hybrid, assign its stats using the formula(s) for Hybrid bosses.
+            
+                HP = bossStats.HP + playerLevel.HP;
+                EN = bossStats.EN + playerLevel.SP;
+                CR = bossStats.CR + playerLevel.ST;
+                AB = bossStats.AB + playerLevel.SK;
+            
+
+            return new MutableCombatStats(HP, EN, CR, AB);
+        }
         /// <summary>
         /// Returns the stats of a Digimon based on its actual level. This shouldn't be used for special Digimon such as Hybrid- or Armor-Stage Digimon.
         /// </summary>

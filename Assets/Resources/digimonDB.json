@@ -9279,10 +9279,10 @@
     "disabled": false,
     "baseLevel": 99,
     "stats": {
-      "HP": 185,
-      "EN": 200,
-      "CR": 145,
-      "AB": 145
+      "HP": 75,
+      "EN": 40,
+      "CR": 25,
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9325,10 +9325,10 @@
     "disabled": false,
     "baseLevel": 99,
     "stats": {
-      "HP": 185,
-      "EN": 140,
-      "CR": 150,
-      "AB": 205
+      "HP": 75,
+      "EN": 25,
+      "CR": 30,
+      "AB": 45
     },
     "bossStats": null,
     "isPseudo": false,

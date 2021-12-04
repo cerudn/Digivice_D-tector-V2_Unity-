@@ -333,6 +333,20 @@ namespace Kaisa.Digivice {
                 SaveGame();
             }
         }
+         public static int[,] beforeRandStat {
+            get => lg.beforeRandom;
+            set {
+                lg.beforeRandom = value;
+                SaveGame();
+            }
+        }
+        public static int[,] randStat {
+            get => lg.random;
+            set {
+                lg.random = value;
+                SaveGame();
+            }
+        }
         public static List<string> SpiritBoss{
             get => lg.SpitirBoss;
             set => lg.SpitirBoss = value;
@@ -404,8 +418,9 @@ namespace Kaisa.Digivice {
         //Progress data:
         public Dictionary<string, int> digimonLevel = new Dictionary<string, int>();
         public Dictionary<string, bool> digicodeUnlocked = new Dictionary<string, bool>();
-        public bool[][] areasCompleted; //areaCompleted[mapIndex][areaIndex]
-
+        public bool[][] areasCompleted;
+        public int[,] random;  //areaCompleted[mapIndex][areaIndex]
+        public int[,] beforeRandom;
         public List<string>SpitirBoss;
         //Adventure data:
         public string[][] bosses; //The bosses of each area, assigned from the Database when the game was first created.

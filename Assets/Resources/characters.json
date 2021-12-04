@@ -2,10 +2,16 @@
     "name": "Takuya",
     "element": 0,
     "stats": {
-        "HP": 40,
-        "SP": 25,
-        "ST": 15,
-        "SK": 20
+        "HP": 6,
+        "SP": 5,
+        "ST": 5,
+        "SK": 7
+      },
+    "lastStat":{
+        "HP": 110,
+        "SP": 160,
+        "ST": 120,
+        "SK": 115
       },
     "spirits": [
       "agunimon",
@@ -18,10 +24,16 @@
     "name": "Koji",
     "element": 0,
     "stats": {
-        "HP": 40,
-        "SP": 25,
-        "ST": 15,
-        "SK": 20
+        "HP": 6,
+        "SP": 7,
+        "ST": 5,
+        "SK": 5
+      },
+    "lastStat":{
+        "HP": 110,
+        "SP": 115,
+        "ST": 120,
+        "SK": 160
       },
     "spirits": [
       "lobomon",
@@ -34,10 +46,16 @@
     "name": "JP",
     "element": 0,
     "stats": {
-        "HP": 40,
-        "SP": 25,
-        "ST": 15,
-        "SK": 20
+        "HP": 8,
+        "SP": 4,
+        "ST": 8,
+        "SK": 5
+      },
+    "lastStat":{
+        "HP": 110,
+        "SP": 110,
+        "ST": 160,
+        "SK": 120
       },
     "spirits": [
       "beetlemon",
@@ -50,10 +68,16 @@
     "name": "Zoe",
     "element": 0,
     "stats": {
-        "HP": 40,
-        "SP": 25,
-        "ST": 15,
-        "SK": 20
+        "HP": 5,
+        "SP": 5,
+        "ST": 4,
+        "SK": 7
+      },
+    "lastStat":{
+        "HP": 105,
+        "SP": 100,
+        "ST": 120,
+        "SK": 140
       },
     "spirits": [
       "kazemon",
@@ -71,6 +95,12 @@
         "ST": 5,
         "SK": 4
       },
+    "lastStat":{
+        "HP": 100,
+        "SP": 130,
+        "ST": 130,
+        "SK": 130
+      },
     "spirits": [
       "kumamon",
       "korikakumon"
@@ -82,10 +112,16 @@
     "name": "Koichi",
     "element": 0,
     "stats": {
-        "HP": 40,
-        "SP": 25,
-        "ST": 15,
-        "SK": 20
+        "HP": 7,
+        "SP": 8,
+        "ST": 7,
+        "SK": 10
+      },
+    "lastStat":{
+        "HP": 110,
+        "SP": 160,
+        "ST": 120,
+        "SK": 115
       },
     "spirits": [
       "loweemon",
