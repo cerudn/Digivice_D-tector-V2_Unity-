@@ -117,12 +117,11 @@ namespace Kaisa.Digivice {
             string disabledPath = filePath.Replace(".digivice", ".disabled");
 
             int savedGameNumber = 0;
-            while (File.Exists($"{disabledPath}{savedGameNumber}")) {
-                savedGameNumber++;
-            }
-            disabledPath += savedGameNumber.ToString();
-
-            Debug.Log(disabledPath);
+             while (File.Exists($"{disabledPath}{savedGameNumber}")) {
+                 savedGameNumber++;
+             }
+         disabledPath += savedGameNumber.ToString();
+             Debug.Log(disabledPath);
             File.Move(filePath, disabledPath);
         }
         /// <summary>

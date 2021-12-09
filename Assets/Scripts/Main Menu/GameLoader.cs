@@ -25,7 +25,7 @@ namespace Kaisa.Digivice {
                 return gameSlotGroup.ActiveToggles().First().GetComponent<VisualGameSlot>().FilePath;
             }
         }
-        private BriefSavedGame SelectedSavedGame => SavedGame.GetBriefSavedGame(SelectedFilePath);
+      // private BriefSavedGame SelectedSavedGame => SavedGame.GetBriefSavedGame(SelectedFilePath);
 
         private void Awake() {
             if (!SavedGame.IsConfigurationInitialized) {
@@ -66,7 +66,7 @@ namespace Kaisa.Digivice {
         public void PromptDeleteSelectedGame() {
             prDeleteGameText.text =
                 $"Are you sure you want to permanently delete the game" +
-                $" {SelectedSavedGame.name} ({SelectedSavedGame.character}, Lv. {SelectedSavedGame.level})?" +
+                // $" {SelectedSavedGame.name} ({SelectedSavedGame.character}, Lv. {SelectedSavedGame.level})?" +
                 $"\nThis action can't be undone.";
             blockPanel.SetActive(true);
             promptDeleteGame.SetActive(true);
@@ -74,10 +74,10 @@ namespace Kaisa.Digivice {
 
         public void DeleteSelectedGame() {
             Debug.Log("Attempting to delete " + SelectedFilePath);
-            System.IO.File.Delete(SelectedFilePath);
-            //SavedGame.DeleteSavedGame(SelectedFilePath);
-            //BuildSavedGameList();
-            //CloseDeleteSelectedGame();
+            //System.IO.File.Delete(SelectedFilePath);
+            SavedGame.DeleteSavedGame(SelectedFilePath);
+            BuildSavedGameList();
+            CloseDeleteSelectedGame();
         }
         
         public void CloseDeleteSelectedGame() {

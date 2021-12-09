@@ -908,13 +908,13 @@ namespace Kaisa.Digivice
                     ScreenElement.BuildRectangle("Area" + i + "Marker", AnimParent).SetSize(2, 2).SetPosition(markerPos.x, markerPos.y);
                 }
             }
-            yield return new WaitForSeconds(2.25f);
+            yield return new WaitForSeconds(0.75f);
 
             //Display distance.
             SpriteBuilder sbDistance = ScreenElement.BuildSprite("DistanceBackground", AnimParent).SetSprite(spriteDB.map_distanceScreen);
             ScreenElement.BuildTextBox("Distance", AnimParent, DFont.Regular)
                 .SetText(distance.ToString()).SetSize(25, 5).SetPosition(6, 25).SetAlignment(TextAnchor.UpperRight);
-            yield return new WaitForSeconds(2.5f);
+             yield return new WaitForSeconds(0.75f);
         }
         public static IEnumerator ForcedTravelMap(int world, int areaBefore, int areaAfter, int newDistance)
         {
@@ -922,7 +922,7 @@ namespace Kaisa.Digivice
             int mapAfter = Database.Worlds[world].areas[areaAfter].map;
 
             audioMgr.PlaySound(audioMgr.travelMap);
-            yield return TravelMap(world, mapBefore, mapAfter, 3.5f);
+            yield return TravelMap(world, mapBefore, mapAfter, 1.5f);
             yield return DisplayNewArea(world, areaAfter, newDistance);
         }
         public static IEnumerator SwapDDock(int ddock, string newDigimon)
