@@ -32,7 +32,7 @@ namespace Kaisa.Digivice.Apps {
         }
         #endregion
 
-        public override void StartApp() {
+        public override void StartApp(int v) {
             InvokeRepeating("DrawScreen", 0, 0.05f); //The app screen is redrawn 20 times each second.
         }
 

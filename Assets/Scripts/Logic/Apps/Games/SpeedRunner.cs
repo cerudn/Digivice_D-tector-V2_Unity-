@@ -84,7 +84,7 @@ namespace Kaisa.Digivice.Apps
             if (lastDirectionTapped == Direction.Right) lastDirectionTapped = Direction.none;
         }
         #endregion
-        public override void StartApp()
+        public override void StartApp(int v)
         {
             GenerateLevel();
             Sprite sRocket = gm.spriteDB.speedRunner_rocket;

@@ -47,7 +47,10 @@ namespace Kaisa.Digivice.Apps {
             if (navigationCoroutine != null) StopCoroutine(navigationCoroutine);
         }
 
-        public abstract void StartApp();
+        public abstract void StartApp(int boss = 0);
+        
+            
+        
         protected virtual void CloseApp2(Screen gotoMenu = Screen.MainMenu2) {
             controller.CloseLoadedApp(gotoMenu);
         }

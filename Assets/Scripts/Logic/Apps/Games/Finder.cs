@@ -22,6 +22,7 @@ namespace Kaisa.Digivice.Apps
                 result = 0;
             }
         }
+
         public override void InputLeftDown()
         {
             //Remove error screen.
@@ -41,7 +42,7 @@ namespace Kaisa.Digivice.Apps
                 StopLoadingBar();
             }
         }
-        public override void StartApp()
+        public override void StartApp(int v)
         {
             InvokeRepeating("DisplayPressASprite", 0f, 0.45f);
         }
@@ -68,6 +69,8 @@ namespace Kaisa.Digivice.Apps
         private void StartLoadingBar()
         {
             if (sbError != null) sbError.Dispose();
+            
+
             result = 1;
             rbBlackScreen = ScreenElement.BuildRectangle("BlackScreen0", Parent).SetSize(32, 32);
             sbLoading = ScreenElement.BuildSprite("Loading", Parent).SetSprite(gm.spriteDB.loading).PlaceOutside(Direction.Up);

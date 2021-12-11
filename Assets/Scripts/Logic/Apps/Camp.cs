@@ -13,7 +13,7 @@ namespace Kaisa.Digivice.Apps {
             EndCamp();
         }
 
-        public override void StartApp() {
+        public override void StartApp(int v) {
             gm.EnqueueAnimation(Animations.OpenCamp(PlayerSprites));
             sbCamp = ScreenElement.BuildSprite("Camp", Parent).SetSize(24, 24).Center().SetSprite(gm.spriteDB.camp[0]);
             animCamp = StartCoroutine(PAnimateCamp());

@@ -714,7 +714,7 @@ namespace Kaisa.Digivice
                 if ((int)d.stage == 10
                         && d.element == element
                         && (d.spiritType == SpiritType.Human || d.spiritType == SpiritType.Animal)
-                        && logicMgr.GetDigimonUnlocked(d.name))
+                        && logicMgr.GetDigimonUnlocked(d.name) && IsSpiritCharacterAccesible(d.name)!=-1)
                 {
                     count++;
                 }

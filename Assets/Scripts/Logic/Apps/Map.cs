@@ -13,7 +13,7 @@ namespace Kaisa.Digivice.Apps
         private int originalWorld; //The world the player actually is in the game. Only for reference, since the player can't travel between worlds by himself.
         private int originalArea; //The area the player actually is in the game.
         private int originalMap; //The map of the area the player actually is in the game.
-
+        private int valClose =0;
         private int displayMap;
         private int[] areasInCurrentMap;
 
@@ -68,7 +68,9 @@ namespace Kaisa.Digivice.Apps
             if (currentScreen == 0)
             {
                 audioMgr.PlayButtonB();
-                CloseApp();
+                if(valClose==1){CloseApp(Screen.Character);
+                }else{
+                CloseApp();}
             }
             else if (currentScreen == 1)
             {
@@ -145,11 +147,21 @@ namespace Kaisa.Digivice.Apps
         }
         #endregion
 
-        public override void StartApp()
+        public override void StartApp(int value)
         {
+            
+            valClose=value;
+            
             LoadInitialMapData();
+            
+
             DrawMap();
+if(value!=0){
+                currentScreen=value;
+                OpenAreaSelection();
+            }
         }
+       
 
         private void LoadInitialMapData()
         {
@@ -237,6 +249,7 @@ namespace Kaisa.Digivice.Apps
             completedMarkers.Clear();
         }
 
+    
         private void OpenAreaSelection()
         {
             currentScreen = 1;
@@ -288,7 +301,7 @@ namespace Kaisa.Digivice.Apps
             hoveredAreaName.Dispose();
             if (currentAreaMarker != null) currentAreaMarker.SetActive(true);
         }
-
+       
         private void OpenViewDistance()
         {
             currentScreen = 2;

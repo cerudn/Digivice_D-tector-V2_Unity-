@@ -49,7 +49,7 @@ namespace Kaisa.Digivice.Apps {
             }
         }
 
-        public override void StartApp() {
+        public override void StartApp(int v) {
             gm.EnqueueAnimation(Animations.StartAppDigiHunter(mark => gameStarted = mark));
 
             ScreenElement.BuildTextBox("Time", screenDisplay.transform, DFont.Small).SetText("TIME").SetSize(18, 5).SetPosition(1, 0);

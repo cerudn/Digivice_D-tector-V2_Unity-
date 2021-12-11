@@ -569,7 +569,7 @@ namespace Kaisa.Digivice.Apps
             return this;
         }
 
-        public override void StartApp()
+        public override void StartApp(int v)
         {
 
             bossfriends.Add("kerpymon (evil)");
@@ -934,6 +934,7 @@ namespace Kaisa.Digivice.Apps
             loadedApp.StartApp();
             //loadedApp = LoadApp(gm.pAppDigits, gm, this, "true");
         }
+        
 
         private void SubmitCode(string digimon)
         {
@@ -942,7 +943,7 @@ namespace Kaisa.Digivice.Apps
             // if(d.stage == Stage.Armor || d.stage == Stage.Spirit) {
             if (d.stage == Stage.Spirit)
             {
-                if (d.spiritType == SpiritType.Ancient && SpiritPower == 99 && gm.HasBothFormsOfSpirit(d.element))
+                if (d.spiritType == SpiritType.Ancient && SpiritPower == 99 && gm.HasBothFormsOfSpirit(d.element) )
                 {
 
                     gm.logicMgr.SetDigimonUnlocked(digimon, true);
@@ -970,21 +971,11 @@ namespace Kaisa.Digivice.Apps
                 }
                 else
                 {
-                    digimon = Constants.DEFAULT_DIGIMON;
-                    // gm.logicMgr.SetDigimonUnlocked(digimon, true);
-                    //gm.logicMgr.SetDigicodeUnlocked(digimon, true);
-
-                    currentScreen = BattleScreen.Combat_Menu;
-                    availableMenuOptions = new int[] { 0, 1, 4 };
-                    combatMenuIndex = 0;
-
-                    AssignFriendlyDigimon(digimon, CallType.CodeCall);
-
-                    gm.EnqueueAnimation(Animations.SummonDigimon(digimon));
+                   defaultDigimon();
 
                 }
             }
-            else
+            else if (SpiritPower == 99)
             {
                 //cambiar metodo
                 gm.logicMgr.SetDigimonUnlocked(digimon, true);
@@ -997,9 +988,24 @@ namespace Kaisa.Digivice.Apps
                 AssignFriendlyDigimon(digimon, CallType.CodeCall);
 
                 gm.EnqueueAnimation(Animations.SummonDigimon(digimon));
+            }else {
+                 defaultDigimon();
             }
         }
 
+        private void defaultDigimon(){
+                    string digimon = Constants.DEFAULT_DIGIMON;
+                    // gm.logicMgr.SetDigimonUnlocked(digimon, true);
+                    //gm.logicMgr.SetDigicodeUnlocked(digimon, true);
+
+                    currentScreen = BattleScreen.Combat_Menu;
+                    availableMenuOptions = new int[] { 0, 1, 4 };
+                    combatMenuIndex = 0;
+
+                    AssignFriendlyDigimon(digimon, CallType.CodeCall);
+
+                    gm.EnqueueAnimation(Animations.SummonDigimon(digimon));
+        }
         public void CloseLoadedApp(Screen newScreen = Screen.MainMenu)
         {
             string result;
@@ -1015,6 +1021,7 @@ namespace Kaisa.Digivice.Apps
                     currentScreen = BattleScreen.MainMenu;
                 }
             }
+
             loadedApp.Dispose();
             loadedApp = null;
         }
@@ -1512,6 +1519,7 @@ namespace Kaisa.Digivice.Apps
             gm.logicMgr.IncreaseTotalBattles();
 
             CloseApp();
+            
 
         }
 
@@ -1635,7 +1643,7 @@ namespace Kaisa.Digivice.Apps
             gm.DisableLeaverBuster();
 
 
-            if (originalDigimon.stage == Stage.Spirit || (int)originalDigimon.stage == 10)
+            if (originalDigimon!=null &&( originalDigimon.stage == Stage.Spirit || (int)originalDigimon.stage == 10))
             {
                 int SPbefore = 0;
 
@@ -1714,6 +1722,11 @@ namespace Kaisa.Digivice.Apps
                 if (gm.WorldMgr.CurrentWorld != 1 && gm.WorldMgr.CurrentWorld != 3)
                 {
                     gm.EnqueueAnimation(Animations.ForcedTravelMap(currentWorld, currentArea, newArea, newDistance));
+                   
+                   
+                    
+
+                    
                 }
 
             }
@@ -1777,6 +1790,8 @@ namespace Kaisa.Digivice.Apps
             if (winner == 0) DamageDigimon(1, damageDealt, dddock);
             if (winner == 1) DamageDigimon(0, damageDealt, dddock);
 
+            
+
             return winner;
         }
         private int ChooseWinner(int friendlyAttack, int enemyAttack, out int damageDealt)
@@ -1792,24 +1807,25 @@ namespace Kaisa.Digivice.Apps
             }
             else if (friendlyAttack == enemyAttack)
             {
-                int difference = friendlyDamage - enemyDamage;
-                if (friendlyDamage > enemyDamage) difference = friendlyDamage;
-                else if (friendlyDamage < enemyDamage) difference = enemyDamage;
-                else if (friendlyDamage == enemyDamage) difference = 0;
+                //int difference = friendlyDamage - enemyDamage;
+                if (friendlyDamage > enemyDamage){ damageDealt = friendlyDamage; return 0;}
+                else if (friendlyDamage < enemyDamage) {damageDealt = enemyDamage; return 1;}
+                else if (friendlyDamage == enemyDamage){ damageDealt = 0; return 2;}
 
-                damageDealt = difference;
+                //damageDealt = difference;
 
                 //If both Digimons used Energy and their Energies have different rank (have different sprite), the higher rank energy always wins.
-                // if (friendlyAttack == 0 && friendlyStats.GetEnergyRank() != enemyStats.GetEnergyRank())
-                // {
-                return (friendlyDamage > enemyDamage) ? 0 : 1;
-                // }
-                // //Else, if both Digimon
+                //  if (friendlyAttack == 0 && friendlyStats.g != enemyStats.GetEnergyRank() || friendlyAttack == 1 && friendlyStats.GetAttackDamage != enemyStats.GetEnergyRank())
+                //  {
+                // return (friendlyDamage > enemyDamage) ? 0 : 1;
+                //  }
+                // // //Else, if both Digimon
                 // else
                 // {
-                //     if (difference <= -TIE_DAMAGE_THRESHOLD) return 1; //The enemy dealt 5+ more damage than the player.
-                //     if (difference >= TIE_DAMAGE_THRESHOLD) return 0; //The player dealt 5+ more damage than the enemy.
-                //     else return 2;
+                // //     if (difference <= -TIE_DAMAGE_THRESHOLD) return 1; //The enemy dealt 5+ more damage than the player.
+                // //     if (difference >= TIE_DAMAGE_THRESHOLD) return 0; //The player dealt 5+ more damage than the enemy.
+                // //     else 
+                // return 2;
                 // }
             }
             else
@@ -1881,9 +1897,9 @@ namespace Kaisa.Digivice.Apps
             if (digimon == 0 && SpiritType.Ancient == friendlyDigimon.spiritType && !ddock)
             {
                 damage -= 100;
-                if ((damage) > 0)
+                if (damage > 0)
                 {
-                    friendlyStats.HP -= damage;
+                    friendlyStats.HP -= (friendlyStats.HP - damage > 0) ? damage : friendlyStats.HP;
                 }
                 else
                 {

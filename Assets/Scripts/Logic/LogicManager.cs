@@ -549,12 +549,16 @@ namespace Kaisa.Digivice
                 menuEnum.SetNext();
             }
         }
-
-        private void OpenMap()
+        public void mapOpen(){
+            OpenMap(1);
+        }
+        private void OpenMap(int value = 0)
         {
             currentScreen = Screen.App;
             loadedApp = gm.appLoader.LoadApp<Map>(App.Map, this);
-            loadedApp.StartApp();
+            loadedApp.StartApp(value);
+            
+            
         }
         private void OpenStatus()
         {

@@ -63,7 +63,7 @@ namespace Kaisa.Digivice.Apps {
             }
         }
 
-        public override void StartApp() {
+        public override void StartApp(int v) {
             friendlyDigimon = gm.logicMgr.GetAllDDockDigimon().GetRandomElement();
             gm.EnqueueAnimation(Animations.EncounterEnemy("jackpot", 0.5f));
             gm.EnqueueAnimation(Animations.SummonDigimon(friendlyDigimon));

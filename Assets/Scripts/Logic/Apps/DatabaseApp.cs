@@ -210,7 +210,7 @@ namespace Kaisa.Digivice.Apps {
         }
         #endregion
 
-        public override void StartApp() {
+        public override void StartApp(int v) {
             DrawScreen();
         }
 

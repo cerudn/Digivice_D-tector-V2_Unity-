@@ -97,7 +97,7 @@ namespace Kaisa.Digivice.Apps {
             return this;
         }
 
-        public override void StartApp() {
+        public override void StartApp(int v) {
             for (int i = 0; i < 5; i++) {
                 underscores[i] = ScreenElement.BuildRectangle($"Underscore{i}", screenDisplay.transform).SetSize(5, 1).SetPosition(2 + (6 * i), 25);
             }

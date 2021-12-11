@@ -261,7 +261,7 @@ namespace Kaisa.Digivice
             }
             if (command.StartsWith("/unlockalldigimon"))
             {
-                SavedGame.CheatsUsed = true;
+                
                 UnlockAllDigimon();
                 return "All Digimon have been unlocked.";
             }
@@ -365,7 +365,7 @@ namespace Kaisa.Digivice
         {
             consoleActivated = true;
         }
-        private void UnlockAllDigimon()
+        public void UnlockAllDigimon()
         {
             foreach (Digimon d in Database.Digimons)
             {
