@@ -1493,7 +1493,7 @@ namespace Kaisa.Digivice
             Sprite[] sLevelUpBG = spriteDB.rewardBackground;
             Sprite sLevelUpIcon;
 
-            if (levelAfter > levelBefore)
+            if (levelAfter > levelBefore || levelBefore==99)
             {
                 sLevelUpIcon = spriteDB.LevelUpDown[0];
 
@@ -1588,7 +1588,7 @@ namespace Kaisa.Digivice
         public static IEnumerator LevelDown(int levelBefore, int levelAfter)
         {
             Sprite[] sLevelUpBG = spriteDB.rewardBackground.ReorderedAs(0, 3, 2, 1);
-            Sprite sLevelUpIcon = spriteDB.rewards[0];
+            Sprite sLevelUpIcon = spriteDB.LevelUpDown[1];
             SpriteBuilder sbLevelUpBG = ScreenElement.BuildSprite("LevelUpBackground", AnimParent).SetSprite(sLevelUpBG[0]);
             SpriteBuilder sbLevelUpIcon = ScreenElement.BuildSprite("LevelUpIcon", AnimParent).SetSize(16, 16).SetSprite(sLevelUpIcon);
             sbLevelUpIcon.Center(); //Center: 9, 9

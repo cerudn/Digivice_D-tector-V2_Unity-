@@ -43,7 +43,7 @@ namespace Kaisa.Digivice.Apps {
         public override void InputA() {
             if (currentScreen == ScreenDatabase.Menu) {
                
-                if(menuIndex==6){
+                if(menuIndex==5){
                     galleryList = gm.GetAllUnlockedAncientOfElement();
                 }else {
                      galleryList = gm.GetAllUnlockedDigimonInStage((Stage)menuIndex);
@@ -88,7 +88,7 @@ namespace Kaisa.Digivice.Apps {
                 audioMgr.PlayButtonA();
                 OpenPages();
             }
-            else if (currentScreen == ScreenDatabase.Pages && menuIndex !=6) {
+            else if (currentScreen == ScreenDatabase.Pages && menuIndex !=5) {
                 audioMgr.PlayButtonA();
                 if(!digimonIsInDDock) {
                 OpenDDockList();
@@ -102,11 +102,11 @@ namespace Kaisa.Digivice.Apps {
                     OpenDDockList();
                 }*/
             }
-            else if (currentScreen == ScreenDatabase.DDockList && menuIndex !=6) {
+            else if (currentScreen == ScreenDatabase.DDockList && menuIndex !=5) {
                 audioMgr.PlayButtonA();
                 OpenDDockDisplay();
             }
-            else if (currentScreen == ScreenDatabase.DDockDisplay && menuIndex !=6) {
+            else if (currentScreen == ScreenDatabase.DDockDisplay && menuIndex !=5) {
                 ChooseDDock();
             }
         }
@@ -284,7 +284,7 @@ namespace Kaisa.Digivice.Apps {
                 if (pageIndex == 0) {
                     
                     screenDisplay.sprite = gm.spriteDB.database_pages[0];
-                    if(menuIndex==6){
+                    if(menuIndex==5){
                     ScreenElement.BuildTextBox("Level", screenDisplay.transform, DFont.Regular)
                         .SetText("? ?").SetSize(15, 5).SetPosition(16, 9).SetAlignment(TextAnchor.UpperRight);}
                     else{ScreenElement.BuildTextBox("Level", screenDisplay.transform, DFont.Regular)
@@ -308,12 +308,12 @@ namespace Kaisa.Digivice.Apps {
                         .SetText(pageDigimon.code).SetSize(30, 8).SetPosition(2, 23).SetAlignment(TextAnchor.UpperRight);
                 }
             }
-            else if (currentScreen == ScreenDatabase.DDockList && menuIndex !=6) {
+            else if (currentScreen == ScreenDatabase.DDockList && menuIndex !=5) {
                 //string name = string.Format("{1}",  "DIGIMON REPLACEMENT?");
                
                screenDisplay.sprite = gm.spriteDB.database_ddocks[ddockIndex];
             }
-            else if (currentScreen == ScreenDatabase.DDockDisplay && menuIndex !=6) {
+            else if (currentScreen == ScreenDatabase.DDockDisplay && menuIndex !=5) {
                 
                 gm.GetDDockScreenElementNoddock(ddockIndex, screenDisplay.transform);
                 if(digimonNameSign==null){
@@ -330,8 +330,8 @@ namespace Kaisa.Digivice.Apps {
         }
 
         private void NavigateStageMenu(Direction dir) {
-            if (dir == Direction.Left) menuIndex = menuIndex.CircularAdd(-1, 6);
-            else menuIndex = menuIndex.CircularAdd(1, 6);
+            if (dir == Direction.Left) menuIndex = menuIndex.CircularAdd(-1, 5);
+            else menuIndex = menuIndex.CircularAdd(1, 5);
             DrawScreen();
         }
 

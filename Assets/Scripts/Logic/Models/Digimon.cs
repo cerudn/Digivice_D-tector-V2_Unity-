@@ -403,7 +403,7 @@ namespace Kaisa.Digivice {
         Champion,
         Perfect,
         Mega,
-        Ultimate,
+        //Ultimate,
         //Armor,
         Boss,
         Spirit,

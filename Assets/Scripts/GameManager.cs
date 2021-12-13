@@ -130,6 +130,7 @@ namespace Kaisa.Digivice
             //CompleteWorld0();
             //CompleteWorld0();
             //CompleteWorld2();
+           // CompleteWorld2();
 
             //SECTION TO DO WEIRD STUFF IN TESTING.
             // #if UNITY_EDITOR
@@ -306,8 +307,8 @@ namespace Kaisa.Digivice
             WorldMgr.TakeSteps(1);
             WorldMgr.ReduceDistance(1);
             if (WorldMgr.CurrentDistance == 1) SavedGame.SavedEvent = 2;
-
-            CheckPendingEvents();
+            if (!IsCharacterDefeated){
+            CheckPendingEvents();}
         }
         /// <summary>
         /// Returns the Transform of the main screen, usually to submit it as a parent to other gameobjects.
@@ -411,7 +412,7 @@ namespace Kaisa.Digivice
         }
         public List<string> GetAllCharacterWithPlayer()
         {
-            int before;
+            
 
             List<Characters> allCharacter = new List<Characters>();
             foreach (Characters d in Database.Characters)

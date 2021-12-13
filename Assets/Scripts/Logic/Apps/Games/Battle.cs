@@ -573,7 +573,7 @@ namespace Kaisa.Digivice.Apps
         {
 
             bossfriends.Add("kerpymon (evil)");
-            bossfriends.Add("kerpymon (good)");
+            bossfriends.Add("kerpymon (blast)");
             bossfriends.Add("lucemon");
             bossfriends.Add("ancientsphinxmon");
 
@@ -1622,7 +1622,7 @@ namespace Kaisa.Digivice.Apps
 
             if (gm.logicMgr.RemovePlayerExperience(defeatExp))
             {
-                gm.EnqueueAnimation(Animations.LevelDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
+                gm.EnqueueAnimation(Animations.LevelUpDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
             }
 
             if (alterDistance)
@@ -1690,10 +1690,10 @@ namespace Kaisa.Digivice.Apps
             }
 
 
-            if (gm.logicMgr.RemovePlayerExperience(defeatExp))
-            {
-                gm.EnqueueAnimation(Animations.LevelDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
-            }
+            //if (gm.logicMgr.RemovePlayerExperience(defeatExp))
+            //{
+                gm.EnqueueAnimation(Animations.LevelUpDown(playerLevel, gm.logicMgr.GetPlayerLevel()));
+            //}
 
 
             gm.logicMgr.IncreaseTotalBattles();

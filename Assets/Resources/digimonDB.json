@@ -37,7 +37,7 @@
     "element": 0,
     "evolution": "geogreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -93,7 +93,7 @@
       "aquilamon",
       "diatrymon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -121,7 +121,7 @@
       "snimon",
       "waspmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 35,
@@ -149,7 +149,7 @@
       "sunflowmon",
       "woodmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 40,
@@ -177,7 +177,7 @@
       "octomon",
       "frigimon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 45,
@@ -192,7 +192,7 @@
   },
   {
     "number": 14,
-    "order": 7,
+    "order": 14,
     "name": "patamon",
     "stage": 0,
     "spiritType": 6,
@@ -206,11 +206,11 @@
       "bucchiemon (green)"
     ],
     "disabled": false,
-    "baseLevel": 5,
+    "baseLevel": 4,
     "stats": {
       "HP": 40,
       "EN": 30,
-      "CR": 25,
+      "CR": 20,
       "AB": 10
     },
     "bossStats": null,
@@ -220,7 +220,7 @@
   },
   {
     "number": 15,
-    "order": 30,
+    "order": 10,
     "name": "kuwagamon",
     "stage": 1,
     "spiritType": 6,
@@ -234,12 +234,12 @@
       "scorpiomon"
     ],
     "disabled": false,
-    "baseLevel": 15,
+    "baseLevel": 23,
     "stats": {
       "HP": 60,
-      "EN": 25,
-      "CR": 40,
-      "AB": 35
+      "EN": 30,
+      "CR": 30,
+      "AB": 45
     },
     "bossStats": {
       "HP": 330,
@@ -267,12 +267,12 @@
       "majiramon"
     ],
     "disabled": false,
-    "baseLevel": 18,
+    "baseLevel": 19,
     "stats": {
-      "HP": 70,
-      "EN": 45,
-      "CR": 25,
-      "AB": 35
+      "HP": 65,
+      "EN": 20,
+      "CR": 40,
+      "AB": 45
     },
     "bossStats": null,
     "isPseudo": false,
@@ -281,7 +281,7 @@
   },
   {
     "number": 17,
-    "order": 31,
+    "order": 9,
     "name": "shellmon",
     "stage": 1,
     "spiritType": 6,
@@ -292,9 +292,9 @@
     "disabled": false,
     "baseLevel": 12,
     "stats": {
-      "HP": 80,
-      "EN": 25,
-      "CR": 15,
+      "HP": 70,
+      "EN": 15,
+      "CR": 20,
       "AB": 25
     },
     "bossStats": null,
@@ -318,12 +318,12 @@
       "kimeramon"
     ],
     "disabled": false,
-    "baseLevel": 18,
+    "baseLevel": 17,
     "stats": {
-      "HP": 65,
-      "EN": 35,
+      "HP": 60,
+      "EN": 40,
       "CR": 40,
-      "AB": 35
+      "AB": 20
     },
     "bossStats": null,
     "isPseudo": false,
@@ -340,7 +340,7 @@
     "element": 9,
     "evolution": "megaseadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 65,
@@ -363,7 +363,7 @@
     "element": 6,
     "evolution": "vermilimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 75,
@@ -386,7 +386,7 @@
     "element": 0,
     "evolution": "garudamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 60,
@@ -409,7 +409,7 @@
     "element": 0,
     "evolution": "skullmeramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 65,
@@ -432,7 +432,7 @@
     "element": 3,
     "evolution": "megakabuterimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 60,
@@ -447,7 +447,7 @@
   },
   {
     "number": 24,
-    "order": 48,
+    "order": 24,
     "name": "andromon",
     "stage": 2,
     "spiritType": 6,
@@ -458,7 +458,7 @@
     "disabled": false,
     "baseLevel": 29,
     "stats": {
-      "HP": 100,
+      "HP": 95,
       "EN": 40,
       "CR": 50,
       "AB": 40
@@ -478,7 +478,7 @@
     "element": 7,
     "evolution": "lillymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 65,
@@ -493,7 +493,7 @@
   },
   {
     "number": 26,
-    "order": 21,
+    "order": 15,
     "name": "numemon",
     "stage": 1,
     "spiritType": 6,
@@ -502,7 +502,7 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 7,
+    "baseLevel": 9,
     "stats": {
       "HP": 40,
       "EN": 20,
@@ -524,7 +524,7 @@
     "element": 3,
     "evolution": "warumonzaemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 28,
     "stats": {
       "HP": 90,
@@ -547,7 +547,7 @@
     "element": 4,
     "evolution": "zudomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 80,
@@ -570,7 +570,7 @@
     "element": 1,
     "evolution": "hippogriffomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 50,
@@ -585,7 +585,7 @@
   },
   {
     "number": 30,
-    "order": 23,
+    "order": 8,
     "name": "leomon",
     "stage": 1,
     "spiritType": 6,
@@ -594,12 +594,12 @@
     "evolution": "grapleomon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 16,
+    "baseLevel": 14,
     "stats": {
-      "HP": 65,
-      "EN": 25,
+      "HP": 45,
+      "EN": 40,
       "CR": 40,
-      "AB": 35
+      "AB": 20
     },
     "bossStats": null,
     "isPseudo": false,
@@ -608,7 +608,7 @@
   },
   {
     "number": 31,
-    "order": 25,
+    "order": 7,
     "name": "ogremon",
     "stage": 1,
     "spiritType": 6,
@@ -619,10 +619,10 @@
     "disabled": false,
     "baseLevel": 15,
     "stats": {
-      "HP": 75,
-      "EN": 35,
-      "CR": 30,
-      "AB": 20
+      "HP": 45,
+      "EN": 20,
+      "CR": 35,
+      "AB": 30
     },
     "bossStats": {
       "HP": 360,
@@ -644,7 +644,7 @@
     "element": 5,
     "evolution": "myotismon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 23,
     "stats": {
       "HP": 80,
@@ -664,7 +664,7 @@
   },
   {
     "number": 33,
-    "order": 35,
+    "order": 6,
     "name": "frigimon",
     "stage": 1,
     "spiritType": 6,
@@ -673,12 +673,12 @@
     "evolution": "monzaemon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 14,
+    "baseLevel": 20,
     "stats": {
-      "HP": 75,
+      "HP": 60,
       "EN": 15,
       "CR": 35,
-      "AB": 30
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -695,7 +695,7 @@
     "element": 4,
     "evolution": "piximon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 65,
@@ -718,7 +718,7 @@
     "element": 5,
     "evolution": "etemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 10,
     "stats": {
       "HP": 50,
@@ -746,7 +746,7 @@
     "element": 5,
     "evolution": "phantomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 45,
@@ -761,7 +761,7 @@
   },
   {
     "number": 38,
-    "order": 30,
+    "order": 12,
     "name": "elecmon",
     "stage": 0,
     "spiritType": 6,
@@ -773,9 +773,9 @@
     "baseLevel": 5,
     "stats": {
       "HP": 45,
-      "EN": 25,
-      "CR": 15,
-      "AB": 25
+      "EN": 30,
+      "CR": 25,
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -784,7 +784,7 @@
   },
   {
     "number": 43,
-    "order": 7,
+    "order": 20,
     "name": "angemon",
     "stage": 1,
     "spiritType": 6,
@@ -793,12 +793,12 @@
     "evolution": "magnaangemon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 24,
+    "baseLevel": 20,
     "stats": {
-      "HP": 85,
-      "EN": 60,
-      "CR": 40,
-      "AB": 30
+      "HP": 55,
+      "EN": 30,
+      "CR": 20,
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -815,7 +815,7 @@
     "element": 9,
     "evolution": "plesiomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 150,
@@ -838,7 +838,7 @@
     "element": 6,
     "evolution": "giromon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 60,
@@ -853,7 +853,7 @@
   },
   {
     "number": 46,
-    "order": 42,
+    "order": 7,
     "name": "etemon",
     "stage": 2,
     "spiritType": 6,
@@ -864,10 +864,10 @@
     "disabled": false,
     "baseLevel": 30,
     "stats": {
-      "HP": 95,
-      "EN": 40,
+      "HP": 85,
+      "EN": 30,
       "CR": 45,
-      "AB": 55
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -884,7 +884,7 @@
     "element": 3,
     "evolution": "deltamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -907,7 +907,7 @@
     "element": 5,
     "evolution": "raremon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 35,
@@ -922,7 +922,7 @@
   },
   {
     "number": 49,
-    "order": 9,
+    "order": 8,
     "name": "skullgreymon",
     "stage": 2,
     "spiritType": 6,
@@ -931,12 +931,12 @@
     "evolution": "blackwargreymon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 40,
+    "baseLevel": 41,
     "stats": {
       "HP": 110,
-      "EN": 70,
-      "CR": 70,
-      "AB": 50
+      "EN": 60,
+      "CR": 45,
+      "AB": 55
     },
     "bossStats": null,
     "isPseudo": false,
@@ -953,7 +953,7 @@
     "element": 0,
     "evolution": "karatenmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 85,
@@ -976,7 +976,7 @@
     "element": 5,
     "evolution": "metaltyrannomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 75,
@@ -999,7 +999,7 @@
     "element": 9,
     "evolution": "marineangemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 30,
     "stats": {
       "HP": 80,
@@ -1022,7 +1022,7 @@
     "element": 8,
     "evolution": "machinedramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 27,
     "stats": {
       "HP": 85,
@@ -1048,10 +1048,10 @@
     "disabled": false,
     "baseLevel": 35,
     "stats": {
-      "HP": 105,
-      "EN": 65,
-      "CR": 40,
-      "AB": 55
+      "HP": 95,
+      "EN": 40,
+      "CR": 50,
+      "AB": 60
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1068,7 +1068,7 @@
     "element": 5,
     "evolution": "devimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -1092,12 +1092,12 @@
     "evolution": "metalgarurumon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 35,
+    "baseLevel": 34,
     "stats": {
       "HP": 95,
-      "EN": 50,
-      "CR": 70,
-      "AB": 50
+      "EN": 55,
+      "CR": 45,
+      "AB": 45
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1114,7 +1114,7 @@
     "element": 5,
     "evolution": "devitamamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 28,
     "stats": {
       "HP": 85,
@@ -1129,7 +1129,7 @@
   },
   {
     "number": 58,
-    "order": 66,
+    "order": 14,
     "name": "vegiemon",
     "stage": 1,
     "spiritType": 6,
@@ -1138,11 +1138,11 @@
     "evolution": "pumpkinmon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 13,
+    "baseLevel": 10,
     "stats": {
-      "HP": 55,
-      "EN": 35,
-      "CR": 30,
+      "HP": 45,
+      "EN": 30,
+      "CR": 25,
       "AB": 25
     },
     "bossStats": null,
@@ -1152,7 +1152,7 @@
   },
   {
     "number": 59,
-    "order": 38,
+    "order": 19,
     "name": "myotismon",
     "stage": 2,
     "spiritType": 6,
@@ -1161,12 +1161,12 @@
     "evolution": "venommyotismon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 41,
+    "baseLevel": 32,
     "stats": {
-      "HP": 125,
-      "EN": 70,
-      "CR": 55,
-      "AB": 40
+      "HP": 100,
+      "EN": 60,
+      "CR": 40,
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1183,7 +1183,7 @@
     "element": 8,
     "evolution": "ebemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 27,
     "stats": {
       "HP": 80,
@@ -1206,7 +1206,7 @@
     "element": 3,
     "evolution": "shogungekomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 8,
     "stats": {
       "HP": 50,
@@ -1229,7 +1229,7 @@
     "element": 9,
     "evolution": "gekomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 40,
@@ -1252,7 +1252,7 @@
     "element": 3,
     "evolution": "boltmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 30,
     "stats": {
       "HP": 110,
@@ -1275,7 +1275,7 @@
     "element": 0,
     "evolution": "phoenixmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 85,
@@ -1298,7 +1298,7 @@
     "element": 3,
     "evolution": "okuwamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 55,
@@ -1321,7 +1321,7 @@
     "element": 1,
     "evolution": "angewomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 65,
@@ -1341,7 +1341,7 @@
   },
   {
     "number": 68,
-    "order": 54,
+    "order": 13,
     "name": "nanimon",
     "stage": 1,
     "spiritType": 6,
@@ -1350,12 +1350,12 @@
     "evolution": "bombernanimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 12,
+    "baseLevel": 21,
     "stats": {
-      "HP": 55,
-      "EN": 25,
-      "CR": 20,
-      "AB": 40
+      "HP": 50,
+      "EN": 30,
+      "CR": 45,
+      "AB": 20
     },
     "bossStats": {
       "HP": 300,
@@ -1377,7 +1377,7 @@
     "element": 5,
     "evolution": "mephistomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 22,
     "stats": {
       "HP": 80,
@@ -1405,7 +1405,7 @@
     "element": 3,
     "evolution": "arukenimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 45,
@@ -1428,7 +1428,7 @@
     "element": 6,
     "evolution": "skullmammothmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 100,
@@ -1443,7 +1443,7 @@
   },
   {
     "number": 72,
-    "order": 37,
+    "order": 11,
     "name": "gesomon",
     "stage": 1,
     "spiritType": 6,
@@ -1452,12 +1452,12 @@
     "evolution": "marinedevimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 12,
+    "baseLevel": 13,
     "stats": {
-      "HP": 50,
+      "HP": 35,
       "EN": 20,
       "CR": 35,
-      "AB": 35
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1474,7 +1474,7 @@
     "element": 5,
     "evolution": "dragomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 75,
@@ -1502,7 +1502,7 @@
     "element": 8,
     "evolution": "boltmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 100,
@@ -1517,7 +1517,7 @@
   },
   {
     "number": 75,
-    "order": 41,
+    "order": 27,
     "name": "wizardmon",
     "stage": 1,
     "spiritType": 6,
@@ -1526,12 +1526,12 @@
     "evolution": "wisemon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 16,
+    "baseLevel": 15,
     "stats": {
-      "HP": 60,
-      "EN": 25,
+      "HP": 45,
+      "EN": 45,
       "CR": 20,
-      "AB": 55
+      "AB": 15
     },
     "bossStats": {
       "HP": 220,
@@ -1553,7 +1553,7 @@
     "element": 7,
     "evolution": "boltmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 90,
@@ -1568,7 +1568,7 @@
   },
   {
     "number": 77,
-    "order": 22,
+    "order": 7,
     "name": "gotsumon",
     "stage": 0,
     "spiritType": 6,
@@ -1581,10 +1581,10 @@
     "disabled": false,
     "baseLevel": 4,
     "stats": {
-      "HP": 45,
-      "EN": 20,
-      "CR": 25,
-      "AB": 10
+      "HP": 35,
+      "EN": 10,
+      "CR": 30,
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1601,7 +1601,7 @@
     "element": 7,
     "evolution": "rosemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 32,
     "stats": {
       "HP": 85,
@@ -1624,7 +1624,7 @@
     "element": 5,
     "evolution": "metalphantomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 95,
@@ -1647,7 +1647,7 @@
     "element": 5,
     "evolution": "gigadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 75,
@@ -1662,7 +1662,7 @@
   },
   {
     "number": 81,
-    "order": 24,
+    "order": 11,
     "name": "gizamon",
     "stage": 0,
     "spiritType": 6,
@@ -1693,7 +1693,7 @@
     "element": 4,
     "evolution": "vikemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 120,
@@ -1716,7 +1716,7 @@
     "element": 9,
     "evolution": "metalseadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 35,
     "stats": {
       "HP": 95,
@@ -1739,7 +1739,7 @@
     "element": 1,
     "evolution": "ophanimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 39,
     "stats": {
       "HP": 110,
@@ -1762,7 +1762,7 @@
     "element": 6,
     "evolution": "triceramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 75,
@@ -1777,7 +1777,7 @@
   },
   {
     "number": 86,
-    "order": 80,
+    "order": 28,
     "name": "snimon",
     "stage": 1,
     "spiritType": 6,
@@ -1786,12 +1786,12 @@
     "evolution": "jewelbeemon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 14,
+    "baseLevel": 10,
     "stats": {
-      "HP": 55,
-      "EN": 35,
-      "CR": 35,
-      "AB": 30
+      "HP": 40,
+      "EN": 15,
+      "CR": 20,
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1808,7 +1808,7 @@
     "element": 3,
     "evolution": "herculeskabuterimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 80,
@@ -1823,7 +1823,7 @@
   },
   {
     "number": 88,
-    "order": 7,
+    "order": 16,
     "name": "magnaangemon",
     "stage": 2,
     "spiritType": 6,
@@ -1832,12 +1832,12 @@
     "evolution": "seraphimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 46,
+    "baseLevel": 40,
     "stats": {
-      "HP": 130,
-      "EN": 80,
-      "CR": 60,
-      "AB": 50
+      "HP": 40,
+      "EN": 55,
+      "CR": 45,
+      "AB": 60
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1846,7 +1846,7 @@
   },
   {
     "number": 89,
-    "order": 26,
+    "order": 18,
     "name": "venommyotismon",
     "stage": 3,
     "spiritType": 6,
@@ -1857,9 +1857,9 @@
     "disabled": false,
     "baseLevel": 60,
     "stats": {
-      "HP": 170,
+      "HP": 160,
       "EN": 85,
-      "CR": 80,
+      "CR": 75,
       "AB": 60
     },
     "bossStats": null,
@@ -1881,9 +1881,9 @@
     "baseLevel": 55,
     "stats": {
       "HP": 160,
-      "EN": 90,
-      "CR": 60,
-      "AB": 70
+      "EN": 70,
+      "CR": 75,
+      "AB": 80
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1901,12 +1901,12 @@
     "evolution": "omnimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 55,
+    "baseLevel": 53,
     "stats": {
-      "HP": 145,
-      "EN": 85,
-      "CR": 85,
-      "AB": 65
+      "HP": 150,
+      "EN": 80,
+      "CR": 80,
+      "AB": 60
     },
     "bossStats": null,
     "isPseudo": false,
@@ -1923,7 +1923,7 @@
     "element": 1,
     "evolution": "gatomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -1946,7 +1946,7 @@
     "element": 3,
     "evolution": "crowmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 60,
@@ -1969,7 +1969,7 @@
     "element": 7,
     "evolution": "sukamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 35,
@@ -1994,7 +1994,7 @@
     "extraEvolutions": [
       "gigaseadramon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 55,
     "stats": {
       "HP": 140,
@@ -2009,7 +2009,7 @@
   },
   {
     "number": 97,
-    "order": 33,
+    "order": 9,
     "name": "machinedramon",
     "stage": 3,
     "spiritType": 6,
@@ -2018,12 +2018,12 @@
     "evolution": "chaosdramon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 59,
+    "baseLevel": 62,
     "stats": {
       "HP": 180,
       "EN": 75,
       "CR": 90,
-      "AB": 60
+      "AB": 65
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2040,7 +2040,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 57,
     "stats": {
       "HP": 155,
@@ -2063,7 +2063,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 150,
@@ -2086,7 +2086,7 @@
     "element": 9,
     "evolution": "skullscorpiomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 28,
     "stats": {
       "HP": 85,
@@ -2109,7 +2109,7 @@
     "element": 9,
     "evolution": "marinedevimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 60,
@@ -2132,7 +2132,7 @@
     "element": 7,
     "evolution": "blossomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 12,
     "stats": {
       "HP": 50,
@@ -2147,7 +2147,7 @@
   },
   {
     "number": 103,
-    "order": 27,
+    "order": 10,
     "name": "mushroomon",
     "stage": 0,
     "spiritType": 6,
@@ -2158,10 +2158,10 @@
     "disabled": false,
     "baseLevel": 4,
     "stats": {
-      "HP": 45,
-      "EN": 10,
-      "CR": 20,
-      "AB": 25
+      "HP": 30,
+      "EN": 20,
+      "CR": 15,
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2178,7 +2178,7 @@
     "element": 7,
     "evolution": "murmukusmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 110,
@@ -2201,7 +2201,7 @@
     "element": 7,
     "evolution": "kiwimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 6,
     "stats": {
       "HP": 45,
@@ -2224,7 +2224,7 @@
     "element": 7,
     "evolution": "rosemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 26,
     "stats": {
       "HP": 95,
@@ -2247,7 +2247,7 @@
     "element": 7,
     "evolution": "puppetmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 32,
     "stats": {
       "HP": 120,
@@ -2270,7 +2270,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 24,
     "stats": {
       "HP": 65,
@@ -2293,7 +2293,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 140,
@@ -2308,7 +2308,7 @@
   },
   {
     "number": 110,
-    "order": 20,
+    "order": 17,
     "name": "saberleomon",
     "stage": 3,
     "spiritType": 6,
@@ -2317,12 +2317,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 55,
+    "baseLevel": 50,
     "stats": {
       "HP": 160,
-      "EN": 95,
-      "CR": 80,
-      "AB": 50
+      "EN": 60,
+      "CR": 90,
+      "AB": 65
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2339,7 +2339,7 @@
     "element": 7,
     "evolution": "shogungekomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 50,
@@ -2362,7 +2362,7 @@
     "element": 8,
     "evolution": "datamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 60,
@@ -2377,7 +2377,7 @@
   },
   {
     "number": 113,
-    "order": 84,
+    "order": 29,
     "name": "tankmon",
     "stage": 1,
     "spiritType": 6,
@@ -2386,12 +2386,12 @@
     "evolution": "tankdramon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 18,
+    "baseLevel": 14,
     "stats": {
-      "HP": 75,
-      "EN": 45,
-      "CR": 35,
-      "AB": 25
+      "HP": 65,
+      "EN": 40,
+      "CR": 25,
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2408,7 +2408,7 @@
     "element": 8,
     "evolution": "mekanorimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 40,
@@ -2431,7 +2431,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 44,
     "stats": {
       "HP": 130,
@@ -2454,7 +2454,7 @@
     "element": 5,
     "evolution": "lilithmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 105,
@@ -2477,7 +2477,7 @@
     "element": 5,
     "evolution": "garbagemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 8,
     "stats": {
       "HP": 35,
@@ -2494,13 +2494,13 @@
     "number": 118,
     "order": 23,
     "name": "apocalymon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "apocalymon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 190,
@@ -2515,7 +2515,7 @@
   },
   {
     "number": 119,
-    "order": 35,
+    "order": 9,
     "name": "kunemon",
     "stage": 0,
     "spiritType": 6,
@@ -2526,10 +2526,10 @@
     "disabled": false,
     "baseLevel": 5,
     "stats": {
-      "HP": 45,
+      "HP": 30,
       "EN": 20,
-      "CR": 20,
-      "AB": 25
+      "CR": 300,
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2546,7 +2546,7 @@
     "element": 3,
     "evolution": "asuramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 55,
@@ -2561,7 +2561,7 @@
   },
   {
     "number": 121,
-    "order": 49,
+    "order": 11,
     "name": "kimeramon",
     "stage": 2,
     "spiritType": 6,
@@ -2570,12 +2570,12 @@
     "evolution": "millenniummon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 28,
+    "baseLevel": 29,
     "stats": {
-      "HP": 90,
-      "EN": 50,
-      "CR": 40,
-      "AB": 50
+      "HP": 75,
+      "EN": 40,
+      "CR": 35,
+      "AB": 45
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2584,7 +2584,7 @@
   },
   {
     "number": 122,
-    "order": 28,
+    "order": 26,
     "name": "rockmon",
     "stage": 2,
     "spiritType": 6,
@@ -2592,13 +2592,13 @@
     "element": 6,
     "evolution": "eldoradimon",
     "extraEvolutions": null,
-    "disabled": true,
-    "baseLevel": 33,
+    "disabled": false,
+    "baseLevel": 17,
     "stats": {
-      "HP": 130,
-      "EN": 30,
-      "CR": 50,
-      "AB": 40
+      "HP": 60,
+      "EN": 25,
+      "CR": 40,
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2615,7 +2615,7 @@
     "element": 6,
     "evolution": "jagamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 80,
@@ -2630,7 +2630,7 @@
   },
   {
     "number": 124,
-    "order": 29,
+    "order": 17,
     "name": "starmon",
     "stage": 1,
     "spiritType": 6,
@@ -2639,12 +2639,12 @@
     "evolution": "superstarmon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 13,
+    "baseLevel": 25,
     "stats": {
       "HP": 55,
-      "EN": 45,
-      "CR": 35,
-      "AB": 20
+      "EN": 55,
+      "CR": 25,
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2661,7 +2661,7 @@
     "element": 6,
     "evolution": "cannondramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 110,
@@ -2684,7 +2684,7 @@
     "element": 3,
     "evolution": "grankuwagamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 95,
@@ -2707,7 +2707,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 140,
@@ -2730,7 +2730,7 @@
     "element": 9,
     "evolution": "whamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 75,
@@ -2753,7 +2753,7 @@
     "element": 9,
     "evolution": "scorpiomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 50,
@@ -2776,7 +2776,7 @@
     "element": 9,
     "evolution": "dragomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 55,
@@ -2791,7 +2791,7 @@
   },
   {
     "number": 131,
-    "order": 41,
+    "order": 9,
     "name": "marinedevimon",
     "stage": 2,
     "spiritType": 6,
@@ -2800,12 +2800,12 @@
     "evolution": "leviamon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 34,
+    "baseLevel": 32,
     "stats": {
-      "HP": 95,
-      "EN": 40,
-      "CR": 60,
-      "AB": 60
+      "HP": 75,
+      "EN": 45,
+      "CR": 30,
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2822,7 +2822,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 48,
     "stats": {
       "HP": 145,
@@ -2845,7 +2845,7 @@
     "element": 0,
     "evolution": "wizardmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -2868,7 +2868,7 @@
     "element": 6,
     "evolution": "andromon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 70,
@@ -2883,7 +2883,7 @@
   },
   {
     "number": 135,
-    "order": 23,
+    "order": 8,
     "name": "kokuwamon",
     "stage": 0,
     "spiritType": 6,
@@ -2894,10 +2894,10 @@
     "disabled": false,
     "baseLevel": 4,
     "stats": {
-      "HP": 45,
-      "EN": 15,
-      "CR": 10,
-      "AB": 25
+      "HP": 30,
+      "EN": 25,
+      "CR": 20,
+      "AB": 10
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2914,7 +2914,7 @@
     "element": 4,
     "evolution": "skullsatamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 42,
     "stats": {
       "HP": 120,
@@ -2929,7 +2929,7 @@
   },
   {
     "number": 137,
-    "order": 48,
+    "order": 12,
     "name": "deputymon",
     "stage": 1,
     "spiritType": 6,
@@ -2940,10 +2940,10 @@
     "disabled": false,
     "baseLevel": 11,
     "stats": {
-      "HP": 55,
+      "HP": 45,
       "EN": 40,
-      "CR": 20,
-      "AB": 20
+      "CR": 10,
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -2960,7 +2960,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 54,
     "stats": {
       "HP": 220,
@@ -2983,7 +2983,7 @@
     "element": 8,
     "evolution": "metalmamemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 90,
@@ -3006,7 +3006,7 @@
     "element": 0,
     "evolution": "megidramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 100,
@@ -3029,7 +3029,7 @@
     "element": 4,
     "evolution": "vikemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 100,
@@ -3052,7 +3052,7 @@
     "element": 0,
     "evolution": "boltmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 90,
@@ -3075,7 +3075,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 65,
     "stats": {
       "HP": 140,
@@ -3098,7 +3098,7 @@
     "element": 9,
     "evolution": "waruseadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 50,
@@ -3121,7 +3121,7 @@
     "element": 6,
     "evolution": "volcamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 75,
@@ -3144,7 +3144,7 @@
     "element": 6,
     "evolution": "marsmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 90,
@@ -3167,7 +3167,7 @@
     "element": 5,
     "evolution": "megakabuterimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 12,
     "stats": {
       "HP": 55,
@@ -3190,7 +3190,7 @@
     "element": 0,
     "evolution": "zanbamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 90,
@@ -3213,7 +3213,7 @@
     "element": 6,
     "evolution": "spinomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 28,
     "stats": {
       "HP": 135,
@@ -3236,7 +3236,7 @@
     "element": 9,
     "evolution": "coelamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 30,
@@ -3259,7 +3259,7 @@
     "element": 9,
     "evolution": "gesomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 55,
@@ -3282,7 +3282,7 @@
     "element": 9,
     "evolution": "ghoulmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 43,
     "stats": {
       "HP": 125,
@@ -3297,7 +3297,7 @@
   },
   {
     "number": 153,
-    "order": 22,
+    "order": 12,
     "name": "marineangemon",
     "stage": 3,
     "spiritType": 6,
@@ -3309,9 +3309,9 @@
     "baseLevel": 48,
     "stats": {
       "HP": 140,
-      "EN": 60,
-      "CR": 60,
-      "AB": 80
+      "EN": 70,
+      "CR": 50,
+      "AB": 85
     },
     "bossStats": null,
     "isPseudo": false,
@@ -3328,7 +3328,7 @@
     "element": 3,
     "evolution": "boarmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 8,
     "stats": {
       "HP": 50,
@@ -3351,7 +3351,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 51,
     "stats": {
       "HP": 160,
@@ -3374,7 +3374,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 160,
@@ -3397,7 +3397,7 @@
     "element": 8,
     "evolution": "bigmamemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 7,
     "stats": {
       "HP": 45,
@@ -3420,7 +3420,7 @@
     "element": 8,
     "evolution": "princemamemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 95,
@@ -3443,7 +3443,7 @@
     "element": 8,
     "evolution": "hiandromon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 32,
     "stats": {
       "HP": 95,
@@ -3466,7 +3466,7 @@
     "element": 8,
     "evolution": "metaltyrannomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 65,
@@ -3489,7 +3489,7 @@
     "element": 6,
     "evolution": "orochimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 70,
@@ -3512,7 +3512,7 @@
     "element": 6,
     "evolution": "rockmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 65,
@@ -3535,7 +3535,7 @@
     "element": 2,
     "evolution": "aeroveedramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 75,
@@ -3558,7 +3558,7 @@
     "element": 2,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 80,
@@ -3581,7 +3581,7 @@
     "element": 7,
     "evolution": "cherrymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 65,
@@ -3609,7 +3609,7 @@
     "element": 2,
     "evolution": "ulforceveedramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 37,
     "stats": {
       "HP": 110,
@@ -3632,7 +3632,7 @@
     "element": 6,
     "evolution": "boltmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 100,
@@ -3655,7 +3655,7 @@
     "element": 6,
     "evolution": "jagamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 70,
@@ -3670,7 +3670,7 @@
   },
   {
     "number": 168,
-    "order": 3,
+    "order": 10,
     "name": "phoenixmon",
     "stage": 3,
     "spiritType": 6,
@@ -3679,11 +3679,11 @@
     "evolution": "ornismon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 53,
+    "baseLevel": 50,
     "stats": {
-      "HP": 160,
-      "EN": 75,
-      "CR": 60,
+      "HP": 180,
+      "EN": 55,
+      "CR": 75,
       "AB": 85
     },
     "bossStats": null,
@@ -3701,7 +3701,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 150,
@@ -3716,7 +3716,7 @@
   },
   {
     "number": 170,
-    "order": 60,
+    "order": 16,
     "name": "toyagumon",
     "stage": 0,
     "spiritType": 6,
@@ -3725,12 +3725,12 @@
     "evolution": "extyrannomon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 5,
+    "baseLevel": 3,
     "stats": {
-      "HP": 40,
-      "EN": 25,
+      "HP": 35,
+      "EN": 15,
       "CR": 25,
-      "AB": 25
+      "AB": 15
     },
     "bossStats": null,
     "isPseudo": false,
@@ -3747,7 +3747,7 @@
     "element": 9,
     "evolution": "seadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -3770,7 +3770,7 @@
     "element": 8,
     "evolution": "datamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 60,
@@ -3785,7 +3785,7 @@
   },
   {
     "number": 173,
-    "order": 44,
+    "order": 30,
     "name": "guardromon",
     "stage": 1,
     "spiritType": 6,
@@ -3794,12 +3794,12 @@
     "evolution": "andromon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 15,
+    "baseLevel": 18,
     "stats": {
-      "HP": 65,
-      "EN": 25,
-      "CR": 40,
-      "AB": 35
+      "HP": 70,
+      "EN": 20,
+      "CR": 50,
+      "AB": 10
     },
     "bossStats": null,
     "isPseudo": false,
@@ -3816,7 +3816,7 @@
     "element": 8,
     "evolution": "gallantmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 110,
@@ -3839,7 +3839,7 @@
     "element": 4,
     "evolution": "dolphmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 45,
@@ -3862,7 +3862,7 @@
     "element": 7,
     "evolution": "dokugumon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -3885,7 +3885,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 26,
     "stats": {
       "HP": 80,
@@ -3908,7 +3908,7 @@
     "element": 4,
     "evolution": "gururumon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -3931,7 +3931,7 @@
     "element": 4,
     "evolution": "machgaogamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 75,
@@ -3954,7 +3954,7 @@
     "element": 9,
     "evolution": "scorpiomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 12,
     "stats": {
       "HP": 65,
@@ -3977,7 +3977,7 @@
     "element": 1,
     "evolution": "piddomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -4000,7 +4000,7 @@
     "element": 5,
     "evolution": "blossomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 11,
     "stats": {
       "HP": 45,
@@ -4023,7 +4023,7 @@
     "element": 9,
     "evolution": "tuskmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -4046,7 +4046,7 @@
     "element": 0,
     "evolution": "gigadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 21,
     "stats": {
       "HP": 70,
@@ -4069,7 +4069,7 @@
     "element": 4,
     "evolution": "frigimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 40,
@@ -4092,7 +4092,7 @@
     "element": 4,
     "evolution": "mojyamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -4115,7 +4115,7 @@
     "element": 3,
     "evolution": "sunflowmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -4140,7 +4140,7 @@
     "extraEvolutions": [
       "rockmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 55,
@@ -4163,7 +4163,7 @@
     "element": 3,
     "evolution": "megadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 70,
@@ -4186,7 +4186,7 @@
     "element": 8,
     "evolution": "machinedramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 110,
@@ -4209,7 +4209,7 @@
     "element": 0,
     "evolution": "piximon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 75,
@@ -4232,7 +4232,7 @@
     "element": 6,
     "evolution": "pumpkinmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 70,
@@ -4255,7 +4255,7 @@
     "element": 5,
     "evolution": "shellnumemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 2,
     "stats": {
       "HP": 30,
@@ -4280,7 +4280,7 @@
     "extraEvolutions": [
       "imperialdramon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 110,
@@ -4305,7 +4305,7 @@
     "extraEvolutions": [
       "eldoradimon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 28,
     "stats": {
       "HP": 90,
@@ -4328,7 +4328,7 @@
     "element": 9,
     "evolution": "pukumon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 95,
@@ -4351,7 +4351,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 130,
@@ -4374,7 +4374,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 120,
@@ -4397,7 +4397,7 @@
     "element": 1,
     "evolution": "extyrannomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 25,
@@ -4420,7 +4420,7 @@
     "element": 0,
     "evolution": "metalgreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 60,
@@ -4435,7 +4435,7 @@
   },
   {
     "number": 201,
-    "order": 21,
+    "order": 16,
     "name": "goburimon",
     "stage": 0,
     "spiritType": 6,
@@ -4444,10 +4444,10 @@
     "evolution": "ogremon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 5,
+    "baseLevel": 4,
     "stats": {
-      "HP": 50,
-      "EN": 25,
+      "HP": 45,
+      "EN": 30,
       "CR": 20,
       "AB": 15
     },
@@ -4458,7 +4458,7 @@
   },
   {
     "number": 202,
-    "order": 28,
+    "order": 16,
     "name": "thundermon",
     "stage": 1,
     "spiritType": 6,
@@ -4467,12 +4467,12 @@
     "evolution": "thunderbirdmon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 12,
+    "baseLevel": 22,
     "stats": {
       "HP": 50,
-      "EN": 30,
-      "CR": 25,
-      "AB": 40
+      "EN": 20,
+      "CR": 40,
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -4489,7 +4489,7 @@
     "element": 5,
     "evolution": "kingnumemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 9,
     "stats": {
       "HP": 55,
@@ -4512,7 +4512,7 @@
     "element": 3,
     "evolution": "kokatorimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 45,
@@ -4535,7 +4535,7 @@
     "element": 4,
     "evolution": "hyogamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 50,
@@ -4550,7 +4550,7 @@
   },
   {
     "number": 206,
-    "order": 31,
+    "order": 15,
     "name": "keramon",
     "stage": 0,
     "spiritType": 6,
@@ -4559,12 +4559,12 @@
     "evolution": "chrysalimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 5,
+    "baseLevel": 4,
     "stats": {
-      "HP": 35,
-      "EN": 30,
-      "CR": 30,
-      "AB": 15
+      "HP": 40,
+      "EN": 20,
+      "CR": 10,
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -4581,7 +4581,7 @@
     "element": 3,
     "evolution": "dinobeemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 12,
     "stats": {
       "HP": 50,
@@ -4604,7 +4604,7 @@
     "element": 1,
     "evolution": "fugamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 65,
@@ -4619,7 +4619,7 @@
   },
   {
     "number": 210,
-    "order": 52,
+    "order": 11,
     "name": "goldramon",
     "stage": 3,
     "spiritType": 6,
@@ -4650,7 +4650,7 @@
     "element": 6,
     "evolution": "okuwamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 12,
     "stats": {
       "HP": 50,
@@ -4673,7 +4673,7 @@
     "element": 3,
     "evolution": "cyberdramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 55,
@@ -4696,7 +4696,7 @@
     "element": 5,
     "evolution": "icedevimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 60,
@@ -4719,7 +4719,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 54,
     "stats": {
       "HP": 155,
@@ -4736,13 +4736,13 @@
     "number": 214,
     "order": 999,
     "name": "rosemon (burst)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "rosemon",
     "element": 7,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 73,
     "stats": {
       "HP": 185,
@@ -4765,7 +4765,7 @@
     "element": 5,
     "evolution": "goldramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 115,
@@ -4788,7 +4788,7 @@
     "element": 5,
     "evolution": "metaltyrannomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 60,
@@ -4811,7 +4811,7 @@
     "element": 4,
     "evolution": "iceleomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 65,
@@ -4834,7 +4834,7 @@
     "element": 1,
     "evolution": "pegasusmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 70,
@@ -4859,7 +4859,7 @@
     "extraEvolutions": [
       "cannonbeemon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 125,
@@ -4882,7 +4882,7 @@
     "element": 8,
     "evolution": "goldramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 100,
@@ -4905,7 +4905,7 @@
     "element": 8,
     "evolution": "reapermon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 32,
     "stats": {
       "HP": 95,
@@ -4920,7 +4920,7 @@
   },
   {
     "number": 222,
-    "order": 21,
+    "order": 14,
     "name": "cyberdramon",
     "stage": 2,
     "spiritType": 6,
@@ -4929,9 +4929,9 @@
     "evolution": "justimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 37,
+    "baseLevel": 42,
     "stats": {
-      "HP": 110,
+      "HP": 120,
       "EN": 55,
       "CR": 65,
       "AB": 45
@@ -4951,7 +4951,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 68,
     "stats": {
       "HP": 210,
@@ -4966,7 +4966,7 @@
   },
   {
     "number": 224,
-    "order": 35,
+    "order": 19,
     "name": "millenniummon",
     "stage": 3,
     "spiritType": 6,
@@ -4975,10 +4975,10 @@
     "evolution": "zeedmillenniummon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 63,
+    "baseLevel": 58,
     "stats": {
-      "HP": 200,
-      "EN": 75,
+      "HP": 190,
+      "EN": 65,
       "CR": 65,
       "AB": 90
     },
@@ -4989,7 +4989,7 @@
   },
   {
     "number": 225,
-    "order": 55,
+    "order": 25,
     "name": "chrysalimon",
     "stage": 1,
     "spiritType": 6,
@@ -4998,12 +4998,12 @@
     "evolution": "infermon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 16,
+    "baseLevel": 19,
     "stats": {
-      "HP": 60,
+      "HP": 50,
       "EN": 35,
-      "CR": 35,
-      "AB": 45
+      "CR": 20,
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -5020,7 +5020,7 @@
     "element": 5,
     "evolution": "daemon (ultimate)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 56,
     "stats": {
       "HP": 150,
@@ -5037,13 +5037,13 @@
     "number": 226,
     "order": 28,
     "name": "daemon (ultimate)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "ancientgreymon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 76,
     "stats": {
       "HP": 200,
@@ -5058,7 +5058,7 @@
   },
   {
     "number": 227,
-    "order": 29,
+    "order": 20,
     "name": "kingetemon",
     "stage": 3,
     "spiritType": 6,
@@ -5070,9 +5070,9 @@
     "baseLevel": 68,
     "stats": {
       "HP": 180,
-      "EN": 60,
-      "CR": 90,
-      "AB": 120
+      "EN": 80,
+      "CR": 65,
+      "AB": 100
     },
     "bossStats": null,
     "isPseudo": false,
@@ -5081,7 +5081,7 @@
   },
   {
     "number": 234,
-    "order": 9,
+    "order": 3,
     "name": "veemon",
     "stage": 0,
     "spiritType": 6,
@@ -5112,7 +5112,7 @@
     "element": 3,
     "evolution": "aquilamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 50,
@@ -5135,7 +5135,7 @@
     "element": 6,
     "evolution": "ankylomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 55,
@@ -5150,7 +5150,7 @@
   },
   {
     "number": 237,
-    "order": 10,
+    "order": 4,
     "name": "wormmon",
     "stage": 0,
     "spiritType": 6,
@@ -5181,7 +5181,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 240,
@@ -5204,7 +5204,7 @@
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5227,7 +5227,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -5250,7 +5250,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5273,7 +5273,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 230,
@@ -5296,7 +5296,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 180,
@@ -5319,7 +5319,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 210,
@@ -5342,7 +5342,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 320,
@@ -5365,7 +5365,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 280,
@@ -5388,7 +5388,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 270,
@@ -5411,7 +5411,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 280,
@@ -5434,7 +5434,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 230,
@@ -5457,7 +5457,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 190,
@@ -5480,7 +5480,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5503,7 +5503,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 230,
@@ -5526,7 +5526,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 190,
@@ -5549,7 +5549,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 290,
@@ -5572,7 +5572,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5595,7 +5595,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 220,
@@ -5618,7 +5618,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 165,
@@ -5641,7 +5641,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5664,7 +5664,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 220,
@@ -5687,7 +5687,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 320,
@@ -5710,7 +5710,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5733,7 +5733,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 240,
@@ -5756,7 +5756,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 220,
@@ -5779,7 +5779,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 270,
@@ -5802,7 +5802,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 290,
@@ -5825,7 +5825,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 205,
@@ -5848,7 +5848,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5871,7 +5871,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 260,
@@ -5894,7 +5894,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 280,
@@ -5917,7 +5917,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 320,
@@ -5940,7 +5940,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 200,
@@ -5963,7 +5963,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 230,
@@ -5986,7 +5986,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 240,
@@ -6009,7 +6009,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 240,
@@ -6032,7 +6032,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 275,
@@ -6055,7 +6055,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 66,
     "stats": {
       "HP": 180,
@@ -6078,7 +6078,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 220,
@@ -6101,7 +6101,7 @@
     "element": 1,
     "evolution": "pumpkinmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 45,
@@ -6124,7 +6124,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -6147,7 +6147,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 280,
@@ -6170,7 +6170,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 290,
@@ -6193,7 +6193,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 220,
@@ -6216,7 +6216,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -6239,7 +6239,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 215,
@@ -6262,7 +6262,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 235,
@@ -6285,7 +6285,7 @@
     "element": 1,
     "evolution": "slashangemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 35,
     "stats": {
       "HP": 110,
@@ -6308,7 +6308,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 240,
@@ -6331,7 +6331,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 240,
@@ -6354,7 +6354,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -6377,7 +6377,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 230,
@@ -6400,7 +6400,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 270,
@@ -6423,7 +6423,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -6446,7 +6446,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 245,
@@ -6469,7 +6469,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 195,
@@ -6492,7 +6492,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 215,
@@ -6515,7 +6515,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 275,
@@ -6538,7 +6538,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -6561,7 +6561,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 245,
@@ -6576,7 +6576,7 @@
   },
   {
     "number": 298,
-    "order": 9,
+    "order": 3,
     "name": "exveemon",
     "stage": 1,
     "spiritType": 6,
@@ -6585,12 +6585,12 @@
     "evolution": "paildramon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 17,
+    "baseLevel": 20,
     "stats": {
-      "HP": 65,
+      "HP": 55,
       "EN": 25,
-      "CR": 55,
-      "AB": 30
+      "CR": 30,
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -6599,7 +6599,7 @@
   },
   {
     "number": 299,
-    "order": 10,
+    "order": 4,
     "name": "stingmon",
     "stage": 1,
     "spiritType": 6,
@@ -6610,10 +6610,10 @@
     "disabled": false,
     "baseLevel": 16,
     "stats": {
-      "HP": 55,
+      "HP": 50,
       "EN": 45,
       "CR": 15,
-      "AB": 45
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -6630,7 +6630,7 @@
     "element": 3,
     "evolution": "silphymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 75,
@@ -6653,7 +6653,7 @@
     "element": 6,
     "evolution": "shakkoumon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 85,
@@ -6668,7 +6668,7 @@
   },
   {
     "number": 302,
-    "order": 10,
+    "order": 3,
     "name": "paildramon",
     "stage": 2,
     "spiritType": 6,
@@ -6677,11 +6677,11 @@
     "evolution": "imperialdramon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 33,
+    "baseLevel": 38,
     "stats": {
-      "HP": 100,
-      "EN": 40,
-      "CR": 65,
+      "HP": 85,
+      "EN": 55,
+      "CR": 60,
       "AB": 45
     },
     "bossStats": null,
@@ -6691,7 +6691,7 @@
   },
   {
     "number": 303,
-    "order": 11,
+    "order": 4,
     "name": "dinobeemon",
     "stage": 2,
     "spiritType": 6,
@@ -6700,12 +6700,12 @@
     "evolution": "grankuwagamon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 32,
+    "baseLevel": 30,
     "stats": {
-      "HP": 95,
+      "HP": 80,
       "EN": 60,
       "CR": 30,
-      "AB": 60
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -6722,7 +6722,7 @@
     "element": 3,
     "evolution": "valkyrimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 30,
     "stats": {
       "HP": 100,
@@ -6745,7 +6745,7 @@
     "element": 6,
     "evolution": "lampmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 115,
@@ -6760,7 +6760,7 @@
   },
   {
     "number": 306,
-    "order": 8,
+    "order": 3,
     "name": "imperialdramon",
     "stage": 3,
     "spiritType": 6,
@@ -6769,11 +6769,11 @@
     "evolution": "imperialdramon (fighter)",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 58,
+    "baseLevel": 57,
     "stats": {
       "HP": 170,
-      "EN": 65,
-      "CR": 90,
+      "EN": 80,
+      "CR": 65,
       "AB": 85
     },
     "bossStats": null,
@@ -6783,21 +6783,21 @@
   },
   {
     "number": 306,
-    "order": 13,
+    "order": 23,
     "name": "imperialdramon (fighter)",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "imperialdramon_fighter",
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 72,
+    "baseLevel": 75,
     "stats": {
       "HP": 210,
-      "EN": 75,
-      "CR": 105,
-      "AB": 100
+      "EN": 70,
+      "CR": 120,
+      "AB": 90
     },
     "bossStats": null,
     "isPseudo": false,
@@ -6808,13 +6808,13 @@
     "number": 306,
     "order": 999,
     "name": "imperialdramon (paladin)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "imperialdramon_paladin",
     "element": 1,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 90,
     "stats": {
       "HP": 265,
@@ -6828,8 +6828,8 @@
     "code": "igo0e"
   },
   {
-    "number": 308,
-    "order": 9,
+    "number": 307,
+    "order": 4,
     "name": "grankuwagamon",
     "stage": 3,
     "spiritType": 6,
@@ -6840,12 +6840,12 @@
       "grandiskuwagamon"
     ],
     "disabled": false,
-    "baseLevel": 53,
+    "baseLevel": 50,
     "stats": {
-      "HP": 150,
-      "EN": 85,
-      "CR": 55,
-      "AB": 85
+      "HP": 170,
+      "EN": 60,
+      "CR": 85,
+      "AB": 65
     },
     "bossStats": null,
     "isPseudo": false,
@@ -6862,7 +6862,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 160,
@@ -6885,7 +6885,7 @@
     "element": 4,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 52,
     "stats": {
       "HP": 190,
@@ -6899,22 +6899,22 @@
     "code": "2b4n5"
   },
   {
-    "number": 311,
-    "order": 8,
+    "number": 310,
+    "order": 14,
     "name": "seraphimon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "seraphimon",
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 75,
+    "baseLevel": 65,
     "stats": {
-      "HP": 200,
-      "EN": 120,
-      "CR": 100,
-      "AB": 70
+      "HP": 180,
+      "EN": 75,
+      "CR": 90,
+      "AB": 75
     },
     "bossStats": null,
     "isPseudo": false,
@@ -6922,7 +6922,7 @@
     "code": "1qm5w"
   },
   {
-    "number": 312,
+    "number": 311,
     "order": 7,
     "name": "blackwargreymon",
     "stage": 3,
@@ -6932,10 +6932,10 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 57,
+    "baseLevel": 55,
     "stats": {
-      "HP": 170,
-      "EN": 85,
+      "HP": 165,
+      "EN": 80,
       "CR": 85,
       "AB": 50
     },
@@ -6954,7 +6954,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 61,
     "stats": {
       "HP": 180,
@@ -6977,7 +6977,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 140,
@@ -7000,7 +7000,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 48,
     "stats": {
       "HP": 170,
@@ -7023,7 +7023,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 47,
     "stats": {
       "HP": 135,
@@ -7046,7 +7046,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 145,
@@ -7060,8 +7060,8 @@
     "code": "malne"
   },
   {
-    "number": 318,
-    "order": 34,
+    "number": 317,
+    "order": 21,
     "name": "hiandromon",
     "stage": 3,
     "spiritType": 6,
@@ -7070,12 +7070,12 @@
     "evolution": "craniamon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 53,
+    "baseLevel": 50,
     "stats": {
-      "HP": 145,
-      "EN": 80,
-      "CR": 80,
-      "AB": 70
+      "HP": 140,
+      "EN": 75,
+      "CR": 70,
+      "AB": 65
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7092,7 +7092,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 49,
     "stats": {
       "HP": 150,
@@ -7115,7 +7115,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 56,
     "stats": {
       "HP": 170,
@@ -7130,9 +7130,9 @@
   },
   {
     "number": 321,
-    "order": 3,
+    "order": 32,
     "name": "zhuqiaomon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "zhuqiaomon",
     "element": 0,
@@ -7157,22 +7157,22 @@
     "code": "qbhbz"
   },
   {
-    "number": 322,
-    "order": 4,
+    "number": 320,
+    "order": 33,
     "name": "ebonwumon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "ebonwumon",
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 80,
+    "baseLevel": 82,
     "stats": {
-      "HP": 220,
-      "EN": 100,
-      "CR": 100,
-      "AB": 100
+      "HP": 210,
+      "EN": 150,
+      "CR": 75,
+      "AB": 75
     },
     "bossStats": {
       "HP": 210,
@@ -7181,26 +7181,26 @@
       "AB": 200
     },
     "isPseudo": false,
-    "HasBossStats": false,
+    "HasBossStats": true,
     "code": "36zlw"
   },
   {
-    "number": 323,
-    "order": 1,
+    "number": 322,
+    "order": 30,
     "name": "azulongmon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "azulongmon",
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 80,
+    "baseLevel": 82,
     "stats": {
-      "HP": 250,
+      "HP": 210,
       "EN": 80,
       "CR": 80,
-      "AB": 140
+      "AB": 150
     },
     "bossStats": {
       "HP": 180,
@@ -7213,10 +7213,10 @@
     "code": "jz1mr"
   },
   {
-    "number": 324,
-    "order": 2,
+    "number": 323,
+    "order": 31,
     "name": "baihumon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "baihumon",
     "element": 9,
@@ -7225,10 +7225,10 @@
     "disabled": false,
     "baseLevel": 80,
     "stats": {
-      "HP": 230,
-      "EN": 80,
+      "HP": 210,
+      "EN": 85,
       "CR": 140,
-      "AB": 80
+      "AB": 75
     },
     "bossStats": {
       "HP": 230,
@@ -7237,12 +7237,12 @@
       "AB": 100
     },
     "isPseudo": false,
-    "HasBossStats": false,
+    "HasBossStats": true,
     "code": "r4hvt"
   },
   {
-    "number": 325,
-    "order": 50,
+    "number": 324,
+    "order": 13,
     "name": "arukenimon",
     "stage": 2,
     "spiritType": 6,
@@ -7251,12 +7251,12 @@
     "evolution": "parasimon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 32,
+    "baseLevel": 33,
     "stats": {
-      "HP": 85,
-      "EN": 60,
-      "CR": 60,
-      "AB": 40
+      "HP": 80,
+      "EN": 40,
+      "CR": 40,
+      "AB": 45
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7264,8 +7264,8 @@
     "code": "pkdlg"
   },
   {
-    "number": 326,
-    "order": 51,
+    "number": 325,
+    "order": 12,
     "name": "mummymon",
     "stage": 2,
     "spiritType": 6,
@@ -7296,7 +7296,7 @@
     "element": 0,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 2,
     "stats": {
       "HP": 30,
@@ -7310,7 +7310,7 @@
     "code": "8bj0p"
   },
   {
-    "number": 329,
+    "number": 330,
     "order": 47,
     "name": "tsumemon",
     "stage": 0,
@@ -7319,7 +7319,7 @@
     "element": 5,
     "evolution": "devidramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 30,
@@ -7333,8 +7333,8 @@
     "code": "fy7ra"
   },
   {
-    "number": 330,
-    "order": 57,
+    "number": 329,
+    "order": 17,
     "name": "infermon",
     "stage": 2,
     "spiritType": 6,
@@ -7343,12 +7343,12 @@
     "evolution": "diaboromon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 36,
+    "baseLevel": 37,
     "stats": {
-      "HP": 100,
+      "HP": 90,
       "EN": 50,
-      "CR": 55,
-      "AB": 65
+      "CR": 45,
+      "AB": 55
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7356,8 +7356,8 @@
     "code": "uzskk"
   },
   {
-    "number": 331,
-    "order": 42,
+    "number": 330,
+    "order": 16,
     "name": "diaboromon",
     "stage": 3,
     "spiritType": 6,
@@ -7366,12 +7366,12 @@
     "evolution": "armageddemon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 58,
+    "baseLevel": 64,
     "stats": {
-      "HP": 150,
-      "EN": 70,
-      "CR": 80,
-      "AB": 100
+      "HP": 170,
+      "EN": 95,
+      "CR": 65,
+      "AB": 75
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7379,10 +7379,10 @@
     "code": "x2m0s"
   },
   {
-    "number": 332,
-    "order": 15,
+    "number": 331,
+    "order": 22,
     "name": "omnimon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "omnimon",
     "element": 1,
@@ -7394,7 +7394,7 @@
       "HP": 200,
       "EN": 110,
       "CR": 100,
-      "AB": 90
+      "AB": 70
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7405,13 +7405,13 @@
     "number": 332,
     "order": 999,
     "name": "omnimon (paladin)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "megidramon",
     "element": 1,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 90,
     "stats": {
       "HP": 250,
@@ -7436,7 +7436,7 @@
     "extraEvolutions": [
       "wendigomon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -7459,7 +7459,7 @@
     "element": 5,
     "evolution": "antylamon (virus)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 22,
     "stats": {
       "HP": 80,
@@ -7487,7 +7487,7 @@
     "element": 5,
     "evolution": "kerpymon (evil)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 120,
@@ -7510,7 +7510,7 @@
     "element": 1,
     "evolution": "kerpymon (good)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 41,
     "stats": {
       "HP": 125,
@@ -7527,13 +7527,13 @@
     "number": 337,
     "order": 12,
     "name": "kerpymon (good)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "kerpymon_good",
     "element": 1,
     "evolution": "kerpymon (evil)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 75,
     "stats": {
       "HP": 230,
@@ -7550,19 +7550,19 @@
     "number": 337,
     "order": 10,
     "name": "kerpymon (evil)",
-    "stage": 4,
+    "stage": 99,
     "spiritType": 6,
     "abilityName": "kerpymon_evil",
     "element": 5,
-    "evolution": "",
+    "evolution": "kerpymon (blast)",
     "extraEvolutions": null,
     "disabled": false,
     "baseLevel": 75,
     "stats": {
       "HP": 230,
-      "EN": 210,
-      "CR": 210,
-      "AB": 210
+      "EN": 190,
+      "CR": 200,
+      "AB": 195
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7573,7 +7573,7 @@
     "number": 337,
     "order": 11,
     "name": "kerpymon (blast)",
-    "stage": 7,
+    "stage": 99,
     "spiritType": 6,
     "abilityName": "kerpymon_burst",
     "element": 5,
@@ -7582,10 +7582,10 @@
     "disabled": false,
     "baseLevel": 95,
     "stats": {
-      "HP": 350,
-      "EN": 100,
-      "CR": 150,
-      "AB": 100
+      "HP": 230,
+      "EN": 210,
+      "CR": 210,
+      "AB": 210
     },
     "bossStats": null,
     "isPseudo": true,
@@ -7593,8 +7593,8 @@
     "code": null
   },
   {
-    "number": 339,
-    "order": 15,
+    "number": 338,
+    "order": 6,
     "name": "terriermon",
     "stage": 0,
     "spiritType": 6,
@@ -7618,8 +7618,8 @@
     "code": "n6x0x"
   },
   {
-    "number": 340,
-    "order": 16,
+    "number": 339,
+    "order": 5,
     "name": "gargomon",
     "stage": 1,
     "spiritType": 6,
@@ -7630,9 +7630,9 @@
     "disabled": false,
     "baseLevel": 18,
     "stats": {
-      "HP": 60,
-      "EN": 45,
-      "CR": 40,
+      "HP": 50,
+      "EN": 40,
+      "CR": 30,
       "AB": 25
     },
     "bossStats": null,
@@ -7641,8 +7641,8 @@
     "code": "5hqz2"
   },
   {
-    "number": 341,
-    "order": 18,
+    "number": 340,
+    "order": 6,
     "name": "rapidmon",
     "stage": 2,
     "spiritType": 6,
@@ -7651,12 +7651,12 @@
     "evolution": "megagargomon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 35,
+    "baseLevel": 32,
     "stats": {
-      "HP": 100,
-      "EN": 60,
-      "CR": 55,
-      "AB": 35
+      "HP": 90,
+      "EN": 55,
+      "CR": 30,
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7673,7 +7673,7 @@
     "element": 5,
     "evolution": "meramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 25,
@@ -7688,21 +7688,21 @@
   },
   {
     "number": 353,
-    "order": 24,
+    "order": 28,
     "name": "malomyotismon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "malomyotismon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 78,
+    "baseLevel": 75,
     "stats": {
-      "HP": 225,
-      "EN": 130,
-      "CR": 110,
-      "AB": 70
+      "HP": 210,
+      "EN": 60,
+      "CR": 120,
+      "AB": 100
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7711,21 +7711,21 @@
   },
   {
     "number": 354,
-    "order": 25,
+    "order": 26,
     "name": "armageddemon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "armageddemon",
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 75,
+    "baseLevel": 79,
     "stats": {
       "HP": 200,
-      "EN": 90,
+      "EN": 100,
       "CR": 100,
-      "AB": 125
+      "AB": 90
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7742,7 +7742,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 2,
     "stats": {
       "HP": 30,
@@ -7757,7 +7757,7 @@
   },
   {
     "number": 360,
-    "order": 13,
+    "order": 5,
     "name": "guilmon",
     "stage": 0,
     "spiritType": 6,
@@ -7792,7 +7792,7 @@
     "extraEvolutions": [
       "youkomon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -7807,7 +7807,7 @@
   },
   {
     "number": 362,
-    "order": 14,
+    "order": 4,
     "name": "growlmon",
     "stage": 1,
     "spiritType": 6,
@@ -7818,10 +7818,10 @@
     "disabled": false,
     "baseLevel": 21,
     "stats": {
-      "HP": 80,
-      "EN": 55,
-      "CR": 35,
-      "AB": 25
+      "HP": 65,
+      "EN": 35,
+      "CR": 50,
+      "AB": 20
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7838,7 +7838,7 @@
     "element": 1,
     "evolution": "taomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 22,
     "stats": {
       "HP": 75,
@@ -7853,7 +7853,7 @@
   },
   {
     "number": 364,
-    "order": 16,
+    "order": 5,
     "name": "wargrowlmon",
     "stage": 2,
     "spiritType": 6,
@@ -7864,10 +7864,10 @@
     "disabled": false,
     "baseLevel": 40,
     "stats": {
-      "HP": 115,
-      "EN": 75,
-      "CR": 55,
-      "AB": 45
+      "HP": 100,
+      "EN": 50,
+      "CR": 60,
+      "AB": 55
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7884,7 +7884,7 @@
     "element": 1,
     "evolution": "sakuyamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 42,
     "stats": {
       "HP": 110,
@@ -7899,7 +7899,7 @@
   },
   {
     "number": 366,
-    "order": 13,
+    "order": 5,
     "name": "gallantmon",
     "stage": 3,
     "spiritType": 6,
@@ -7910,10 +7910,10 @@
     "disabled": false,
     "baseLevel": 59,
     "stats": {
-      "HP": 160,
-      "EN": 100,
-      "CR": 75,
-      "AB": 65
+      "HP": 150,
+      "EN": 90,
+      "CR": 65,
+      "AB": 75
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7922,9 +7922,9 @@
   },
   {
     "number": 366,
-    "order": 16,
+    "order": 24,
     "name": "gallantmon (crimson)",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "gallantmon_crimson",
     "element": 0,
@@ -7933,10 +7933,10 @@
     "disabled": false,
     "baseLevel": 75,
     "stats": {
-      "HP": 210,
+      "HP": 200,
       "EN": 130,
-      "CR": 85,
-      "AB": 75
+      "CR": 70,
+      "AB": 80
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7945,7 +7945,7 @@
   },
   {
     "number": 367,
-    "order": 15,
+    "order": 6,
     "name": "megagargomon",
     "stage": 3,
     "spiritType": 6,
@@ -7954,12 +7954,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 55,
+    "baseLevel": 54,
     "stats": {
-      "HP": 155,
-      "EN": 90,
-      "CR": 80,
-      "AB": 55
+      "HP": 160,
+      "EN": 70,
+      "CR": 90,
+      "AB": 60
     },
     "bossStats": null,
     "isPseudo": false,
@@ -7976,7 +7976,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 65,
     "stats": {
       "HP": 180,
@@ -7999,7 +7999,7 @@
     "element": 5,
     "evolution": "boogiemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 6,
     "stats": {
       "HP": 40,
@@ -8022,7 +8022,7 @@
     "element": 5,
     "evolution": "beelzemon (blast)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 52,
     "stats": {
       "HP": 145,
@@ -8037,21 +8037,21 @@
   },
   {
     "number": 370,
-    "order": 32,
+    "order": 25,
     "name": "beelzemon (blast)",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "beelzemon_blast",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 71,
+    "baseLevel": 75,
     "stats": {
-      "HP": 195,
-      "EN": 100,
-      "CR": 80,
-      "AB": 100
+      "HP": 190,
+      "EN": 90,
+      "CR": 70,
+      "AB": 120
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8068,7 +8068,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 37,
     "stats": {
       "HP": 105,
@@ -8091,7 +8091,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 37,
     "stats": {
       "HP": 110,
@@ -8114,7 +8114,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 31,
     "stats": {
       "HP": 90,
@@ -8137,7 +8137,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 100,
@@ -8160,7 +8160,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 125,
@@ -8183,7 +8183,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 135,
@@ -8206,7 +8206,7 @@
     "element": 4,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 85,
@@ -8229,7 +8229,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 40,
     "stats": {
       "HP": 125,
@@ -8252,7 +8252,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 90,
@@ -8275,7 +8275,7 @@
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 39,
     "stats": {
       "HP": 115,
@@ -8298,7 +8298,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 41,
     "stats": {
       "HP": 115,
@@ -8321,7 +8321,7 @@
     "element": 5,
     "evolution": "cerberusmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 11,
     "stats": {
       "HP": 50,
@@ -8341,7 +8341,7 @@
   },
   {
     "number": 383,
-    "order": 75,
+    "order": 10,
     "name": "orochimon",
     "stage": 2,
     "spiritType": 6,
@@ -8350,12 +8350,12 @@
     "evolution": "quetzalmon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 39,
+    "baseLevel": 27,
     "stats": {
-      "HP": 115,
-      "EN": 70,
-      "CR": 65,
-      "AB": 40
+      "HP": 85,
+      "EN": 35,
+      "CR": 50,
+      "AB": 30
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8364,7 +8364,7 @@
   },
   {
     "number": 384,
-    "order": 16,
+    "order": 8,
     "name": "justimon",
     "stage": 3,
     "spiritType": 6,
@@ -8373,12 +8373,12 @@
     "evolution": "lordknightmon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 57,
+    "baseLevel": 58,
     "stats": {
-      "HP": 165,
+      "HP": 150,
       "EN": 80,
-      "CR": 85,
-      "AB": 60
+      "CR": 70,
+      "AB": 75
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8395,7 +8395,7 @@
     "element": 0,
     "evolution": "dobermon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -8418,7 +8418,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 250,
@@ -8433,7 +8433,7 @@
   },
   {
     "number": 387,
-    "order": 76,
+    "order": 15,
     "name": "mephistomon",
     "stage": 2,
     "spiritType": 6,
@@ -8442,12 +8442,12 @@
     "evolution": "gulfmon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 38,
+    "baseLevel": 44,
     "stats": {
-      "HP": 105,
-      "EN": 70,
-      "CR": 45,
-      "AB": 55
+      "HP": 140,
+      "EN": 55,
+      "CR": 50,
+      "AB": 65
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8456,7 +8456,7 @@
   },
   {
     "number": 388,
-    "order": 51,
+    "order": 13,
     "name": "gulfmon",
     "stage": 3,
     "spiritType": 6,
@@ -8467,9 +8467,9 @@
     "disabled": false,
     "baseLevel": 60,
     "stats": {
-      "HP": 210,
+      "HP": 220,
       "EN": 90,
-      "CR": 60,
+      "CR": 70,
       "AB": 75
     },
     "bossStats": null,
@@ -8479,7 +8479,7 @@
   },
   {
     "number": 389,
-    "order": 63,
+    "order": 21,
     "name": "karatenmon",
     "stage": 2,
     "spiritType": 6,
@@ -8488,12 +8488,12 @@
     "evolution": "ravemon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 36,
+    "baseLevel": 27,
     "stats": {
-      "HP": 85,
-      "EN": 75,
-      "CR": 75,
-      "AB": 35
+      "HP": 80,
+      "EN": 30,
+      "CR": 30,
+      "AB": 50
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8502,7 +8502,7 @@
   },
   {
     "number": 390,
-    "order": 18,
+    "order": 29,
     "name": "megidramon",
     "stage": 3,
     "spiritType": 6,
@@ -8511,12 +8511,12 @@
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 60,
+    "baseLevel": 77,
     "stats": {
-      "HP": 170,
-      "EN": 95,
-      "CR": 60,
-      "AB": 80
+      "HP": 200,
+      "EN": 140,
+      "CR": 90,
+      "AB": 60
     },
     "bossStats": {
       "HP": 230,
@@ -8530,7 +8530,7 @@
   },
   {
     "number": 391,
-    "order": 17,
+    "order": 13,
     "name": "monodramon",
     "stage": 0,
     "spiritType": 6,
@@ -8538,11 +8538,11 @@
     "element": 3,
     "evolution": "strikedramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
-      "HP": 50,
-      "EN": 20,
+      "HP": 40,
+      "EN": 15,
       "CR": 30,
       "AB": 15
     },
@@ -8561,7 +8561,7 @@
     "element": 5,
     "evolution": "cerberusmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 60,
@@ -8576,21 +8576,21 @@
   },
   {
     "number": 393,
-    "order": 9,
+    "order": 15,
     "name": "ophanimon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "ophanimon",
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 75,
+    "baseLevel": 63,
     "stats": {
       "HP": 180,
-      "EN": 80,
-      "CR": 100,
-      "AB": 130
+      "EN": 70,
+      "CR": 75,
+      "AB": 95
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8601,19 +8601,19 @@
     "number": 394,
     "order": 27,
     "name": "zeedmillenniummon",
-    "stage": 4,
+    "stage": 3,
     "spiritType": 6,
     "abilityName": "zeedmillenniummon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 88,
+    "baseLevel": 80,
     "stats": {
-      "HP": 270,
+      "HP": 189,
       "EN": 90,
-      "CR": 100,
-      "AB": 140
+      "CR": 60,
+      "AB": 130
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8630,7 +8630,7 @@
     "element": 1,
     "evolution": "antylamon (deva)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 70,
@@ -8653,7 +8653,7 @@
     "element": 8,
     "evolution": "datamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 12,
     "stats": {
       "HP": 50,
@@ -8676,7 +8676,7 @@
     "element": 5,
     "evolution": "ladydevimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 60,
@@ -8699,7 +8699,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 26,
     "stats": {
       "HP": 85,
@@ -8722,7 +8722,7 @@
     "element": 0,
     "evolution": "guardromon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 40,
@@ -8745,7 +8745,7 @@
     "element": 8,
     "evolution": "pilevolcamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 24,
     "stats": {
       "HP": 75,
@@ -8768,7 +8768,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 49,
     "stats": {
       "HP": 125,
@@ -8785,13 +8785,13 @@
     "number": 404,
     "order": 26,
     "name": "moon=millenniummon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "waves_2",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 300,
@@ -8814,7 +8814,7 @@
     "element": 0,
     "evolution": "blackwargrowlmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 80,
@@ -8837,7 +8837,7 @@
     "element": 0,
     "evolution": "chaosgallantmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 115,
@@ -8860,7 +8860,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 56,
     "stats": {
       "HP": 160,
@@ -8875,7 +8875,7 @@
   },
   {
     "number": 413,
-    "order": 61,
+    "order": 20,
     "name": "cerberusmon",
     "stage": 2,
     "spiritType": 6,
@@ -8884,12 +8884,12 @@
     "evolution": "anubismon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 32,
+    "baseLevel": 30,
     "stats": {
-      "HP": 80,
-      "EN": 35,
-      "CR": 65,
-      "AB": 55
+      "HP": 85,
+      "EN": 50,
+      "CR": 35,
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8906,7 +8906,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 65,
     "stats": {
       "HP": 190,
@@ -8921,7 +8921,7 @@
   },
   {
     "number": 415,
-    "order": 64,
+    "order": 22,
     "name": "volcamon",
     "stage": 2,
     "spiritType": 6,
@@ -8930,12 +8930,12 @@
     "evolution": "pilevolcamon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 36,
+    "baseLevel": 30,
     "stats": {
-      "HP": 100,
-      "EN": 50,
-      "CR": 60,
-      "AB": 60
+      "HP": 120,
+      "EN": 35,
+      "CR": 55,
+      "AB": 45
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8944,21 +8944,21 @@
   },
   {
     "number": 416,
-    "order": 38,
+    "order": 23,
     "name": "skullscorpiomon",
-    "stage": 3,
+    "stage": 2,
     "spiritType": 6,
     "abilityName": "pincers",
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 47,
+    "baseLevel": 27,
     "stats": {
-      "HP": 130,
-      "EN": 65,
-      "CR": 80,
-      "AB": 45
+      "HP": 90,
+      "EN": 45,
+      "CR": 30,
+      "AB": 35
     },
     "bossStats": null,
     "isPseudo": false,
@@ -8975,7 +8975,7 @@
     "element": 1,
     "evolution": "doumon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 21,
     "stats": {
       "HP": 75,
@@ -8998,7 +8998,7 @@
     "element": 1,
     "evolution": "kuzuhamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 40,
     "stats": {
       "HP": 110,
@@ -9021,7 +9021,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 29,
     "stats": {
       "HP": 80,
@@ -9044,7 +9044,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 62,
     "stats": {
       "HP": 180,
@@ -9067,7 +9067,7 @@
     "element": 3,
     "evolution": "blackrapidmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 60,
@@ -9090,7 +9090,7 @@
     "element": 3,
     "evolution": "blackmegagargomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 100,
@@ -9113,7 +9113,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 52,
     "stats": {
       "HP": 155,
@@ -9128,7 +9128,7 @@
   },
   {
     "number": 424,
-    "order": 25,
+    "order": 18,
     "name": "grapleomon",
     "stage": 2,
     "spiritType": 6,
@@ -9141,10 +9141,10 @@
     "disabled": false,
     "baseLevel": 33,
     "stats": {
-      "HP": 100,
+      "HP": 110,
       "EN": 35,
-      "CR": 65,
-      "AB": 55
+      "CR": 55,
+      "AB": 40
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9153,7 +9153,7 @@
   },
   {
     "number": 427,
-    "order": 19,
+    "order": 18,
     "name": "strikedramon",
     "stage": 1,
     "spiritType": 6,
@@ -9162,12 +9162,12 @@
     "evolution": "cyberdramon",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 20,
+    "baseLevel": 18,
     "stats": {
-      "HP": 75,
+      "HP": 60,
       "EN": 40,
-      "CR": 45,
-      "AB": 35
+      "CR": 30,
+      "AB": 25
     },
     "bossStats": null,
     "isPseudo": false,
@@ -9184,7 +9184,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 52,
     "stats": {
       "HP": 145,
@@ -9207,7 +9207,7 @@
     "element": 8,
     "evolution": "granlocomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 155,
@@ -9230,7 +9230,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 55,
     "stats": {
       "HP": 230,
@@ -9253,7 +9253,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 52,
     "stats": {
       "HP": 145,
@@ -9500,7 +9500,7 @@
     "number": 442,
     "order": 31,
     "name": "duskmon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "duskmon",
     "element": 5,
@@ -9525,7 +9525,7 @@
     "number": 443,
     "order": 32,
     "name": "velgemon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "velgemon",
     "element": 5,
@@ -9548,7 +9548,7 @@
     "number": 444,
     "order": 23,
     "name": "grumblemon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "grumblemon",
     "element": 6,
@@ -9576,7 +9576,7 @@
     "number": 445,
     "order": 24,
     "name": "gigasmon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "gigasmon",
     "element": 6,
@@ -9604,7 +9604,7 @@
     "number": 446,
     "order": 25,
     "name": "arbormon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "arbormon",
     "element": 7,
@@ -9632,7 +9632,7 @@
     "number": 447,
     "order": 26,
     "name": "petaldramon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "petaldramon",
     "element": 7,
@@ -9660,7 +9660,7 @@
     "number": 448,
     "order": 27,
     "name": "mercurymon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "mercurymon",
     "element": 8,
@@ -9688,7 +9688,7 @@
     "number": 449,
     "order": 28,
     "name": "sephirothmon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "sephirothmon",
     "element": 8,
@@ -9716,7 +9716,7 @@
     "number": 450,
     "order": 29,
     "name": "lanamon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "lanamon",
     "element": 9,
@@ -9744,7 +9744,7 @@
     "number": 451,
     "order": 30,
     "name": "calmaramon",
-    "stage": 5,
+    "stage": 4,
     "spiritType": 6,
     "abilityName": "calmaramon",
     "element": 9,
@@ -9778,7 +9778,7 @@
     "element": 5,
     "evolution": "deputymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -9801,7 +9801,7 @@
     "element": 1,
     "evolution": "drimogemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -9818,7 +9818,7 @@
     "number": 454,
     "order": 33,
     "name": "lucemon",
-    "stage": 5,
+    "stage": 99,
     "spiritType": 6,
     "abilityName": "lucemon",
     "element": 5,
@@ -9841,7 +9841,7 @@
     "number": 454,
     "order": 30,
     "name": "lucemon (chaos)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "lucemon_chaos",
     "element": 5,
@@ -9864,7 +9864,7 @@
     "number": 454,
     "order": 31,
     "name": "lucemon (satan)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "lucemon_satan",
     "element": 5,
@@ -9887,7 +9887,7 @@
     "number": 455,
     "order": 41,
     "name": "kaisergreymon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 4,
     "abilityName": "kaisergreymon",
     "element": 0,
@@ -9910,7 +9910,7 @@
     "number": 456,
     "order": 42,
     "name": "magnagarurumon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 4,
     "abilityName": "magnagarurumon",
     "element": 1,
@@ -9933,7 +9933,7 @@
     "number": 457,
     "order": 31,
     "name": "aldamon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "aldamon",
     "element": 0,
@@ -9956,7 +9956,7 @@
     "number": 458,
     "order": 32,
     "name": "beowolfmon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "beowolfmon",
     "element": 1,
@@ -9979,7 +9979,7 @@
     "number": 459,
     "order": 43,
     "name": "susanoomon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 4,
     "abilityName": "susanoomon",
     "element": 1,
@@ -10054,7 +10054,7 @@
     "element": 1,
     "evolution": "nanimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 3,
     "stats": {
       "HP": 35,
@@ -10077,7 +10077,7 @@
     "element": 1,
     "evolution": "kokatorimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 2,
     "stats": {
       "HP": 30,
@@ -10094,14 +10094,14 @@
     "number": 467,
     "order": 1,
     "name": "ancientgreymon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientgreymon",
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 50,
+    "baseLevel": 99,
     "stats": {
       "HP": 220,
       "EN": 200,
@@ -10117,14 +10117,14 @@
     "number": 468,
     "order": 2,
     "name": "ancientgarurumon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientgarurumon",
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 50,
+    "baseLevel": 99,
     "stats": {
       "HP": 220,
       "EN": 160,
@@ -10140,14 +10140,14 @@
     "number": 469,
     "order": 3,
     "name": "ancientbeetlemon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientbeetlemon",
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 50,
+    "baseLevel": 99,
     "stats": {
       "HP": 220,
       "EN": 80,
@@ -10163,14 +10163,14 @@
     "number": 470,
     "order": 4,
     "name": "ancientirismon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientirismon",
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 50,
+    "baseLevel": 99,
     "stats": {
       "HP": 220,
       "EN": 60,
@@ -10186,7 +10186,7 @@
     "number": 471,
     "order": 5,
     "name": "ancientmegatheriummon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientmegatheriummon",
     "element": 4,
@@ -10195,10 +10195,10 @@
     "disabled": false,
     "baseLevel": 50,
     "stats": {
-      "HP": 300,
-      "EN": 100,
-      "CR": 110,
-      "AB": 150
+      "HP": 220,
+      "EN": 110,
+      "CR": 120,
+      "AB": 200
     },
     "bossStats": null,
     "isPseudo": false,
@@ -10209,13 +10209,13 @@
     "number": 472,
     "order": 7,
     "name": "ancientvolcamon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientvolcamon",
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 250,
@@ -10232,13 +10232,13 @@
     "number": 473,
     "order": 8,
     "name": "ancienttrojamon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancienttrojamon",
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 220,
@@ -10255,13 +10255,13 @@
     "number": 474,
     "order": 10,
     "name": "ancientmermaimon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientmermaimon",
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 180,
@@ -10278,13 +10278,13 @@
     "number": 475,
     "order": 9,
     "name": "ancientwisemon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientwisemon",
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 220,
@@ -10301,14 +10301,14 @@
     "number": 476,
     "order": 6,
     "name": "ancientsphinxmon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 3,
     "abilityName": "ancientsphinxmon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
     "disabled": false,
-    "baseLevel": 50,
+    "baseLevel": 99,
     "stats": {
       "HP": 220,
       "EN": 200,
@@ -10335,7 +10335,7 @@
     "element": 5,
     "evolution": "barbamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 90,
@@ -10358,7 +10358,7 @@
     "element": 8,
     "evolution": "bulbmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 100,
@@ -10381,7 +10381,7 @@
     "element": 5,
     "evolution": "phelesmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 60,
@@ -10404,7 +10404,7 @@
     "element": 5,
     "evolution": "beelzemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 32,
     "stats": {
       "HP": 90,
@@ -10427,7 +10427,7 @@
     "element": 0,
     "evolution": "asuramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 45,
@@ -10450,7 +10450,7 @@
     "element": 1,
     "evolution": "beastmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 19,
     "stats": {
       "HP": 65,
@@ -10473,7 +10473,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 230,
@@ -10496,7 +10496,7 @@
     "element": 3,
     "evolution": "megagargomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 75,
@@ -10519,7 +10519,7 @@
     "element": 2,
     "evolution": "azulongmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 105,
@@ -10542,7 +10542,7 @@
     "element": 3,
     "evolution": "cerberusmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 50,
@@ -10565,7 +10565,7 @@
     "element": 5,
     "evolution": "cherrymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 11,
     "stats": {
       "HP": 45,
@@ -10588,7 +10588,7 @@
     "element": 6,
     "evolution": "apemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -10611,7 +10611,7 @@
     "element": 8,
     "evolution": "musyamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -10634,7 +10634,7 @@
     "element": 6,
     "evolution": "grizzlymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -10657,7 +10657,7 @@
     "element": 8,
     "evolution": "mummymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 11,
     "stats": {
       "HP": 55,
@@ -10680,7 +10680,7 @@
     "element": 8,
     "evolution": "knightmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 60,
@@ -10703,7 +10703,7 @@
     "element": 6,
     "evolution": "pandamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 70,
@@ -10726,7 +10726,7 @@
     "element": 8,
     "evolution": "apocalymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 30,
     "stats": {
       "HP": 105,
@@ -10749,7 +10749,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 160,
@@ -10772,7 +10772,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 62,
     "stats": {
       "HP": 150,
@@ -10795,7 +10795,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 62,
     "stats": {
       "HP": 210,
@@ -10818,7 +10818,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 62,
     "stats": {
       "HP": 150,
@@ -10835,13 +10835,13 @@
     "number": 499,
     "order": 44,
     "name": "flamemon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 5,
     "abilityName": "flames_1",
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 180,
@@ -10864,7 +10864,7 @@
     "element": 1,
     "evolution": "magnadramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 40,
     "stats": {
       "HP": 60,
@@ -10887,7 +10887,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 55,
     "stats": {
       "HP": 160,
@@ -10910,7 +10910,7 @@
     "element": 8,
     "evolution": "gundramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 32,
     "stats": {
       "HP": 100,
@@ -10933,7 +10933,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 58,
     "stats": {
       "HP": 170,
@@ -10956,7 +10956,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 59,
     "stats": {
       "HP": 170,
@@ -10979,7 +10979,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 25,
     "stats": {
       "HP": 75,
@@ -11002,7 +11002,7 @@
     "element": 1,
     "evolution": "ophanimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 40,
     "stats": {
       "HP": 110,
@@ -11025,7 +11025,7 @@
     "element": 3,
     "evolution": "gryphonmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 105,
@@ -11048,7 +11048,7 @@
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 63,
     "stats": {
       "HP": 180,
@@ -11065,13 +11065,13 @@
     "number": 509,
     "order": 5,
     "name": "ornismon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "ornismon",
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 78,
     "stats": {
       "HP": 240,
@@ -11088,13 +11088,13 @@
     "number": 510,
     "order": 22,
     "name": "chaosdramon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "loweemon",
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 74,
     "stats": {
       "HP": 230,
@@ -11117,7 +11117,7 @@
     "element": 5,
     "evolution": "arkadimon (champion)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 7,
     "stats": {
       "HP": 55,
@@ -11140,7 +11140,7 @@
     "element": 5,
     "evolution": "arkadimon (perfect)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 23,
     "stats": {
       "HP": 90,
@@ -11163,7 +11163,7 @@
     "element": 5,
     "evolution": "arkadimon (mega)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 45,
     "stats": {
       "HP": 135,
@@ -11186,7 +11186,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 220,
@@ -11203,13 +11203,13 @@
     "number": 512,
     "order": 999,
     "name": "strabimon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 5,
     "abilityName": "bright",
     "element": 1,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 0,
     "stats": {
       "HP": 0,
@@ -11237,7 +11237,7 @@
     "element": 0,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 160,
@@ -11260,7 +11260,7 @@
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 63,
     "stats": {
       "HP": 180,
@@ -11283,7 +11283,7 @@
     "element": 5,
     "evolution": "beastmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 60,
@@ -11306,7 +11306,7 @@
     "element": 5,
     "evolution": "daemon (cloaked)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 105,
@@ -11323,13 +11323,13 @@
     "number": 519,
     "order": 33,
     "name": "lilithmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "myotismon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 78,
     "stats": {
       "HP": 210,
@@ -11346,13 +11346,13 @@
     "number": 520,
     "order": 33,
     "name": "rhinokabuterimon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "rhinokabuterimon",
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 350,
@@ -11369,13 +11369,13 @@
     "number": 521,
     "order": 34,
     "name": "jetsilphymon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "jetsilphymon",
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 270,
@@ -11392,13 +11392,13 @@
     "number": 522,
     "order": 35,
     "name": "daipenmon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "daipenmon",
     "element": 4,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 285,
@@ -11415,13 +11415,13 @@
     "number": 523,
     "order": 36,
     "name": "rhihimon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "rhihimon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 300,
@@ -11444,7 +11444,7 @@
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 25,
     "stats": {
       "HP": 85,
@@ -11461,13 +11461,13 @@
     "number": 525,
     "order": 17,
     "name": "dynasmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "dynasmon",
     "element": 1,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 82,
     "stats": {
       "HP": 220,
@@ -11484,13 +11484,13 @@
     "number": 526,
     "order": 18,
     "name": "lordknightmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "lordknightmon",
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 78,
     "stats": {
       "HP": 190,
@@ -11515,7 +11515,7 @@
     "extraEvolutions": [
       "dexdorugamon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 7,
     "stats": {
       "HP": 50,
@@ -11538,7 +11538,7 @@
     "element": 1,
     "evolution": "dorugreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 23,
     "stats": {
       "HP": 80,
@@ -11561,7 +11561,7 @@
     "element": 1,
     "evolution": "dorugoramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 44,
     "stats": {
       "HP": 135,
@@ -11586,7 +11586,7 @@
     "extraEvolutions": [
       "dynasmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 66,
     "stats": {
       "HP": 190,
@@ -11603,13 +11603,13 @@
     "number": 535,
     "order": 20,
     "name": "alphamon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "imperialdramon",
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 76,
     "stats": {
       "HP": 200,
@@ -11626,13 +11626,13 @@
     "number": 536,
     "order": 999,
     "name": "gigaseadramon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "wave",
     "element": 9,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 180,
@@ -11649,13 +11649,13 @@
     "number": 537,
     "order": 999,
     "name": "grandiskuwagamon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "beetlemon",
     "element": 3,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 190,
@@ -11678,7 +11678,7 @@
     "element": 2,
     "evolution": "dexdorugreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 23,
     "stats": {
       "HP": 80,
@@ -11701,7 +11701,7 @@
     "element": 2,
     "evolution": "dexdorugoramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 44,
     "stats": {
       "HP": 135,
@@ -11726,7 +11726,7 @@
     "extraEvolutions": [
       "dexmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 66,
     "stats": {
       "HP": 190,
@@ -11743,13 +11743,13 @@
     "number": 541,
     "order": 999,
     "name": "samudramon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "garurumon_inverted",
     "element": 7,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 69,
     "stats": {
       "HP": 200,
@@ -11774,7 +11774,7 @@
     "extraEvolutions": [
       "tobucatmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 6,
     "stats": {
       "HP": 40,
@@ -11797,7 +11797,7 @@
     "element": 3,
     "evolution": "hisyaryumon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 21,
     "stats": {
       "HP": 75,
@@ -11820,7 +11820,7 @@
     "element": 3,
     "evolution": "beastmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 55,
@@ -11843,7 +11843,7 @@
     "element": 3,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 40,
     "stats": {
       "HP": 120,
@@ -11866,7 +11866,7 @@
     "element": 6,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 64,
     "stats": {
       "HP": 150,
@@ -11889,7 +11889,7 @@
     "element": 3,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 58,
     "stats": {
       "HP": 155,
@@ -11912,7 +11912,7 @@
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 170,
@@ -11935,7 +11935,7 @@
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 150,
@@ -11952,13 +11952,13 @@
     "number": 553,
     "order": 999,
     "name": "medievalgallantmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "hiandromon",
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 72,
     "stats": {
       "HP": 170,
@@ -11981,7 +11981,7 @@
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 63,
     "stats": {
       "HP": 225,
@@ -12004,7 +12004,7 @@
     "element": 3,
     "evolution": "waspmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -12027,7 +12027,7 @@
     "element": 3,
     "evolution": "cannonbeemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 55,
@@ -12050,7 +12050,7 @@
     "element": 3,
     "evolution": "tigervespamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 75,
@@ -12073,7 +12073,7 @@
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 60,
     "stats": {
       "HP": 170,
@@ -12096,7 +12096,7 @@
     "element": 3,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 56,
     "stats": {
       "HP": 125,
@@ -12119,7 +12119,7 @@
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 48,
     "stats": {
       "HP": 130,
@@ -12136,13 +12136,13 @@
     "number": 564,
     "order": 999,
     "name": "dexmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "metalgarurumon",
     "element": 2,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 85,
     "stats": {
       "HP": 225,
@@ -12165,7 +12165,7 @@
     "element": 8,
     "evolution": "piedmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 35,
     "stats": {
       "HP": 90,
@@ -12188,7 +12188,7 @@
     "element": 0,
     "evolution": "bancholeomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 95,
@@ -12211,7 +12211,7 @@
     "element": 8,
     "evolution": "knightmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 13,
     "stats": {
       "HP": 55,
@@ -12234,7 +12234,7 @@
     "element": 8,
     "evolution": "bulbmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 70,
@@ -12251,13 +12251,13 @@
     "number": 569,
     "order": 40,
     "name": "mermaidmon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "goldramon",
     "element": 9,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 260,
@@ -12274,13 +12274,13 @@
     "number": 570,
     "order": 35,
     "name": "leviamon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "snimon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 200,
@@ -12297,13 +12297,13 @@
     "number": 571,
     "order": 36,
     "name": "barbamon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "keramon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 76,
     "stats": {
       "HP": 220,
@@ -12320,13 +12320,13 @@
     "number": 572,
     "order": 14,
     "name": "shadowseraphimon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "seraphimon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 80,
     "stats": {
       "HP": 260,
@@ -12343,13 +12343,13 @@
     "number": 573,
     "order": 999,
     "name": "huanglongmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "yinyang",
     "element": 5,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 250,
@@ -12372,7 +12372,7 @@
     "element": 8,
     "evolution": "goldramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 25,
     "stats": {
       "HP": 80,
@@ -12395,7 +12395,7 @@
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 52,
     "stats": {
       "HP": 145,
@@ -12418,7 +12418,7 @@
     "element": 0,
     "evolution": "blackwargreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 35,
     "stats": {
       "HP": 95,
@@ -12443,7 +12443,7 @@
     "extraEvolutions": [
       "cerberusmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 70,
@@ -12460,13 +12460,13 @@
     "number": 587,
     "order": 999,
     "name": "valdurmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "rainbow_2",
     "element": 1,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 80,
     "stats": {
       "HP": 250,
@@ -12489,7 +12489,7 @@
     "element": 6,
     "evolution": "rizegreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 75,
@@ -12512,7 +12512,7 @@
     "element": 6,
     "evolution": "shinegreymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 110,
@@ -12535,7 +12535,7 @@
     "element": 6,
     "evolution": "shinegreymon (burst)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 60,
     "stats": {
       "HP": 170,
@@ -12552,13 +12552,13 @@
     "number": 592,
     "order": 999,
     "name": "shinegreymon (burst)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "velgemon",
     "element": 6,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 75,
     "stats": {
       "HP": 210,
@@ -12581,7 +12581,7 @@
     "element": 9,
     "evolution": "machgaogamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 20,
     "stats": {
       "HP": 65,
@@ -12604,7 +12604,7 @@
     "element": 4,
     "evolution": "miragegaogamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 38,
     "stats": {
       "HP": 100,
@@ -12627,7 +12627,7 @@
     "element": 4,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 60,
     "stats": {
       "HP": 150,
@@ -12644,13 +12644,13 @@
     "number": 596,
     "order": 999,
     "name": "miragegaogamon (burst)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "hippogriffomon",
     "element": 9,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 75,
     "stats": {
       "HP": 180,
@@ -12673,7 +12673,7 @@
     "element": 3,
     "evolution": "lilamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 65,
@@ -12696,7 +12696,7 @@
     "element": 3,
     "evolution": "rosemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 85,
@@ -12719,7 +12719,7 @@
     "element": 3,
     "evolution": "diatrymon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 40,
@@ -12744,7 +12744,7 @@
     "extraEvolutions": [
       "crowmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 60,
@@ -12767,7 +12767,7 @@
     "element": 3,
     "evolution": "crowmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 15,
     "stats": {
       "HP": 60,
@@ -12790,7 +12790,7 @@
     "element": 3,
     "evolution": "ravemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 30,
     "stats": {
       "HP": 95,
@@ -12813,7 +12813,7 @@
     "element": 3,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 145,
@@ -12830,13 +12830,13 @@
     "number": 606,
     "order": 999,
     "name": "ravemon (burst)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "justimon",
     "element": 3,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 70,
     "stats": {
       "HP": 190,
@@ -12863,7 +12863,7 @@
       "mistymon",
       "piximon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 60,
@@ -12886,7 +12886,7 @@
     "element": 2,
     "evolution": "reppamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 45,
@@ -12913,7 +12913,7 @@
       "cyberdramon",
       "orochimon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 65,
@@ -12936,7 +12936,7 @@
     "element": 2,
     "evolution": "kentaurosmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 35,
     "stats": {
       "HP": 100,
@@ -12953,13 +12953,13 @@
     "number": 611,
     "order": 19,
     "name": "kentaurosmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "ophanimon",
     "element": 2,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 75,
     "stats": {
       "HP": 215,
@@ -12976,13 +12976,13 @@
     "number": 611,
     "order": 999,
     "name": "kentaurosmon (burst)",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "thunder2b",
     "element": 2,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 85,
     "stats": {
       "HP": 230,
@@ -13005,7 +13005,7 @@
     "element": 1,
     "evolution": "liamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -13028,7 +13028,7 @@
     "element": 1,
     "evolution": "loaderleomon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 60,
@@ -13054,7 +13054,7 @@
       "saberleomon",
       "baihumon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 100,
@@ -13077,7 +13077,7 @@
     "element": 1,
     "evolution": "chaosmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 160,
@@ -13094,13 +13094,13 @@
     "number": 616,
     "order": 999,
     "name": "chaosmon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "unknown_2",
     "element": 7,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 75,
     "stats": {
       "HP": 215,
@@ -13123,7 +13123,7 @@
     "element": 5,
     "evolution": "sealsdramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 5,
     "stats": {
       "HP": 45,
@@ -13146,7 +13146,7 @@
     "element": 5,
     "evolution": "tankdramon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 16,
     "stats": {
       "HP": 65,
@@ -13171,7 +13171,7 @@
     "extraEvolutions": [
       "raidenmon"
     ],
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 125,
@@ -13194,7 +13194,7 @@
     "element": 5,
     "evolution": "chaosmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 53,
     "stats": {
       "HP": 170,
@@ -13211,13 +13211,13 @@
     "number": 622,
     "order": 37,
     "name": "volcdramon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "shinegreymon",
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 350,
@@ -13234,13 +13234,13 @@
     "number": 623,
     "order": 38,
     "name": "merukimon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "tree_2",
     "element": 7,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 330,
@@ -13257,13 +13257,13 @@
     "number": 624,
     "order": 21,
     "name": "craniamon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "metalkabuterimon",
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 77,
     "stats": {
       "HP": 210,
@@ -13286,7 +13286,7 @@
     "element": 5,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 61,
     "stats": {
       "HP": 180,
@@ -13309,7 +13309,7 @@
     "element": 8,
     "evolution": "knightchessmon (white)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -13332,7 +13332,7 @@
     "element": 8,
     "evolution": "knightchessmon (black)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 35,
@@ -13355,7 +13355,7 @@
     "element": 8,
     "evolution": "bishopchessmon (white)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 70,
@@ -13378,7 +13378,7 @@
     "element": 8,
     "evolution": "rookchessmon (black)",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 17,
     "stats": {
       "HP": 70,
@@ -13401,7 +13401,7 @@
     "element": 8,
     "evolution": "kingchessmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 90,
@@ -13424,7 +13424,7 @@
     "element": 8,
     "evolution": "queenchessmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 33,
     "stats": {
       "HP": 105,
@@ -13447,7 +13447,7 @@
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 130,
@@ -13470,7 +13470,7 @@
     "element": 8,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 50,
     "stats": {
       "HP": 155,
@@ -13493,7 +13493,7 @@
     "element": 2,
     "evolution": "bladekuwagamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 9,
     "stats": {
       "HP": 50,
@@ -13516,7 +13516,7 @@
     "element": 2,
     "evolution": "metallifekuwagamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 21,
     "stats": {
       "HP": 75,
@@ -13539,7 +13539,7 @@
     "element": 2,
     "evolution": "tyrantkabuterimon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 42,
     "stats": {
       "HP": 110,
@@ -13562,7 +13562,7 @@
     "element": 2,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 64,
     "stats": {
       "HP": 180,
@@ -13585,7 +13585,7 @@
     "element": 3,
     "evolution": "gwappamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 4,
     "stats": {
       "HP": 45,
@@ -13608,7 +13608,7 @@
     "element": 3,
     "evolution": "shawjamon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 14,
     "stats": {
       "HP": 65,
@@ -13631,7 +13631,7 @@
     "element": 3,
     "evolution": "jumbogamemon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 34,
     "stats": {
       "HP": 85,
@@ -13654,7 +13654,7 @@
     "element": 3,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 54,
     "stats": {
       "HP": 170,
@@ -13677,7 +13677,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 65,
     "stats": {
       "HP": 280,
@@ -13694,13 +13694,13 @@
     "number": 648,
     "order": 34,
     "name": "belphemon",
-    "stage": 4,
+    "stage": 77,
     "spiritType": 6,
     "abilityName": "metalgarurumon",
     "element": 5,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 75,
     "stats": {
       "HP": 270,
@@ -13723,7 +13723,7 @@
     "element": 5,
     "evolution": "sangloupmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 6,
     "stats": {
       "HP": 40,
@@ -13746,7 +13746,7 @@
     "element": 5,
     "evolution": "matadormon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 18,
     "stats": {
       "HP": 65,
@@ -13769,7 +13769,7 @@
     "element": 5,
     "evolution": "grandracmon",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 36,
     "stats": {
       "HP": 90,
@@ -13792,7 +13792,7 @@
     "element": 5,
     "evolution": null,
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 60,
     "stats": {
       "HP": 160,
@@ -13809,13 +13809,13 @@
     "number": 659,
     "order": 39,
     "name": "leopardmon",
-    "stage": 6,
+    "stage": 5,
     "spiritType": 2,
     "abilityName": "stars",
     "element": 8,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 100,
     "stats": {
       "HP": 320,
@@ -13838,7 +13838,7 @@
     "element": 6,
     "evolution": "",
     "extraEvolutions": null,
-    "disabled": false,
+    "disabled": true,
     "baseLevel": 48,
     "stats": {
       "HP": 150,

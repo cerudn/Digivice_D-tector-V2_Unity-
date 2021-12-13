@@ -141,7 +141,7 @@
 			{
 				"number": 0,
 				"map": 0,
-				"distance": 3,
+				"distance": 12000,
 				"coords": {
 					"x": 12,
 					"y": 18
@@ -319,7 +319,7 @@
 			}
 		],
 		"bosses": [
-			"kerpymon (good)",
+			"kerpymon (evil)",
 			"lucemon"
 		]
 	}]
