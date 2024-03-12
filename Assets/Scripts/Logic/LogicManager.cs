@@ -52,7 +52,7 @@ namespace Kaisa.Digivice
         {
             if (currentScreen == Screen.Character)
             {
-                if (IsEventPending)
+                if (IsEventPending && !gm.IsCharacterDefeated)
                 {
                     audioMgr.PlayButtonA();
                     triggerEvent();
@@ -214,7 +214,7 @@ namespace Kaisa.Digivice
         {
             if (currentScreen == Screen.Character)
             {
-                if (IsEventPending)
+                if (IsEventPending && !gm.IsCharacterDefeated)
                 {
                     audioMgr.PlayButtonB();
                     triggerEvent();
@@ -264,7 +264,7 @@ namespace Kaisa.Digivice
         }
         public void InputLeft()
         {
-            if (IsEventPending)
+            if (IsEventPending && !gm.IsCharacterDefeated)
             {
                 audioMgr.PlayButtonA();
                 triggerEvent();
@@ -321,7 +321,7 @@ namespace Kaisa.Digivice
         }
         public void InputRight()
         {
-            if (IsEventPending)
+            if (IsEventPending && !gm.IsCharacterDefeated)
             {
                 audioMgr.PlayButtonA();
                 triggerEvent();

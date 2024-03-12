@@ -1208,7 +1208,7 @@ namespace Kaisa.Digivice.Apps
             }
 
             //int enemyAttack = enemyAttackChooser.Next();
-            int enemyAttack = 1;
+            int enemyAttack = 2;
             
             int winner = ExecuteTurn(ref friendlyAttack, enemyAttack, out bool disobeyed, out int loserHPbefore, false);
             int loserHPnow = (winner == 0) ? enemyStats.HP : friendlyStats.HP;

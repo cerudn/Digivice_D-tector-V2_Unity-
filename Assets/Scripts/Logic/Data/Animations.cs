@@ -3009,7 +3009,7 @@ namespace Kaisa.Digivice
                     _TransformAttackIntoCollision(sbEnemyAttack);
                     //yield return new WaitForSeconds(0.01f);
                     //sbEnemyAttack.Dispose();
-                    gm.StartCoroutine(DestroyLoserSprite(sbEnemyAttack));
+                    gm.StartCoroutine(DestroyLoserSpriteAbility(sbEnemyAttack));
 
                     
                     for (int i = 0; i < 40; i++)
@@ -3035,7 +3035,7 @@ namespace Kaisa.Digivice
                     //yield return new WaitForSeconds(0.01f);
                     //sbFriendlyAttack.Dispose();
 
-                    gm.StartCoroutine(DestroyLoserSprite(sbFriendlyAttack));
+                    gm.StartCoroutine(DestroyLoserSpriteAbility(sbFriendlyAttack));
 
                     for (int i = 0; i < 40; i++)
                     {
@@ -3174,6 +3174,15 @@ namespace Kaisa.Digivice
             {
                     // Esperar un corto período antes de destruir el sprite perdedor
                     yield return new WaitForSeconds(0.03f);
+
+                    // Destruir el sprite perdedor una vez transformado
+                    loserSprite.Dispose();
+            }
+
+             IEnumerator DestroyLoserSpriteAbility(SpriteBuilder loserSprite)
+            {
+                    // Esperar un corto período antes de destruir el sprite perdedor
+                    yield return new WaitForSeconds(0.05f);
 
                     // Destruir el sprite perdedor una vez transformado
                     loserSprite.Dispose();
