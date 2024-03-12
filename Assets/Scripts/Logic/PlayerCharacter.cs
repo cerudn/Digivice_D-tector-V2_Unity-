@@ -87,9 +87,13 @@ namespace Kaisa.Digivice
             }
         }
 
-
+        public string getCurrenchart(){
+             return this.currentChar.ToString();
+        }
     }
 
+
+    
 
     /// <summary>
     /// A list of the characters available in-game.

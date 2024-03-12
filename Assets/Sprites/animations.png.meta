@@ -720,7 +720,7 @@ TextureImporter:
       213: 8821659948376254929
     second: animations_224
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -737,9 +737,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -749,8 +752,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -771,10 +774,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -824,6 +832,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -843,7 +863,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ef061a29b79481850800000000000000
-      internalID: 6347904469868568830
+      internalID: -960271038206414302
       vertices: []
       indices: 
       edges: []
@@ -864,7 +884,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2e98c587cd32cf110800000000000000
-      internalID: 1295950222594968034
+      internalID: 5233256214266803174
       vertices: []
       indices: 
       edges: []
@@ -885,7 +905,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f6257f587a1010500800000000000000
-      internalID: 360571264185094767
+      internalID: 8280821644423036740
       vertices: []
       indices: 
       edges: []
@@ -906,7 +926,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 95c3ed17c519e10e0800000000000000
-      internalID: -2297238933678965671
+      internalID: -1436953758834424533
       vertices: []
       indices: 
       edges: []
@@ -927,7 +947,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 51fb0e2e51bd06cd0800000000000000
-      internalID: -2566810900554006763
+      internalID: 7228298480241165017
       vertices: []
       indices: 
       edges: []
@@ -948,7 +968,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1879e5a385a257a70800000000000000
-      internalID: 8824005603327121281
+      internalID: -6484940427387339519
       vertices: []
       indices: 
       edges: []
@@ -969,7 +989,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e6106965378900290800000000000000
-      internalID: -7926167723030740626
+      internalID: 5443238823122320650
       vertices: []
       indices: 
       edges: []
@@ -990,7 +1010,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 46b8868b577128080800000000000000
-      internalID: -9186754495509918876
+      internalID: -3756057528127506106
       vertices: []
       indices: 
       edges: []
@@ -1011,7 +1031,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d0bc631d6504501e0800000000000000
-      internalID: -2232307298670818547
+      internalID: 539338274146175859
       vertices: []
       indices: 
       edges: []
@@ -1032,7 +1052,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8892586c2ddeebbb0800000000000000
-      internalID: -4918232253512472184
+      internalID: 531892201746093753
       vertices: []
       indices: 
       edges: []
@@ -1053,7 +1073,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5acb17c3797cf22b0800000000000000
-      internalID: -5607043558684902235
+      internalID: 6948617177871721963
       vertices: []
       indices: 
       edges: []
@@ -1074,7 +1094,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 63170cfd531c2a1c0800000000000000
-      internalID: -4493817041030975178
+      internalID: 5202641828653468396
       vertices: []
       indices: 
       edges: []
@@ -1095,7 +1115,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b73c58d07408f7780800000000000000
-      internalID: -8683080513889123461
+      internalID: -204317558849974249
       vertices: []
       indices: 
       edges: []
@@ -1116,7 +1136,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d92b03d52a9f289f0800000000000000
-      internalID: -467536935549619555
+      internalID: 367422581238865491
       vertices: []
       indices: 
       edges: []
@@ -5562,9 +5582,234 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      animations_0: -960271038206414302
+      animations_1: 5233256214266803174
+      animations_10: 6948617177871721963
+      animations_100: 8434049551939912396
+      animations_101: -1262736464663725563
+      animations_102: 786875521708165080
+      animations_103: -2716521169188869038
+      animations_104: 2238292534443695565
+      animations_105: 7902429994933255681
+      animations_106: -5762500862180094607
+      animations_107: 2556832908972666834
+      animations_108: 4731113474888493121
+      animations_109: -9147297175295922687
+      animations_11: 5202641828653468396
+      animations_110: -409748356583047033
+      animations_111: 5422996055036196210
+      animations_112: 3622929703253233077
+      animations_113: -2317658451656621356
+      animations_114: 3278563775944853791
+      animations_115: -1609214311634377088
+      animations_116: 3994397928471826581
+      animations_117: -2184420827936193916
+      animations_118: 7173868199662090297
+      animations_119: -6688747738106758155
+      animations_12: -204317558849974249
+      animations_120: -5914163039264819697
+      animations_121: -3787691002726956753
+      animations_122: 8525311762858141206
+      animations_123: 882476645066334293
+      animations_124: 5755391915038162412
+      animations_125: -6033025413194316046
+      animations_126: -985321433927415329
+      animations_127: 2962672295798561778
+      animations_128: 2356660211656863912
+      animations_129: 5974317221590019246
+      animations_13: 367422581238865491
+      animations_130: -6990221980794325973
+      animations_131: -2155955774638689836
+      animations_132: 404068024313595991
+      animations_133: 7505149743139944732
+      animations_134: 5292165794592445135
+      animations_135: -5336270452892447999
+      animations_136: -6339981221390965704
+      animations_137: 427968904328866022
+      animations_138: 1242398968604495446
+      animations_139: -6932329262030263274
+      animations_14: 1066728025655624107
+      animations_140: -4757212699436650727
+      animations_141: 3324035762604998229
+      animations_142: -5336226413640793692
+      animations_143: -2318402771674377649
+      animations_144: 1589597091017547165
+      animations_145: 9090336865438285729
+      animations_146: 2883149171586850068
+      animations_147: 7617692938457872846
+      animations_148: 6402848537604306782
+      animations_149: 1478847832373978764
+      animations_15: 1348825586732935011
+      animations_150: 9187561222632759815
+      animations_151: 4901509051990809135
+      animations_152: 4638147562720880962
+      animations_153: -4598215699787914903
+      animations_154: 439827516268173512
+      animations_155: 3143234240719391170
+      animations_156: 3762750903231382124
+      animations_157: -1984089290784216471
+      animations_158: -4136869855719521626
+      animations_159: 8830260677845873886
+      animations_16: 2004657967401344756
+      animations_160: -2006452994450054267
+      animations_161: -2690260686513925662
+      animations_162: 145617702315312701
+      animations_163: -3648076197341547736
+      animations_164: -6677974090764997856
+      animations_165: -8682313768223299378
+      animations_166: 4943615941239737561
+      animations_167: 4909558549035581506
+      animations_168: -3267869274402987710
+      animations_169: -9073384261949127428
+      animations_17: -8146644178066756174
+      animations_170: 1397870282312442776
+      animations_171: 2530097606914052077
+      animations_172: 7271954760510876895
+      animations_173: -2868545988232281937
+      animations_174: -6250954651857682555
+      animations_175: 4127776773799217064
+      animations_176: -2245786179270130927
+      animations_177: -199355571712025932
+      animations_178: -2000889902434542281
+      animations_179: 3310598693116336694
+      animations_18: 7699648647696747545
+      animations_180: -7787962597679384952
+      animations_181: -7973382424191497243
+      animations_182: -3024342769601780037
+      animations_183: -3032601350625239169
+      animations_184: 7531844390903305096
+      animations_185: -1800708656531827673
+      animations_186: 5323921397066861042
+      animations_187: -6896958532403599731
+      animations_188: -5550337823776111257
+      animations_189: -5689981890085577610
+      animations_19: 5603576840549540096
+      animations_190: -4582222349872892299
+      animations_191: 9051372326559114167
+      animations_192: 7648999740661558280
+      animations_193: -1965852163182072455
+      animations_194: -5121146676011758074
+      animations_195: -4168947320328366684
+      animations_196: -3165442102795039200
+      animations_197: 6251286739647936501
+      animations_198: 3765121437489345093
+      animations_199: -1064512368624582305
+      animations_2: 8280821644423036740
+      animations_20: 741249282245206659
+      animations_200: -6348477645102166173
+      animations_201: -7547218331250073877
+      animations_202: -3041723757604240766
+      animations_203: -5672292642505244380
+      animations_204: -8422448609298997785
+      animations_205: -8093642477636102710
+      animations_206: -1734925979205137818
+      animations_207: -3366170990123591666
+      animations_208: -6580936197356148970
+      animations_209: -6397423794516361815
+      animations_21: -2975087935681428075
+      animations_210: -5382908539681386485
+      animations_211: 4853756209846438586
+      animations_212: 7616788266940853237
+      animations_213: -745912816099932658
+      animations_214: -409172544505810508
+      animations_215: -4763784734465734307
+      animations_216: 1481844743158340597
+      animations_217: -8951364321152575980
+      animations_218: 8765084575424834367
+      animations_219: -5877368926451214872
+      animations_22: -5098235848711545876
+      animations_220: -3342857787628701694
+      animations_221: 5354735553119706220
+      animations_222: 2549893231452151709
+      animations_223: 5625909759629954810
+      animations_224: 8821659948376254929
+      animations_23: 4726110746182624181
+      animations_24: 776144764867908008
+      animations_25: -3255720235127905656
+      animations_26: 2841707452231419691
+      animations_27: -6571158952674405943
+      animations_28: 7576919007110398354
+      animations_29: -5386375163581929856
+      animations_3: -1436953758834424533
+      animations_30: -5262102257043538841
+      animations_31: -2338845113084463350
+      animations_32: 6492813731750354271
+      animations_33: -2462157970874149591
+      animations_34: 2850720695008435870
+      animations_35: -6086170282645517491
+      animations_36: -297328165709641742
+      animations_37: 5095000996066909639
+      animations_38: 5742579671635036542
+      animations_39: 3211149922998551836
+      animations_4: 7228298480241165017
+      animations_40: 9008146938328722478
+      animations_41: -856929602769566719
+      animations_42: -8721936155998240080
+      animations_43: 4127530385881272513
+      animations_44: 4304952240199009580
+      animations_45: 1466681076489938645
+      animations_46: 5906102824131567388
+      animations_47: 2474594638734722967
+      animations_48: -6599135883533838955
+      animations_49: 8249151830334588517
+      animations_5: -6484940427387339519
+      animations_50: -7801000409120434094
+      animations_51: 3372820627072491040
+      animations_52: -4622993607925696388
+      animations_53: -8110717940348207882
+      animations_54: -9063357388723186009
+      animations_55: 959898634619419539
+      animations_56: 7455667507633318081
+      animations_57: -1883841591231200708
+      animations_58: -5032175108245266247
+      animations_59: -4187654580094756177
+      animations_6: 5443238823122320650
+      animations_60: 3184478962246565167
+      animations_61: 3484034720047783128
+      animations_62: 3879625174857904980
+      animations_63: 8226685745505926520
+      animations_64: 2232792641530587547
+      animations_65: 4942909640273867691
+      animations_66: 8321573179024272112
+      animations_67: 8339904468832393889
+      animations_68: -7336388384037126203
+      animations_69: 1541553149394462334
+      animations_7: -3756057528127506106
+      animations_70: 2032248975652965021
+      animations_71: 5438993011991928075
+      animations_72: -1196150516855699189
+      animations_73: -6831674997006537408
+      animations_74: -4014098803804072519
+      animations_75: 1851060929719233154
+      animations_76: -6501694706800543232
+      animations_77: -8169253017342322726
+      animations_78: 1697247532941824900
+      animations_79: 5893821549971182935
+      animations_8: 539338274146175859
+      animations_80: 9041533957669277340
+      animations_81: 8143938475951921963
+      animations_82: 9060832104425854648
+      animations_83: 6201316072433659900
+      animations_84: -3005765448774820222
+      animations_85: 4453532046493504183
+      animations_86: -1020627807159902629
+      animations_87: -200958272567549649
+      animations_88: -8933148330684409538
+      animations_89: -5819053352042921506
+      animations_9: 531892201746093753
+      animations_90: 2930561883438168055
+      animations_91: -893817563030515623
+      animations_92: -7392001145066715124
+      animations_93: -5610260362866142892
+      animations_94: 4161252520717191506
+      animations_95: 6352877823829756736
+      animations_96: -3566095087319817906
+      animations_97: 5921538579075067993
+      animations_98: -6319581522845659263
+      animations_99: 6456046369012862192
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

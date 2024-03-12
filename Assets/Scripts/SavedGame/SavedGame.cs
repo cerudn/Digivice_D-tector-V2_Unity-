@@ -115,7 +115,7 @@ namespace Kaisa.Digivice {
         public static void DeleteSavedGame(string filePath) {
             //File.Delete(filePath);
             string disabledPath = filePath.Replace(".digivice", ".disabled");
-
+            
             int savedGameNumber = 0;
              while (File.Exists($"{disabledPath}{savedGameNumber}")) {
                  savedGameNumber++;

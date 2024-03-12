@@ -2985,9 +2985,13 @@ namespace Kaisa.Digivice
 
             void _TransformAttackIntoCollision(SpriteBuilder sb)
             {
-                Sprite collision = spriteDB.battle_attackCollision;
+                Sprite collision = spriteDB.battle_attackCollisionSmall;
                 sb.SetSprite(collision);
-                sb.SetSize(7, 24);
+                sb.SetSize(7, 14);
+                sb.SetY(8);
+                sb.transform.SetAsLastSibling();
+                
+                
 
             }
             void _TransformAttackIntoBigCollision(SpriteBuilder sb)
@@ -3003,8 +3007,11 @@ namespace Kaisa.Digivice
                 if (winner == 0)
                 {
                     _TransformAttackIntoCollision(sbEnemyAttack);
-                    yield return new WaitForSeconds(0.05f);
-                    sbEnemyAttack.Dispose();
+                    //yield return new WaitForSeconds(0.01f);
+                    //sbEnemyAttack.Dispose();
+                    gm.StartCoroutine(DestroyLoserSprite(sbEnemyAttack));
+
+                    
                     for (int i = 0; i < 40; i++)
                     {
 
@@ -3025,8 +3032,11 @@ namespace Kaisa.Digivice
                     // yield return new WaitForSeconds(0.15f);
                     //  sbEnemyAttack.Dispose();
 
-                    yield return new WaitForSeconds(0.05f);
-                    sbFriendlyAttack.Dispose();
+                    //yield return new WaitForSeconds(0.01f);
+                    //sbFriendlyAttack.Dispose();
+
+                    gm.StartCoroutine(DestroyLoserSprite(sbFriendlyAttack));
+
                     for (int i = 0; i < 40; i++)
                     {
 
@@ -3046,7 +3056,7 @@ namespace Kaisa.Digivice
                     sbEnemyAttack.Dispose();
                     //Reuse the friendly attack as the big collision sprite.
                     _TransformAttackIntoBigCollision(sbFriendlyAttack);
-                    yield return new WaitForSeconds(0.15f);
+                    yield return new WaitForSeconds(0.01f);
                     audioMgr.StopSound();
                 }
             }
@@ -3058,8 +3068,10 @@ namespace Kaisa.Digivice
                 _TransformAttackIntoCollision(loserSprite);
                 //yield return new WaitForSeconds(0.15f);
                 //loserSprite.Dispose();
-                yield return new WaitForSeconds(0.05f);
-                loserSprite.Dispose();
+                //yield return new WaitForSeconds(0.01f);
+                //loserSprite.Dispose();
+                gm.StartCoroutine(DestroyLoserSprite(loserSprite));
+
 
                 for (int i = 0; i < 16; i++)
                 {
@@ -3071,7 +3083,11 @@ namespace Kaisa.Digivice
 
                     yield return new WaitForSeconds(0.6f / 16f);
                 }
+                
             }
+
+            
+
             IEnumerator _EnergyVsAbility()
             {
                 //The chunks of the ability.
@@ -3101,7 +3117,7 @@ namespace Kaisa.Digivice
                 winnerSprite.transform.SetAsLastSibling(); //Place the winning attack above everything else.
 
                 for (int i = 0; i < 32; i++)
-                { //Enemy crush - player loses
+                { 
                     cbBrokenAbilityUp.Move(winnerDirection.Opposite()).Move(Direction.Up);
                     cbBrokenAbilityDown.Move(winnerDirection.Opposite()).Move(Direction.Down);
                     winnerSprite.Move(winnerDirection);
@@ -3152,6 +3168,15 @@ namespace Kaisa.Digivice
                     winnerSprite.Move(winnerDirection);
                     yield return new WaitForSeconds(0.6f / 16f);
                 }
+            }
+
+            IEnumerator DestroyLoserSprite(SpriteBuilder loserSprite)
+            {
+                    // Esperar un corto período antes de destruir el sprite perdedor
+                    yield return new WaitForSeconds(0.03f);
+
+                    // Destruir el sprite perdedor una vez transformado
+                    loserSprite.Dispose();
             }
         }
         //Note, if winningAbility is null, the animation assumes the caller does not want the ability win animation to play.
