@@ -198,7 +198,7 @@ TextureImporter:
       213: 7182500258588662182
     second: misc_60
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -215,9 +215,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -227,8 +230,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -249,10 +252,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -292,6 +300,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -804,7 +824,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c5e9a18a88c56cda0800000000000000
-      internalID: -5924946517753684388
+      internalID: -4076281113925471536
       vertices: []
       indices: 
       edges: []
@@ -1596,9 +1616,70 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      misc_0: 5770958956045166959
+      misc_1: -9177418277584700315
+      misc_10: 4452512340041527070
+      misc_11: -588874106627402442
+      misc_12: -5883156277267749015
+      misc_13: 3035361689050549211
+      misc_14: -8901590981438018623
+      misc_15: -5247092446338092663
+      misc_16: 8273318286620358799
+      misc_17: 6600722327966685224
+      misc_18: 9002620858183812175
+      misc_19: -8811113036543827653
+      misc_2: 3445910035351170775
+      misc_20: -6017092528987982444
+      misc_21: 8447263708603345861
+      misc_22: -2405999730086380516
+      misc_23: -6122722847368657884
+      misc_24: 810827957059269702
+      misc_25: -7016929981681943245
+      misc_26: -8251062679559881929
+      misc_27: 5360645927709239548
+      misc_28: -1056871815479138359
+      misc_29: 3614090101385040326
+      misc_3: 8671351589016534120
+      misc_30: -3886400824498688547
+      misc_31: 4673324434325851023
+      misc_32: 6692065743086966953
+      misc_33: -4002270626991789212
+      misc_34: -7099948995909975852
+      misc_35: -5396480783222666497
+      misc_36: -6460991067249104374
+      misc_37: 8400751588845855453
+      misc_38: -1669984397176262814
+      misc_39: -5515913324239714521
+      misc_4: 173538500886388945
+      misc_40: -8866480246244444352
+      misc_41: 618133582103273362
+      misc_42: 2473628064743839649
+      misc_43: -9105503331849268035
+      misc_44: -2145390362341637044
+      misc_45: -2790771683064942117
+      misc_46: -8421389678223573996
+      misc_47: 3159106351986071793
+      misc_48: 7868656874715051609
+      misc_49: -2476025085766656122
+      misc_5: -4076281113925471536
+      misc_50: -8627942494478561041
+      misc_51: -3392568072154712400
+      misc_52: -3729817045237689404
+      misc_53: 1386095112440340573
+      misc_54: 2973674225891703277
+      misc_55: -9185396388730343888
+      misc_56: -7860586250778739363
+      misc_57: 2123994479657191340
+      misc_58: 3670523112022132843
+      misc_59: 824087149649297118
+      misc_6: 7637870703528583553
+      misc_60: 7182500258588662182
+      misc_7: -3818157907930065138
+      misc_8: -3356990613430728209
+      misc_9: 8307504999820893422
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

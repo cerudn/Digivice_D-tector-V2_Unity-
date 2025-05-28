@@ -677,7 +677,8 @@ namespace Kaisa.Digivice.Apps
                 {
                     gm.EnqueueAnimation(Animations.EncounterBoss(enemyDigimon.name));
                     bossLevel = gm.logicMgr.GetPlayerLevel();
-                    enemyStats = enemyDigimon.GetBossStats(bossLevel);
+                    Characters characterN= Database.GetCharacter((int)gm.PlayerChar);
+                    enemyStats = enemyDigimon.GetSpiritStats( characterN.getCharStatsbyLevel(bossLevel));
                 }
 
 
@@ -1206,7 +1207,9 @@ namespace Kaisa.Digivice.Apps
                 gm.EnqueueAnimation(Animations.PaySpiritPower(SPbefore, SpiritPower));
             }
 
-            int enemyAttack = enemyAttackChooser.Next();
+            //int enemyAttack = enemyAttackChooser.Next();
+            int enemyAttack = 2;
+            
             int winner = ExecuteTurn(ref friendlyAttack, enemyAttack, out bool disobeyed, out int loserHPbefore, false);
             int loserHPnow = (winner == 0) ? enemyStats.HP : friendlyStats.HP;
 
@@ -1552,7 +1555,7 @@ namespace Kaisa.Digivice.Apps
 
             // bool punishFriendly = (Random.Range(0f, 1f) > Database.GetEraseChance(originalDigimon.name));
             //If the friendly Digimon is not a Spirit, you might lose it.
-            if (originalDigimon.stage != Stage.Spirit || (int)originalDigimon.stage != 10)
+            if (originalDigimon.stage != Stage.Spirit && (int)originalDigimon.stage != 10)
             {
                 //If the player has extra levels with that digimon, they will always lose one.
                 // if (gm.logicMgr.GetDigimonExtraLevel(originalDigimon.name) > 0) punishFriendly = true;
@@ -1631,7 +1634,7 @@ namespace Kaisa.Digivice.Apps
                 int amountToIncrease = isBossBattle ? 500 : 300;
                 gm.WorldMgr.IncreaseDistance(amountToIncrease);
                 int distanceAfter = gm.WorldMgr.CurrentDistance;
-                gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
+               // gm.EnqueueAnimation(Animations.ChangeDistance(distanceBefore, distanceAfter));
             }
 
             gm.logicMgr.IncreaseTotalBattles();

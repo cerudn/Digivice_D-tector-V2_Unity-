@@ -9563,10 +9563,10 @@
       "AB": 70
     },
     "bossStats": {
-      "HP": 180,
-      "EN": 105,
-      "CR": 130,
-      "AB": 100
+      "HP": 110,
+      "EN": 25,
+      "CR": 55,
+      "AB": 30
     },
     "isPseudo": false,
     "HasBossStats": true,
@@ -9591,10 +9591,10 @@
       "AB": 85
     },
     "bossStats": {
-      "HP": 230,
-      "EN": 150,
-      "CR": 170,
-      "AB": 120
+      "HP": 150,
+      "EN": 40,
+      "CR": 80,
+      "AB": 50
     },
     "isPseudo": false,
     "HasBossStats": true,
